@@ -22,8 +22,4 @@ public class LoginFrame extends javax.swing.JFrame {
         );
         setVisible(true);
     }
-
-    public static void main(String[] args) {
-        new LoginFrame();
-    }
 }
