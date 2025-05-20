@@ -120,8 +120,9 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
             this.dispose(); // 关闭当前窗口
         }
         if (e.getSource() == forgetBtn) {
-            // todo 忘记密码
             System.out.println("忘记密码");
+            new ForgetPasswordFrame().setVisible(true);
+            this.dispose();
         }
         if (e.getSource() == sendEmailCodeBtn) {
             // todo 发送验证码
