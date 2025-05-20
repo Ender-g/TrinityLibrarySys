@@ -32,7 +32,7 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
     public LoginFrame() {
         /* 设置窗体%start============================================================================ */
         SetFrameTool.setFrame(
-                "崔尼蒂图书馆-登录",
+                "崔尼蒂图书馆-登录 v1.0.0",
                 960, 540,
                 "src/main/java/top/playereg/sys/img/book.png",
                 this
@@ -53,24 +53,25 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
         // 邮箱输入
         emailLabel = new JLabel("邮  箱");
         SetFrameTool.setFontStyle(emailLabel, 20, Color.white,
-                500, 150, 100, 30, loginPanel);
+                500, 150, 100, 35, loginPanel);
         emailField = new JTextField();
         SetFrameTool.setFontStyle(emailField, 20, Color.black,
                 580, 150, 250, 35, loginPanel);
         // 密码输入
         passwordLabel = new JLabel("密  码");
         SetFrameTool.setFontStyle(passwordLabel, 20, Color.white,
-                500, 200, 100, 30, loginPanel);
+                500, 200, 100, 35, loginPanel);
         passwordField = new JPasswordField();
         SetFrameTool.setFontStyle(passwordField, 20, Color.black,
                 580, 200, 250, 35, loginPanel);
         // 验证码输入
         emailCodeLabel = new JLabel("验证码");
         SetFrameTool.setFontStyle(emailCodeLabel, 20, Color.white,
-                500, 250, 100, 30, loginPanel);
+                500, 250, 100, 35, loginPanel);
         emailCodeField = new JTextField();
         SetFrameTool.setFontStyle(emailCodeField, 20, Color.black,
                 580, 250, 100, 35, loginPanel);
+
         // 发送验证码按钮
         sendEmailCodeBtn = new JButton("发送验证码");
         SetFrameTool.setBtnStyle(sendEmailCodeBtn, darkgreen, Color.white,
@@ -114,7 +115,6 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
             System.out.println("登录");
         }
         if (e.getSource() == registerBtn) {
-            // todo 注册
             System.out.println("注册");
             new RegisterFrame().setVisible(true);
             this.dispose();
