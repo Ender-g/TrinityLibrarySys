@@ -24,7 +24,7 @@ public class SendEmailTool {
         sendEmail(
                 "TestBot",
                 "test@email.playereg.top",
-                "enderg@qq.com",
+                "2254674706@qq.com",
                 "测试邮件",
                 "<html><body><h1>这是测试邮件</h1></body></html>"
         );
