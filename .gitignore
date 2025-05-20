@@ -3,6 +3,10 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+#自定义
+src/main/java/top/playereg/ApiKeys.json
+src/test/java
+
 ### IntelliJ IDEA ###
 .idea/modules.xml
 .idea/jarRepositories.xml
@@ -11,7 +15,6 @@ target/
 *.iws
 *.iml
 *.ipr
-src/main/java/top/playereg/ApiKeys.json
 
 ### Eclipse ###
 .apt_generated
