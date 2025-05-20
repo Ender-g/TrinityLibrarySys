@@ -12,7 +12,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class SetFrameTool extends JFrame {
-    // 设置窗体工具类
+    /* 设置窗体工具类 */
     public static void setFrame(
             String title, // 窗体标题
             int width, // 窗体宽度
@@ -29,7 +29,7 @@ public class SetFrameTool extends JFrame {
         Frame.setIconImage(new ImageIcon(iconPath).getImage()); //  设置窗体图标
     }
 
-    //  设置面板背景图片工具类
+    /* 设置面板背景图片工具类 */
     public static void setPanleBackgroundImg(
             String imgPath, // 图片路径
             int x, // 组件x坐标
@@ -47,7 +47,7 @@ public class SetFrameTool extends JFrame {
         Label.add(imgLabel);
     }
 
-    // 设置字体样式工具类
+    /* 设置字体样式工具类 */
     public static void setFontStyle(
             JComponent component, // 组件名称
             int fontSize, // 字体大小
@@ -64,6 +64,7 @@ public class SetFrameTool extends JFrame {
         Panel.add(component);
     }
 
+    /* 设置按钮样式工具类 */
     public static void setBtnStyle(
             JButton jButton, // 按钮名称
             Color btnColor, // 按钮颜色
