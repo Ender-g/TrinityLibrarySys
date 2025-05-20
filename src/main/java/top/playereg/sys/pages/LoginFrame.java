@@ -13,6 +13,7 @@ public class LoginFrame extends javax.swing.JFrame {
     private JLabel backgroundImg; // 背景图片
 
     public LoginFrame() {
+        //  设置窗体
         setFrameTool.setFrame(
                 "崔尼蒂图书馆-登录",
                 960, 540,
@@ -23,6 +24,7 @@ public class LoginFrame extends javax.swing.JFrame {
         loginPanel.setLayout(null);
         this.add(loginPanel);
 
+        // 设置登录背景
         setFrameTool.setPanleBackgroundImg(
                 "src/main/java/top/playereg/sys/img/background.png",
                 0,

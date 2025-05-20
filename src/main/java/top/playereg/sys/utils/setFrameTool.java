@@ -4,36 +4,55 @@ import javax.swing.*;
 import java.awt.*;
 
 public class setFrameTool extends JFrame {
+    // 设置窗体工具类
     public static void setFrame(
-            String title,
-            int width,
-            int height,
-            String iconPath,
-            JFrame jFrame
+            String title, // 窗体标题
+            int width, // 窗体宽度
+            int height, // 窗体高度
+            String iconPath, // 图标路径
+            JFrame Frame // 要设置窗体的对象
     ) {
-        jFrame.setTitle(title); // 设置窗体标题
-        jFrame.setSize(width, height); // 设置窗体大小
-        jFrame.setLocationRelativeTo(null); // 居中显示
-        jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); // 设置关闭按钮
-        jFrame.setResizable(false); // 设置窗体不可拉伸
-        jFrame.setVisible(false); // 设置窗体可见
-        jFrame.setIconImage(new ImageIcon(iconPath).getImage()); //  设置窗体图标
+        Frame.setTitle(title); // 设置窗体标题
+        Frame.setSize(width, height); // 设置窗体大小
+        Frame.setLocationRelativeTo(null); // 居中显示
+        Frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); // 设置关闭按钮
+        Frame.setResizable(false); // 设置窗体不可拉伸
+        Frame.setVisible(false); // 设置窗体可见
+        Frame.setIconImage(new ImageIcon(iconPath).getImage()); //  设置窗体图标
     }
 
+    //  设置面板背景图片工具类
     public static void setPanleBackgroundImg(
-            String imgPath,
-            int x,
-            int y,
-            int width,
-            int height,
-            JLabel jLabel
+            String imgPath, // 图片路径
+            int x, // 组件x坐标
+            int y, // 组件y坐标
+            int width, // 组件宽度
+            int height, // 组件高度
+            JLabel Label // 组件所在面板
     ) {
         ImageIcon icon = new ImageIcon(imgPath);
         Image img = icon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
         icon = new ImageIcon(img);
-        
+
         JLabel imgLabel = new JLabel(icon); // 使用调整后的图标创建标签
         imgLabel.setBounds(x, y, width, height);
-        jLabel.add(imgLabel);
+        Label.add(imgLabel);
+    }
+
+    // 设置字体样式工具类
+    public static void setFontStyle(
+            JComponent component, // 组件名称
+            int fontSize, // 字体大小
+            Color fontColor, // 字体颜色
+            int x, // 组件x坐标
+            int y, // 组件y坐标
+            int width, // 组件宽度
+            int height, // 组件高度
+            JPanel Panel // 组件所在面板
+    ) {
+        component.setFont(new Font("微软雅黑", Font.BOLD, fontSize));
+        component.setForeground(fontColor);
+        component.setBounds(x, y, width, height);
+        Panel.add(component);
     }
 }
