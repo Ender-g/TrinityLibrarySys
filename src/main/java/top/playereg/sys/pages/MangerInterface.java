@@ -1,22 +1,15 @@
-package top.playereg.sys.utils;
+package top.playereg.sys.pages;
 
-import com.sun.corba.se.spi.activation.BadServerDefinition;
-import javafx.stage.Screen;
-
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class MangerInterface {
     JFrame jf = new JFrame("图书馆：xxx，欢迎您");
 
-    final int WIDTH = 1000;
-    final int HEIGHT = 600;
+    final int WIDTH = 1500;
+    final int HEIGHT = 1000;
 
 
 
@@ -25,7 +18,8 @@ public class MangerInterface {
         jf.setSize(WIDTH, HEIGHT);
        jf.setLocationRelativeTo(null);
         jf.setResizable(false);
-        jf.setIconImage(new ImageIcon("src/main/resources/img/logo.png").getImage());
+        jf.setIconImage(new ImageIcon("src/main/java/top/playereg/sys/img/logo.jpg").getImage());
+
 
         //设置菜单栏
         JMenuBar jmb = new JMenuBar();
