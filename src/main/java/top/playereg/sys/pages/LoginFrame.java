@@ -16,12 +16,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import static top.playereg.sys.utils.DiyColors.*;
+import static top.playereg.sys.utils.SendEmailTool.sendEmail;
 
 public class LoginFrame extends javax.swing.JFrame implements ActionListener {
     /* 声明组件%start================================================================================== */
-    private JPanel contentPane;
     private JLabel loginPanel; // 登录面板
-    private JLabel titleLabel;
+    private JLabel titleLabel; // 标题
     private JLabel emailLabel, passwordLabel, emailCodeLabel; // 邮箱、密码、验证码（文本）
     private JTextField emailField, emailCodeField; // 邮箱、验证码（文本框）
     private JPasswordField passwordField; // 密码（输入框）
@@ -50,6 +50,7 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
         titleLabel = new JLabel("欢 迎 登 录 本 系 统");
         SetFrameTool.setFontStyle(titleLabel, 30, Color.white,
                 500, 80, 500, 50, loginPanel);
+
         // 邮箱输入
         emailLabel = new JLabel("邮  箱");
         SetFrameTool.setFontStyle(emailLabel, 20, Color.white,
@@ -57,6 +58,7 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
         emailField = new JTextField();
         SetFrameTool.setFontStyle(emailField, 20, Color.black,
                 580, 150, 250, 35, loginPanel);
+
         // 密码输入
         passwordLabel = new JLabel("密  码");
         SetFrameTool.setFontStyle(passwordLabel, 20, Color.white,
@@ -64,6 +66,7 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
         passwordField = new JPasswordField();
         SetFrameTool.setFontStyle(passwordField, 20, Color.black,
                 580, 200, 250, 35, loginPanel);
+
         // 验证码输入
         emailCodeLabel = new JLabel("验证码");
         SetFrameTool.setFontStyle(emailCodeLabel, 20, Color.white,
@@ -76,14 +79,18 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
         sendEmailCodeBtn = new JButton("发送验证码");
         SetFrameTool.setBtnStyle(sendEmailCodeBtn, darkgreen, Color.white,
                 16, 700, 250, 130, 35, loginPanel);
+
         // 忘记密码按钮
         forgetBtn = new JButton(">>> 忘记密码？点这里 <<<");
         SetFrameTool.setBtnStyle(forgetBtn, lightgreen, darkgreen,
                 14, 500, 300, 330, 20, loginPanel);
-        //  登录&注册按钮
+
+        //  登录按钮
         loginBtn = new JButton("登  录");
         SetFrameTool.setBtnStyle(loginBtn, Color.yellow, Color.black,
                 20, 500, 350, 140, 50, loginPanel);
+
+        // 注册按钮
         registerBtn = new JButton("注  册");
         SetFrameTool.setBtnStyle(registerBtn, skyblue, Color.black,
                 20, 690, 350, 140, 50, loginPanel);
@@ -130,4 +137,7 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
         }
     }
     /* 执行监听%end=========================================================================== */
+    public static void main(String[] args) {
+        new LoginFrame();
+    }
 }

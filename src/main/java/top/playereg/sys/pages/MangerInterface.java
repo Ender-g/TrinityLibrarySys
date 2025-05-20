@@ -20,9 +20,8 @@ public class MangerInterface {
     final int HEIGHT = 1000;
 
 
-
-    public  void init(){
-    //给窗口设置属性
+    public void init() {
+        //给窗口设置属性
         jf.setSize(WIDTH, HEIGHT);
         jf.setLocationRelativeTo(null);
         jf.setResizable(false);
@@ -55,7 +54,7 @@ public class MangerInterface {
                 try {
                     jf.dispose();
                     new LoginFrame();
-                }catch (Exception ex){
+                } catch (Exception ex) {
                     ex.printStackTrace();
                 }
             }
@@ -85,11 +84,11 @@ public class MangerInterface {
 
 
         //设置左侧内容
-        DefaultMutableTreeNode  root = new DefaultMutableTreeNode("系统管理");
-        DefaultMutableTreeNode  userManage = new DefaultMutableTreeNode("用户管理");
-        DefaultMutableTreeNode  bookManage = new DefaultMutableTreeNode("图书管理");
-        DefaultMutableTreeNode  borrowManage = new DefaultMutableTreeNode("借阅管理");
-        DefaultMutableTreeNode  statisticsMange = new DefaultMutableTreeNode("统计分析");
+        DefaultMutableTreeNode root = new DefaultMutableTreeNode("系统管理");
+        DefaultMutableTreeNode userManage = new DefaultMutableTreeNode("用户管理");
+        DefaultMutableTreeNode bookManage = new DefaultMutableTreeNode("图书管理");
+        DefaultMutableTreeNode borrowManage = new DefaultMutableTreeNode("借阅管理");
+        DefaultMutableTreeNode statisticsMange = new DefaultMutableTreeNode("统计分析");
 
         root.add(userManage);
         root.add(bookManage);
@@ -101,18 +100,13 @@ public class MangerInterface {
         jf.add(jsp);
 
 
-
-
-
-
         jf.setVisible(true);
-
 
 
     }
 
     public static void main(String[] args) {
-        try  {
+        try {
             new MangerInterface().init();
         } catch (Exception e) {
             e.printStackTrace();
@@ -126,7 +120,8 @@ public class MangerInterface {
         private Image bookIcon = null;
         private Image borrowIcon = null;
         private Image statisticsIcon = null;
-            //ImageIO.read(new File(PathUtils.getResource("top/playereg/sys/img/book.png")));
+
+        //ImageIO.read(new File(PathUtils.getResource("top/playereg/sys/img/book.png")));
         public MyRenderer() {
             try {
                 rootIcon = ImageIO.read(new File("src/main/java/top/playereg/sys/img/xitong.png"));
@@ -141,16 +136,16 @@ public class MangerInterface {
         //
 
         @Override
-        public  Component getTreeCellRendererComponent(JTree tree, Object value,
-                                                      boolean sel, boolean expanded,
-                                                      boolean leaf, int row,
-                                                      boolean hasFocus) {
+        public Component getTreeCellRendererComponent(
+                JTree tree, Object value,
+                boolean sel, boolean expanded,
+                boolean leaf, int row,
+                boolean hasFocus
+        ) {
             //使用默认绘制
             super.getTreeCellRendererComponent(tree, value, sel, expanded,
                     leaf, row, hasFocus);
-
             return this;
-
         }
     }
 
