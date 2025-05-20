@@ -42,7 +42,7 @@ public class SendEmailTool {
             Gson gson = new Gson();
             FileReader reader = new FileReader("src/main/java/top/playereg/ApiKeys.json");
             JsonObject jsonObject = gson.fromJson(reader, JsonObject.class);
-            String apiKey = jsonObject.get("sendApiKey").getAsString();
+            String apiKey = jsonObject.get("SendEmailApiKey").getAsString();
 
             Resend resend = new Resend(apiKey);
 
