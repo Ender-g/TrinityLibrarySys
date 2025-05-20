@@ -14,7 +14,7 @@ public class MakeFrameTool extends JFrame {
         jFrame.setSize(width, height); // 设置窗体大小
         jFrame.setLocationRelativeTo(null); // 居中显示
         jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); // 设置关闭按钮
-        jFrame.setVisible(false);
-        jFrame.setIconImage(new ImageIcon(iconPath).getImage());
+        jFrame.setVisible(false); // 设置窗体可见
+        jFrame.setIconImage(new ImageIcon(iconPath).getImage()); //  设置窗体图标
     }
 }
