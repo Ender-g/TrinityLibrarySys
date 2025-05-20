@@ -51,7 +51,7 @@ public class SendEmailTool {
         } catch (ResendException e) {
             e.printStackTrace();
             return false;
-        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) { // 处理文件不存在的异常
             throw new RuntimeException(e);
         }
     }

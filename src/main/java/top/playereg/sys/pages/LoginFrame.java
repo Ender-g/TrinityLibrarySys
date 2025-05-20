@@ -23,6 +23,15 @@ public class LoginFrame extends javax.swing.JFrame {
         loginPanel = new JLabel();
         loginPanel.setLayout(null);
         this.add(loginPanel);
+
+        setFrameTool.setPanleBackgroundImg(
+                "src/main/java/top/playereg/sys/img/background.jpg",
+                0,
+                0,
+                1200,
+                800,
+                loginPanel
+        );
         setVisible(true);
     }
 }
