@@ -6,6 +6,7 @@ target/
 #自定义
 src/main/java/top/playereg/ApiKeys.json
 src/test/java
+roots.sst
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
