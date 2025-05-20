@@ -4,6 +4,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class HashTool {
+//    test
     public static void main(String[] args) {
         String testString = "Hello, World!";
         getHashCode(testString);

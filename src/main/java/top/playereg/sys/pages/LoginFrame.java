@@ -13,6 +13,14 @@ public class LoginFrame extends javax.swing.JFrame {
     private JLabel backgroundImg; // 背景图片
 
     public LoginFrame() {
+        MakeFrameTool.setFrame(
+                "登录",
+                1200,
+                800,
+                "src/main/java/top/playereg/sys/img/book.png",
+                this
+        );
+        setVisible(true);
     }
 
     public static void main(String[] args) {

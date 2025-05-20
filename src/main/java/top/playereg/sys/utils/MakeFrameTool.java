@@ -3,21 +3,18 @@ package top.playereg.sys.utils;
 import javax.swing.*;
 
 public class MakeFrameTool extends JFrame {
-    public static void MakeFrame(
-            String img,
-            String title,
-            int width,
-            int height,
-            JFrame jFrame
+    public static void setFrame(
+        String title,
+        int width,
+        int height,
+        String iconPath,
+        JFrame jFrame
     ) {
-        // 创建窗口工具
-        jFrame.setTitle(title);
-        jFrame.setSize(width, height);
-        jFrame.setLocationRelativeTo(null); // 设置窗体居中显示
-        jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); // 设置窗体关闭时退出程序
-        jFrame.setResizable(false); // 禁止调整窗体大小
-        jFrame.setIconImage(new ImageIcon(img).getImage());
-        jFrame.setVisible(true);
+        jFrame.setTitle(title); // 设置窗体标题
+        jFrame.setSize(width, height); // 设置窗体大小
+        jFrame.setLocationRelativeTo(null); // 居中显示
+        jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); // 设置关闭按钮
+        jFrame.setVisible(false);
+        jFrame.setIconImage(new ImageIcon(iconPath).getImage());
     }
-
 }
