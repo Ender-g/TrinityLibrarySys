@@ -15,16 +15,24 @@
     </properties>
 
     <dependencies>
+        <!--发送邮件-->
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>okhttp</artifactId>
             <version>4.12.0</version>
         </dependency>
-
+        <!--接收邮件-->
         <dependency>
             <groupId>com.resend</groupId>
             <artifactId>resend-java</artifactId>
             <version>3.1.0</version>
         </dependency>
+        <!--解析json-->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.9</version>
+        </dependency>
+
     </dependencies>
 </project>
