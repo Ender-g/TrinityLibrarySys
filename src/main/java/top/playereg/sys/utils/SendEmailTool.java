@@ -31,11 +31,11 @@ public class SendEmailTool {
     }
 
     public static boolean sendEmail(
-            String sendName,
-            String from,
-            String to,
-            String title,
-            String text
+            String sendName, // 发件人名称
+            String from, // 发件人邮箱
+            String to, // 收件人邮箱
+            String title, // 邮件标题
+            String text // 邮件内容
     ) {
         try {
             // 使用 Gson 读取 JSON 文件

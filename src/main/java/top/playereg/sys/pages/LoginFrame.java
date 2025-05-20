@@ -117,7 +117,7 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
         if (e.getSource() == registerBtn) {
             System.out.println("注册");
             new RegisterFrame().setVisible(true);
-            this.dispose();
+            this.dispose(); // 关闭当前窗口
         }
         if (e.getSource() == forgetBtn) {
             // todo 忘记密码
