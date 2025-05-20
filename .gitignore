@@ -11,6 +11,7 @@ target/
 *.iws
 *.iml
 *.ipr
+src/main/java/top/playereg/ApiKeys.json
 
 ### Eclipse ###
 .apt_generated

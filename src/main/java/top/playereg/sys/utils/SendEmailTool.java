@@ -54,6 +54,4 @@ public class SendEmailTool {
             throw new RuntimeException(e);
         }
     }
-
-
 }
