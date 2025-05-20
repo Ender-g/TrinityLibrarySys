@@ -48,11 +48,29 @@ public class setFrameTool extends JFrame {
             int y, // 组件y坐标
             int width, // 组件宽度
             int height, // 组件高度
-            JPanel Panel // 组件所在面板
+            JLabel Panel // 组件所在面板
     ) {
-        component.setFont(new Font("微软雅黑", Font.BOLD, fontSize));
+        component.setFont(new Font("黑体", Font.BOLD, fontSize));
         component.setForeground(fontColor);
         component.setBounds(x, y, width, height);
         Panel.add(component);
+    }
+
+    public static void setBtnStyle(
+            JButton jButton, // 按钮名称
+            Color btnColor, // 按钮颜色
+            Color btnTextColor, // 按钮文字颜色
+            int fontSize, // 字体大小
+            int x, // 组件x坐标
+            int y, // 组件y坐标
+            int width, // 组件宽度
+            int height, // 组件高度
+            JLabel Panel // 组件所在面板
+    ) {
+        jButton.setBackground(btnColor);
+        jButton.setFont(new Font("黑体", Font.BOLD, fontSize));
+        jButton.setForeground(btnTextColor);
+        jButton.setBounds(x, y, width, height);
+        Panel.add(jButton);
     }
 }
