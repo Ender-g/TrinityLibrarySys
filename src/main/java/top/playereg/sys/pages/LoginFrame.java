@@ -1,11 +1,11 @@
 package top.playereg.sys.pages;
 
-import top.playereg.sys.utils.MakeFrameTool;
+import top.playereg.sys.utils.setFrameTool;
 
 import javax.swing.*;
 
 public class LoginFrame extends javax.swing.JFrame {
-    private JLabel loginpanel; // 登录面板
+    private JLabel loginPanel; // 登录面板
     private JLabel emailLabel, passwordLabel, emailCodeLabel; // 邮箱、密码、验证码（文本内容）
     private JTextField emailField, emailCodeField; // 邮箱、验证码（输入框）
     private JPasswordField passwordField; // 密码（输入框）
@@ -13,13 +13,16 @@ public class LoginFrame extends javax.swing.JFrame {
     private JLabel backgroundImg; // 背景图片
 
     public LoginFrame() {
-        MakeFrameTool.setFrame(
+        setFrameTool.setFrame(
                 "登录",
                 1200,
                 800,
                 "src/main/java/top/playereg/sys/img/book.png",
                 this
         );
+        loginPanel = new JLabel();
+        loginPanel.setLayout(null);
+        this.add(loginPanel);
         setVisible(true);
     }
 }
