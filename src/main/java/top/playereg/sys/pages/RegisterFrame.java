@@ -52,7 +52,7 @@ public class RegisterFrame extends javax.swing.JFrame {
         /* 设置登录背景%start====================================================================== */
         SetFrameTool.setPanleBackgroundImg(
                 "src/main/java/top/playereg/sys/img/background_2.png",
-                0, 0, 960, 540
+                0, -20, 960, 540
                 , registerPanel
         );
         /* 设置登录背景%end====================================================================== */
