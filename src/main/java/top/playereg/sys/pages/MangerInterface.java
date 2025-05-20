@@ -121,27 +121,29 @@ public class MangerInterface {
 
          //
         public MyRenderer() {
+            // 定义基础图片路径（相对于项目源码目录）
             String basePath = "src/main/java/top/playereg/sys/img/";
             //设置图标大小
              int iconWidth = 24;
             int iconHeight = 24;
             try {
+                // 加载并缩放系统管理图标
                 rootIcon = new ImageIcon(new ImageIcon(basePath + "xitong.png")
                         .getImage()
                         .getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH));
-
+                // 加载并缩放系统管理图标
                 userIcon = new ImageIcon(new ImageIcon(basePath + "yonghu.png")
                         .getImage()
                         .getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH));
-
+                // 加载并缩放系统管理图标
                 bookIcon = new ImageIcon(new ImageIcon(basePath + "book.png")
                         .getImage()
                         .getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH));
-
+                // 加载并缩放系统管理图标
                 borrowIcon = new ImageIcon(new ImageIcon(basePath + "jieyue.png")
                         .getImage()
                         .getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH));
-
+                // 加载并缩放系统管理图标
                 statisticsIcon = new ImageIcon(new ImageIcon(basePath + "bg-circular.png")
                         .getImage()
                         .getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH));
@@ -151,7 +153,21 @@ public class MangerInterface {
                 e.printStackTrace();
             }
         }
-        //  设置节点图标
+
+        /**
+         * 自定义树单元格渲染组件
+         * 根据节点类型和行号为树节点设置不同的图标
+         * 此方法重写了DefaultTreeCellRenderer的getTreeCellRendererComponent方法
+         *
+         * @param tree      树组件，用于显示树结构
+         * @param value     节点的值，表示树节点的信息
+         * @param sel       是否选中，表示当前节点是否被选中
+         * @param expanded  是否展开，表示当前节点是否被展开
+         * @param leaf      是否叶子节点，表示当前节点是否为叶子节点
+         * @param row       节点行号，表示当前节点在树中的行号
+         * @param hasFocus  是否焦点，表示当前节点是否拥有焦点
+         * @return Component 返回树单元格渲染器组件，用于显示自定义的节点样式
+         */
         @Override
         public Component getTreeCellRendererComponent(
                 JTree tree, Object value,
