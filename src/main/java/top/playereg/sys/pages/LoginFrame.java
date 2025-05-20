@@ -14,9 +14,8 @@ public class LoginFrame extends javax.swing.JFrame {
 
     public LoginFrame() {
         setFrameTool.setFrame(
-                "登录",
-                1200,
-                800,
+                "崔尼蒂图书馆-登录",
+                960, 540,
                 "src/main/java/top/playereg/sys/img/book.png",
                 this
         );
@@ -25,11 +24,11 @@ public class LoginFrame extends javax.swing.JFrame {
         this.add(loginPanel);
 
         setFrameTool.setPanleBackgroundImg(
-                "src/main/java/top/playereg/sys/img/background.jpg",
+                "src/main/java/top/playereg/sys/img/background.png",
                 0,
-                0,
-                1200,
-                800,
+                -20,
+                960,
+                540,
                 loginPanel
         );
         setVisible(true);
