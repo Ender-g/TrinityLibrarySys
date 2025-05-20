@@ -15,7 +15,7 @@ import javax.swing.tree.DefaultTreeCellRenderer;
 
 public class MangerInterface {
     JFrame jf = new JFrame("图书馆：xxx，欢迎您");
-
+    //  定义宽高
     final int WIDTH = 1500;
     final int HEIGHT = 1000;
 
@@ -26,7 +26,6 @@ public class MangerInterface {
         jf.setLocationRelativeTo(null);
         jf.setResizable(false);
         jf.setIconImage(new ImageIcon("src/main/java/top/playereg/sys/img/book.png").getImage());
-
 
         //设置菜单栏
         JMenuBar jmb = new JMenuBar();
@@ -47,7 +46,6 @@ public class MangerInterface {
 
 
         //添加菜单项
-        //切换账号等登录完善
         jmi1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -67,21 +65,19 @@ public class MangerInterface {
                 System.exit(0);
             }
         });
+        //添加菜单
         jmb.add(jmi1);
         jmb.add(Box.createHorizontalStrut(20));
         jmb.add(jmi2);
-
-
+        //组装菜单
         jf.setJMenuBar(jmb);
 
         //设置分割面板
         JSplitPane jsp = new JSplitPane();
-
         //支持连续布局
         jsp.setContinuousLayout(true);
         jsp.setDividerLocation(200);
         jsp.setDividerSize(10);
-
 
         //设置左侧内容
         DefaultMutableTreeNode root = new DefaultMutableTreeNode("系统管理");
@@ -89,20 +85,22 @@ public class MangerInterface {
         DefaultMutableTreeNode bookManage = new DefaultMutableTreeNode("图书管理");
         DefaultMutableTreeNode borrowManage = new DefaultMutableTreeNode("借阅管理");
         DefaultMutableTreeNode statisticsMange = new DefaultMutableTreeNode("统计分析");
-
+         //添加节点
         root.add(userManage);
         root.add(bookManage);
         root.add(borrowManage);
         root.add(statisticsMange);
-
+        //设置树形结构
         JTree tree = new JTree(root);
+        //添加节点图片
+        MyRenderer myRenderer = new MyRenderer();
+        tree.setCellRenderer(myRenderer);
         jsp.setLeftComponent(tree);
+
         jf.add(jsp);
 
-
+        //窗口可见性
         jf.setVisible(true);
-
-
     }
 
     public static void main(String[] args) {
@@ -115,26 +113,45 @@ public class MangerInterface {
     }
 
     private class MyRenderer extends DefaultTreeCellRenderer {
-        private Image rootIcon = null;
-        private Image userIcon = null;
-        private Image bookIcon = null;
-        private Image borrowIcon = null;
-        private Image statisticsIcon = null;
+        private ImageIcon rootIcon = null;
+        private ImageIcon userIcon = null;
+        private ImageIcon bookIcon = null;
+        private ImageIcon borrowIcon = null;
+        private ImageIcon statisticsIcon = null;
 
-        //ImageIO.read(new File(PathUtils.getResource("top/playereg/sys/img/book.png")));
+         //
         public MyRenderer() {
+            String basePath = "src/main/java/top/playereg/sys/img/";
+            //设置图标大小
+             int iconWidth = 24;
+            int iconHeight = 24;
             try {
-                rootIcon = ImageIO.read(new File("src/main/java/top/playereg/sys/img/xitong.png"));
-                userIcon = ImageIO.read(new File("src/main/java/top/playereg/sys/img/yonghu.png"));
-                bookIcon = ImageIO.read(new File("src/main/java/top/playereg/sys/img/shu.png"));
-                borrowIcon = ImageIO.read(new File("src/main/java/top/playereg/sys/img/jieyue.png"));
-                statisticsIcon = ImageIO.read(new File("src/main/java/top/playereg/sys/img/tongji.png"));
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+                rootIcon = new ImageIcon(new ImageIcon(basePath + "xitong.png")
+                        .getImage()
+                        .getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH));
+
+                userIcon = new ImageIcon(new ImageIcon(basePath + "yonghu.png")
+                        .getImage()
+                        .getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH));
+
+                bookIcon = new ImageIcon(new ImageIcon(basePath + "book.png")
+                        .getImage()
+                        .getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH));
+
+                borrowIcon = new ImageIcon(new ImageIcon(basePath + "jieyue.png")
+                        .getImage()
+                        .getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH));
+
+                statisticsIcon = new ImageIcon(new ImageIcon(basePath + "bg-circular.png")
+                        .getImage()
+                        .getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH));
+
+            } catch (Exception e) {
+                System.err.println("加载图标资源失败，请检查路径！");
+                e.printStackTrace();
             }
         }
-        //
-
+        //  设置节点图标
         @Override
         public Component getTreeCellRendererComponent(
                 JTree tree, Object value,
@@ -145,6 +162,16 @@ public class MangerInterface {
             //使用默认绘制
             super.getTreeCellRendererComponent(tree, value, sel, expanded,
                     leaf, row, hasFocus);
+            ImageIcon image = null;
+            switch (row) {
+                case 0: image = rootIcon; break;
+                case 1: image = userIcon; break;
+                case 2: image = bookIcon; break;
+                case 3: image = borrowIcon; break;
+                case 4: image = statisticsIcon; break;
+            }
+
+            this.setIcon(image);
             return this;
         }
     }
