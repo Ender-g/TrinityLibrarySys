@@ -1,3 +1,11 @@
+/*
+ *
+ * @author: playereg
+ * @description: 发送邮件工具类
+ * @version: 1.0
+ *
+ * */
+
 package top.playereg.sys.utils;
 
 import com.google.gson.Gson;

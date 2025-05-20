@@ -1,3 +1,11 @@
+/*
+ *
+ * @author: playereg
+ * @description: 密码哈希工具类
+ * @version: 1.0
+ *
+ * */
+
 package top.playereg.sys.utils;
 
 import java.security.MessageDigest;

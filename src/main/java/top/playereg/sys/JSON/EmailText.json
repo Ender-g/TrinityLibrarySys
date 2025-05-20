@@ -1,21 +1,24 @@
 {
-
-  "1": {
+  "metadata": {
+    "description": "角色邮件配置信息",
+    "lastModified": "2023-09-20"
+  },
+  "0": {
     "name": "丛雨",
     "email": "ciallo@email.playereg.top",
     "title": "幼刀丛雨来消息了！！！"
   },
-  "2": {
+  "1": {
     "name": "才羽桃",
     "email": "gameogameo@email.playereg.top",
     "title": "小桃同学来消息了！！！"
   },
-  "3": {
+  "2": {
     "name": "才羽绿",
     "email": "yalida@email.playereg.top",
     "title": "小绿同学来消息了！！！"
   },
-  "4": {
+  "3": {
     "name": "爱丽丝",
     "email": "alice@email.playereg.top",
     "title": "爱丽丝来消息了！！！"

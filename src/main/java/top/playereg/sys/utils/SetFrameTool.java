@@ -1,9 +1,17 @@
+/*
+ *
+ * @author: playereg
+ * @description: 发送邮件工具类
+ * @version: 1.0
+ *
+ * */
+
 package top.playereg.sys.utils;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class setFrameTool extends JFrame {
+public class SetFrameTool extends JFrame {
     // 设置窗体工具类
     public static void setFrame(
             String title, // 窗体标题
