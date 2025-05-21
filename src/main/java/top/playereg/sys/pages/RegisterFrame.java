@@ -155,8 +155,7 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
         if (e.getSource() == sendEmailCodeBtn) {
             // todo 完善发送验证码
             System.out.println("发送验证码");
-            Boolean isEmail = PingNetTool.ping("resend.com");
-            if (!isEmail) {
+            if (!PingNetTool.ping("resend.com")) {
                 JOptionPane.showMessageDialog(this, "请检查网络");
             } else if (emailField.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(this, "请输入邮箱");
