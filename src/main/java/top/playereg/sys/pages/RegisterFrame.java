@@ -160,6 +160,8 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
                 JOptionPane.showMessageDialog(this, "请检查网络");
             } else if (emailField.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(this, "请输入邮箱");
+            } else if (!emailField.getText().contains("@")) {
+                JOptionPane.showMessageDialog(this, "邮箱格式错误");
             } else {
                 Boolean isSend = EmailTool.sendEmail(
                         "丛雨",
