@@ -9,7 +9,9 @@
 package top.playereg.sys.utils;
 
 import javax.swing.*;
+import javax.swing.table.TableModel;
 import java.awt.*;
+import java.util.Vector;
 
 public class SetFrameTool extends JFrame {
     /* 设置窗体工具类 */
@@ -82,4 +84,57 @@ public class SetFrameTool extends JFrame {
         jButton.setBounds(x, y, width, height);
         Panel.add(jButton);
     }
+
+    //
+
+    public static class UserManageComponent extends Box {
+        // 组件宽高
+        final int width = 850;
+        final int height = 600;
+        // 声明表格
+        private  JTable table;
+        //创建数组存放字段
+        private Vector<String> titles;
+        //创建二维数组存放数据
+        private Vector<Vector> tableData;
+        //声明表格数据模型
+        private TableModel tableModel;
+
+        public UserManageComponent() {
+            // 调用父类构造器并指定垂直布局
+            super(BoxLayout.Y_AXIS);
+            //组装视图
+            //组装上方按钮面板
+            JPanel btnPanel = new JPanel();
+            btnPanel.setMaximumSize(new Dimension(width, 80));
+            //从右边布局
+            btnPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
+            //添加按钮
+            JButton addBtn = new JButton("添加");
+            //修改按钮
+            JButton update = new JButton("修改");
+            //删除按钮
+            JButton delete = new JButton("删除");
+            btnPanel.add(addBtn);
+            btnPanel.add(update);
+            btnPanel.add(delete);
+
+            this.add(btnPanel);
+            //组装下方表格
+            String[] ts={"编号","书名","简介","作者","价格","库存"};
+            //初始化
+            titles = new Vector<>();
+            //遍历数组
+            for (String title : ts) {
+                //将数组元素添加到向量
+                titles.add(title);
+            }
+            //实例化表格
+            tableData = new Vector<>();
+
+
+        }
+    }
+
+
 }
