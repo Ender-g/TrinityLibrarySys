@@ -18,7 +18,7 @@ import com.resend.services.emails.model.CreateEmailResponse;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
-public class SendEmailTool {
+public class EmailTool {
     //    test
     public static void main(String[] args) {
         sendEmail(

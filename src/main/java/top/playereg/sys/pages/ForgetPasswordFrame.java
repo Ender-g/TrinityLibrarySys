@@ -8,6 +8,7 @@
 
 package top.playereg.sys.pages;
 
+import top.playereg.sys.utils.InputTool;
 import top.playereg.sys.utils.SetFrameTool;
 
 import javax.swing.*;
@@ -16,7 +17,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import static top.playereg.sys.utils.DiyColors.*;
-import static top.playereg.sys.utils.SendEmailTool.sendEmail;
 
 public class ForgetPasswordFrame extends JFrame implements ActionListener {
     /* 声明组件%start================================================================================== */
@@ -25,13 +25,13 @@ public class ForgetPasswordFrame extends JFrame implements ActionListener {
     private JLabel emailLabel, newPasswordLabel, confirmPasswordLabel, codeLabel; // 邮箱、密码、验证码（文本）
     private JTextField emailField, codeField; //  邮箱、验证码（输入框）
     private JPasswordField newPasswordField, confirmPasswordField; // 新密码、确认密码（输入框）
-    private JButton getCodeBtn, submitBtn, backBtn; // 获取验证码、提交、返回按钮
+    private JButton sendEmailCodeBtn, submitBtn, backBtn; // 获取验证码、提交、返回按钮
     /* 声明组件%end================================================================================== */
 
     public ForgetPasswordFrame() {
         /* 设置窗体%start============================================================================ */
         SetFrameTool.setFrame(
-                "崔尼蒂图书馆-忘记密码 v1.0.0",
+                "崔尼蒂图书馆-更改密码 v1.0.0",
                 960, 540,
                 "src/main/java/top/playereg/sys/img/book.png",
                 this
@@ -44,10 +44,9 @@ public class ForgetPasswordFrame extends JFrame implements ActionListener {
         this.add(forgetPasswordLabel);
         /* 设置登录面板%end======================================================================== */
 
-
         /* 创建组件%start=========================================================================== */
         // 标题
-        titleLabel = new JLabel("重 置 密 码");
+        titleLabel = new JLabel("更 改 密 码");
         SetFrameTool.setFontStyle(titleLabel, 30, Color.white,
                 190, 40, 500, 50, forgetPasswordLabel);
 
@@ -56,7 +55,7 @@ public class ForgetPasswordFrame extends JFrame implements ActionListener {
         SetFrameTool.setFontStyle(emailLabel, 20, Color.white,
                 100, 120, 150, 35, forgetPasswordLabel);
         emailField = new JTextField();
-        SetFrameTool.setFontStyle(emailField, 20, Color.white,
+        SetFrameTool.setFontStyle(emailField, 15, Color.black,
                 200, 120, 250, 35, forgetPasswordLabel);
 
         // 验证码输入
@@ -64,12 +63,13 @@ public class ForgetPasswordFrame extends JFrame implements ActionListener {
         SetFrameTool.setFontStyle(codeLabel, 20, Color.white,
                 100, 180, 150, 35, forgetPasswordLabel);
         codeField = new JTextField();
-        SetFrameTool.setFontStyle(codeField, 20, Color.white,
+        SetFrameTool.setFontStyle(codeField, 15, Color.black,
                 200, 180, 100, 35, forgetPasswordLabel);
+        InputTool.jast6NumberInput(codeField);
 
         // 获取验证码按钮
-        getCodeBtn = new JButton("获取验证码");
-        SetFrameTool.setBtnStyle(getCodeBtn, darkgreen, Color.white,
+        sendEmailCodeBtn = new JButton("获取验证码");
+        SetFrameTool.setBtnStyle(sendEmailCodeBtn, darkgreen, Color.white,
                 16, 320, 180, 130, 35, forgetPasswordLabel);
 
         // 旧密码输入
@@ -77,19 +77,21 @@ public class ForgetPasswordFrame extends JFrame implements ActionListener {
         SetFrameTool.setFontStyle(newPasswordLabel, 20, Color.white,
                 100, 240, 150, 35, forgetPasswordLabel);
         newPasswordField = new JPasswordField();
-        SetFrameTool.setFontStyle(newPasswordField, 20, Color.white,
+        SetFrameTool.setFontStyle(newPasswordField, 10, Color.black,
                 200, 240, 250, 35, forgetPasswordLabel);
+        newPasswordField.setEchoChar('●');
 
         // 新密码输入
         confirmPasswordLabel = new JLabel("确认密码");
         SetFrameTool.setFontStyle(confirmPasswordLabel, 20, Color.white,
                 100, 300, 150, 35, forgetPasswordLabel);
         confirmPasswordField = new JPasswordField();
-        SetFrameTool.setFontStyle(confirmPasswordField, 20, Color.white,
+        SetFrameTool.setFontStyle(confirmPasswordField, 10, Color.black,
                 200, 300, 250, 35, forgetPasswordLabel);
+        confirmPasswordField.setEchoChar('●');
 
         // 提交按钮
-        submitBtn = new JButton(">>> 重 置 密 码 <<<");
+        submitBtn = new JButton(">>> 确 认 更 改 <<<");
         SetFrameTool.setBtnStyle(submitBtn, skyblue, Color.black,
                 20, 200, 360, 250, 50, forgetPasswordLabel);
 
@@ -112,7 +114,7 @@ public class ForgetPasswordFrame extends JFrame implements ActionListener {
         /* 监听%start=========================================================================== */
         submitBtn.addActionListener(this);
         backBtn.addActionListener(this);
-        getCodeBtn.addActionListener(this);
+        sendEmailCodeBtn.addActionListener(this);
         /* 监听%end=========================================================================== */
     }
 
@@ -128,7 +130,7 @@ public class ForgetPasswordFrame extends JFrame implements ActionListener {
             new LoginFrame().setVisible(true);
             this.dispose();
         }
-        if (e.getSource() == getCodeBtn) {
+        if (e.getSource() == sendEmailCodeBtn) {
             // todo 发送验证码逻辑
             System.out.println("获取验证码");
         }

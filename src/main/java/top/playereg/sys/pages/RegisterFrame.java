@@ -8,6 +8,7 @@
 
 package top.playereg.sys.pages;
 
+import top.playereg.sys.utils.InputTool;
 import top.playereg.sys.utils.SetFrameTool;
 
 import javax.swing.*;
@@ -16,7 +17,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import static top.playereg.sys.utils.DiyColors.*;
-import static top.playereg.sys.utils.SendEmailTool.sendEmail;
 
 
 public class RegisterFrame extends javax.swing.JFrame implements ActionListener {
@@ -57,7 +57,7 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
         SetFrameTool.setFontStyle(nameLabel, 20, Color.white,
                 100, 120, 150, 35, registerPanel);
         nameField = new JTextField();
-        SetFrameTool.setFontStyle(nameField, 20, Color.white,
+        SetFrameTool.setFontStyle(nameField, 15, Color.black,
                 200, 120, 250, 35, registerPanel);
 
         // 邮箱输入
@@ -65,7 +65,7 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
         SetFrameTool.setFontStyle(emailLabel, 20, Color.white,
                 100, 180, 150, 35, registerPanel);
         emailField = new JTextField();
-        SetFrameTool.setFontStyle(emailField, 20, Color.white,
+        SetFrameTool.setFontStyle(emailField, 15, Color.black,
                 200, 180, 250, 35, registerPanel);
 
         // 密码输入
@@ -73,24 +73,28 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
         SetFrameTool.setFontStyle(passwordLabel, 20, Color.white,
                 100, 300, 150, 35, registerPanel);
         PasswordField = new JPasswordField();
-        SetFrameTool.setFontStyle(PasswordField, 20, Color.white,
+        SetFrameTool.setFontStyle(PasswordField, 10, Color.black,
                 200, 300, 250, 35, registerPanel);
+        PasswordField.setEchoChar('●');
 
         // 确认密码输入
         confirmPasswordLabel = new JLabel("确认密码");
         SetFrameTool.setFontStyle(confirmPasswordLabel, 20, Color.white,
                 100, 360, 150, 35, registerPanel);
         confirmPasswordField = new JPasswordField();
-        SetFrameTool.setFontStyle(confirmPasswordField, 20, Color.white,
+        SetFrameTool.setFontStyle(confirmPasswordField, 10, Color.black,
                 200, 360, 250, 35, registerPanel);
+        confirmPasswordField.setEchoChar('●');
+
 
         // 邮箱验证码输入
         emailCodeLabel = new JLabel("验 证 码");
         SetFrameTool.setFontStyle(emailCodeLabel, 20, Color.white,
                 100, 240, 150, 35, registerPanel);
         emailCodeField = new JTextField();
-        SetFrameTool.setFontStyle(emailCodeField, 20, Color.white,
+        SetFrameTool.setFontStyle(emailCodeField, 15, Color.black,
                 200, 240, 100, 35, registerPanel);
+        InputTool.jast6NumberInput(emailCodeField);
 
         // 发送验证码按钮
         sendEmailCodeBtn = new JButton("发送验证码");
