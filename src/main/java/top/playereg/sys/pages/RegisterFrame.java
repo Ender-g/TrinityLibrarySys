@@ -16,7 +16,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import static top.playereg.sys.utils.DiyColors.*;
-import static top.playereg.sys.utils.SendEmailTool.sendEmail;
 
 
 public class RegisterFrame extends javax.swing.JFrame implements ActionListener {

@@ -24,7 +24,7 @@ public class ResetPasswordFrame extends JFrame implements ActionListener {
     private JLabel emailLabel, newPasswordLabel, confirmPasswordLabel, codeLabel; // 邮箱、密码、验证码（文本）
     private JTextField emailField, codeField; //  邮箱、验证码（输入框）
     private JPasswordField newPasswordField, confirmPasswordField; // 新密码、确认密码（输入框）
-    private JButton getCodeBtn, submitBtn, backBtn; // 获取验证码、提交、返回按钮
+    private JButton sendEmailCodeBtn, submitBtn, backBtn; // 获取验证码、提交、返回按钮
     /* 声明组件%end================================================================================== */
 
     public ResetPasswordFrame() {
@@ -66,8 +66,8 @@ public class ResetPasswordFrame extends JFrame implements ActionListener {
                 200, 180, 100, 35, forgetPasswordLabel);
 
         // 获取验证码按钮
-        getCodeBtn = new JButton("获取验证码");
-        SetFrameTool.setBtnStyle(getCodeBtn, darkgreen, Color.white,
+        sendEmailCodeBtn = new JButton("获取验证码");
+        SetFrameTool.setBtnStyle(sendEmailCodeBtn, darkgreen, Color.white,
                 16, 320, 180, 130, 35, forgetPasswordLabel);
 
         // 旧密码输入
@@ -112,7 +112,7 @@ public class ResetPasswordFrame extends JFrame implements ActionListener {
         /* 监听%start=========================================================================== */
         submitBtn.addActionListener(this);
         backBtn.addActionListener(this);
-        getCodeBtn.addActionListener(this);
+        sendEmailCodeBtn.addActionListener(this);
         /* 监听%end=========================================================================== */
     }
 
@@ -128,7 +128,7 @@ public class ResetPasswordFrame extends JFrame implements ActionListener {
             new LoginFrame().setVisible(true);
             this.dispose();
         }
-        if (e.getSource() == getCodeBtn) {
+        if (e.getSource() == sendEmailCodeBtn) {
             // todo 发送验证码逻辑
             System.out.println("获取验证码");
         }
