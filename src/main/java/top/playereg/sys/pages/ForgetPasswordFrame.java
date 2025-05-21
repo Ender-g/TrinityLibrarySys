@@ -8,6 +8,7 @@
 
 package top.playereg.sys.pages;
 
+import top.playereg.sys.utils.InputTool;
 import top.playereg.sys.utils.SetFrameTool;
 
 import javax.swing.*;
@@ -17,7 +18,7 @@ import java.awt.event.ActionListener;
 
 import static top.playereg.sys.utils.DiyColors.*;
 
-public class ResetPasswordFrame extends JFrame implements ActionListener {
+public class ForgetPasswordFrame extends JFrame implements ActionListener {
     /* 声明组件%start================================================================================== */
     private JLabel forgetPasswordLabel; // 忘记密码面板
     private JLabel titleLabel; // 标题
@@ -27,7 +28,7 @@ public class ResetPasswordFrame extends JFrame implements ActionListener {
     private JButton sendEmailCodeBtn, submitBtn, backBtn; // 获取验证码、提交、返回按钮
     /* 声明组件%end================================================================================== */
 
-    public ResetPasswordFrame() {
+    public ForgetPasswordFrame() {
         /* 设置窗体%start============================================================================ */
         SetFrameTool.setFrame(
                 "崔尼蒂图书馆-更改密码 v1.0.0",
@@ -64,6 +65,7 @@ public class ResetPasswordFrame extends JFrame implements ActionListener {
         codeField = new JTextField();
         SetFrameTool.setFontStyle(codeField, 15, Color.black,
                 200, 180, 100, 35, forgetPasswordLabel);
+        InputTool.jast6NumberInput(codeField);
 
         // 获取验证码按钮
         sendEmailCodeBtn = new JButton("获取验证码");
@@ -136,6 +138,6 @@ public class ResetPasswordFrame extends JFrame implements ActionListener {
     /* 执行监听%end=========================================================================== */
 
     public static void main(String[] args) {
-        new ResetPasswordFrame();
+        new ForgetPasswordFrame();
     }
 }

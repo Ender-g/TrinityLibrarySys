@@ -8,6 +8,7 @@
 
 package top.playereg.sys.pages;
 
+import top.playereg.sys.utils.InputTool;
 import top.playereg.sys.utils.SetFrameTool;
 
 import javax.swing.*;
@@ -85,6 +86,7 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
                 200, 360, 250, 35, registerPanel);
         confirmPasswordField.setEchoChar('●');
 
+
         // 邮箱验证码输入
         emailCodeLabel = new JLabel("验 证 码");
         SetFrameTool.setFontStyle(emailCodeLabel, 20, Color.white,
@@ -92,6 +94,7 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
         emailCodeField = new JTextField();
         SetFrameTool.setFontStyle(emailCodeField, 15, Color.black,
                 200, 240, 100, 35, registerPanel);
+        InputTool.jast6NumberInput(emailCodeField);
 
         // 发送验证码按钮
         sendEmailCodeBtn = new JButton("发送验证码");

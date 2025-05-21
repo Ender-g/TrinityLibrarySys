@@ -8,6 +8,7 @@
 
 package top.playereg.sys.pages;
 
+import top.playereg.sys.utils.InputTool;
 import top.playereg.sys.utils.SetFrameTool;
 
 import javax.swing.*;
@@ -74,26 +75,7 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
         emailCodeField = new JTextField();
         SetFrameTool.setFontStyle(emailCodeField, 15, Color.black,
                 580, 250, 100, 35, loginPanel);
-        //合并验证码限制：只允许输入6位数字
-        emailCodeField.addKeyListener(
-                new java.awt.event.KeyAdapter() {
-                    public void keyTyped(java.awt.event.KeyEvent evt) {
-                        char c = evt.getKeyChar();
-                        // 验证字符有效性
-                        if (!((c >= '0') && (c <= '9') ||
-                                (c == java.awt.event.KeyEvent.VK_BACK_SPACE) ||
-                                (c == java.awt.event.KeyEvent.VK_DELETE))) {
-                            evt.consume();
-                        }
-                        // 验证长度限制
-                        if (emailCodeField.getText().length() >= 6 &&
-                                !(c == java.awt.event.KeyEvent.VK_BACK_SPACE ||
-                                        c == java.awt.event.KeyEvent.VK_DELETE)) {
-                            evt.consume();
-                        }
-                    }
-                }
-        );
+        InputTool.jast6NumberInput(emailCodeField);
 
         // 发送验证码按钮
         sendEmailCodeBtn = new JButton("发送验证码");
@@ -148,7 +130,7 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
         }
         if (e.getSource() == forgetBtn) {
             System.out.println("忘记密码");
-            new ResetPasswordFrame().setVisible(true);
+            new ForgetPasswordFrame().setVisible(true);
             this.dispose();
         }
         if (e.getSource() == sendEmailCodeBtn) {
