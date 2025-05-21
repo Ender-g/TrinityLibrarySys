@@ -31,7 +31,7 @@ public class ForgetPasswordFrame extends JFrame implements ActionListener {
     public ForgetPasswordFrame() {
         /* 设置窗体%start============================================================================ */
         SetFrameTool.setFrame(
-                "崔尼蒂图书馆-更改密码 v1.0.0",
+                "崔尼蒂图书馆-重置密码 v1.0.0",
                 960, 540,
                 "src/main/java/top/playereg/sys/img/book.png",
                 this
@@ -46,7 +46,7 @@ public class ForgetPasswordFrame extends JFrame implements ActionListener {
 
         /* 创建组件%start=========================================================================== */
         // 标题
-        titleLabel = new JLabel("更 改 密 码");
+        titleLabel = new JLabel("重 置 密 码");
         SetFrameTool.setFontStyle(titleLabel, 30, Color.white,
                 190, 40, 500, 50, forgetPasswordLabel);
 
@@ -91,7 +91,7 @@ public class ForgetPasswordFrame extends JFrame implements ActionListener {
         confirmPasswordField.setEchoChar('●');
 
         // 提交按钮
-        submitBtn = new JButton(">>> 确 认 更 改 <<<");
+        submitBtn = new JButton(">>> 确 认 重 置 <<<");
         SetFrameTool.setBtnStyle(submitBtn, skyblue, Color.black,
                 20, 200, 360, 250, 50, forgetPasswordLabel);
 

@@ -122,6 +122,7 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
         if (e.getSource() == loginBtn) {
             // todo 登录
             System.out.println("登录");
+
         }
         if (e.getSource() == registerBtn) {
             System.out.println("注册");
