@@ -1,7 +1,7 @@
 /*
  *
  * @author: playereg
- * @description: 发送邮件工具类
+ * @description: 设置窗体工具类
  * @version: 1.0
  *
  * */
