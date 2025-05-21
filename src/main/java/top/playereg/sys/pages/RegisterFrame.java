@@ -10,6 +10,7 @@ package top.playereg.sys.pages;
 
 import top.playereg.sys.utils.EmailTool;
 import top.playereg.sys.utils.InputTool;
+import top.playereg.sys.utils.PingNetTool;
 import top.playereg.sys.utils.SetFrameTool;
 
 import javax.swing.*;
@@ -17,7 +18,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static top.playereg.sys.utils.DiyColors.*;
+import static top.playereg.sys.utils.DiyColors.darkgreen;
+import static top.playereg.sys.utils.DiyColors.skyblue;
 import static top.playereg.sys.utils.EmailText.text1;
 
 
@@ -112,7 +114,7 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
         // 返回按钮
         backBtn = new JButton("返回 <<<");
         SetFrameTool.setBtnStyle(backBtn, Color.yellow, Color.black,
-                16, 10,10 , 120, 30, registerPanel);
+                16, 10, 10, 120, 30, registerPanel);
         /* 创建组件%end=========================================================================== */
 
         /* 设置登录背景%start====================================================================== */
@@ -132,6 +134,12 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
         /* 监听%end=========================================================================== */
     }
 
+    /* 执行监听%end=========================================================================== */
+    public static void main(String[] args) {
+        new RegisterFrame();
+
+    }
+
     /* 执行监听%start=========================================================================== */
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -147,7 +155,10 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
         if (e.getSource() == sendEmailCodeBtn) {
             // todo 完善发送验证码
             System.out.println("发送验证码");
-            if (emailField.getText().isEmpty()){
+            Boolean isEmail = PingNetTool.ping("resend.com");
+            if (!isEmail) {
+                JOptionPane.showMessageDialog(this, "请检查网络");
+            } else if (emailField.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(this, "请输入邮箱");
             } else {
                 Boolean isSend = EmailTool.sendEmail(
@@ -165,10 +176,5 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
                 }
             }
         }
-    }
-    /* 执行监听%end=========================================================================== */
-    public static void main(String[] args) {
-        new RegisterFrame();
-
     }
 }
