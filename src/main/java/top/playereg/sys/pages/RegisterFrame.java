@@ -8,6 +8,7 @@
 
 package top.playereg.sys.pages;
 
+import top.playereg.sys.utils.EmailTool;
 import top.playereg.sys.utils.InputTool;
 import top.playereg.sys.utils.SetFrameTool;
 
@@ -17,6 +18,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import static top.playereg.sys.utils.DiyColors.*;
+import static top.playereg.sys.utils.EmailText.text1;
 
 
 public class RegisterFrame extends javax.swing.JFrame implements ActionListener {
@@ -87,14 +89,15 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
         confirmPasswordField.setEchoChar('●');
 
 
-        // 邮箱验证码输入
+        // 验证码输入
         emailCodeLabel = new JLabel("验 证 码");
         SetFrameTool.setFontStyle(emailCodeLabel, 20, Color.white,
                 100, 240, 150, 35, registerPanel);
         emailCodeField = new JTextField();
         SetFrameTool.setFontStyle(emailCodeField, 15, Color.black,
                 200, 240, 100, 35, registerPanel);
-        InputTool.jast6NumberInput(emailCodeField);
+        InputTool.jast6NumberInput(emailCodeField); // 输入限制
+        emailCodeField.setEditable(false); // 禁止手动输入
 
         // 发送验证码按钮
         sendEmailCodeBtn = new JButton("发送验证码");
@@ -144,6 +147,24 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
         if (e.getSource() == sendEmailCodeBtn) {
             // todo 发送验证码
             System.out.println("发送验证码");
+            if (emailField.getText().equals("")){
+                JOptionPane.showMessageDialog(this, "请输入邮箱");
+            } else {
+                JOptionPane.showMessageDialog(this, "验证码已发送");
+
+                Boolean isSend = EmailTool.sendEmail(
+                        "丛雨",
+                        "ciallo@email.playereg.top",
+                        emailField.getText(),
+                        "丛雨来消息了！！！",
+                        text1
+                );
+                if (isSend) {
+                    emailCodeField.setEditable(true);
+                } else {
+                    JOptionPane.showMessageDialog(this, "验证码发送失败");
+                }
+            }
         }
     }
     /* 执行监听%end=========================================================================== */

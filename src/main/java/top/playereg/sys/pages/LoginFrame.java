@@ -75,7 +75,9 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
         emailCodeField = new JTextField();
         SetFrameTool.setFontStyle(emailCodeField, 15, Color.black,
                 580, 250, 100, 35, loginPanel);
-        InputTool.jast6NumberInput(emailCodeField);
+        InputTool.jast6NumberInput(emailCodeField); // 限制输入
+        emailCodeField.setEditable(false); // 禁止手动输入
+
 
         // 发送验证码按钮
         sendEmailCodeBtn = new JButton("发送验证码");

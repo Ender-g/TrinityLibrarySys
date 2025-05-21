@@ -23,7 +23,7 @@ public class ForgetPasswordFrame extends JFrame implements ActionListener {
     private JLabel forgetPasswordLabel; // 忘记密码面板
     private JLabel titleLabel; // 标题
     private JLabel emailLabel, newPasswordLabel, confirmPasswordLabel, codeLabel; // 邮箱、密码、验证码（文本）
-    private JTextField emailField, codeField; //  邮箱、验证码（输入框）
+    private JTextField emailField, emailCodeField; //  邮箱、验证码（输入框）
     private JPasswordField newPasswordField, confirmPasswordField; // 新密码、确认密码（输入框）
     private JButton sendEmailCodeBtn, submitBtn, backBtn; // 获取验证码、提交、返回按钮
     /* 声明组件%end================================================================================== */
@@ -62,10 +62,11 @@ public class ForgetPasswordFrame extends JFrame implements ActionListener {
         codeLabel = new JLabel("验 证 码");
         SetFrameTool.setFontStyle(codeLabel, 20, Color.white,
                 100, 180, 150, 35, forgetPasswordLabel);
-        codeField = new JTextField();
-        SetFrameTool.setFontStyle(codeField, 15, Color.black,
+        emailCodeField = new JTextField();
+        SetFrameTool.setFontStyle(emailCodeField, 15, Color.black,
                 200, 180, 100, 35, forgetPasswordLabel);
-        InputTool.jast6NumberInput(codeField);
+        InputTool.jast6NumberInput(emailCodeField); // 输入限制
+        emailCodeField.setEditable(false); // 禁止手动输入
 
         // 获取验证码按钮
         sendEmailCodeBtn = new JButton("获取验证码");
