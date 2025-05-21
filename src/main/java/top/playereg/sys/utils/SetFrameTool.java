@@ -9,6 +9,7 @@
 package top.playereg.sys.utils;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import java.awt.*;
 import java.util.Vector;
@@ -131,10 +132,27 @@ public class SetFrameTool extends JFrame {
             }
             //实例化表格
             tableData = new Vector<>();
-
+            //创建表格数据模型
+            tableModel = new DefaultTableModel(tableData, titles);
+            table = new JTable(tableModel) {
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+            };
+            //设置只能选中一行
+            table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+            this.add(table);
 
         }
+        //请求数据
+//        public void requestData(){
+//            GetUtils.get()
+//
+//        }
+
     }
+
 
 
 }
