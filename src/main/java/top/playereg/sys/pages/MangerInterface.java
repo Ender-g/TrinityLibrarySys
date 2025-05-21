@@ -10,6 +10,8 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.event.TreeSelectionEvent;
+import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 
@@ -92,11 +94,41 @@ public class MangerInterface {
         root.add(statisticsMange);
         //设置树形结构
         JTree tree = new JTree(root);
+
         //添加节点图片
         MyRenderer myRenderer = new MyRenderer();
         tree.setCellRenderer(myRenderer);
-        jsp.setLeftComponent(tree);
 
+        //设置当前tree默认选中图书管理
+        tree.setSelectionRow(2);
+        tree.addTreeSelectionListener(new TreeSelectionListener(){
+            //当条目选中变化后，这个方法执行
+            @Override
+            public void valueChanged(TreeSelectionEvent e) {
+                Object lastPathComponent = e.getNewLeadSelectionPath().getLastPathComponent();
+                if (userManage.equals(lastPathComponent)){
+                    jsp.setRightComponent(new JLabel("用户管理"));
+
+                }else if (bookManage.equals(lastPathComponent)){
+                    jsp.setRightComponent(new JLabel("图书管理"));
+
+                }else if (borrowManage.equals(lastPathComponent)){
+                    jsp.setRightComponent(new JLabel("借阅管理"));
+
+                }else if (statisticsMange.equals(lastPathComponent)){
+                    jsp.setRightComponent(new JLabel("统计分析"));
+
+                }
+
+            }
+            //当条目选中变化后，这个方法执行
+
+
+                                      });
+
+
+        //左侧面板添加tree
+        jsp.setLeftComponent(tree);
         jf.add(jsp);
 
         //窗口可见性
