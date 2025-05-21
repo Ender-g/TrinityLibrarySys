@@ -44,7 +44,6 @@ public class ForgetPasswordFrame extends JFrame implements ActionListener {
         this.add(forgetPasswordLabel);
         /* 设置登录面板%end======================================================================== */
 
-
         /* 创建组件%start=========================================================================== */
         // 标题
         titleLabel = new JLabel("重 置 密 码");
