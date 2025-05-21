@@ -1,3 +1,11 @@
+/*
+ *
+ * @author: playereg
+ * @description: 输入限制工具
+ * @version: 1.0
+ *
+ * */
+
 package top.playereg.sys.utils;
 
 import org.jetbrains.annotations.NotNull;

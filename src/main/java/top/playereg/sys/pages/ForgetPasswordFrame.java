@@ -1,7 +1,7 @@
 /*
  *
  * @author: playereg
- * @description: 登录页面
+ * @description: 忘记密码界面
  * @version: 1.0
  *
  * */

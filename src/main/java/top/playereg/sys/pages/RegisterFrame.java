@@ -145,7 +145,7 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
             this.dispose();
         }
         if (e.getSource() == sendEmailCodeBtn) {
-            // todo 发送验证码
+            // todo 完善发送验证码
             System.out.println("发送验证码");
             if (emailField.getText().isEmpty()){
                 JOptionPane.showMessageDialog(this, "请输入邮箱");
