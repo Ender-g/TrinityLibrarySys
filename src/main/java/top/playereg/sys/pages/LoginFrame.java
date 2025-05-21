@@ -16,7 +16,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import static top.playereg.sys.utils.DiyColors.*;
-import static top.playereg.sys.utils.SendEmailTool.sendEmail;
 
 public class LoginFrame extends javax.swing.JFrame implements ActionListener {
     /* 声明组件%start================================================================================== */
@@ -56,7 +55,7 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
         SetFrameTool.setFontStyle(emailLabel, 20, Color.white,
                 500, 150, 100, 35, loginPanel);
         emailField = new JTextField();
-        SetFrameTool.setFontStyle(emailField, 20, Color.black,
+        SetFrameTool.setFontStyle(emailField, 15, Color.black,
                 580, 150, 250, 35, loginPanel);
 
         // 密码输入
@@ -64,15 +63,16 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
         SetFrameTool.setFontStyle(passwordLabel, 20, Color.white,
                 500, 200, 100, 35, loginPanel);
         passwordField = new JPasswordField();
-        SetFrameTool.setFontStyle(passwordField, 20, Color.black,
+        SetFrameTool.setFontStyle(passwordField, 10, Color.black,
                 580, 200, 250, 35, loginPanel);
+        passwordField.setEchoChar('●');
 
         // 验证码输入
         emailCodeLabel = new JLabel("验证码");
         SetFrameTool.setFontStyle(emailCodeLabel, 20, Color.white,
                 500, 250, 100, 35, loginPanel);
         emailCodeField = new JTextField();
-        SetFrameTool.setFontStyle(emailCodeField, 20, Color.black,
+        SetFrameTool.setFontStyle(emailCodeField, 15, Color.black,
                 580, 250, 100, 35, loginPanel);
 
         // 发送验证码按钮
@@ -128,7 +128,7 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
         }
         if (e.getSource() == forgetBtn) {
             System.out.println("忘记密码");
-            new ForgetPasswordFrame().setVisible(true);
+            new ResetPasswordFrame().setVisible(true);
             this.dispose();
         }
         if (e.getSource() == sendEmailCodeBtn) {

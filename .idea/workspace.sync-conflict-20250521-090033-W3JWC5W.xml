@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1e8c1163-b9c1-4b38-9063-686076e159bd" name="更改" comment="@PlayerEG" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTTP Request" />
+        <option value="package.json" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="PlayerEG &lt;enderg@qq.com&gt;" />
+        <option value="PE Geek &lt;enderg@qq.com&gt;" />
+      </list>
+    </option>
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Ender-g&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Ender-g/LibrarySys.git&quot;,
+    &quot;accountId&quot;: &quot;66173633-8696-426e-8460-d8f1426c337a&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/top/playereg/sys/pages/LoginFrame.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/top/playereg/sys/utils/setFrameTool.java" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2xIr09zFeu49f1LxHxDieNRWurj" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/IdeaProjects/LibrarySys",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/Users/user/Documents/IdeaProjects/LibrarySys/src/main/java/top/playereg/sys/Main.java",
+    "project.structure.last.edited": "项目",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true",
+    "应用程序.ForgetPasswordFrame.executor": "Run",
+    "应用程序.HashTest.executor": "Run",
+    "应用程序.HashTool.executor": "Run",
+    "应用程序.LoginFrame.executor": "Run",
+    "应用程序.Main.executor": "Run",
+    "应用程序.MakeFrameTool.executor": "Run",
+    "应用程序.MangerInterface.executor": "Run",
+    "应用程序.RegisterFrame.executor": "Run",
+    "应用程序.SendEmailTool.executor": "Run",
+    "应用程序.SendTest.executor": "Run"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\LibrarySys\src\main\java\top\playereg\sys\img" />
+      <recent name="C:\Users\user\Documents\IdeaProjects\LibrarySys\src\main\java\top\playereg\sys\img" />
+      <recent name="C:\Users\user\Documents\IdeaProjects\LibrarySys\src\main\java\top\playereg" />
+      <recent name="C:\Users\user\Documents\IdeaProjects\LibrarySys\src\main\java\top\playereg\sys" />
+      <recent name="C:\Users\user\Documents\IdeaProjects\LibrarySys\src\main\java\top\playereg\sys\JSON" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="top.playereg.sys.Main" />
+      <module name="LibrarySys" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="top.playereg.sys.pages.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="应用程序.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.19416.15" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.19416.15" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="1e8c1163-b9c1-4b38-9063-686076e159bd" name="更改" comment="" />
+      <created>1747636202959</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1747636202959</updated>
+      <workItem from="1747636204033" duration="4125000" />
+      <workItem from="1747640380094" duration="1498000" />
+      <workItem from="1747643289533" duration="154000" />
+      <workItem from="1747646778849" duration="1529000" />
+      <workItem from="1747650140165" duration="191000" />
+      <workItem from="1747650464922" duration="2491000" />
+      <workItem from="1747654435731" duration="1197000" />
+      <workItem from="1747700727191" duration="1040000" />
+      <workItem from="1747702172096" duration="9909000" />
+      <workItem from="1747712194221" duration="188000" />
+      <workItem from="1747716536048" duration="427000" />
+      <workItem from="1747716975588" duration="720000" />
+      <workItem from="1747718658223" duration="76000" />
+      <workItem from="1747722671566" duration="4583000" />
+      <workItem from="1747727999956" duration="295000" />
+      <workItem from="1747729497520" duration="2470000" />
+      <workItem from="1747732715988" duration="10925000" />
+      <workItem from="1747746402400" duration="513000" />
+      <workItem from="1747749182497" duration="727000" />
+      <workItem from="1747751195598" duration="6544000" />
+    </task>
+    <task id="LOCAL-00001" summary="@playereg">
+      <option name="closed" value="true" />
+      <created>1747637497877</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1747637497877</updated>
+    </task>
+    <task id="LOCAL-00002" summary="@playereg">
+      <option name="closed" value="true" />
+      <created>1747638068939</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1747638068939</updated>
+    </task>
+    <task id="LOCAL-00003" summary="@playereg">
+      <option name="closed" value="true" />
+      <created>1747638821939</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1747638821940</updated>
+    </task>
+    <task id="LOCAL-00004" summary="@playereg">
+      <option name="closed" value="true" />
+      <created>1747644096815</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1747644096815</updated>
+    </task>
+    <task id="LOCAL-00005" summary="@playereg">
+      <option name="closed" value="true" />
+      <created>1747646256060</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1747646256060</updated>
+    </task>
+    <task id="LOCAL-00006" summary="@playereg">
+      <option name="closed" value="true" />
+      <created>1747646345424</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1747646345424</updated>
+    </task>
+    <task id="LOCAL-00007" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747646655939</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1747646655939</updated>
+    </task>
+    <task id="LOCAL-00008" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747646707908</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1747646707908</updated>
+    </task>
+    <task id="LOCAL-00009" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747646743077</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1747646743077</updated>
+    </task>
+    <task id="LOCAL-00010" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747703182706</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1747703182706</updated>
+    </task>
+    <task id="LOCAL-00011" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747706428818</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1747706428818</updated>
+    </task>
+    <task id="LOCAL-00012" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747707238246</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1747707238246</updated>
+    </task>
+    <task id="LOCAL-00013" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747707398008</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1747707398008</updated>
+    </task>
+    <task id="LOCAL-00014" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747707631340</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1747707631340</updated>
+    </task>
+    <task id="LOCAL-00015" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747708946009</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1747708946009</updated>
+    </task>
+    <task id="LOCAL-00016" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747709002187</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1747709002187</updated>
+    </task>
+    <task id="LOCAL-00017" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747709778733</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1747709778733</updated>
+    </task>
+    <task id="LOCAL-00018" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747710553274</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1747710553274</updated>
+    </task>
+    <task id="LOCAL-00019" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747711957718</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1747711957718</updated>
+    </task>
+    <task id="LOCAL-00020" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747717126755</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1747717126755</updated>
+    </task>
+    <task id="LOCAL-00021" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747718404047</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1747718404047</updated>
+    </task>
+    <task id="LOCAL-00022" summary="@PlayerEG&#10;更改了背景图片，优化了背景图片的绘制工具，新增json文件中的人物alice">
+      <option name="closed" value="true" />
+      <created>1747727672611</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1747727672611</updated>
+    </task>
+    <task id="LOCAL-00023" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747728024813</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1747728024813</updated>
+    </task>
+    <task id="LOCAL-00024" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747729093837</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1747729093837</updated>
+    </task>
+    <task id="LOCAL-00025" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747729378374</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1747729378374</updated>
+    </task>
+    <task id="LOCAL-00026" summary="@PlayerEG 更改提交规则">
+      <option name="closed" value="true" />
+      <created>1747729406084</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1747729406084</updated>
+    </task>
+    <task id="LOCAL-00027" summary="@PlayerEG 更改提交规则">
+      <option name="closed" value="true" />
+      <created>1747729507563</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1747729507563</updated>
+    </task>
+    <task id="LOCAL-00028" summary="@PlayerEG 窗体工具类">
+      <option name="closed" value="true" />
+      <created>1747731942366</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1747731942366</updated>
+    </task>
+    <task id="LOCAL-00029" summary="@PlayerEG 窗体工具类">
+      <option name="closed" value="true" />
+      <created>1747732050186</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1747732050186</updated>
+    </task>
+    <task id="LOCAL-00030" summary="@PlayerEG 增加按钮工具类，实现部分页面组件">
+      <option name="closed" value="true" />
+      <created>1747735252748</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1747735252748</updated>
+    </task>
+    <task id="LOCAL-00031" summary="@PlayerEG 增加按钮工具类，实现部分页面组件">
+      <option name="closed" value="true" />
+      <created>1747740794825</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1747740794825</updated>
+    </task>
+    <task id="LOCAL-00032" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747740804488</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1747740804488</updated>
+    </task>
+    <task id="LOCAL-00033" summary="@PlayerEG 添加说明注释">
+      <option name="closed" value="true" />
+      <created>1747741652236</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1747741652236</updated>
+    </task>
+    <task id="LOCAL-00034" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747742222583</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1747742222583</updated>
+    </task>
+    <task id="LOCAL-00035" summary="@PlayerEG&#10;禁止防御性编程！！！&#10;禁止防御性编程！！！&#10;禁止防御性编程！！！">
+      <option name="closed" value="true" />
+      <created>1747746333701</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1747746333701</updated>
+    </task>
+    <task id="LOCAL-00036" summary="@PlayerEG&#10;禁止防御性编程！！！&#10;禁止防御性编程！！！&#10;禁止防御性编程！！！">
+      <option name="closed" value="true" />
+      <created>1747746412127</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1747746412127</updated>
+    </task>
+    <task id="LOCAL-00037" summary="@PlayerEG&#10;禁止防御性编程！！！&#10;禁止防御性编程！！！&#10;禁止防御性编程！！！">
+      <option name="closed" value="true" />
+      <created>1747746487987</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1747746487987</updated>
+    </task>
+    <task id="LOCAL-00038" summary="@PlayerEG&#10;禁止防御性编程！！！&#10;禁止防御性编程！！！&#10;禁止防御性编程！！！">
+      <option name="closed" value="true" />
+      <created>1747746554845</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1747746554845</updated>
+    </task>
+    <task id="LOCAL-00039" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747749345363</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1747749345363</updated>
+    </task>
+    <task id="LOCAL-00040" summary="@PlayerEG&#10;完善登录和注册">
+      <option name="closed" value="true" />
+      <created>1747754490285</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1747754490285</updated>
+    </task>
+    <task id="LOCAL-00041" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747754713423</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1747754713423</updated>
+    </task>
+    <task id="LOCAL-00042" summary="@PlayerEG&#10;完善登录，注册，重置密码面板">
+      <option name="closed" value="true" />
+      <created>1747755306017</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1747755306017</updated>
+    </task>
+    <task id="LOCAL-00043" summary="@PlayerEG&#10;完善注释，拒绝防御性编程！！！">
+      <option name="closed" value="true" />
+      <created>1747757130454</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1747757130454</updated>
+    </task>
+    <task id="LOCAL-00044" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747757391283</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1747757391284</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/top/playereg/sys/pages/RegisterFrame.java">
+      <option name="closed" value="true" />
+      <created>1747757450090</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1747757450090</updated>
+    </task>
+    <task id="LOCAL-00046" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747757568274</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1747757568274</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/master" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="@playereg" />
+    <MESSAGE value="@PlayerEG&#10;更改了背景图片，优化了背景图片的绘制工具，新增json文件中的人物alice" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
+    <MESSAGE value="@PlayerEG 更改提交规则" />
+    <MESSAGE value="@PlayerEG 窗体工具类" />
+    <MESSAGE value="@PlayerEG 增加按钮工具类，实现部分页面组件" />
+    <MESSAGE value="@PlayerEG 添加说明注释" />
+    <MESSAGE value="@PlayerEG&#10;禁止防御性编程！！！&#10;禁止防御性编程！！！&#10;禁止防御性编程！！！" />
+    <MESSAGE value="@PlayerEG&#10;完善登录和注册" />
+    <MESSAGE value="@PlayerEG&#10;完善登录，注册，重置密码面板" />
+    <MESSAGE value="@PlayerEG&#10;完善注释，拒绝防御性编程！！！" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/top/playereg/sys/pages/RegisterFrame.java" />
+    <MESSAGE value="@PlayerEG" />
+    <option name="LAST_COMMIT_MESSAGE" value="@PlayerEG" />
+  </component>
+</project>
