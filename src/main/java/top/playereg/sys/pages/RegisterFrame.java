@@ -147,11 +147,9 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
         if (e.getSource() == sendEmailCodeBtn) {
             // todo 发送验证码
             System.out.println("发送验证码");
-            if (emailField.getText().equals("")){
+            if (emailField.getText().isEmpty()){
                 JOptionPane.showMessageDialog(this, "请输入邮箱");
             } else {
-                JOptionPane.showMessageDialog(this, "验证码已发送");
-
                 Boolean isSend = EmailTool.sendEmail(
                         "丛雨",
                         "ciallo@email.playereg.top",
@@ -161,6 +159,7 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
                 );
                 if (isSend) {
                     emailCodeField.setEditable(true);
+                    JOptionPane.showMessageDialog(this, "验证码已发送");
                 } else {
                     JOptionPane.showMessageDialog(this, "验证码发送失败");
                 }
