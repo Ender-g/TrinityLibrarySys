@@ -162,11 +162,11 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
                 JOptionPane.showMessageDialog(this, "请填写完整信息");
             } else if (!name.matches(numberInput) || !email.matches(emailInput) ||
                     !password.matches(passwordInput) || !confirmPassword.matches(passwordInput)) {
-                if (!name.matches(numberInput)){
+                if (!name.matches(numberInput)) {
                     JOptionPane.showMessageDialog(this, "请输入正确的用户名");
-                } else if (!email.matches(emailInput)){
+                } else if (!email.matches(emailInput)) {
                     JOptionPane.showMessageDialog(this, "请输入正确的邮箱");
-                } else if (!password.matches(passwordInput) || !confirmPassword.matches(passwordInput)){
+                } else if (!password.matches(passwordInput) || !confirmPassword.matches(passwordInput)) {
                     JOptionPane.showMessageDialog(this, "请输入正确的密码");
                 }
             } else if (!password.equals(confirmPasswordField.getText())) {
