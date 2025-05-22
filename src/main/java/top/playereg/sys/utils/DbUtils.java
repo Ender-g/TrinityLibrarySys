@@ -15,7 +15,7 @@ public abstract class DbUtils<T> {
         }
     }
 
-    protected Connection conn; // 数据库连接
+    protected static Connection conn; // 数据库连接
     protected PreparedStatement statement; // 预编译语句
     protected ResultSet set; // 结果集
 
@@ -29,7 +29,7 @@ public abstract class DbUtils<T> {
         }
     }
 
-    Connection getConnection() {
+    public static Connection getConnection() {
         // 1.2 建立连接
         try {
             String url = "jdbc:mysql://127.0.0.1:3306/db_library_app?useSSL=false&serverTimezone=Asia/Shanghai";
