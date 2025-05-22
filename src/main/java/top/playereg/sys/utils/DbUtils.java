@@ -1,9 +1,9 @@
-package top.playereg.sys.dao;
+package top.playereg.sys.utils;
 
 import javax.swing.*;
 import java.sql.*;
 
-public abstract class BaseDao<T> {
+public abstract class DbUtils<T> {
     // 静态代码块 被static修饰的语句只在类加载的时候执行
     static {
         // 建立连接
