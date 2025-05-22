@@ -172,15 +172,14 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
             } else if (currentTime == 0 && (currentTime - System.currentTimeMillis()) > 120000) { // 验证码过期时间 2min
                 JOptionPane.showMessageDialog(this, "验证码已过期");
             } else {
-                if (!UserDao.register(new User(
+                UserDao.register(new User(
                         0,
                         nameField.getText(),
                         HashTool.hashPassword(password),
                         emailField.getText(),
                         "0",
                         "0"
-                ))) {
-                }
+                ));
                 currentTime = 0;
                 new LoginFrame().setVisible(true);
                 this.dispose();
