@@ -149,6 +149,7 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == registerBtn) {
+            System.out.println("创建账号");
             String name = nameField.getText();
             String email = emailField.getText();
             String password = PasswordField.getText();
@@ -163,16 +164,15 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
                 JOptionPane.showMessageDialog(this, "两次密码不一致");
             } else if (!emailCode.equals(tempCode)) {
                 JOptionPane.showMessageDialog(this, "验证码错误");
-            } else if (currentTime == 0 && (currentTime - System.currentTimeMillis()) > 120000) { // 验证码过期时间
+            } else if (currentTime == 0 && (currentTime - System.currentTimeMillis()) > 120000) { // 验证码过期时间 2min
                 JOptionPane.showMessageDialog(this, "验证码已过期");
-            } // todo 完善注册功能
-            else {
-//                DbUtils.insertUser(name, email, password);
+            } else {
+                // todo 上传数据库
                 JOptionPane.showMessageDialog(this, "注册成功");
                 currentTime = 0;
+                new LoginFrame().setVisible(true);
+                this.dispose();
             }
-
-            System.out.println("创建账号");
         }
         if (e.getSource() == backBtn) {
             System.out.println("返回");
@@ -181,7 +181,6 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
             currentTime = 0;
         }
         if (e.getSource() == sendEmailCodeBtn) {
-            // todo 完善发送验证码
             System.out.println("发送验证码");
             currentTime = 0;
             if (!(PingNetTool.ping("qq.com") || PingNetTool.ping("bilibili.com"))) {
