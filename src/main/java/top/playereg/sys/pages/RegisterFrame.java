@@ -20,10 +20,12 @@ import java.awt.event.ActionListener;
 
 import static top.playereg.sys.utils.DiyColors.darkgreen;
 import static top.playereg.sys.utils.DiyColors.skyblue;
+import static top.playereg.sys.utils.EmailText.code;
 import static top.playereg.sys.utils.EmailText.text1;
-
+import static top.playereg.sys.utils.InputTool.*;
 
 public class RegisterFrame extends javax.swing.JFrame implements ActionListener {
+    private static long currentTime;
     /* 声明组件%start================================================================================== */
     private JLabel registerPanel;
     private JLabel titleLabel;
@@ -32,6 +34,7 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
     private JPasswordField PasswordField, confirmPasswordField; //  密码、确认密码（密码框）
     private JButton sendEmailCodeBtn, registerBtn, backBtn; // 发送验证码、注册、返回（按钮）
     private JLabel backgroundImg; // 背景图片
+    private String tempCode;
     /* 声明组件%end================================================================================== */
 
     public RegisterFrame() {
@@ -134,33 +137,61 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
         /* 监听%end=========================================================================== */
     }
 
-    /* 执行监听%end=========================================================================== */
     public static void main(String[] args) {
+        System.out.println("当前时间：" + currentTime);
         new RegisterFrame();
-
     }
 
     /* 执行监听%start=========================================================================== */
+
+    /* 执行监听%end=========================================================================== */
     @Override
     public void actionPerformed(ActionEvent e) {
+
         if (e.getSource() == registerBtn) {
-            // todo 创建账号
+            String name = nameField.getText();
+            String email = emailField.getText();
+            String password = PasswordField.getText();
+            String confirmPassword = confirmPasswordField.getText();
+            String emailCode = emailCodeField.getText();
+            if (name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || emailCode.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "请填写完整信息");
+            } else if (!name.matches(numberInput) || !email.matches(emailInput) ||
+                    !password.matches(passwordInput) || !confirmPassword.matches(passwordInput)) {
+                JOptionPane.showMessageDialog(this, "请输入正确的信息");
+            } else if (!password.equals(confirmPasswordField.getText())) {
+                JOptionPane.showMessageDialog(this, "两次密码不一致");
+            } else if (!emailCode.equals(tempCode)) {
+                JOptionPane.showMessageDialog(this, "验证码错误");
+            } else if (currentTime == 0 && (currentTime - System.currentTimeMillis()) > 120000) { // 验证码过期时间
+                JOptionPane.showMessageDialog(this, "验证码已过期");
+            } // todo 完善注册功能
+            else {
+//                DbUtils.insertUser(name, email, password);
+                JOptionPane.showMessageDialog(this, "注册成功");
+                currentTime = 0;
+            }
+
             System.out.println("创建账号");
         }
         if (e.getSource() == backBtn) {
             System.out.println("返回");
             new LoginFrame().setVisible(true);
             this.dispose();
+            currentTime = 0;
         }
         if (e.getSource() == sendEmailCodeBtn) {
             // todo 完善发送验证码
             System.out.println("发送验证码");
-            if (!PingNetTool.ping("resend.com")) {
-                JOptionPane.showMessageDialog(this, "请检查网络");
+            currentTime = 0;
+            if (!(PingNetTool.ping("qq.com") || PingNetTool.ping("bilibili.com"))) {
+                JOptionPane.showMessageDialog(this, "我网呢？？？");
+            } else if (!PingNetTool.ping("resend.com")) {
+                JOptionPane.showMessageDialog(this, "服务器跑路了（bush");
             } else if (emailField.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(this, "请输入邮箱");
-            } else if (!emailField.getText().contains("@")) {
-                JOptionPane.showMessageDialog(this, "邮箱格式错误");
+                JOptionPane.showMessageDialog(this, "不要用虚无邮箱！！！");
+            } else if (!emailField.getText().matches("^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$")) {
+                JOptionPane.showMessageDialog(this, "这是正确的邮箱地址吗？");
             } else {
                 Boolean isSend = EmailTool.sendEmail(
                         "丛雨",
@@ -169,8 +200,10 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
                         "丛雨来消息了！！！",
                         text1
                 );
+                tempCode = code;
                 if (isSend) {
                     emailCodeField.setEditable(true);
+                    currentTime = System.currentTimeMillis(); // 记录当前时间
                     JOptionPane.showMessageDialog(this, "验证码已发送");
                 } else {
                     JOptionPane.showMessageDialog(this, "验证码发送失败");
