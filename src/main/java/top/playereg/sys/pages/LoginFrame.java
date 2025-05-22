@@ -75,7 +75,9 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
         emailCodeField = new JTextField();
         SetFrameTool.setFontStyle(emailCodeField, 15, Color.black,
                 580, 250, 100, 35, loginPanel);
-        InputTool.jast6NumberInput(emailCodeField);
+        InputTool.jast6NumberInput(emailCodeField); // 限制输入
+        emailCodeField.setEditable(false); // 禁止手动输入
+
 
         // 发送验证码按钮
         sendEmailCodeBtn = new JButton("发送验证码");
@@ -122,6 +124,7 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
         if (e.getSource() == loginBtn) {
             // todo 登录
             System.out.println("登录");
+
         }
         if (e.getSource() == registerBtn) {
             System.out.println("注册");
@@ -132,6 +135,7 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
             System.out.println("忘记密码");
             new ForgetPasswordFrame().setVisible(true);
             this.dispose();
+//           this.setVisible(true);
         }
         if (e.getSource() == sendEmailCodeBtn) {
             // todo 发送验证码

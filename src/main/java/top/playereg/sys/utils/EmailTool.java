@@ -24,7 +24,7 @@ public class EmailTool {
         sendEmail(
                 "TestBot",
                 "test@email.playereg.top",
-                "2254674706@qq.com",
+                "ikun@email.playereg.top",
                 "测试邮件",
                 "<html><body><h1>这是测试邮件</h1></body></html>"
         );
@@ -56,11 +56,11 @@ public class EmailTool {
             CreateEmailResponse data = resend.emails().send(params);
             System.out.println("邮件ID：" + data.getId());
             return true;
-        } catch (ResendException e) {
-            e.printStackTrace();
+        } catch (ResendException e) { // 发送邮件失败
             return false;
         } catch (FileNotFoundException e) { // 处理文件不存在的异常
-            throw new RuntimeException(e);
+            return false;
         }
+
     }
 }

@@ -1,3 +1,11 @@
+/*
+ *
+ * @author: playereg
+ * @description: 输入限制工具
+ * @version: 1.0
+ *
+ * */
+
 package top.playereg.sys.utils;
 
 import org.jetbrains.annotations.NotNull;
@@ -30,4 +38,7 @@ public class InputTool {
             }
         });
     }
+    public static String numberInput = "^[a-zA-Z0-9_-]{3,16}$";
+    public static String emailInput = "^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$";
+    public static String passwordInput = "^[a-zA-Z0-9_-]{6,16}$";
 }
