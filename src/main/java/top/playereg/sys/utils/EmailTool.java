@@ -24,7 +24,7 @@ public class EmailTool {
         sendEmail(
                 "TestBot",
                 "test@email.playereg.top",
-                "enderg@qq.com",
+                "ikun@email.playereg.top",
                 "测试邮件",
                 "<html><body><h1>这是测试邮件</h1></body></html>"
         );

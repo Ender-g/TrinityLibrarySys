@@ -25,6 +25,9 @@ import static top.playereg.sys.utils.InputTool.*;
 
 public class RegisterFrame extends javax.swing.JFrame implements ActionListener {
     private static long currentTime;
+    private String tempCode;
+    private String tempEmail; // 新增字段用于保存发送验证码时的邮箱
+
     /* 声明组件%start================================================================================== */
     private JLabel registerPanel;
     private JLabel titleLabel;
@@ -33,7 +36,7 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
     private JPasswordField PasswordField, confirmPasswordField; //  密码、确认密码（密码框）
     private JButton sendEmailCodeBtn, registerBtn, backBtn; // 发送验证码、注册、返回（按钮）
     private JLabel backgroundImg; // 背景图片
-    private String tempCode;
+
     /* 声明组件%end================================================================================== */
 
     public RegisterFrame() {
@@ -168,6 +171,8 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
                 }
             } else if (!password.equals(confirmPasswordField.getText())) {
                 JOptionPane.showMessageDialog(this, "两次密码不一致");
+            } else if (tempEmail != null && !email.equals(tempEmail)) { // 新增邮箱变更校验
+                JOptionPane.showMessageDialog(this, "邮箱已更改，请重新发送验证码");
             } else if (!emailCode.equals(tempCode)) {
                 JOptionPane.showMessageDialog(this, "验证码错误");
             } else if (currentTime == 0 && (currentTime - System.currentTimeMillis()) > 120000) { // 验证码过期时间 2min
@@ -211,10 +216,11 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
                         "丛雨来消息了！！！",
                         text1
                 );
-                tempCode = code;
                 if (isSend) {
                     emailCodeField.setEditable(true);
-                    currentTime = System.currentTimeMillis(); // 记录当前时间
+                    currentTime = System.currentTimeMillis();
+                    tempCode = code;
+                    tempEmail = emailField.getText(); // 记录发送验证码时的邮箱
                     JOptionPane.showMessageDialog(this, "验证码已发送");
                 } else {
                     JOptionPane.showMessageDialog(this, "验证码发送失败");
