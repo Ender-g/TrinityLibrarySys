@@ -135,6 +135,7 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
             System.out.println("忘记密码");
             new ForgetPasswordFrame().setVisible(true);
             this.dispose();
+//           this.setVisible(true);
         }
         if (e.getSource() == sendEmailCodeBtn) {
             // todo 发送验证码
