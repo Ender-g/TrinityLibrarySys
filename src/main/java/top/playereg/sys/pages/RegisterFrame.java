@@ -16,17 +16,23 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import static top.playereg.sys.utils.DiyColors.darkgreen;
 import static top.playereg.sys.utils.DiyColors.skyblue;
 import static top.playereg.sys.utils.EmailText.code;
 import static top.playereg.sys.utils.EmailText.text1;
 import static top.playereg.sys.utils.InputTool.*;
+import static top.playereg.sys.utils.DbUtils.*;
 
 public class RegisterFrame extends javax.swing.JFrame implements ActionListener {
     private static long currentTime;
     private String tempCode;
     private String tempEmail; // 新增字段用于保存发送验证码时的邮箱
+    private int tempIsDel = 1;
 
     /* 声明组件%start================================================================================== */
     private JLabel registerPanel;
@@ -158,6 +164,22 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
             String confirmPassword = confirmPasswordField.getText();
             String emailCode = emailCodeField.getText();
 
+            // 获取tb_user数据库中对应邮箱的is_del的值，1-该邮箱已被删除，0-该邮箱未被删除
+            String sql = "select * from tb_user where email = ?";
+            try (Connection conn = DbUtils.getConnection();
+                 PreparedStatement ps = conn.prepareStatement(sql)) {
+                ps.setString(1, email);
+                try (ResultSet rs = ps.executeQuery()) {
+                    if (rs.next()) {
+                        tempIsDel = rs.getInt("is_del");
+                    }
+                }
+            } catch (SQLException ex) {
+                throw new RuntimeException("数据库查询失败", ex);
+            }
+            System.out.println("tempIsDel = " + tempIsDel);
+            // 新增is_del校验逻辑
+
             if (name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || emailCode.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "请填写完整信息");
             } else if (!name.matches(numberInput) || !email.matches(emailInput) ||
@@ -178,17 +200,21 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
             } else if (currentTime == 0 && (currentTime - System.currentTimeMillis()) > 120000) { // 验证码过期时间 2min
                 JOptionPane.showMessageDialog(this, "验证码已过期");
             } else {
-                UserDao.register(new User(
-                        0,
-                        nameField.getText(),
-                        HashTool.toHashCode(password),
-                        emailField.getText(),
-                        "0",
-                        "0"
-                ));
-                currentTime = 0;
-                new LoginFrame().setVisible(true);
-                this.dispose();
+                if (tempIsDel == 1) {
+                    UserDao.register(new User(
+                            0,
+                            nameField.getText(),
+                            HashTool.toHashCode(password),
+                            emailField.getText(),
+                            "0",
+                            "0"
+                    ));
+                    currentTime = 0;
+                    new LoginFrame().setVisible(true);
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "该邮箱已被删除");
+                }
             }
         }
         if (e.getSource() == backBtn) {
