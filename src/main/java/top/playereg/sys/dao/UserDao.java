@@ -69,7 +69,6 @@ public class UserDao {
 
     /* 注册逻辑%start========================================================================================== */
     public static boolean register(User user) {
-        // todo 注册逻辑
         Connection conn = DbUtils.getConnection();
         PreparedStatement ps = null;
         String sql;
@@ -120,7 +119,6 @@ public class UserDao {
 
     /* 修改改密码逻辑%start========================================================================================== */
     public static boolean updatePassword(User user) {
-        // todo 更改密码逻辑-用于忘记密码&更改密码
         Connection conn = DbUtils.getConnection();
         PreparedStatement ps = null;
         String sql = "update tb_user set password = ? where email = ?";
