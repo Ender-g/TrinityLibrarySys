@@ -30,10 +30,10 @@ public class UserDao {
         try {
             ps = conn.prepareStatement(sql);
             ps.setString(1, email);
-            ps.setString(2, HashTool.hashPassword(password));
+            ps.setString(2, HashTool.toHashCode(password));
             ResultSet rs = ps.executeQuery(); // 执行查询
             if (rs.next() && rs.getString("email").equals(email)) {
-                if (rs.getString("password").equals(HashTool.hashPassword(password))) {
+                if (rs.getString("password").equals(HashTool.toHashCode(password))) {
                     UserSaveTool.setCurerntLoginUserName(rs.getString("username"));
                     UserSaveTool.setCurerntLoginUserPassword(rs.getString("password"));
                     UserSaveTool.setCurerntLoginUserEmail(rs.getString("email"));
@@ -86,7 +86,7 @@ public class UserDao {
             sql = "insert into tb_user (username, password, email, is_root, is_del) values (?, ?, ?, ?, ?)";
             ps = conn.prepareStatement(sql);
             ps.setString(1, user.getUsername());
-            ps.setString(2, HashTool.hashPassword(user.getPassword()));
+            ps.setString(2, HashTool.toHashCode(user.getPassword()));
             ps.setString(3, user.getEmail());
             ps.setString(4, user.getIs_root());
             ps.setString(5, user.getIs_del());
@@ -124,7 +124,7 @@ public class UserDao {
         String sql = "update tb_user set password = ? where email = ?";
         try {
             ps = conn.prepareStatement(sql);
-            ps.setString(1, HashTool.hashPassword(user.getPassword()));
+            ps.setString(1, HashTool.toHashCode(user.getPassword()));
             ps.setString(2, user.getEmail());
             int count = ps.executeUpdate();
             if (count > 0) {

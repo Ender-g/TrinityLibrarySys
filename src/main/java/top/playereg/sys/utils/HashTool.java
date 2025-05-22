@@ -15,10 +15,10 @@ public class HashTool {
 //    test
     public static void main(String[] args) {
         String password = "123456";
-        String hashedPassword = hashPassword(password);
+        String hashedPassword = toHashCode(password);
         System.out.println(password  + " 密码哈希：" + hashedPassword);
     }
-public static String hashPassword(String password) {
+public static String toHashCode(String password) {
     String originalString = password;
     StringBuilder hexString = null;
 

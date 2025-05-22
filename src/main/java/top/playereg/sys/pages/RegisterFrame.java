@@ -154,6 +154,7 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
             String password = PasswordField.getText();
             String confirmPassword = confirmPasswordField.getText();
             String emailCode = emailCodeField.getText();
+
             if (name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || emailCode.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "请填写完整信息");
             } else if (!name.matches(numberInput) || !email.matches(emailInput) ||
@@ -175,7 +176,7 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
                 UserDao.register(new User(
                         0,
                         nameField.getText(),
-                        HashTool.hashPassword(password),
+                        HashTool.toHashCode(password),
                         emailField.getText(),
                         "0",
                         "0"
@@ -217,6 +218,7 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
                     JOptionPane.showMessageDialog(this, "验证码已发送");
                 } else {
                     JOptionPane.showMessageDialog(this, "验证码发送失败");
+
                 }
             }
         }
