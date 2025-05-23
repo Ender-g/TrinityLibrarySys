@@ -28,9 +28,9 @@ import static top.playereg.sys.utils.EmailText.text1;
 import static top.playereg.sys.utils.InputTool.*;
 
 public class RegisterFrame extends javax.swing.JFrame implements ActionListener {
-    private static long currentTime;
-    private String tempCode;
-    private String tempEmail; // 新增字段用于保存发送验证码时的邮箱
+    private static long currentTime = 0;
+    private String tempCode = null;
+    private String tempEmail = null; // 新增字段用于保存发送验证码时的邮箱
     private int tempIsDel = 1;
 
     /* 声明组件%start================================================================================== */
@@ -182,9 +182,9 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
             System.out.println("tempIsDel = " + tempIsDel);
             if (name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || emailCode.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "请填写完整信息");
-            } else if (!name.matches(numberInput) || !email.matches(emailInput) ||
+            } else if (!name.matches(nameInput) || !email.matches(emailInput) ||
                     !password.matches(passwordInput) || !confirmPassword.matches(passwordInput)) {
-                if (!name.matches(numberInput)) {
+                if (!name.matches(nameInput)) {
                     JOptionPane.showMessageDialog(this, "请输入正确的用户名");
                 } else if (!email.matches(emailInput)) {
                     JOptionPane.showMessageDialog(this, "请输入正确的邮箱");
@@ -219,7 +219,6 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
         }
         if (e.getSource() == backBtn) {
             System.out.println("返回");
-            currentTime = 0;
             new LoginFrame().setVisible(true);
             this.dispose();
         }
@@ -232,7 +231,7 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
                 JOptionPane.showMessageDialog(this, "服务器跑路了（bush");
             } else if (emailField.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(this, "不要用虚无邮箱！！！");
-            } else if (!emailField.getText().matches("^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$")) {
+            } else if (!emailField.getText().matches(emailInput)) {
                 JOptionPane.showMessageDialog(this, "这是正确的邮箱地址吗？");
             } else {
                 Boolean isSend = EmailTool.sendEmail(
