@@ -13,7 +13,7 @@ public class EmailText {
         EmailTool.sendEmail(
                 "playereg",
                 "test@email.playereg.top",
-                "playereg@email.playereg.top",
+                "2254674706@qq.com",
                 "TEST",
                 text1);
     }
