@@ -197,7 +197,7 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
                 JOptionPane.showMessageDialog(this, "邮箱已更改，请重新发送验证码");
             } else if (!emailCode.equals(tempCode)) {
                 JOptionPane.showMessageDialog(this, "验证码错误");
-            } else if (currentTime == 0 && (currentTime - System.currentTimeMillis()) > 120000) { // 验证码过期时间 2min
+            } else if (currentTime == 0 && (currentTime - System.currentTimeMillis()) > 300000) { // 验证码过期时间 5min
                 JOptionPane.showMessageDialog(this, "验证码已过期");
             } else {
                 if (tempIsDel == 1) {
