@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1e8c1163-b9c1-4b38-9063-686076e159bd" name="更改" comment="@PlayerEG" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTTP Request" />
+        <option value="package.json" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="PlayerEG &lt;enderg@qq.com&gt;" />
+        <option value="PE Geek &lt;enderg@qq.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Ender-g&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Ender-g/LibrarySys.git&quot;,
+    &quot;accountId&quot;: &quot;66173633-8696-426e-8460-d8f1426c337a&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/pom.xml" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/top/playereg/sys/dao/UserDao.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/top/playereg/sys/pages/LoginFrame.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/top/playereg/sys/pages/MangerInterface.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/top/playereg/sys/utils/InputTool.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/top/playereg/sys/utils/SetFrameTool.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/top/playereg/sys/utils/UserSaveTool.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2xIr09zFeu49f1LxHxDieNRWurj" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/IdeaProjects/LibrarySys&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/user/Documents/IdeaProjects/LibrarySys/src/main/java/top/playereg/sys/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;,
+    &quot;应用程序.DbUtils.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.EmailTool.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.ForgetPasswordFrame.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.HashTest.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.HashTool.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.LoginFrame.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.Main.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.MakeFrameTool.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.MangerInterface.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.PingNetTool.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.RegisterFrame.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.SendEmailTool.executor&quot;: &quot;Run&quot;,
+    &quot;应用程序.SendTest.executor&quot;: &quot;Run&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Documents\IdeaProjects\LibrarySys\src\main\java\top\playereg\sys\dao" />
+      <recent name="C:\Users\user\Documents\IdeaProjects\LibrarySys\src\main\java\top\playereg\sys\img" />
+      <recent name="D:\IdeaProjects\LibrarySys\src\main\java\top\playereg\sys\utils" />
+      <recent name="D:\IdeaProjects\LibrarySys\src\main\java\top\playereg\sys\img" />
+      <recent name="C:\Users\user\Documents\IdeaProjects\LibrarySys\src\main\java\top\playereg" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="top.playereg.sys.Main" />
+      <module name="LibrarySys" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="top.playereg.sys.pages.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="应用程序.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.19416.15" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.19416.15" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="1e8c1163-b9c1-4b38-9063-686076e159bd" name="更改" comment="" />
+      <created>1747636202959</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1747636202959</updated>
+      <workItem from="1747636204033" duration="4125000" />
+      <workItem from="1747640380094" duration="1498000" />
+      <workItem from="1747643289533" duration="154000" />
+      <workItem from="1747646778849" duration="1529000" />
+      <workItem from="1747650140165" duration="191000" />
+      <workItem from="1747650464922" duration="2491000" />
+      <workItem from="1747654435731" duration="1197000" />
+      <workItem from="1747700727191" duration="1040000" />
+      <workItem from="1747702172096" duration="9909000" />
+      <workItem from="1747712194221" duration="188000" />
+      <workItem from="1747716536048" duration="427000" />
+      <workItem from="1747716975588" duration="720000" />
+      <workItem from="1747718658223" duration="76000" />
+      <workItem from="1747722671566" duration="4583000" />
+      <workItem from="1747727999956" duration="295000" />
+      <workItem from="1747729497520" duration="2470000" />
+      <workItem from="1747732715988" duration="10925000" />
+      <workItem from="1747746402400" duration="513000" />
+      <workItem from="1747749182497" duration="727000" />
+      <workItem from="1747751195598" duration="6171000" />
+      <workItem from="1747757714845" duration="23000" />
+      <workItem from="1747784448471" duration="3933000" />
+      <workItem from="1747789805165" duration="3917000" />
+      <workItem from="1747796031890" duration="49000" />
+      <workItem from="1747796096273" duration="2497000" />
+      <workItem from="1747798608769" duration="1456000" />
+      <workItem from="1747800268631" duration="10000" />
+      <workItem from="1747803441504" duration="323000" />
+      <workItem from="1747805102667" duration="31000" />
+      <workItem from="1747805143368" duration="79000" />
+      <workItem from="1747805232206" duration="254000" />
+      <workItem from="1747805496942" duration="571000" />
+      <workItem from="1747806360240" duration="492000" />
+      <workItem from="1747810683937" duration="3743000" />
+      <workItem from="1747818798192" duration="1250000" />
+      <workItem from="1747833307377" duration="8884000" />
+      <workItem from="1747871418862" duration="13543000" />
+      <workItem from="1747894449213" duration="1933000" />
+      <workItem from="1747899064473" duration="168000" />
+      <workItem from="1747899244419" duration="141000" />
+      <workItem from="1747899407706" duration="26000" />
+      <workItem from="1747899893850" duration="536000" />
+      <workItem from="1747900520531" duration="31000" />
+      <workItem from="1747908590648" duration="295000" />
+      <workItem from="1747908908786" duration="239000" />
+      <workItem from="1747914855110" duration="5882000" />
+    </task>
+    <task id="LOCAL-00022" summary="@PlayerEG&#10;更改了背景图片，优化了背景图片的绘制工具，新增json文件中的人物alice">
+      <option name="closed" value="true" />
+      <created>1747727672611</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1747727672611</updated>
+    </task>
+    <task id="LOCAL-00023" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747728024813</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1747728024813</updated>
+    </task>
+    <task id="LOCAL-00024" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747729093837</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1747729093837</updated>
+    </task>
+    <task id="LOCAL-00025" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747729378374</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1747729378374</updated>
+    </task>
+    <task id="LOCAL-00026" summary="@PlayerEG 更改提交规则">
+      <option name="closed" value="true" />
+      <created>1747729406084</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1747729406084</updated>
+    </task>
+    <task id="LOCAL-00027" summary="@PlayerEG 更改提交规则">
+      <option name="closed" value="true" />
+      <created>1747729507563</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1747729507563</updated>
+    </task>
+    <task id="LOCAL-00028" summary="@PlayerEG 窗体工具类">
+      <option name="closed" value="true" />
+      <created>1747731942366</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1747731942366</updated>
+    </task>
+    <task id="LOCAL-00029" summary="@PlayerEG 窗体工具类">
+      <option name="closed" value="true" />
+      <created>1747732050186</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1747732050186</updated>
+    </task>
+    <task id="LOCAL-00030" summary="@PlayerEG 增加按钮工具类，实现部分页面组件">
+      <option name="closed" value="true" />
+      <created>1747735252748</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1747735252748</updated>
+    </task>
+    <task id="LOCAL-00031" summary="@PlayerEG 增加按钮工具类，实现部分页面组件">
+      <option name="closed" value="true" />
+      <created>1747740794825</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1747740794825</updated>
+    </task>
+    <task id="LOCAL-00032" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747740804488</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1747740804488</updated>
+    </task>
+    <task id="LOCAL-00033" summary="@PlayerEG 添加说明注释">
+      <option name="closed" value="true" />
+      <created>1747741652236</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1747741652236</updated>
+    </task>
+    <task id="LOCAL-00034" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747742222583</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1747742222583</updated>
+    </task>
+    <task id="LOCAL-00035" summary="@PlayerEG&#10;禁止防御性编程！！！&#10;禁止防御性编程！！！&#10;禁止防御性编程！！！">
+      <option name="closed" value="true" />
+      <created>1747746333701</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1747746333701</updated>
+    </task>
+    <task id="LOCAL-00036" summary="@PlayerEG&#10;禁止防御性编程！！！&#10;禁止防御性编程！！！&#10;禁止防御性编程！！！">
+      <option name="closed" value="true" />
+      <created>1747746412127</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1747746412127</updated>
+    </task>
+    <task id="LOCAL-00037" summary="@PlayerEG&#10;禁止防御性编程！！！&#10;禁止防御性编程！！！&#10;禁止防御性编程！！！">
+      <option name="closed" value="true" />
+      <created>1747746487987</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1747746487987</updated>
+    </task>
+    <task id="LOCAL-00038" summary="@PlayerEG&#10;禁止防御性编程！！！&#10;禁止防御性编程！！！&#10;禁止防御性编程！！！">
+      <option name="closed" value="true" />
+      <created>1747746554845</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1747746554845</updated>
+    </task>
+    <task id="LOCAL-00039" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747749345363</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1747749345363</updated>
+    </task>
+    <task id="LOCAL-00040" summary="@PlayerEG&#10;完善登录和注册">
+      <option name="closed" value="true" />
+      <created>1747754490285</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1747754490285</updated>
+    </task>
+    <task id="LOCAL-00041" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747754713423</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1747754713423</updated>
+    </task>
+    <task id="LOCAL-00042" summary="@PlayerEG&#10;完善登录，注册，重置密码面板">
+      <option name="closed" value="true" />
+      <created>1747755306017</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1747755306017</updated>
+    </task>
+    <task id="LOCAL-00043" summary="@PlayerEG&#10;完善注释，拒绝防御性编程！！！">
+      <option name="closed" value="true" />
+      <created>1747757130454</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1747757130454</updated>
+    </task>
+    <task id="LOCAL-00044" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747787253875</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1747787253876</updated>
+    </task>
+    <task id="LOCAL-00045" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747787436384</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1747787436384</updated>
+    </task>
+    <task id="LOCAL-00046" summary="@PlayerEG&#10;feat(database): 添加数据库连接功能并优化用户相关页面&#10;&#10;- 新增 DbUtils 工具类，用于数据库连接&#10;- 创建 User 实体类&#10;- 更新 LoginFrame、RegisterFrame 和 ResetPasswordFrame 页面样式- 调整字体大小和颜色，优化用户体验">
+      <option name="closed" value="true" />
+      <created>1747795864679</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1747795864679</updated>
+    </task>
+    <task id="LOCAL-00047" summary="refactor(utils): 重命名 Email 工具类并优化验证码输入限制&#10;&#10;- 将 SendEmailTool 类重命名为 EmailTool&#10;- 在 LoginFrame 中添加验证码输入限制，只允许 6 位数字- 更新 ResetPasswordFrame 中获取验证码按钮的命名&#10;- 删除未使用的 SetFrameTool 类&#10;- 新增 InputTool 类，用于处理用户输入限制">
+      <option name="closed" value="true" />
+      <created>1747797614125</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1747797614125</updated>
+    </task>
+    <task id="LOCAL-00048" summary="refactor(pages): 重构忘记密码功能页面&#10;&#10;- 将 ResetPasswordFrame 重命名为 ForgetPasswordFrame- 在 InputTool 中添加 jast6NumberInput 方法，用于限制文本框输入&#10;- 更新 LoginFrame 和 RegisterFrame 中的忘记密码按钮跳转&#10;- 新增 ChangePasswordFrame 类">
+      <option name="closed" value="true" />
+      <created>1747805329157</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1747805329157</updated>
+    </task>
+    <task id="LOCAL-00049" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747806421156</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1747806421156</updated>
+    </task>
+    <task id="LOCAL-00050" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747806983917</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1747806983917</updated>
+    </task>
+    <task id="LOCAL-00051" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747816184861</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1747816184862</updated>
+    </task>
+    <task id="LOCAL-00052" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747835580390</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1747835580390</updated>
+    </task>
+    <task id="LOCAL-00053" summary="@PlayerEG 更改1">
+      <option name="closed" value="true" />
+      <created>1747837503047</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1747837503047</updated>
+    </task>
+    <task id="LOCAL-00054" summary="@PlayerEG&#10;&#10;feat(utils): 添加网络连接测试工具&#10;&#10;- 新增 PingNetTool 类，用于测试网络连接&#10;-优化 ChangePasswordFrame、ForgetPasswordFrame 和 RegisterFrame 的代码结构&#10;- 更新 InputTool 类的版权信息">
+      <option name="closed" value="true" />
+      <created>1747840915238</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1747840915238</updated>
+    </task>
+    <task id="LOCAL-00055" summary="@PlayerEG&#10;&#10;feat(register): 添加网络检测功能- 在发送验证码前增加网络检测步骤&#10;- 如果网络不通，弹出提示框提醒用户检查网络- 优化了代码结构，调整了 main 方法的位置">
+      <option name="closed" value="true" />
+      <created>1747841801492</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1747841801492</updated>
+    </task>
+    <task id="LOCAL-00056" summary="@PlayerEG&#10;&#10;feat(register): 增加邮箱格式验证&#10;&#10;- 在注册页面添加了对邮箱格式的验证&#10;- 如果用户输入的邮箱不包含 &quot;@&quot;，将提示&quot;邮箱格式错误&quot;">
+      <option name="closed" value="true" />
+      <created>1747842007968</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1747842007968</updated>
+    </task>
+    <task id="LOCAL-00057" summary="@PlayerEG&#10;&#10;feat(register): 增加邮箱格式验证&#10;&#10;- 在注册页面添加了对邮箱格式的验证&#10;- 如果用户输入的邮箱不包含 &quot;@&quot;，将提示&quot;邮箱格式错误&quot;">
+      <option name="closed" value="true" />
+      <created>1747842195312</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1747842195312</updated>
+    </task>
+    <task id="LOCAL-00058" summary="@PlayerEG&#10;&#10;feat(sys): 完善注册功能并优化验证码发送逻辑&#10;&#10;-将 EmailText 中的 code 变量改为 public static，以便在 RegisterFrame 中访问&#10;- 在 InputTool 中添加正则表达式用于验证输入格式&#10;- 修改 PingNetTool 中的 ping 方法调用，增加对多个域名的检查&#10;- 更新 RegisterFrame 中的注册逻辑，包括输入验证、验证码校验和过期检查&#10;- 在 User 实体中添加注释，预留扩展空间">
+      <option name="closed" value="true" />
+      <created>1747883499524</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1747883499524</updated>
+    </task>
+    <task id="LOCAL-00059" summary="@PlayerEG&#10;&#10;feat(dao): 新增 BaseDao 类&#10;&#10;新增了一个抽象类 BaseDao，提供了数据库连接、关闭、通用的增删改查方法。具体改动如下：&#10;&#10;- 新增静态代码块加载 MySQL 驱动- 新增 getConnection 方法建立数据库连接&#10;- 新增 close 方法关闭数据库连接&#10;- 新增 commonUpdate 方法实现通用的增删改操作- 新增 commonQuery 方法实现通用的查询操作&#10;- 抽象方法 columnToProperty 用于子类实现特定的查询结果转换逻辑">
+      <option name="closed" value="true" />
+      <created>1747888338869</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1747888338869</updated>
+    </task>
+    <task id="LOCAL-00060" summary="@PlayerEG&#10;&#10;feat(register): 完善注册功能并添加用户实体类&#10;&#10;- 在 RegisterFrame 中实现注册逻辑，添加创建账号和跳转到登录界面的功能&#10;- 新增 User 实体类，包含用户相关属性和方法&#10;- 添加 UserDao 接口，用于处理用户相关的数据库操作&#10;- 创建 Books 实体类，用于后续的图书管理功能&#10;- 配置数据库连接信息，为后续的数据持久化做准备">
+      <option name="closed" value="true" />
+      <created>1747899097289</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1747899097290</updated>
+    </task>
+    <task id="LOCAL-00061" summary="@PlayerEG&#10;&#10;feat(sys): 实现用户登录、注册和密码更新功能&#10;&#10;- 新增登录、注册和密码更新逻辑&#10;- 优化错误提示信息- 添加用户信息保存工具类- 新建管理员和用户主界面类&#10;- 重构数据库连接方法&#10;- 更新密码哈希处理逻辑">
+      <option name="closed" value="true" />
+      <created>1747906160541</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1747906160541</updated>
+    </task>
+    <task id="LOCAL-00062" summary="@PlayerEG&#10;&#10;refactor: 移除 UserDao 类中的 TODO 注释&#10;&#10;移除了 UserDao 类中 register 和 updatePassword 方法的 TODO 注释，这些注释不再需要。">
+      <option name="closed" value="true" />
+      <created>1747906197507</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1747906197507</updated>
+    </task>
+    <task id="LOCAL-00063" summary="feat(register): 实现用户注册功能&#10;&#10;- 在 RegisterFrame 中添加用户注册逻辑&#10;- 使用 UserDao 的 register 方法将用户信息存入数据库- 注册成功后显示登录界面">
+      <option name="closed" value="true" />
+      <created>1747907104617</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1747907104617</updated>
+    </task>
+    <task id="LOCAL-00064" summary="@PlayerEG&#10;&#10;feat(register): 实现用户注册功能&#10;&#10;- 在 RegisterFrame 中添加用户注册逻辑&#10;- 使用 UserDao 的 register 方法将用户信息存入数据库- 注册成功后显示登录界面">
+      <option name="closed" value="true" />
+      <created>1747907117393</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1747907117393</updated>
+    </task>
+    <task id="LOCAL-00065" summary="@PlayerEG&#10;&#10;style(sys): 优化邮箱验证码 HTML 样式&#10;&#10;- 调整标题和验证码的样式，使其更加美观&#10;- 修改验证码字体大小为 50px，提高可读性&#10;- 调整各部分的布局，增加视觉上的层次感">
+      <option name="closed" value="true" />
+      <created>1747908248020</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1747908248020</updated>
+    </task>
+    <task id="LOCAL-00066" summary="@PlayerEG&#10;&#10;优化">
+      <option name="closed" value="true" />
+      <created>1747908796774</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1747908796774</updated>
+    </task>
+    <task id="LOCAL-00067" summary="@PlayerEG&#10;&#10;refactor hashing: 重命名哈希函数并更新相关调用- 将 HashTool 类中的 hashPassword 方法重命名为 toHashCode&#10;- 更新 RegisterFrame、UserDao 和 HashTool 中对哈希函数的调用&#10;- 此修改统一了哈希处理的命名，提高了代码的可读性和维护性">
+      <option name="closed" value="true" />
+      <created>1747918012695</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1747918012695</updated>
+    </task>
+    <task id="LOCAL-00068" summary="@PlayerEG&#10;&#10;fix(sys): 修复注册页面邮箱更改验证码验证问题&#10;&#10;- 新增字段 tempEmail 用于保存发送验证码时的邮箱&#10;- 在注册逻辑中增加邮箱变更校验，防止用户在发送验证码后更改邮箱- 更新验证码发送逻辑，成功发送后保存当前邮箱到 tempEmail- 修改测试邮件接收地址为 ikun@email.playereg.top">
+      <option name="closed" value="true" />
+      <created>1747918990433</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1747918990433</updated>
+    </task>
+    <task id="LOCAL-00069" summary="@PlayerEG&#10;&#10;docs(README): 更新项目介绍和功能模块说明&#10;&#10;- 添加项目简介、功能模块、技术栈和环境依赖等详细信息&#10;- 优化代码格式，统一代码风格">
+      <option name="closed" value="true" />
+      <created>1747919810036</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1747919810036</updated>
+    </task>
+    <task id="LOCAL-00070" summary="@PlayerEG">
+      <option name="closed" value="true" />
+      <created>1747919889735</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1747919889735</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/master" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="@PlayerEG&#10;禁止防御性编程！！！&#10;禁止防御性编程！！！&#10;禁止防御性编程！！！" />
+    <MESSAGE value="@PlayerEG&#10;完善登录和注册" />
+    <MESSAGE value="@PlayerEG&#10;完善登录，注册，重置密码面板" />
+    <MESSAGE value="@PlayerEG&#10;完善注释，拒绝防御性编程！！！" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/top/playereg/sys/pages/MangerInterface.java" />
+    <MESSAGE value="@PlayerEG&#10;feat(database): 添加数据库连接功能并优化用户相关页面&#10;&#10;- 新增 DbUtils 工具类，用于数据库连接&#10;- 创建 User 实体类&#10;- 更新 LoginFrame、RegisterFrame 和 ResetPasswordFrame 页面样式- 调整字体大小和颜色，优化用户体验" />
+    <MESSAGE value="refactor(utils): 重命名 Email 工具类并优化验证码输入限制&#10;&#10;- 将 SendEmailTool 类重命名为 EmailTool&#10;- 在 LoginFrame 中添加验证码输入限制，只允许 6 位数字- 更新 ResetPasswordFrame 中获取验证码按钮的命名&#10;- 删除未使用的 SetFrameTool 类&#10;- 新增 InputTool 类，用于处理用户输入限制" />
+    <MESSAGE value="refactor(pages): 重构忘记密码功能页面&#10;&#10;- 将 ResetPasswordFrame 重命名为 ForgetPasswordFrame- 在 InputTool 中添加 jast6NumberInput 方法，用于限制文本框输入&#10;- 更新 LoginFrame 和 RegisterFrame 中的忘记密码按钮跳转&#10;- 新增 ChangePasswordFrame 类" />
+    <MESSAGE value="@PlayerEG 更改1" />
+    <MESSAGE value="@PlayerEG&#10;&#10;feat(utils): 添加网络连接测试工具&#10;&#10;- 新增 PingNetTool 类，用于测试网络连接&#10;-优化 ChangePasswordFrame、ForgetPasswordFrame 和 RegisterFrame 的代码结构&#10;- 更新 InputTool 类的版权信息" />
+    <MESSAGE value="@PlayerEG&#10;&#10;feat(register): 添加网络检测功能- 在发送验证码前增加网络检测步骤&#10;- 如果网络不通，弹出提示框提醒用户检查网络- 优化了代码结构，调整了 main 方法的位置" />
+    <MESSAGE value="@PlayerEG&#10;&#10;feat(register): 增加邮箱格式验证&#10;&#10;- 在注册页面添加了对邮箱格式的验证&#10;- 如果用户输入的邮箱不包含 &quot;@&quot;，将提示&quot;邮箱格式错误&quot;" />
+    <MESSAGE value="@PlayerEG&#10;&#10;feat(sys): 完善注册功能并优化验证码发送逻辑&#10;&#10;-将 EmailText 中的 code 变量改为 public static，以便在 RegisterFrame 中访问&#10;- 在 InputTool 中添加正则表达式用于验证输入格式&#10;- 修改 PingNetTool 中的 ping 方法调用，增加对多个域名的检查&#10;- 更新 RegisterFrame 中的注册逻辑，包括输入验证、验证码校验和过期检查&#10;- 在 User 实体中添加注释，预留扩展空间" />
+    <MESSAGE value="@PlayerEG&#10;&#10;feat(dao): 新增 BaseDao 类&#10;&#10;新增了一个抽象类 BaseDao，提供了数据库连接、关闭、通用的增删改查方法。具体改动如下：&#10;&#10;- 新增静态代码块加载 MySQL 驱动- 新增 getConnection 方法建立数据库连接&#10;- 新增 close 方法关闭数据库连接&#10;- 新增 commonUpdate 方法实现通用的增删改操作- 新增 commonQuery 方法实现通用的查询操作&#10;- 抽象方法 columnToProperty 用于子类实现特定的查询结果转换逻辑" />
+    <MESSAGE value="@PlayerEG&#10;&#10;feat(register): 完善注册功能并添加用户实体类&#10;&#10;- 在 RegisterFrame 中实现注册逻辑，添加创建账号和跳转到登录界面的功能&#10;- 新增 User 实体类，包含用户相关属性和方法&#10;- 添加 UserDao 接口，用于处理用户相关的数据库操作&#10;- 创建 Books 实体类，用于后续的图书管理功能&#10;- 配置数据库连接信息，为后续的数据持久化做准备" />
+    <MESSAGE value="@PlayerEG&#10;&#10;feat(sys): 实现用户登录、注册和密码更新功能&#10;&#10;- 新增登录、注册和密码更新逻辑&#10;- 优化错误提示信息- 添加用户信息保存工具类- 新建管理员和用户主界面类&#10;- 重构数据库连接方法&#10;- 更新密码哈希处理逻辑" />
+    <MESSAGE value="@PlayerEG&#10;&#10;refactor: 移除 UserDao 类中的 TODO 注释&#10;&#10;移除了 UserDao 类中 register 和 updatePassword 方法的 TODO 注释，这些注释不再需要。" />
+    <MESSAGE value="feat(register): 实现用户注册功能&#10;&#10;- 在 RegisterFrame 中添加用户注册逻辑&#10;- 使用 UserDao 的 register 方法将用户信息存入数据库- 注册成功后显示登录界面" />
+    <MESSAGE value="@PlayerEG&#10;&#10;feat(register): 实现用户注册功能&#10;&#10;- 在 RegisterFrame 中添加用户注册逻辑&#10;- 使用 UserDao 的 register 方法将用户信息存入数据库- 注册成功后显示登录界面" />
+    <MESSAGE value="@PlayerEG&#10;&#10;style(sys): 优化邮箱验证码 HTML 样式&#10;&#10;- 调整标题和验证码的样式，使其更加美观&#10;- 修改验证码字体大小为 50px，提高可读性&#10;- 调整各部分的布局，增加视觉上的层次感" />
+    <MESSAGE value="@PlayerEG&#10;&#10;优化" />
+    <MESSAGE value="@PlayerEG&#10;&#10;refactor hashing: 重命名哈希函数并更新相关调用- 将 HashTool 类中的 hashPassword 方法重命名为 toHashCode&#10;- 更新 RegisterFrame、UserDao 和 HashTool 中对哈希函数的调用&#10;- 此修改统一了哈希处理的命名，提高了代码的可读性和维护性" />
+    <MESSAGE value="@PlayerEG&#10;&#10;fix(sys): 修复注册页面邮箱更改验证码验证问题&#10;&#10;- 新增字段 tempEmail 用于保存发送验证码时的邮箱&#10;- 在注册逻辑中增加邮箱变更校验，防止用户在发送验证码后更改邮箱- 更新验证码发送逻辑，成功发送后保存当前邮箱到 tempEmail- 修改测试邮件接收地址为 ikun@email.playereg.top" />
+    <MESSAGE value="@PlayerEG&#10;&#10;docs(README): 更新项目介绍和功能模块说明&#10;&#10;- 添加项目简介、功能模块、技术栈和环境依赖等详细信息&#10;- 优化代码格式，统一代码风格" />
+    <MESSAGE value="@PlayerEG" />
+    <option name="LAST_COMMIT_MESSAGE" value="@PlayerEG" />
+  </component>
+</project>
