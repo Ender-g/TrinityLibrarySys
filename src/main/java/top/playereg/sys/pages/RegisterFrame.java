@@ -213,7 +213,7 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
                     new LoginFrame().setVisible(true);
                     this.dispose();
                 } else {
-                    JOptionPane.showMessageDialog(this, "该邮箱已被删除");
+                    JOptionPane.showMessageDialog(this, "该邮箱已被注册");
                 }
             }
         }
