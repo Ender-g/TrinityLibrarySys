@@ -26,7 +26,6 @@ import static top.playereg.sys.utils.DiyColors.skyblue;
 import static top.playereg.sys.utils.EmailText.code;
 import static top.playereg.sys.utils.EmailText.text1;
 import static top.playereg.sys.utils.InputTool.*;
-import static top.playereg.sys.utils.DbUtils.*;
 
 public class RegisterFrame extends javax.swing.JFrame implements ActionListener {
     private static long currentTime;
@@ -155,7 +154,6 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
     /* 执行监听%end=========================================================================== */
     @Override
     public void actionPerformed(ActionEvent e) {
-
         if (e.getSource() == registerBtn) {
             System.out.println("创建账号");
             String name = nameField.getText();
@@ -164,22 +162,24 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
             String confirmPassword = confirmPasswordField.getText();
             String emailCode = emailCodeField.getText();
 
-            // 获取tb_user数据库中对应邮箱的is_del的值，1-该邮箱已被删除，0-该邮箱未被删除
             String sql = "select * from tb_user where email = ?";
             try (Connection conn = DbUtils.getConnection();
                  PreparedStatement ps = conn.prepareStatement(sql)) {
                 ps.setString(1, email);
                 try (ResultSet rs = ps.executeQuery()) {
-                    if (rs.next()) {
-                        tempIsDel = rs.getInt("is_del");
+                    tempIsDel = 1; // 重置初始值
+                    while (rs.next()) {
+                        int currentIsDel = rs.getInt("is_del");
+                        if (currentIsDel == 0) {
+                            tempIsDel = 0;
+                            break; // 发现0立即终止检查
+                        }
                     }
                 }
             } catch (SQLException ex) {
                 throw new RuntimeException("数据库查询失败", ex);
             }
             System.out.println("tempIsDel = " + tempIsDel);
-            // 新增is_del校验逻辑
-
             if (name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || emailCode.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "请填写完整信息");
             } else if (!name.matches(numberInput) || !email.matches(emailInput) ||
@@ -219,9 +219,9 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
         }
         if (e.getSource() == backBtn) {
             System.out.println("返回");
+            currentTime = 0;
             new LoginFrame().setVisible(true);
             this.dispose();
-            currentTime = 0;
         }
         if (e.getSource() == sendEmailCodeBtn) {
             System.out.println("发送验证码");

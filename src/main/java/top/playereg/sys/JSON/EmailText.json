@@ -1,8 +1,4 @@
 {
-  "metadata": {
-    "description": "角色邮件配置信息",
-    "lastModified": "2023-09-20"
-  },
   "0": {
     "name": "丛雨",
     "email": "ciallo@email.playereg.top",
