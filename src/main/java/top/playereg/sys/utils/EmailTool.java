@@ -19,17 +19,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 public class EmailTool {
-    //    test
-    public static void main(String[] args) {
-        sendEmail(
-                "TestBot",
-                "test@email.playereg.top",
-                "ikun@email.playereg.top",
-                "测试邮件",
-                "<html><body><h1>这是测试邮件</h1></body></html>"
-        );
-    }
-
     public static boolean sendEmail(
             String sendName, // 发件人名称
             String from, // 发件人邮箱
