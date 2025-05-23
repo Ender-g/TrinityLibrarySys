@@ -78,15 +78,11 @@ public class UserDao {
             ps = conn.prepareStatement(sql);
             ps.setString(1, user.getEmail());
             ResultSet rs = ps.executeQuery();
-//            if (rs.next() && rs.getString("email").equals(user.getEmail())) {
-//                JOptionPane.showMessageDialog(null, "邮箱已存在！", "错误", JOptionPane.ERROR_MESSAGE);
-//                return false;
-//            }
             // 邮箱不存在，继续插入新用户
             sql = "insert into tb_user (username, password, email, is_root, is_del) values (?, ?, ?, ?, ?)";
             ps = conn.prepareStatement(sql);
             ps.setString(1, user.getUsername());
-            ps.setString(2, HashTool.toHashCode(user.getPassword()));
+            ps.setString(2, user.getPassword());
             ps.setString(3, user.getEmail());
             ps.setString(4, user.getIs_root());
             ps.setString(5, user.getIs_del());
