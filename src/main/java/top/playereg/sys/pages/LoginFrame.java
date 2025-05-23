@@ -8,17 +8,28 @@
 
 package top.playereg.sys.pages;
 
-import top.playereg.sys.utils.InputTool;
-import top.playereg.sys.utils.SetFrameTool;
+import top.playereg.sys.utils.*;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import static top.playereg.sys.utils.DiyColors.*;
+import static top.playereg.sys.utils.EmailText.*;
+import static top.playereg.sys.utils.EmailTool.durationTime;
+import static top.playereg.sys.utils.InputTool.*;
 
 public class LoginFrame extends javax.swing.JFrame implements ActionListener {
+    private static long currentTime = 0;
+    private String tempCode = null;
+    private String tempEmail = null; // 新增字段用于保存发送验证码时的邮箱
+    private int tempIsDel = -1;
+    private int tempIsRoot = -1;
     /* 声明组件%start================================================================================== */
     private JLabel loginPanel; // 登录面板
     private JLabel titleLabel; // 标题
@@ -26,7 +37,7 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
     private JTextField emailField, emailCodeField; // 邮箱、验证码（文本框）
     private JPasswordField passwordField; // 密码（输入框）
     private JButton sendEmailCodeBtn, loginBtn, registerBtn, forgetBtn; // 登录、注册、忘记密码（按钮）
-    private JLabel backgroundImg; // 背景图片
+
     /* 声明组件%end================================================================================== */
 
     public LoginFrame() {
@@ -122,23 +133,107 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == loginBtn) {
-            // todo 登录
+            // 登录逻辑实现
             System.out.println("登录");
+            String email = emailField.getText();
+            String password = new String(passwordField.getPassword());
+            String emailCode = emailCodeField.getText();
+            String currentPassword = null;
+            System.out.println("1 " + tempIsDel + " " + tempIsRoot); //test
 
+            String sql = "select * from tb_user where email = ?";
+
+            try (Connection conn = DbUtils.getConnection();
+                 PreparedStatement ps = conn.prepareStatement(sql)) {
+                ps.setString(1, email);
+                try (ResultSet rs = ps.executeQuery()) {
+                    tempIsDel = -1;
+                    tempIsRoot = -1; // 新增重置初始值
+                    while (rs.next()) {
+                        int currentIsDel = rs.getInt("is_del");
+                        if (currentIsDel == 0) {
+                            tempIsDel = 0;
+                            tempIsRoot = rs.getInt("is_root"); // 新增获取is_root值
+                            currentPassword = rs.getString("password");
+                            System.out.println("currentPassword: " + currentPassword);
+                            System.out.println("2 " + tempIsDel + " " + tempIsRoot); //test
+                            break;
+                        }
+                    }
+                }
+            } catch (SQLException ex) {
+                throw new RuntimeException("数据库查询失败", ex);
+            }
+
+            if (email.isEmpty() || password.isEmpty() || emailCode.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "请填写完整信息");
+            } else if (!email.matches(emailInput)) {
+                JOptionPane.showMessageDialog(this, "请输入正确的邮箱");
+            } else if (!emailCode.equals(tempCode)) {
+                JOptionPane.showMessageDialog(this, "验证码错误");
+            } else if (tempEmail != null && !email.equals(tempEmail)) {
+                JOptionPane.showMessageDialog(this, "邮箱已更改，请重新发送验证码");
+            } else if (currentTime == 0 || (System.currentTimeMillis() - currentTime) > durationTime) {
+                JOptionPane.showMessageDialog(this, "验证码已过期");
+            } else if (tempIsDel == -1) {
+                JOptionPane.showMessageDialog(this, "该邮箱未注册");
+            } else {
+                System.out.println("成功3 " + tempIsDel + " " + tempIsRoot); //test
+                if (HashTool.toHashCode(password).equals(currentPassword)) {
+                    if (tempIsRoot == 1) {
+                        new RootMainFrame().setVisible(true);
+                        this.dispose();
+                    } else {
+                        new UserMainFrame().setVisible(true);
+                        this.dispose();
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "密码错误");
+                }
+            }
         }
         if (e.getSource() == registerBtn) {
             System.out.println("注册");
+            currentTime = 0;
             new RegisterFrame().setVisible(true);
             this.dispose(); // 关闭当前窗口
         }
         if (e.getSource() == forgetBtn) {
             System.out.println("忘记密码");
+            currentTime = 0;
             new ForgetPasswordFrame().setVisible(true);
             this.dispose();
         }
         if (e.getSource() == sendEmailCodeBtn) {
-            // todo 发送验证码
             System.out.println("发送验证码");
+            currentTime = 0;
+            if (!(PingNetTool.ping("qq.com") || PingNetTool.ping("bilibili.com"))) {
+                JOptionPane.showMessageDialog(this, "我网呢？？？");
+            } else if (!PingNetTool.ping("resend.com")) {
+                JOptionPane.showMessageDialog(this, "服务器跑路了（bush");
+            } else if (emailField.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "不要用虚无邮箱！！！");
+            } else if (!emailField.getText().matches(emailInput)) {
+                JOptionPane.showMessageDialog(this, "这是正确的邮箱地址吗？");
+            } else {
+                Boolean isSend = EmailTool.sendEmail(
+                        "丛雨",
+                        "ciallo@email.playereg.top",
+                        emailField.getText(),
+                        "丛雨来消息了！！！",
+                        text2
+                );
+                if (isSend) {
+                    emailCodeField.setEditable(true);
+                    currentTime = System.currentTimeMillis();
+                    tempCode = code;
+                    tempEmail = emailField.getText(); // 记录发送验证码时的邮箱
+                    JOptionPane.showMessageDialog(this, "验证码已发送");
+                } else {
+                    JOptionPane.showMessageDialog(this, "验证码发送失败");
+
+                }
+            }
         }
     }
 

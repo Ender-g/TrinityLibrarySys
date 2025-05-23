@@ -19,6 +19,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 public class EmailTool {
+    public static int durationTime = 300000; // 邮件有效期
     public static boolean sendEmail(
             String sendName, // 发件人名称
             String from, // 发件人邮箱

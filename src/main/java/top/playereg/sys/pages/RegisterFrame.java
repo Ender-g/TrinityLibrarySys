@@ -25,6 +25,7 @@ import static top.playereg.sys.utils.DiyColors.darkgreen;
 import static top.playereg.sys.utils.DiyColors.skyblue;
 import static top.playereg.sys.utils.EmailText.code;
 import static top.playereg.sys.utils.EmailText.text1;
+import static top.playereg.sys.utils.EmailTool.durationTime;
 import static top.playereg.sys.utils.InputTool.*;
 
 public class RegisterFrame extends javax.swing.JFrame implements ActionListener {
@@ -197,7 +198,7 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
                 JOptionPane.showMessageDialog(this, "邮箱已更改，请重新发送验证码");
             } else if (!emailCode.equals(tempCode)) {
                 JOptionPane.showMessageDialog(this, "验证码错误");
-            } else if (currentTime == 0 && (currentTime - System.currentTimeMillis()) > 300000) { // 验证码过期时间 5min
+            } else if (currentTime == 0 && (currentTime - System.currentTimeMillis()) > durationTime) { // 验证码过期时间 5min
                 JOptionPane.showMessageDialog(this, "验证码已过期");
             } else {
                 if (tempIsDel == 1) {
