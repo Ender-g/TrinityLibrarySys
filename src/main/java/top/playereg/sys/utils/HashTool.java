@@ -14,7 +14,7 @@ import java.security.NoSuchAlgorithmException;
 public class HashTool {
 //    test
     public static void main(String[] args) {
-        String password = "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92";
+        String password = "384fde3636e6e01e0194d2976d8f26410af3e846e573379cb1a09e2f0752d8cc";
         String hashedPassword = toHashCode(password);
         System.out.println(password  + " 密码哈希：" + hashedPassword);
     }

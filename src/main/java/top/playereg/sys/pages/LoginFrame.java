@@ -166,17 +166,15 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
             }
 
             if (email.isEmpty() || password.isEmpty() || emailCode.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "请填写完整信息");
-            } else if (!email.matches(emailInput)) {
-                JOptionPane.showMessageDialog(this, "请输入正确的邮箱");
+                JOptionPane.showMessageDialog(this, "不准交白卷！！！ (・`ω´・)");
             } else if (!emailCode.equals(tempCode)) {
-                JOptionPane.showMessageDialog(this, "验证码错误");
+                JOptionPane.showMessageDialog(this, "验证码好像不是这个呀！ (⁰▿⁰)");
             } else if (tempEmail != null && !email.equals(tempEmail)) {
-                JOptionPane.showMessageDialog(this, "邮箱已更改，请重新发送验证码");
+                JOptionPane.showMessageDialog(this, "居然当着我的面换邮箱！ (╯•̀ὤ•́)╯");
             } else if (currentTime == 0 || (System.currentTimeMillis() - currentTime) > durationTime) {
-                JOptionPane.showMessageDialog(this, "验证码已过期");
+                JOptionPane.showMessageDialog(this, "验证码超过保质期，不能用了！ ಥ_ಥ");
             } else if (tempIsDel == -1) {
-                JOptionPane.showMessageDialog(this, "该邮箱未注册");
+                JOptionPane.showMessageDialog(this, "您还没加入我们？快去点“注册”按钮！ ヽ( ^ω^ ゞ )");
             } else {
                 System.out.println("成功3 " + tempIsDel + " " + tempIsRoot); //test
                 if (HashTool.toHashCode(password).equals(currentPassword)) {
@@ -188,7 +186,7 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
                         this.dispose();
                     }
                 } else {
-                    JOptionPane.showMessageDialog(this, "密码错误");
+                    JOptionPane.showMessageDialog(this, "嗯。。。密码好像有问题。 ∑(✘Д✘๑ )");
                 }
             }
         }
@@ -208,13 +206,13 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
             System.out.println("发送验证码");
             currentTime = 0;
             if (!(PingNetTool.ping("qq.com") || PingNetTool.ping("bilibili.com"))) {
-                JOptionPane.showMessageDialog(this, "我网呢？？？");
+                JOptionPane.showMessageDialog(this, "蜘蛛：网，网在哪？我网呢？ (´⊙ω⊙`)");
             } else if (!PingNetTool.ping("resend.com")) {
-                JOptionPane.showMessageDialog(this, "服务器跑路了（bush");
+                JOptionPane.showMessageDialog(this, "服务器居然长腿跑了！！！ (*´д`)");
             } else if (emailField.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(this, "不要用虚无邮箱！！！");
+                JOptionPane.showMessageDialog(this, "居然是！皇帝的新邮箱！！！ ( ×ω× )");
             } else if (!emailField.getText().matches(emailInput)) {
-                JOptionPane.showMessageDialog(this, "这是正确的邮箱地址吗？");
+                JOptionPane.showMessageDialog(this, "这个长得像邮箱吗？ (*´･д･)?");
             } else {
                 Boolean isSend = EmailTool.sendEmail(
                         "丛雨",

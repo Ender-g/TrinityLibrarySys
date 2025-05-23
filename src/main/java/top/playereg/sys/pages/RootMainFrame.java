@@ -9,14 +9,10 @@ import java.awt.*;
 
 
 public class RootMainFrame extends JFrame {
-
-
-
-
-
     public static void main(String[] args) {
         new RootMainFrame();
     }
+
     private JLabel RootPanel; // 登录面板
     private JButton[] btn;//菜单
 

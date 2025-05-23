@@ -23,8 +23,7 @@ import java.sql.SQLException;
 
 import static top.playereg.sys.utils.DiyColors.darkgreen;
 import static top.playereg.sys.utils.DiyColors.skyblue;
-import static top.playereg.sys.utils.EmailText.code;
-import static top.playereg.sys.utils.EmailText.text1;
+import static top.playereg.sys.utils.EmailText.*;
 import static top.playereg.sys.utils.EmailTool.durationTime;
 import static top.playereg.sys.utils.InputTool.*;
 
@@ -159,9 +158,9 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
             System.out.println("创建账号");
             String name = nameField.getText();
             String email = emailField.getText();
+            String emailCode = emailCodeField.getText();
             String password = PasswordField.getText();
             String confirmPassword = confirmPasswordField.getText();
-            String emailCode = emailCodeField.getText();
 
             String sql = "select * from tb_user where email = ?";
             try (Connection conn = DbUtils.getConnection();
@@ -182,24 +181,19 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
             }
             System.out.println("tempIsDel = " + tempIsDel);
             if (name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || emailCode.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "请填写完整信息");
-            } else if (!name.matches(nameInput) || !email.matches(emailInput) ||
-                    !password.matches(passwordInput) || !confirmPassword.matches(passwordInput)) {
-                if (!name.matches(nameInput)) {
-                    JOptionPane.showMessageDialog(this, "请输入正确的用户名");
-                } else if (!email.matches(emailInput)) {
-                    JOptionPane.showMessageDialog(this, "请输入正确的邮箱");
-                } else if (!password.matches(passwordInput) || !confirmPassword.matches(passwordInput)) {
-                    JOptionPane.showMessageDialog(this, "请输入正确的密码");
-                }
+                JOptionPane.showMessageDialog(this, "不准交白卷！！！ (・`ω´・)");
+            } else if (!name.matches(nameInput)) {
+                JOptionPane.showMessageDialog(this, "用户名只能是长度小于16位的字母和数字哦！_(¦3」∠)_");
+            } else if (!password.matches(passwordInput) || !confirmPassword.matches(passwordInput)) {
+                JOptionPane.showMessageDialog(this, "密码只能是长度6到16位的字母和数字哦！_(¦3」∠)_");
             } else if (!password.equals(confirmPasswordField.getText())) {
-                JOptionPane.showMessageDialog(this, "两次密码不一致");
+                JOptionPane.showMessageDialog(this, "两次输入的密码不是双胞胎吧？ (´⊙ω⊙`)");
             } else if (tempEmail != null && !email.equals(tempEmail)) { // 新增邮箱变更校验
-                JOptionPane.showMessageDialog(this, "邮箱已更改，请重新发送验证码");
+                JOptionPane.showMessageDialog(this, "居然当着我的面换邮箱！ (╯•̀ὤ•́)╯");
             } else if (!emailCode.equals(tempCode)) {
-                JOptionPane.showMessageDialog(this, "验证码错误");
+                JOptionPane.showMessageDialog(this, "验证码好像不是这个呀！ (⁰▿⁰)");
             } else if (currentTime == 0 && (currentTime - System.currentTimeMillis()) > durationTime) { // 验证码过期时间 5min
-                JOptionPane.showMessageDialog(this, "验证码已过期");
+                JOptionPane.showMessageDialog(this, "验证码超过保质期，不能用了！ ಥ_ಥ");
             } else {
                 if (tempIsDel == 1) {
                     UserDao.register(new User(
@@ -227,20 +221,20 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
             System.out.println("发送验证码");
             currentTime = 0;
             if (!(PingNetTool.ping("qq.com") || PingNetTool.ping("bilibili.com"))) {
-                JOptionPane.showMessageDialog(this, "我网呢？？？");
+                JOptionPane.showMessageDialog(this, "蜘蛛：网，网在哪？我网呢？ (´⊙ω⊙`)");
             } else if (!PingNetTool.ping("resend.com")) {
-                JOptionPane.showMessageDialog(this, "服务器跑路了（bush");
+                JOptionPane.showMessageDialog(this, "服务器居然长腿跑了！！！ (*´д`)");
             } else if (emailField.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(this, "不要用虚无邮箱！！！");
+                JOptionPane.showMessageDialog(this, "居然是！皇帝的新邮箱！！！ ( ×ω× )");
             } else if (!emailField.getText().matches(emailInput)) {
-                JOptionPane.showMessageDialog(this, "这是正确的邮箱地址吗？");
+                JOptionPane.showMessageDialog(this, "这个长得像邮箱吗？ (*´･д･)?");
             } else {
                 Boolean isSend = EmailTool.sendEmail(
                         "丛雨",
                         "ciallo@email.playereg.top",
                         emailField.getText(),
                         "丛雨来消息了！！！",
-                        text1
+                        text2
                 );
                 if (isSend) {
                     emailCodeField.setEditable(true);
