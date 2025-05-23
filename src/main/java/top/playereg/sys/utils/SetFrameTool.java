@@ -8,14 +8,8 @@
 
 package top.playereg.sys.utils;
 
-import top.playereg.sys.pages.RootMainFrame;
-
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 import java.awt.*;
-import java.sql.*;
-import java.util.Vector;
 
 public class SetFrameTool extends JFrame {
     /* 设置窗体工具类 */
@@ -88,6 +82,40 @@ public class SetFrameTool extends JFrame {
         jButton.setBounds(x, y, width, height);
         Panel.add(jButton);
     }
+    //菜单按钮
+    public static void setMenuBtnStyle(
+            JButton jButton, // 按钮名称
+            Color btnColor, // 按钮颜色
+            Color btnTextColor, // 按钮文字颜色
+            int fontSize, // 字体大小
+            int x, // 组件x坐标
+            int y, // 组件y坐标
+            int width, // 组件宽度
+            int height, // 组件高度
+            JLabel Panel // 菜单面板
+    ) {
+        jButton.setBackground(btnColor);
+        jButton.setBounds(x, y, width, height);
+        jButton.setFont(new Font("黑体", Font.BOLD, 20));
+        //字体颜色
+        jButton.setForeground(btnTextColor);
+        //文字水平居中，在图片下方
+        jButton.setVerticalTextPosition(SwingConstants.BOTTOM);
+        jButton.setHorizontalTextPosition(SwingConstants.CENTER);
+        //不要边框
+        jButton.setBorderPainted(false);
+        Panel.add(jButton);
+
+    }
+    //处理图片压缩
+    public static ImageIcon resizeImageIcon(String imagePath, int targetWidth, int targetHeight) {
+        ImageIcon originalIcon = new ImageIcon(imagePath);
+        Image originalImage = originalIcon.getImage();
+        Image resizedImage = originalImage.getScaledInstance(targetWidth, targetHeight, Image.SCALE_SMOOTH);
+        return new ImageIcon(resizedImage);
+    }
+
+
 
 
 
