@@ -6,7 +6,7 @@
  *
  * */
 
-package top.playereg.sys.pages;
+package top.playereg.sys.pages.safeFrame;
 
 public class ChangePasswordFrame {
 }

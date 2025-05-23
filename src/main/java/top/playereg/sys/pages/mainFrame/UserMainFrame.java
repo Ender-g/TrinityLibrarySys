@@ -1,10 +1,8 @@
-package top.playereg.sys.pages;
+package top.playereg.sys.pages.mainFrame;
 
 import top.playereg.sys.utils.SetFrameTool;
 
 import javax.swing.*;
-
-import static com.sun.glass.ui.Cursor.setVisible;
 
 public class UserMainFrame extends JFrame {
     public static void main(String[] args) {new UserMainFrame();} // test

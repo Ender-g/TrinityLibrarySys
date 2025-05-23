@@ -1,4 +1,4 @@
-package top.playereg.sys.pages;
+package top.playereg.sys.pages.mainFrame;
 
 
 

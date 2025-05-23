@@ -6,7 +6,7 @@
  *
  * */
 
-package top.playereg.sys.pages;
+package top.playereg.sys.pages.safeFrame;
 
 import top.playereg.sys.dao.UserDao;
 import top.playereg.sys.entity.User;
@@ -137,7 +137,7 @@ public class ForgetPasswordFrame extends JFrame implements ActionListener {
     /* 执行监听%start=========================================================================== */
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == submitBtn) {
-            System.out.println("提交密码");
+
             String email = emailField.getText();
             String emailCode = emailCodeField.getText();
             String newPassword = new String(newPasswordField.getPassword());
@@ -173,28 +173,31 @@ public class ForgetPasswordFrame extends JFrame implements ActionListener {
             } else if (currentTime == 0 && (currentTime - System.currentTimeMillis()) > durationTime) { // 验证码过期时间 5min
                 JOptionPane.showMessageDialog(this, "验证码超过保质期，不能用了！ ಥ_ಥ");
             } else {
-                if (UserDao.updatePassword(new User(
-                        0,
-                        null,
-                        HashTool.toHashCode(newPassword),
-                        email,
-                        null,
-                        null))) {
-                    JOptionPane.showMessageDialog(this, "恭喜你，密码重置成功！ ( ´∀｀)");
-                    new LoginFrame().setVisible(true);
-                    this.dispose();
-                } else {
-                    JOptionPane.showMessageDialog(this, "密码重置失败！ (´・ω・｀)");
+                // 新增邮箱有效性判断
+                if (tempIsDel == 1) { // 数据库记录已删除时
+                    JOptionPane.showMessageDialog(this, "该账号已被注销，无法修改密码！ (×_×)");
+                } else { // 仅当tempIsDel == 0时执行更新
+                    if (UserDao.updatePassword(new User(
+                            0,
+                            null,
+                            HashTool.toHashCode(newPassword),
+                            email,
+                            null,
+                            null))) {
+                        JOptionPane.showMessageDialog(this, "哦耶！密码重置成功！ ( ´∀｀)");
+                        new LoginFrame().setVisible(true);
+                        this.dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(this, "啥？密码重置失败？ (´・ω・｀)");
+                    }
                 }
             }
         }
         if (e.getSource() == backBtn) {
-            System.out.println("返回");
             new LoginFrame().setVisible(true);
             this.dispose();
         }
         if (e.getSource() == sendEmailCodeBtn) {
-            System.out.println("发送验证码");
             currentTime = 0;
             if (!(PingNetTool.ping("qq.com") || PingNetTool.ping("bilibili.com"))) {
                 JOptionPane.showMessageDialog(this, "蜘蛛：网，网在哪？我网呢？ (´⊙ω⊙`)");

@@ -6,7 +6,7 @@
  *
  * */
 
-package top.playereg.sys.pages;
+package top.playereg.sys.pages.safeFrame;
 
 import top.playereg.sys.dao.UserDao;
 import top.playereg.sys.entity.User;
@@ -145,7 +145,6 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
     }
 
     public static void main(String[] args) {
-        System.out.println("当前时间：" + currentTime);
         new RegisterFrame();
     }
 
@@ -155,7 +154,6 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == registerBtn) {
-            System.out.println("创建账号");
             String name = nameField.getText();
             String email = emailField.getText();
             String emailCode = emailCodeField.getText();
@@ -179,7 +177,6 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
             } catch (SQLException ex) {
                 throw new RuntimeException("数据库查询失败", ex);
             }
-            System.out.println("tempIsDel = " + tempIsDel);
             if (name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || emailCode.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "不准交白卷！！！ (・`ω´・)");
             } else if (!name.matches(nameInput)) {
@@ -208,17 +205,15 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
                     new LoginFrame().setVisible(true);
                     this.dispose();
                 } else {
-                    JOptionPane.showMessageDialog(this, "该邮箱已被注册");
+                    JOptionPane.showMessageDialog(this, "不准开小号！！！(╯•̀ὤ•́)╯");
                 }
             }
         }
         if (e.getSource() == backBtn) {
-            System.out.println("返回");
             new LoginFrame().setVisible(true);
             this.dispose();
         }
         if (e.getSource() == sendEmailCodeBtn) {
-            System.out.println("发送验证码");
             currentTime = 0;
             if (!(PingNetTool.ping("qq.com") || PingNetTool.ping("bilibili.com"))) {
                 JOptionPane.showMessageDialog(this, "蜘蛛：网，网在哪？我网呢？ (´⊙ω⊙`)");

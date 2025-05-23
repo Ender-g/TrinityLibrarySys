@@ -6,8 +6,10 @@
  *
  * */
 
-package top.playereg.sys.pages;
+package top.playereg.sys.pages.safeFrame;
 
+import top.playereg.sys.pages.mainFrame.RootMainFrame;
+import top.playereg.sys.pages.mainFrame.UserMainFrame;
 import top.playereg.sys.utils.*;
 
 import javax.swing.*;
@@ -134,12 +136,11 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == loginBtn) {
             // 登录逻辑实现
-            System.out.println("登录");
+
             String email = emailField.getText();
             String password = new String(passwordField.getPassword());
             String emailCode = emailCodeField.getText();
             String currentPassword = null;
-            System.out.println("1 " + tempIsDel + " " + tempIsRoot); //test
 
             String sql = "select * from tb_user where email = ?";
 
@@ -155,8 +156,6 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
                             tempIsDel = 0;
                             tempIsRoot = rs.getInt("is_root"); // 新增获取is_root值
                             currentPassword = rs.getString("password");
-                            System.out.println("currentPassword: " + currentPassword);
-                            System.out.println("2 " + tempIsDel + " " + tempIsRoot); //test
                             break;
                         }
                     }
@@ -176,7 +175,6 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
             } else if (tempIsDel == -1) {
                 JOptionPane.showMessageDialog(this, "您还没加入我们？快去点“注册”按钮！ ヽ( ^ω^ ゞ )");
             } else {
-                System.out.println("成功3 " + tempIsDel + " " + tempIsRoot); //test
                 if (HashTool.toHashCode(password).equals(currentPassword)) {
                     if (tempIsRoot == 1) {
                         new RootMainFrame().setVisible(true);
@@ -191,19 +189,16 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
             }
         }
         if (e.getSource() == registerBtn) {
-            System.out.println("注册");
             currentTime = 0;
             new RegisterFrame().setVisible(true);
             this.dispose(); // 关闭当前窗口
         }
         if (e.getSource() == forgetBtn) {
-            System.out.println("忘记密码");
             currentTime = 0;
             new ForgetPasswordFrame().setVisible(true);
             this.dispose();
         }
         if (e.getSource() == sendEmailCodeBtn) {
-            System.out.println("发送验证码");
             currentTime = 0;
             if (!(PingNetTool.ping("qq.com") || PingNetTool.ping("bilibili.com"))) {
                 JOptionPane.showMessageDialog(this, "蜘蛛：网，网在哪？我网呢？ (´⊙ω⊙`)");
