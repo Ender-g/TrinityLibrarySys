@@ -26,7 +26,7 @@ import static top.playereg.sys.utils.EmailText.*;
 import static top.playereg.sys.utils.SendEmailTool.durationTime;
 import static top.playereg.sys.utils.InputTool.*;
 
-public class LoginFrame extends javax.swing.JFrame implements ActionListener {
+public class LoginFrame extends JFrame implements ActionListener {
     private static long currentTime = 0;
     private String tempCode = null;
     private String tempEmail = null; // 新增字段用于保存发送验证码时的邮箱

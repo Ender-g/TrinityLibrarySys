@@ -4,10 +4,12 @@ import top.playereg.sys.utils.SetFrameTool;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import static top.playereg.sys.utils.DiyColors.*;
 
-public class RootMainFrame extends JFrame {
+public class RootMainFrame extends JFrame implements ActionListener {
     public static void main(String[] args) {
         new RootMainFrame();
     }
@@ -66,5 +68,24 @@ public class RootMainFrame extends JFrame {
         /* 设置登录背景%end====================================================================== */
 
         setVisible(true); // 显示窗体
+        aboutMeButton.addActionListener(this);
+        for (JButton button : btn) button.addActionListener(this);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == aboutMeButton) {
+            System.out.println("关于我");
+        }
+        for (JButton button : btn){
+            if (e.getSource() == button) {
+                System.out.println(button.getText());
+                switch (button.getText()) {
+//                    case "用户管理" -> new UserManageFrame();
+//                    case "图书管理" -> new BookManageFrame();
+//                    case "借阅管理" -> new BorrowManageFrame();
+                }
+            }
+        }
     }
 }
