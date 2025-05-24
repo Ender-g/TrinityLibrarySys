@@ -111,7 +111,7 @@ public class ForgetPasswordFrame extends JFrame implements ActionListener {
                 20, 200, 360, 250, 50, forgetPasswordLabel);
 
         // 返回按钮
-        backBtn = new JButton("返回 <<<");
+        backBtn = new JButton("返回",new ImageIcon("src/main/java/top/playereg/sys/img/back1.png"));
         SetFrameTool.setBtnStyle(backBtn, Color.yellow, Color.black,
                 16, 10, 10, 120, 30, forgetPasswordLabel);
         /* 创建组件%end=========================================================================== */

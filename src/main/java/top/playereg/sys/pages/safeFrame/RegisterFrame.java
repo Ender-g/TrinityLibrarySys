@@ -122,7 +122,7 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
                 20, 200, 420, 250, 50, registerPanel);
 
         // 返回按钮
-        backBtn = new JButton("返回 <<<");
+        backBtn = new JButton("返回",new ImageIcon("src/main/java/top/playereg/sys/img/back1.png"));
         SetFrameTool.setBtnStyle(backBtn, Color.yellow, Color.black,
                 16, 10, 10, 120, 30, registerPanel);
         /* 创建组件%end=========================================================================== */

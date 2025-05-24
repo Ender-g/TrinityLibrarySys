@@ -8,7 +8,7 @@
 
 package top.playereg.sys.pages.safeFrame;
 
-import top.playereg.sys.pages.mainFrame.RootMainFrame;
+import top.playereg.sys.pages.mainFrame.AdminMainFrame;
 import top.playereg.sys.pages.mainFrame.UserMainFrame;
 import top.playereg.sys.utils.*;
 
@@ -172,7 +172,7 @@ public class LoginFrame extends JFrame implements ActionListener {
                     // todo 获取保存当前用户信息
                     if (tempIsRoot == 1) {
                         this.dispose();
-                        new RootMainFrame().setVisible(true);
+                        new AdminMainFrame().setVisible(true);
                     } else {
                         this.dispose();
                         new UserMainFrame().setVisible(true);
