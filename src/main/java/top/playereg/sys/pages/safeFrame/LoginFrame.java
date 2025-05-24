@@ -23,7 +23,7 @@ import java.sql.SQLException;
 
 import static top.playereg.sys.utils.DiyColors.*;
 import static top.playereg.sys.utils.EmailText.*;
-import static top.playereg.sys.utils.EmailTool.durationTime;
+import static top.playereg.sys.utils.SendEmailTool.durationTime;
 import static top.playereg.sys.utils.InputTool.*;
 
 public class LoginFrame extends javax.swing.JFrame implements ActionListener {
@@ -44,11 +44,8 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
 
     public LoginFrame() {
         /* 设置窗体%start============================================================================ */
-        SetFrameTool.setFrame(
-                "崔尼蒂图书馆-登录 v1.0.0",
-                960, 540,
-                "src/main/java/top/playereg/sys/img/book.png",
-                this
+        SetFrameTool.setFrame("崔尼蒂图书馆-登录 v1.0.0", 960, 540,
+                "src/main/java/top/playereg/sys/img/book.png", this
         );
         /* 设置窗体%end============================================================================ */
 
@@ -114,11 +111,8 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
         /* 创建组件%end=========================================================================== */
 
         /* 设置登录背景%start====================================================================== */
-        SetFrameTool.setPanleBackgroundImg(
-                "src/main/java/top/playereg/sys/img/background_1.png",
-                0, -20, 960, 540,
-                loginPanel
-        );
+        SetFrameTool.setPanleBackgroundImg("src/main/java/top/playereg/sys/img/background_1.png",
+                0, -20, 960, 540, loginPanel);
         /* 设置登录背景%end====================================================================== */
 
         setVisible(true); // 显示窗体
@@ -163,7 +157,6 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
             } catch (SQLException ex) {
                 throw new RuntimeException("数据库查询失败", ex);
             }
-
             if (email.isEmpty() || password.isEmpty() || emailCode.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "不准交白卷！！！ (・`ω´・)");
             } else if (!emailCode.equals(tempCode)) {
@@ -176,12 +169,13 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(this, "您还没加入我们？快去点“注册”按钮！ ヽ( ^ω^ ゞ )");
             } else {
                 if (HashTool.toHashCode(password).equals(currentPassword)) {
+                    // todo 获取保存当前用户信息
                     if (tempIsRoot == 1) {
+                        this.dispose();
                         new RootMainFrame().setVisible(true);
-                        this.dispose();
                     } else {
-                        new UserMainFrame().setVisible(true);
                         this.dispose();
+                        new UserMainFrame().setVisible(true);
                     }
                 } else {
                     JOptionPane.showMessageDialog(this, "嗯。。。密码好像有问题。 ∑(✘Д✘๑ )");
@@ -209,12 +203,12 @@ public class LoginFrame extends javax.swing.JFrame implements ActionListener {
             } else if (!emailField.getText().matches(emailInput)) {
                 JOptionPane.showMessageDialog(this, "这个长得像邮箱吗？ (*´･д･)?");
             } else {
-                Boolean isSend = EmailTool.sendEmail(
+                Boolean isSend = SendEmailTool.sendEmail(
                         "丛雨",
                         "ciallo@email.playereg.top",
                         emailField.getText(),
                         "丛雨来消息了！！！",
-                        text2
+                        text1
                 );
                 if (isSend) {
                     emailCodeField.setEditable(true);

@@ -79,5 +79,7 @@ public abstract class DbUtils<T> {
         }
     }
 
+    // 将结果集的列名映射为属性名
     abstract T columnToProperty() throws SQLException;
+
 }

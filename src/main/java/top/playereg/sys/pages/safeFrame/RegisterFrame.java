@@ -24,7 +24,7 @@ import java.sql.SQLException;
 import static top.playereg.sys.utils.DiyColors.darkgreen;
 import static top.playereg.sys.utils.DiyColors.skyblue;
 import static top.playereg.sys.utils.EmailText.*;
-import static top.playereg.sys.utils.EmailTool.durationTime;
+import static top.playereg.sys.utils.SendEmailTool.durationTime;
 import static top.playereg.sys.utils.InputTool.*;
 
 public class RegisterFrame extends javax.swing.JFrame implements ActionListener {
@@ -160,6 +160,7 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
             String password = PasswordField.getText();
             String confirmPassword = confirmPasswordField.getText();
 
+            // 过滤掉被删除的账号
             String sql = "select * from tb_user where email = ?";
             try (Connection conn = DbUtils.getConnection();
                  PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -224,7 +225,7 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
             } else if (!emailField.getText().matches(emailInput)) {
                 JOptionPane.showMessageDialog(this, "这个长得像邮箱吗？ (*´･д･)?");
             } else {
-                Boolean isSend = EmailTool.sendEmail(
+                Boolean isSend = SendEmailTool.sendEmail(
                         "丛雨",
                         "ciallo@email.playereg.top",
                         emailField.getText(),

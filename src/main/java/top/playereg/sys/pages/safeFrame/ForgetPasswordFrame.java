@@ -23,7 +23,7 @@ import java.sql.SQLException;
 
 import static top.playereg.sys.utils.DiyColors.*;
 import static top.playereg.sys.utils.EmailText.*;
-import static top.playereg.sys.utils.EmailTool.durationTime;
+import static top.playereg.sys.utils.SendEmailTool.durationTime;
 import static top.playereg.sys.utils.InputTool.emailInput;
 import static top.playereg.sys.utils.InputTool.passwordInput;
 
@@ -208,12 +208,12 @@ public class ForgetPasswordFrame extends JFrame implements ActionListener {
             } else if (!emailField.getText().matches(emailInput)) {
                 JOptionPane.showMessageDialog(this, "这个长得像邮箱吗？ (*´･д･)?");
             } else {
-                Boolean isSend = EmailTool.sendEmail(
+                Boolean isSend = SendEmailTool.sendEmail(
                         "丛雨",
                         "ciallo@email.playereg.top",
                         emailField.getText(),
                         "丛雨来消息了！！！",
-                        text2
+                        text3
                 );
                 if (isSend) {
                     emailCodeField.setEditable(true);

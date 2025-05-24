@@ -19,8 +19,4 @@ public class PingNetTool {
             return false;
         }
     }
-    public static void main(String[] args) {
-        System.out.println(ping("google.com"));
-        System.out.println(ping("resend.com"));
-    }
 }

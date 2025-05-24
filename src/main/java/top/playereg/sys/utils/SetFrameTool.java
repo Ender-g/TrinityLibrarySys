@@ -115,10 +115,4 @@ public class SetFrameTool extends JFrame {
         return new ImageIcon(resizedImage);
     }
 
-
-
-
-
-
-
 }

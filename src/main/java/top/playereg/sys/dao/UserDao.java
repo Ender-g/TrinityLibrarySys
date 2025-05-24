@@ -71,6 +71,7 @@ public class UserDao {
         return null;
     }
     /* 登录逻辑%end========================================================================================== */
+
     /* 注册逻辑%start========================================================================================== */
     public static boolean register(User user) {
         Connection conn = DbUtils.getConnection();
@@ -102,12 +103,8 @@ public class UserDao {
             return false;
         } finally {
             try {
-                if (ps != null) {
-                    ps.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
+                if (ps != null) ps.close();
+                if (conn != null) conn.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -136,12 +133,8 @@ public class UserDao {
             return false;
         } finally {
             try {
-                if (ps != null) {
-                    ps.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
+                if (ps != null) ps.close();
+                if (conn != null) conn.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
