@@ -5,7 +5,7 @@ import top.playereg.sys.utils.SetFrameTool;
 import javax.swing.*;
 import java.awt.*;
 
-import static top.playereg.sys.utils.DiyColors.skyblue;
+import static top.playereg.sys.utils.DiyColors.*;
 
 public class UserMainFrame extends JFrame {
     public static void main(String[] args) {new UserMainFrame();} // test
@@ -43,6 +43,18 @@ public class UserMainFrame extends JFrame {
         aboutMeButton.setBorderPainted(false);
         SetFrameTool.setBtnStyle(aboutMeButton, skyblue, Color.black,
                 20, 1000, 50, 150, 50, userPanel);
+
+        // 菜单按钮
+        btn = new JButton[]{
+                new JButton("借阅图书", new ImageIcon("src/main/java/top/playereg/sys/img/borrow.png", "borrow")),
+                new JButton("归还图书", new ImageIcon("src/main/java/top/playereg/sys/img/return.png", "return")),
+                new JButton("我的借阅", new ImageIcon("src/main/java/top/playereg/sys/img/myborrow.png", "myborrow"))
+        };
+        Color[] color = new Color[]{lightgreen, lightblue, Color.lightGray};
+        for (int i = 0; i < btn.length; i++) {
+            SetFrameTool.setMenuBtnStyle(btn[i], color[i], Color.black,
+                    20, 320+i*200, 300, 150, 150, userPanel);
+        }
         /* 创建组件%end=========================================================================== */
 
         /* 设置登录背景%start====================================================================== */
