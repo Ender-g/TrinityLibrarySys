@@ -82,8 +82,9 @@ public class SetFrameTool extends JFrame {
         jButton.setBounds(x, y, width, height);
         Panel.add(jButton);
     }
+
     //菜单按钮
-    public static void setMenuBtnStyle(
+    public static void setTopImgBtnStyle(
             JButton jButton, // 按钮名称
             Color btnColor, // 按钮颜色
             Color btnTextColor, // 按钮文字颜色
@@ -94,11 +95,7 @@ public class SetFrameTool extends JFrame {
             int height, // 组件高度
             JLabel Panel // 菜单面板
     ) {
-        jButton.setBackground(btnColor);
-        jButton.setBounds(x, y, width, height);
-        jButton.setFont(new Font("黑体", Font.BOLD, 20));
-        //字体颜色
-        jButton.setForeground(btnTextColor);
+        setBtnStyle(jButton, btnColor, btnTextColor, fontSize, x, y, width, height, Panel);
         //文字水平居中，在图片下方
         jButton.setVerticalTextPosition(SwingConstants.BOTTOM);
         jButton.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -107,12 +104,4 @@ public class SetFrameTool extends JFrame {
         Panel.add(jButton);
 
     }
-    //处理图片压缩
-    public static ImageIcon resizeImageIcon(String imagePath, int targetWidth, int targetHeight) {
-        ImageIcon originalIcon = new ImageIcon(imagePath);
-        Image originalImage = originalIcon.getImage();
-        Image resizedImage = originalImage.getScaledInstance(targetWidth, targetHeight, Image.SCALE_SMOOTH);
-        return new ImageIcon(resizedImage);
-    }
-
 }
