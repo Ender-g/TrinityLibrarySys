@@ -19,11 +19,13 @@ public class BorrowBookFrame extends JFrame {
     private JButton[] btn;
 
     public BorrowBookFrame(){
+        //设置窗体
         SetFrameTool.setFrame("借阅图书",
                 1000,
                 600,
                 "src/main/resources/icon/book.png",
                 this);
+        this.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 
         //创建顶部面板
         topJpanel = new JLabel();
@@ -34,7 +36,6 @@ public class BorrowBookFrame extends JFrame {
         this.add(topJpanel);
 
        //顶部面板添加按钮
-
         btn = new JButton[]{
                 new JButton("查询图书"),
                 new JButton("借阅图书")
