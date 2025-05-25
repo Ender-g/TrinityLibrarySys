@@ -154,61 +154,63 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == registerBtn) {
-            String name = nameField.getText();
-            String email = emailField.getText();
-            String emailCode = emailCodeField.getText();
-            String password = PasswordField.getText();
-            String confirmPassword = confirmPasswordField.getText();
+//            String name = nameField.getText();
+//            String email = emailField.getText();
+//            String emailCode = emailCodeField.getText();
+//            String password = PasswordField.getText();
+//            String confirmPassword = confirmPasswordField.getText();
+//
+//            // 过滤掉被删除的账号
+//            String sql = "select * from tb_user where email = ?";
+//            try (Connection conn = DbUtils.getConnection();
+//                 PreparedStatement ps = conn.prepareStatement(sql)) {
+//                ps.setString(1, email);
+//                try (ResultSet rs = ps.executeQuery()) {
+//                    tempIsDel = 1; // 重置初始值
+//                    while (rs.next()) {
+//                        int currentIsDel = rs.getInt("is_del");
+//                        if (currentIsDel == 0) {
+//                            tempIsDel = 0;
+//                            break; // 发现0立即终止检查
+//                        }
+//                    }
+//                }
+//            } catch (SQLException ex) {
+//                throw new RuntimeException("数据库查询失败", ex);
+//            }
+//            if (name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || emailCode.isEmpty()) {
+//                JOptionPane.showMessageDialog(this, "不准交白卷！！！ (・`ω´・)");
+//            } else if (!name.matches(nameInput)) {
+//                JOptionPane.showMessageDialog(this, "用户名只能是长度小于16位的字母和数字哦！_(¦3」∠)_");
+//            } else if (!password.matches(passwordInput) || !confirmPassword.matches(passwordInput)) {
+//                JOptionPane.showMessageDialog(this, "密码只能是长度6到16位的字母和数字哦！_(¦3」∠)_");
+//            } else if (!password.equals(confirmPasswordField.getText())) {
+//                JOptionPane.showMessageDialog(this, "两次输入的密码不是双胞胎吧？ (´⊙ω⊙`)");
+//            } else if (tempEmail != null && !email.equals(tempEmail)) { // 新增邮箱变更校验
+//                JOptionPane.showMessageDialog(this, "居然当着我的面换邮箱！ (╯•̀ὤ•́)╯");
+//            } else if (!emailCode.equals(tempCode)) {
+//                JOptionPane.showMessageDialog(this, "验证码好像不是这个呀！ (⁰▿⁰)");
+//            } else if (currentTime == 0 && (currentTime - System.currentTimeMillis()) > durationTime) { // 验证码过期时间 5min
+//                JOptionPane.showMessageDialog(this, "验证码超过保质期，不能用了！ ಥ_ಥ");
+//            } else {
+//                if (tempIsDel == 1) {
+//                    UserDao.register(new User(
+//                            0,
+//                            nameField.getText(),
+//                            HashTool.toHashCode(password),
+//                            emailField.getText(),
+//                            "0",
+//                            "0"
+//                    ));
+//                    currentTime = 0;
+//                    new LoginFrame().setVisible(true);
+//                    this.dispose();
+//                } else {
+//                    JOptionPane.showMessageDialog(this, "不准开小号！！！(╯•̀ὤ•́)╯");
+//                }
+//            }
 
-            // 过滤掉被删除的账号
-            String sql = "select * from tb_user where email = ?";
-            try (Connection conn = DbUtils.getConnection();
-                 PreparedStatement ps = conn.prepareStatement(sql)) {
-                ps.setString(1, email);
-                try (ResultSet rs = ps.executeQuery()) {
-                    tempIsDel = 1; // 重置初始值
-                    while (rs.next()) {
-                        int currentIsDel = rs.getInt("is_del");
-                        if (currentIsDel == 0) {
-                            tempIsDel = 0;
-                            break; // 发现0立即终止检查
-                        }
-                    }
-                }
-            } catch (SQLException ex) {
-                throw new RuntimeException("数据库查询失败", ex);
-            }
-            if (name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || emailCode.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "不准交白卷！！！ (・`ω´・)");
-            } else if (!name.matches(nameInput)) {
-                JOptionPane.showMessageDialog(this, "用户名只能是长度小于16位的字母和数字哦！_(¦3」∠)_");
-            } else if (!password.matches(passwordInput) || !confirmPassword.matches(passwordInput)) {
-                JOptionPane.showMessageDialog(this, "密码只能是长度6到16位的字母和数字哦！_(¦3」∠)_");
-            } else if (!password.equals(confirmPasswordField.getText())) {
-                JOptionPane.showMessageDialog(this, "两次输入的密码不是双胞胎吧？ (´⊙ω⊙`)");
-            } else if (tempEmail != null && !email.equals(tempEmail)) { // 新增邮箱变更校验
-                JOptionPane.showMessageDialog(this, "居然当着我的面换邮箱！ (╯•̀ὤ•́)╯");
-            } else if (!emailCode.equals(tempCode)) {
-                JOptionPane.showMessageDialog(this, "验证码好像不是这个呀！ (⁰▿⁰)");
-            } else if (currentTime == 0 && (currentTime - System.currentTimeMillis()) > durationTime) { // 验证码过期时间 5min
-                JOptionPane.showMessageDialog(this, "验证码超过保质期，不能用了！ ಥ_ಥ");
-            } else {
-                if (tempIsDel == 1) {
-                    UserDao.register(new User(
-                            0,
-                            nameField.getText(),
-                            HashTool.toHashCode(password),
-                            emailField.getText(),
-                            "0",
-                            "0"
-                    ));
-                    currentTime = 0;
-                    new LoginFrame().setVisible(true);
-                    this.dispose();
-                } else {
-                    JOptionPane.showMessageDialog(this, "不准开小号！！！(╯•̀ὤ•́)╯");
-                }
-            }
+
         }
         if (e.getSource() == backBtn) {
             new LoginFrame().setVisible(true);
