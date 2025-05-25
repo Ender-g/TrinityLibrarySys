@@ -5,8 +5,8 @@ import top.playereg.sys.utils.SetFrameTool;
 import javax.swing.*;
 import java.awt.*;
 
-import static top.playereg.sys.utils.DiyColors.lightblue;
-import static top.playereg.sys.utils.DiyColors.lightgreen;
+import static top.playereg.sys.utils.DiyColors.*;
+
 
 public class BorrowBookFrame extends JFrame {
     public static void main(String[] args) {
@@ -23,10 +23,14 @@ public class BorrowBookFrame extends JFrame {
         SetFrameTool.setFrame("借阅图书",
                 1000,
                 600,
-                "src/main/resources/icon/book.png",
+                "src/main/java/top/playereg/sys/img/borrow.png",
                 this);
-        this.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-
+        //设置窗体关闭，不结束程序
+        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() { // 窗口关闭事件
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                dispose();
+            }});
         //创建顶部面板
         topJpanel = new JLabel();
         topJpanel.setOpaque(true);
