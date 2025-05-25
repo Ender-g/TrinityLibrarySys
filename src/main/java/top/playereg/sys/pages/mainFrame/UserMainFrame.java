@@ -2,6 +2,9 @@ package top.playereg.sys.pages.mainFrame;
 
 import top.playereg.sys.pages.safeFrame.LoginFrame;
 import top.playereg.sys.pages.workFunctions.AboutMeFrame;
+import top.playereg.sys.pages.workFunctions.User.BorrowBookFrame;
+import top.playereg.sys.pages.workFunctions.User.MyBorrowFrame;
+import top.playereg.sys.pages.workFunctions.User.ReturnBookFrame;
 import top.playereg.sys.utils.SetFrameTool;
 
 import javax.swing.*;
@@ -19,6 +22,10 @@ public class UserMainFrame extends JFrame implements ActionListener {
     private JButton aboutMeButton; // 关于我
     private JButton[] btn;
     private JButton logoutButton;
+    // 在 UserMainFrame 类中添加对应的成员变量来保存窗口实例
+    private BorrowBookFrame borrowBookFrame;
+    private ReturnBookFrame returnBookFrame;
+    private MyBorrowFrame myBorrowFrame;
 
     public UserMainFrame() {
         /* 设置窗体%start============================================================================ */
@@ -94,9 +101,27 @@ public class UserMainFrame extends JFrame implements ActionListener {
             if (e.getSource() == button) {
                 System.out.println(button.getText());
                 switch (button.getText()) {
-//                    case "借阅图书" -> new BorrowBookFrame();
-//                    case "归还图书" -> new ReturnBookFrame();
-//                    case "我的借阅" -> new MyBorrowFrame();
+                    case "借阅图书":
+                        if (borrowBookFrame == null || !borrowBookFrame.isDisplayable()) {
+                            borrowBookFrame = new BorrowBookFrame();
+                        } else {
+                            borrowBookFrame.setVisible(true);
+                        }
+                        break;
+//                    case "归还图书":
+//                        if (returnBookFrame == null || !returnBookFrame.isDisplayable()) {
+//                            returnBookFrame = new ReturnBookFrame();
+//                        } else {
+//                            returnBookFrame.setVisible(true);
+//                        }
+//                        break;
+//                    case "我的借阅":
+//                        if (myBorrowFrame == null || !myBorrowFrame.isDisplayable()) {
+//                            myBorrowFrame = new MyBorrowFrame();
+//                        } else {
+//                            myBorrowFrame.setVisible(true);
+//                        }
+//                        break;
                 }
             }
         }
