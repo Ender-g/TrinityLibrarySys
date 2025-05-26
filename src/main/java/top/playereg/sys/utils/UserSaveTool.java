@@ -7,43 +7,67 @@ public class UserSaveTool {
     private static String curerntLoginUserIsRoot = null; // 当前登录用户是否是管理员
     private static String curerntLoginUserIsDel = null; // 当前登录用户是否被删除
 
+    public static void clear() {
+        curerntLoginUserName = null;
+        curerntLoginUserPassword = null;
+        curerntLoginUserEmail = null;
+        curerntLoginUserIsRoot = null;
+        curerntLoginUserIsDel = null;
+        System.out.println("用户信息已清空！");
+    }
+
+    // 获取当前登录用户名
     public static String getCurerntLoginUserName() {
         return curerntLoginUserName;
     }
 
+    // 设置当前登录用户名
     public static void setCurerntLoginUserName(String curerntLoginUserName) {
         UserSaveTool.curerntLoginUserName = curerntLoginUserName;
+        System.out.println("当前登录用户名：" + curerntLoginUserName);
     }
 
+    // 获取当前登录用户密码
     public static String getCurerntLoginUserPassword() {
         return curerntLoginUserPassword;
     }
 
+    // 设置当前登录用户密码
     public static void setCurerntLoginUserPassword(String curerntLoginUserPassword) {
         UserSaveTool.curerntLoginUserPassword = curerntLoginUserPassword;
+        System.out.println("当前登录用户密码：" + curerntLoginUserPassword);
     }
 
+    // 获取当前登录用户邮箱
     public static String getCurerntLoginUserEmail() {
         return curerntLoginUserEmail;
     }
 
+    // 设置当前登录用户邮箱
     public static void setCurerntLoginUserEmail(String curerntLoginUserEmail) {
         UserSaveTool.curerntLoginUserEmail = curerntLoginUserEmail;
+        System.out.println("当前登录用户邮箱：" + curerntLoginUserEmail);
     }
 
+    // 获取当前登录用户是否是管理员
     public static String getCurerntLoginUserIsRoot() {
         return curerntLoginUserIsRoot;
     }
 
+    // 设置当前登录用户是否是管理员
     public static void setCurerntLoginUserIsRoot(String curerntLoginUserIsRoot) {
         UserSaveTool.curerntLoginUserIsRoot = curerntLoginUserIsRoot;
+        System.out.println("当前登录用户是否是管理员：" + curerntLoginUserIsRoot);
     }
 
+    // 获取当前登录用户是否被删除
     public static String getCurerntLoginUserIsDel() {
         return curerntLoginUserIsDel;
     }
 
+    // 设置当前登录用户是否被删除
     public static void setCurerntLoginUserIsDel(String curerntLoginUserIsDel) {
         UserSaveTool.curerntLoginUserIsDel = curerntLoginUserIsDel;
+        System.out.println("当前登录用户是否被删除：" + curerntLoginUserIsDel);
     }
 }

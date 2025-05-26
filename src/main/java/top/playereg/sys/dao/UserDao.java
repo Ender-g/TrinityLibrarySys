@@ -19,47 +19,53 @@ import top.playereg.sys.utils.UserSaveTool;
 
 public class UserDao {
     /* 登录逻辑%start========================================================================================== */
-    public static User login(String email, String password) {
+    public static boolean login(String email, String password) {
         Connection conn = DbUtils.getConnection();
         PreparedStatement ps = null;
         ResultSet rs = null;
+        String currentPassword = "";
+        int tempIsDel = -1;
+        int tempIsRoot = -1;
+        String sql;
         try {
-            // 修改SQL查询语句，获取完整用户信息
-            String sql = "SELECT * FROM tb_user WHERE email = ?";
+            sql = "SELECT * FROM tb_user WHERE email = ?";
             ps = conn.prepareStatement(sql);
             ps.setString(1, email);
             rs = ps.executeQuery();
-
-            if (rs.next()) {
-                // 添加密码验证逻辑
-                String storedPassword = rs.getString("password");
-                int isDel = rs.getInt("is_del");
-
-                // 账户未删除且密码匹配
-                if (isDel == 0 && password.equals(storedPassword)) {
-                    // 创建User对象返回
-                    User user = new User();
-                    user.setId(rs.getInt("id"));
-                    user.setUsername(rs.getString("username"));
-                    user.setEmail(email);
-                    user.setPassword(storedPassword);
-                    user.setIs_root(rs.getString("is_root"));
-                    user.setIs_del(rs.getString("is_del"));
-                    return user;
-                }
-                // 账户已删除提示
-                if (isDel == 1) {
-                    JOptionPane.showMessageDialog(null, "该用户已被注销！", "错误", JOptionPane.ERROR_MESSAGE);
+            tempIsDel = -1;
+            tempIsRoot = -1; // 新增重置初始值
+            while (rs.next()) {
+                int currentIsDel = rs.getInt("is_del");
+                if (currentIsDel == 0) {
+                    tempIsDel = 0;
+                    tempIsRoot = rs.getInt("is_root"); // 新增获取is_root值
+                    currentPassword = rs.getString("password");
+                    break;
                 } else {
-                    JOptionPane.showMessageDialog(null, "密码错误！", "错误", JOptionPane.ERROR_MESSAGE);
+                    continue;
                 }
+            }
+            if (currentPassword.equals(HashTool.toHashCode(password)) && tempIsDel == 0) { // 密码正确
+                UserSaveTool.setCurerntLoginUserName(rs.getString("username")); // 保存用户名
+                UserSaveTool.setCurerntLoginUserPassword(currentPassword); // 密码保存
+                UserSaveTool.setCurerntLoginUserEmail(email); // 邮箱保存
+                UserSaveTool.setCurerntLoginUserIsRoot(String.valueOf(tempIsRoot)); // 保存is_root
+                UserSaveTool.setCurerntLoginUserIsDel(String.valueOf(tempIsDel)); // 保存is_del
+                return true;
             } else {
-                JOptionPane.showMessageDialog(null, "用户不存在！", "错误", JOptionPane.ERROR_MESSAGE);
+                if (tempIsDel != 0) {
+                    JOptionPane.showMessageDialog(null, "您还没加入我们？快去点“注册”按钮！ ヽ( ^ω^ ゞ )", "快加入我们！！！", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "嗯。。。密码好像有问题。 ∑(✘Д✘๑ )", "不对劲！", JOptionPane.ERROR_MESSAGE);
+                }
+                return false;
             }
         } catch (SQLException e) {
-            throw new RuntimeException("数据库查询失败", e);
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "数据库操作失败！请检查数据库是否正常！", "错误", JOptionPane.ERROR_MESSAGE);
+            throw new RuntimeException(e);
         } finally {
-            // 增加资源关闭逻辑
+            // 添加资源关闭逻辑
             try {
                 if (rs != null) rs.close();
                 if (ps != null) ps.close();
@@ -68,7 +74,6 @@ public class UserDao {
                 e.printStackTrace();
             }
         }
-        return null;
     }
     /* 登录逻辑%end========================================================================================== */
 

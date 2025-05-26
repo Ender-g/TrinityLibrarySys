@@ -8,6 +8,7 @@
 
 package top.playereg.sys.pages.safeFrame;
 
+import top.playereg.sys.dao.UserDao;
 import top.playereg.sys.pages.mainFrame.AdminMainFrame;
 import top.playereg.sys.pages.mainFrame.UserMainFrame;
 import top.playereg.sys.utils.*;
@@ -20,6 +21,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Objects;
 
 import static top.playereg.sys.utils.DiyColors.*;
 import static top.playereg.sys.utils.EmailText.*;
@@ -30,8 +32,6 @@ public class LoginFrame extends JFrame implements ActionListener {
     private static long currentTime = 0;
     private String tempCode = null;
     private String tempEmail = null; // 新增字段用于保存发送验证码时的邮箱
-    private int tempIsDel = -1;
-    private int tempIsRoot = -1;
     /* 声明组件%start================================================================================== */
     private JLabel loginPanel; // 登录面板
     private JLabel titleLabel; // 标题
@@ -129,56 +129,32 @@ public class LoginFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == loginBtn) {
-            // 登录逻辑实现
-
+            //  登录逻辑实现
             String email = emailField.getText();
             String password = new String(passwordField.getPassword());
             String emailCode = emailCodeField.getText();
-            String currentPassword = null;
-
-            String sql = "select * from tb_user where email = ?";
-
-            try (Connection conn = DbUtils.getConnection();
-                 PreparedStatement ps = conn.prepareStatement(sql)) {
-                ps.setString(1, email);
-                try (ResultSet rs = ps.executeQuery()) {
-                    tempIsDel = -1;
-                    tempIsRoot = -1; // 新增重置初始值
-                    while (rs.next()) {
-                        int currentIsDel = rs.getInt("is_del");
-                        if (currentIsDel == 0) {
-                            tempIsDel = 0;
-                            tempIsRoot = rs.getInt("is_root"); // 新增获取is_root值
-                            currentPassword = rs.getString("password");
-                            break;
-                        }
-                    }
-                }
-            } catch (SQLException ex) {
-                throw new RuntimeException("数据库查询失败", ex);
-            }
             if (email.isEmpty() || password.isEmpty() || emailCode.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "不准交白卷！！！ (・`ω´・)");
+                return;
             } else if (!emailCode.equals(tempCode)) {
                 JOptionPane.showMessageDialog(this, "验证码好像不是这个呀！ (⁰▿⁰)");
+            } else if (currentTime == 0 && (currentTime - System.currentTimeMillis()) > durationTime) {
+                JOptionPane.showMessageDialog(this, "验证码超过保质期，不能用了！ ಥ_ಥ");
+            } else if (!passwordField.getText().matches(passwordInput)) {
+                JOptionPane.showMessageDialog(this, "密码是6到16位的字母数字组成的哦！");
             } else if (tempEmail != null && !email.equals(tempEmail)) {
                 JOptionPane.showMessageDialog(this, "居然当着我的面换邮箱！ (╯•̀ὤ•́)╯");
-            } else if (currentTime == 0 || (System.currentTimeMillis() - currentTime) > durationTime) {
-                JOptionPane.showMessageDialog(this, "验证码超过保质期，不能用了！ ಥ_ಥ");
-            } else if (tempIsDel == -1) {
-                JOptionPane.showMessageDialog(this, "您还没加入我们？快去点“注册”按钮！ ヽ( ^ω^ ゞ )");
             } else {
-                if (HashTool.toHashCode(password).equals(currentPassword)) {
-                    // todo 获取保存当前用户信息
-                    if (tempIsRoot == 1) {
-                        this.dispose();
-                        new AdminMainFrame().setVisible(true);
-                    } else {
-                        this.dispose();
+                if (UserDao.login(email, password) && emailCode.equals(tempCode)) {
+                    if (UserSaveTool.getCurerntLoginUserIsRoot().equals("0")) {
                         new UserMainFrame().setVisible(true);
+                        this.dispose();
                     }
-                } else {
-                    JOptionPane.showMessageDialog(this, "嗯。。。密码好像有问题。 ∑(✘Д✘๑ )");
+                    if (UserSaveTool.getCurerntLoginUserIsRoot().equals("1")) {
+                        new AdminMainFrame().setVisible(true);
+                        this.dispose();
+                    }
+
                 }
             }
         }

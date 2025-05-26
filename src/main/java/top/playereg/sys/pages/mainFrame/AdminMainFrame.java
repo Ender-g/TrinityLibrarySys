@@ -3,6 +3,7 @@ package top.playereg.sys.pages.mainFrame;
 import top.playereg.sys.pages.safeFrame.LoginFrame;
 import top.playereg.sys.pages.workFunctions.AboutMeFrame;
 import top.playereg.sys.utils.SetFrameTool;
+import top.playereg.sys.utils.UserSaveTool;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,7 +26,7 @@ public class AdminMainFrame extends JFrame implements ActionListener {
     public AdminMainFrame() {
         /* 设置窗体%start============================================================================ */
         SetFrameTool.setFrame("崔尼蒂图书馆-管理面板 v1.0.0", 1200, 720,
-                "src/main/java/top/playereg/sys/img/system.png", this);
+                "src/main/java/top/playereg/sys/img/book.png", this);
         /* 设置窗体%end============================================================================ */
 
         /* 设置Root面板%start======================================================================== */
@@ -90,6 +91,7 @@ public class AdminMainFrame extends JFrame implements ActionListener {
         }
         if (e.getSource() == logoutButton) {
             System.out.println("登出");
+            UserSaveTool.clear();
             this.dispose();
             new LoginFrame();
         }

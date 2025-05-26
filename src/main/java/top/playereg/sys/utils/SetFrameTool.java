@@ -80,6 +80,7 @@ public class SetFrameTool extends JFrame {
         jButton.setFont(new Font("黑体", Font.BOLD, fontSize));
         jButton.setForeground(btnTextColor);
         jButton.setBounds(x, y, width, height);
+        jButton.setBorderPainted(false);
         Panel.add(jButton);
     }
 
