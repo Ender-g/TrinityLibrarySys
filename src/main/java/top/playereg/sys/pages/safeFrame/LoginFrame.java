@@ -122,11 +122,17 @@ public class LoginFrame extends JFrame implements ActionListener {
     /* 执行监听%start=========================================================================== */
     @Override
     public void actionPerformed(ActionEvent e) {
+        String email = emailField.getText();
+        String password = new String(passwordField.getPassword());
+        String emailCode = emailCodeField.getText();
+
+        System.out.println("email: " + email
+                + "\npassword: " + password
+                + "\n"
+        );
+
+        // 登录按钮
         if (e.getSource() == loginBtn) {
-            //  登录逻辑实现
-            String email = emailField.getText();
-            String password = new String(passwordField.getPassword());
-            String emailCode = emailCodeField.getText();
             if (email.isEmpty() || password.isEmpty() || emailCode.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "不准交白卷！！！ (・`ω´・)");
             } else if (!emailCode.equals(tempCode)) {
@@ -150,16 +156,21 @@ public class LoginFrame extends JFrame implements ActionListener {
                 }
             }
         }
+        // 注册按钮
         if (e.getSource() == registerBtn) {
             currentTime = 0;
             new RegisterFrame().setVisible(true);
             this.dispose(); // 关闭当前窗口
         }
+
+        // 忘记密码按钮
         if (e.getSource() == forgetBtn) {
             currentTime = 0;
             new ForgetPasswordFrame().setVisible(true);
             this.dispose();
         }
+
+        // 发送验证码按钮
         if (e.getSource() == sendEmailCodeBtn) {
             currentTime = 0;
             String code = (int) ((Math.random() * 9 + 1) * 100000) + "";
@@ -167,15 +178,15 @@ public class LoginFrame extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(this, "蜘蛛：网，网在哪？我网呢？ (´⊙ω⊙`)");
             } else if (!PingNetTool.ping("resend.com")) {
                 JOptionPane.showMessageDialog(this, "服务器居然长腿跑了！！！ (*´д`)");
-            } else if (emailField.getText().isEmpty()) {
+            } else if (email.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "居然是！皇帝的新邮箱！！！ ( ×ω× )");
-            } else if (!emailField.getText().matches(emailInput)) {
+            } else if (!email.matches(emailInput)) {
                 JOptionPane.showMessageDialog(this, "这个长得像邮箱吗？ (*´･д･)?");
             } else {
                 Boolean isSend = SendEmailTool.sendEmail(
                         "丛雨",
                         "ciallo@email.playereg.top",
-                        emailField.getText(),
+                        email,
                         "丛雨来消息了！！！",
                         "<h1 style=\"font-size: 18px\">Ciallo～(∠・ω< )⌒☆</h1>" +
                                 "<h1 style=\"font-size: 18px\">主人，欢迎回来！！！</h1>" +
@@ -190,7 +201,7 @@ public class LoginFrame extends JFrame implements ActionListener {
                     emailCodeField.setEditable(true);
                     currentTime = System.currentTimeMillis();
                     tempCode = code;
-                    tempEmail = emailField.getText(); // 记录发送验证码时的邮箱
+                    tempEmail = email; // 记录发送验证码时的邮箱
                     JOptionPane.showMessageDialog(this, "验证码已发送");
                 } else {
                     JOptionPane.showMessageDialog(this, "验证码发送失败");

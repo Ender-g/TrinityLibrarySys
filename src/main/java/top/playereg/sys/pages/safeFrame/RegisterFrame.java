@@ -151,12 +151,21 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
     /* 执行监听%end=========================================================================== */
     @Override
     public void actionPerformed(ActionEvent e) {
+        String name = nameField.getText();
+        String email = emailField.getText();
+        String emailCode = emailCodeField.getText();
+        String password = PasswordField.getText();
+        String confirmPassword = confirmPasswordField.getText();
+
+        System.out.println("name: " + name +
+                "\nemail: " + email +
+                "\npassword: " + password +
+                "\nconfirmPassword: " + confirmPassword
+                + "\n"
+        );
+
+        // 注册按钮
         if (e.getSource() == registerBtn) {
-            String name = nameField.getText();
-            String email = emailField.getText();
-            String emailCode = emailCodeField.getText();
-            String password = PasswordField.getText();
-            String confirmPassword = confirmPasswordField.getText();
             if (name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || emailCode.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "不准交白卷！！！ (・`ω´・)");
             } else if (!name.matches(nameInput)) {
@@ -165,7 +174,7 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
                 JOptionPane.showMessageDialog(this, "密码只能是长度6到16位的字母和数字哦！_(¦3」∠)_");
             } else if (!password.equals(confirmPasswordField.getText())) {
                 JOptionPane.showMessageDialog(this, "两次输入的密码不是双胞胎吧？ (´⊙ω⊙`)");
-            } else if (tempEmail != null && !email.equals(tempEmail)) { // 新增邮箱变更校验
+            } else if (tempEmail != null && !email.equals(tempEmail)) {
                 JOptionPane.showMessageDialog(this, "居然当着我的面换邮箱！ (╯•̀ὤ•́)╯");
             } else if (!emailCode.equals(tempCode)) {
                 JOptionPane.showMessageDialog(this, "验证码好像不是这个呀！ (⁰▿⁰)");
@@ -185,10 +194,14 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
                 this.dispose();
             }
         }
+
+        // 返回按钮
         if (e.getSource() == backBtn) {
             new LoginFrame().setVisible(true);
             this.dispose();
         }
+
+        // 发送验证码按钮
         if (e.getSource() == sendEmailCodeBtn) {
             currentTime = 0;
             String code = (int) ((Math.random() * 9 + 1) * 100000) + "";
@@ -196,15 +209,15 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
                 JOptionPane.showMessageDialog(this, "蜘蛛：网，网在哪？我网呢？ (´⊙ω⊙`)");
             } else if (!PingNetTool.ping("resend.com")) {
                 JOptionPane.showMessageDialog(this, "服务器居然长腿跑了！！！ (*´д`)");
-            } else if (emailField.getText().isEmpty()) {
+            } else if (email.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "居然是！皇帝的新邮箱！！！ ( ×ω× )");
-            } else if (!emailField.getText().matches(emailInput)) {
+            } else if (!email.matches(emailInput)) {
                 JOptionPane.showMessageDialog(this, "这个长得像邮箱吗？ (*´･д･)?");
             } else {
                 Boolean isSend = SendEmailTool.sendEmail(
                         "丛雨",
                         "ciallo@email.playereg.top",
-                        emailField.getText(),
+                        email,
                         "丛雨来消息了！！！",
                         "<h1 style=\"font-size: 18px\">Ciallo～(∠・ω< )⌒☆</h1>" +
                                 "<h1 style=\"font-size: 18px\">主人，欢迎加入我们！！！</h1>" +
@@ -219,11 +232,10 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
                     emailCodeField.setEditable(true);
                     currentTime = System.currentTimeMillis();
                     tempCode = code;
-                    tempEmail = emailField.getText(); // 记录发送验证码时的邮箱
+                    tempEmail = email; // 记录发送验证码时的邮箱
                     JOptionPane.showMessageDialog(this, "验证码已发送");
                 } else {
                     JOptionPane.showMessageDialog(this, "验证码发送失败");
-
                 }
             }
         }

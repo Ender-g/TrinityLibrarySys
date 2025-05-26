@@ -8,6 +8,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import static top.playereg.sys.utils.DiyColors.darkgreen;
 import static top.playereg.sys.utils.InputTool.passwordInput;
@@ -41,8 +43,8 @@ public class AboutMeFrame extends JFrame implements ActionListener {
         //只能打开一个窗口
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-        addWindowListener(new java.awt.event.WindowAdapter() { // 窗口关闭事件
-            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+        addWindowListener(new WindowAdapter() { // 窗口关闭事件
+            public void windowClosing(WindowEvent windowEvent) {
                 dispose();
             }
         });
@@ -130,12 +132,19 @@ public class AboutMeFrame extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == ChangePasswordBtn) {
-            String email = emailText.getText();
-            String emailCode = emailCodeField.getText();
-            String newPassword = new String(PasswordField.getPassword());
-            String confirmPassword = new String(confirmPasswordField.getPassword());
+        String emailCode = emailCodeField.getText();
+        String email = emailText.getText();
+        String newPassword = new String(PasswordField.getPassword());
+        String confirmPassword = new String(confirmPasswordField.getPassword());
 
+        System.out.println("\nemail =" + email
+                + "\nnewPassword =" + newPassword
+                + "\nconfirmPassword =" + confirmPassword
+                + "\n"
+        );
+
+        // 修改密码按钮
+        if (e.getSource() == ChangePasswordBtn) {
             if (email.isEmpty() || emailCode.isEmpty() || newPassword.isEmpty() || confirmPassword.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "不准交白卷！！！ (・`ω´・)");
             } else if (!newPassword.matches(passwordInput) || !confirmPassword.matches(passwordInput)) {
@@ -152,16 +161,26 @@ public class AboutMeFrame extends JFrame implements ActionListener {
                 this.dispose();
             }
         }
+
+        // 注销账户按钮
         if (e.getSource() == deleteBtn) {
-            if (JOptionPane.showConfirmDialog(this, "确定注销账户吗？", "注销账户", JOptionPane.YES_NO_OPTION) == 0) {
-                UserDao.deleteUser(UserSaveTool.getCurerntLoginUserEmail());
-                UserSaveTool.clear();
-                UserSaveTool.clear();
-                for (Window window : Window.getWindows()) {
-                    window.dispose();
+            if (!emailCode.equals(tempCode)) {
+                JOptionPane.showMessageDialog(this, "验证码好像不是这个呀！ (⁰▿⁰)");
+            } else if (currentTime == 0 && (currentTime - System.currentTimeMillis()) > durationTime) { // 验证码过期时间 5min
+                JOptionPane.showMessageDialog(this, "验证码超过保质期，不能用了！ ಥ_ಥ");
+            } else if (UserSaveTool.getCurerntLoginUserIsRoot().equals("1")) {
+                JOptionPane.showMessageDialog(this, "root用户不能注销账户！ ( ´・ω・｀)");
+            } else {
+                if (JOptionPane.showConfirmDialog(this, "确定注销账户吗？", "注销账户", JOptionPane.YES_NO_OPTION) == 0) {
+                    UserDao.deleteUser(getCurerntLoginUserEmail());
+                    UserSaveTool.clear();
+                    for (Window window : Window.getWindows()) {
+                        window.dispose();
+                    }
+                    new LoginFrame().setVisible(true);
                 }
-                new LoginFrame().setVisible(true);
             }
+
         }
         if (e.getSource() == sendEmailCodeBtn) {
             currentTime = 0;
@@ -171,10 +190,10 @@ public class AboutMeFrame extends JFrame implements ActionListener {
             } else if (!PingNetTool.ping("resend.com")) {
                 JOptionPane.showMessageDialog(this, "服务器居然长腿跑了！！！ (*´д`)");
             } else {
-                Boolean isSend = SendEmailTool.sendEmail(
+                Boolean isSend = sendEmail(
                         "丛雨",
                         "ciallo@email.playereg.top",
-                        emailText.getText(),
+                        email,
                         "丛雨来消息了！！！",
                         "<h1 style=\"font-size: 18px\">Ciallo～(∠・ω< )⌒☆</h1>" +
                                 "<h1 style=\"font-size: 18px\">主人，您需要更改密码吗？</h1>" +

@@ -7,13 +7,16 @@ public class UserSaveTool {
     private static String curerntLoginUserEmail = null; // 当前登录用户邮箱
     private static String curerntLoginUserIsRoot = null; // 当前登录用户是否是管理员
     private static String curerntLoginUserIsDel = null; // 当前登录用户是否被删除
-
+    private static String curerntLoginUserTheBorrow = null; // 当前登录用户借阅
+    //  清空用户信息
     public static void clear() {
+        curerntLoginUserId = null;
         curerntLoginUserName = null;
         curerntLoginUserPassword = null;
         curerntLoginUserEmail = null;
         curerntLoginUserIsRoot = null;
         curerntLoginUserIsDel = null;
+        curerntLoginUserTheBorrow = null;
         System.out.println("用户信息已清空！");
     }
 
@@ -79,5 +82,14 @@ public class UserSaveTool {
     public static void setCurerntLoginUserIsDel(String curerntLoginUserIsDel) {
         UserSaveTool.curerntLoginUserIsDel = curerntLoginUserIsDel;
         System.out.println("当前登录用户是否被删除：" + curerntLoginUserIsDel);
+    }
+
+    public static String getCurerntLoginUserTheBorrow() {
+        return curerntLoginUserTheBorrow;
+    }
+
+    public static void setCurerntLoginUserTheBorrow(String curerntLoginUserTheBorrow) {
+        UserSaveTool.curerntLoginUserTheBorrow = curerntLoginUserTheBorrow;
+        System.out.println("当前登录用户借阅：" + curerntLoginUserTheBorrow);
     }
 }

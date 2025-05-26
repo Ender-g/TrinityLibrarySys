@@ -51,8 +51,9 @@ public class UserDao {
                 UserSaveTool.setCurerntLoginUserName(rs.getString("username")); // 保存用户名
                 UserSaveTool.setCurerntLoginUserPassword(currentPassword); // 密码保存
                 UserSaveTool.setCurerntLoginUserEmail(email); // 邮箱保存
-                UserSaveTool.setCurerntLoginUserIsRoot(String.valueOf(tempIsRoot)); // 保存is_root
-                UserSaveTool.setCurerntLoginUserIsDel(String.valueOf(tempIsDel)); // 保存is_del
+                UserSaveTool.setCurerntLoginUserIsRoot(String.valueOf(rs.getInt("is_root"))); // 保存is_root
+                UserSaveTool.setCurerntLoginUserIsDel(String.valueOf(rs.getInt("is_del"))); // 保存is_del
+                UserSaveTool.setCurerntLoginUserTheBorrow(String.valueOf(rs.getInt("theBorrow"))); // 借阅数保存
                 return true;
             } else {
                 if (tempIsDel != 0) {
