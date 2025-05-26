@@ -9,7 +9,7 @@
 package top.playereg.sys.pages.safeFrame;
 
 import top.playereg.sys.dao.UserDao;
-import top.playereg.sys.pages.mainFrame.AdminMainFrame;
+import top.playereg.sys.pages.mainFrame.RootMainFrame;
 import top.playereg.sys.pages.mainFrame.UserMainFrame;
 import top.playereg.sys.utils.*;
 
@@ -17,11 +17,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Objects;
 
 import static top.playereg.sys.utils.DiyColors.*;
 import static top.playereg.sys.utils.EmailText.*;
@@ -135,7 +130,6 @@ public class LoginFrame extends JFrame implements ActionListener {
             String emailCode = emailCodeField.getText();
             if (email.isEmpty() || password.isEmpty() || emailCode.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "不准交白卷！！！ (・`ω´・)");
-                return;
             } else if (!emailCode.equals(tempCode)) {
                 JOptionPane.showMessageDialog(this, "验证码好像不是这个呀！ (⁰▿⁰)");
             } else if (currentTime == 0 && (currentTime - System.currentTimeMillis()) > durationTime) {
@@ -151,10 +145,9 @@ public class LoginFrame extends JFrame implements ActionListener {
                         this.dispose();
                     }
                     if (UserSaveTool.getCurerntLoginUserIsRoot().equals("1")) {
-                        new AdminMainFrame().setVisible(true);
+                        new RootMainFrame().setVisible(true);
                         this.dispose();
                     }
-
                 }
             }
         }

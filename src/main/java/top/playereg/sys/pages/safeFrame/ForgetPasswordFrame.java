@@ -137,61 +137,29 @@ public class ForgetPasswordFrame extends JFrame implements ActionListener {
     /* 执行监听%start=========================================================================== */
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == submitBtn) {
-//
-//            String email = emailField.getText();
-//            String emailCode = emailCodeField.getText();
-//            String newPassword = new String(newPasswordField.getPassword());
-//            String confirmPassword = new String(confirmPasswordField.getPassword());
-//
-//            String sql = "select * from tb_user where email = ?";
-//            try (Connection conn = DbUtils.getConnection();
-//                 PreparedStatement ps = conn.prepareStatement(sql)) {
-//                ps.setString(1, email);
-//                try (ResultSet rs = ps.executeQuery()) {
-//                    tempIsDel = 1; // 重置初始值
-//                    while (rs.next()) {
-//                        int currentIsDel = rs.getInt("is_del");
-//                        if (currentIsDel == 0) {
-//                            tempIsDel = 0;
-//                            break; // 发现0立即终止检查
-//                        }
-//                    }
-//                }
-//            } catch (SQLException ex) {
-//                throw new RuntimeException("数据库查询失败", ex);
-//            }
-//            if (email.isEmpty() || emailCode.isEmpty() || newPassword.isEmpty() || confirmPassword.isEmpty()) {
-//                JOptionPane.showMessageDialog(this, "不准交白卷！！！ (・`ω´・)");
-//            } else if (!newPassword.matches(passwordInput) || !confirmPassword.matches(passwordInput)){
-//                JOptionPane.showMessageDialog(this, "密码只能是长度6到16位的字母和数字哦！_(¦3」∠)_");
-//            } else if (!newPassword.equals(confirmPasswordField.getText())) {
-//                JOptionPane.showMessageDialog(this, "两次输入的密码不是双胞胎吧？ (´⊙ω⊙`)");
-//            } else if (tempEmail != null && !email.equals(tempEmail)) { // 新增邮箱变更校验
-//                JOptionPane.showMessageDialog(this, "居然当着我的面换邮箱！ (╯•̀ὤ•́)╯");
-//            } else if (!emailCode.equals(tempCode)) {
-//                JOptionPane.showMessageDialog(this, "验证码好像不是这个呀！ (⁰▿⁰)");
-//            } else if (currentTime == 0 && (currentTime - System.currentTimeMillis()) > durationTime) { // 验证码过期时间 5min
-//                JOptionPane.showMessageDialog(this, "验证码超过保质期，不能用了！ ಥ_ಥ");
-//            } else {
-//                // 新增邮箱有效性判断
-//                if (tempIsDel == 1) { // 数据库记录已删除时
-//                    JOptionPane.showMessageDialog(this, "该账号已被注销，无法修改密码！ (×_×)");
-//                } else { // 仅当tempIsDel == 0时执行更新
-//                    if (UserDao.updatePassword(new User(
-//                            0,
-//                            null,
-//                            HashTool.toHashCode(newPassword),
-//                            email,
-//                            null,
-//                            null))) {
-//                        JOptionPane.showMessageDialog(this, "哦耶！密码重置成功！ ( ´∀｀)");
-//                        new LoginFrame().setVisible(true);
-//                        this.dispose();
-//                    } else {
-//                        JOptionPane.showMessageDialog(this, "啥？密码重置失败？ (´・ω・｀)");
-//                    }
-//                }
-//            }
+            String email = emailField.getText();
+            String emailCode = emailCodeField.getText();
+            String newPassword = new String(newPasswordField.getPassword());
+            String confirmPassword = new String(confirmPasswordField.getPassword());
+
+            if (email.isEmpty() || emailCode.isEmpty() || newPassword.isEmpty() || confirmPassword.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "不准交白卷！！！ (・`ω´・)");
+            } else if (!newPassword.matches(passwordInput) || !confirmPassword.matches(passwordInput)){
+                JOptionPane.showMessageDialog(this, "密码只能是长度6到16位的字母和数字哦！_(¦3」∠)_");
+            } else if (!newPassword.equals(confirmPasswordField.getText())) {
+                JOptionPane.showMessageDialog(this, "两次输入的密码不是双胞胎吧？ (´⊙ω⊙`)");
+            } else if (tempEmail != null && !email.equals(tempEmail)) { // 新增邮箱变更校验
+                JOptionPane.showMessageDialog(this, "居然当着我的面换邮箱！ (╯•̀ὤ•́)╯");
+            } else if (!emailCode.equals(tempCode)) {
+                JOptionPane.showMessageDialog(this, "验证码好像不是这个呀！ (⁰▿⁰)");
+            } else if (currentTime == 0 && (currentTime - System.currentTimeMillis()) > durationTime) { // 验证码过期时间 5min
+                JOptionPane.showMessageDialog(this, "验证码超过保质期，不能用了！ ಥ_ಥ");
+            } else {
+                UserDao.updatePassword(email, newPassword);
+                currentTime = 0;
+                new LoginFrame().setVisible(true);
+                this.dispose();
+            }
         }
         if (e.getSource() == backBtn) {
             new LoginFrame().setVisible(true);

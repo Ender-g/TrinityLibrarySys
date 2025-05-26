@@ -1,6 +1,7 @@
 package top.playereg.sys.utils;
 
 public class UserSaveTool {
+    private static String curerntLoginUserId = null;
     private static String curerntLoginUserName = null; // 当前登录用户名
     private static String curerntLoginUserPassword = null; // 当前登录用户密码
     private static String curerntLoginUserEmail = null; // 当前登录用户邮箱
@@ -14,6 +15,15 @@ public class UserSaveTool {
         curerntLoginUserIsRoot = null;
         curerntLoginUserIsDel = null;
         System.out.println("用户信息已清空！");
+    }
+
+    public static String getCurerntLoginUserId() {
+        return curerntLoginUserId;
+    }
+
+    public static void setCurerntLoginUserId(String curerntLoginUserId) {
+        UserSaveTool.curerntLoginUserId = curerntLoginUserId;
+        System.out.println("当前登录用户ID：" + curerntLoginUserId);
     }
 
     // 获取当前登录用户名

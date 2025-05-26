@@ -10,22 +10,22 @@ package top.playereg.sys.pages.safeFrame;
 
 import top.playereg.sys.dao.UserDao;
 import top.playereg.sys.entity.User;
-import top.playereg.sys.utils.*;
+import top.playereg.sys.utils.InputTool;
+import top.playereg.sys.utils.PingNetTool;
+import top.playereg.sys.utils.SendEmailTool;
+import top.playereg.sys.utils.SetFrameTool;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import static top.playereg.sys.utils.DiyColors.darkgreen;
 import static top.playereg.sys.utils.DiyColors.skyblue;
-import static top.playereg.sys.utils.EmailText.*;
-import static top.playereg.sys.utils.SendEmailTool.durationTime;
+import static top.playereg.sys.utils.EmailText.code;
+import static top.playereg.sys.utils.EmailText.text2;
 import static top.playereg.sys.utils.InputTool.*;
+import static top.playereg.sys.utils.SendEmailTool.durationTime;
 
 public class RegisterFrame extends javax.swing.JFrame implements ActionListener {
     private static long currentTime = 0;
@@ -122,7 +122,7 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
                 20, 200, 420, 250, 50, registerPanel);
 
         // 返回按钮
-        backBtn = new JButton("返回",new ImageIcon("src/main/java/top/playereg/sys/img/back1.png"));
+        backBtn = new JButton("返回", new ImageIcon("src/main/java/top/playereg/sys/img/back1.png"));
         SetFrameTool.setBtnStyle(backBtn, Color.yellow, Color.black,
                 16, 10, 10, 120, 30, registerPanel);
         /* 创建组件%end=========================================================================== */
@@ -154,63 +154,38 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == registerBtn) {
-//            String name = nameField.getText();
-//            String email = emailField.getText();
-//            String emailCode = emailCodeField.getText();
-//            String password = PasswordField.getText();
-//            String confirmPassword = confirmPasswordField.getText();
-//
-//            // 过滤掉被删除的账号
-//            String sql = "select * from tb_user where email = ?";
-//            try (Connection conn = DbUtils.getConnection();
-//                 PreparedStatement ps = conn.prepareStatement(sql)) {
-//                ps.setString(1, email);
-//                try (ResultSet rs = ps.executeQuery()) {
-//                    tempIsDel = 1; // 重置初始值
-//                    while (rs.next()) {
-//                        int currentIsDel = rs.getInt("is_del");
-//                        if (currentIsDel == 0) {
-//                            tempIsDel = 0;
-//                            break; // 发现0立即终止检查
-//                        }
-//                    }
-//                }
-//            } catch (SQLException ex) {
-//                throw new RuntimeException("数据库查询失败", ex);
-//            }
-//            if (name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || emailCode.isEmpty()) {
-//                JOptionPane.showMessageDialog(this, "不准交白卷！！！ (・`ω´・)");
-//            } else if (!name.matches(nameInput)) {
-//                JOptionPane.showMessageDialog(this, "用户名只能是长度小于16位的字母和数字哦！_(¦3」∠)_");
-//            } else if (!password.matches(passwordInput) || !confirmPassword.matches(passwordInput)) {
-//                JOptionPane.showMessageDialog(this, "密码只能是长度6到16位的字母和数字哦！_(¦3」∠)_");
-//            } else if (!password.equals(confirmPasswordField.getText())) {
-//                JOptionPane.showMessageDialog(this, "两次输入的密码不是双胞胎吧？ (´⊙ω⊙`)");
-//            } else if (tempEmail != null && !email.equals(tempEmail)) { // 新增邮箱变更校验
-//                JOptionPane.showMessageDialog(this, "居然当着我的面换邮箱！ (╯•̀ὤ•́)╯");
-//            } else if (!emailCode.equals(tempCode)) {
-//                JOptionPane.showMessageDialog(this, "验证码好像不是这个呀！ (⁰▿⁰)");
-//            } else if (currentTime == 0 && (currentTime - System.currentTimeMillis()) > durationTime) { // 验证码过期时间 5min
-//                JOptionPane.showMessageDialog(this, "验证码超过保质期，不能用了！ ಥ_ಥ");
-//            } else {
-//                if (tempIsDel == 1) {
-//                    UserDao.register(new User(
-//                            0,
-//                            nameField.getText(),
-//                            HashTool.toHashCode(password),
-//                            emailField.getText(),
-//                            "0",
-//                            "0"
-//                    ));
-//                    currentTime = 0;
-//                    new LoginFrame().setVisible(true);
-//                    this.dispose();
-//                } else {
-//                    JOptionPane.showMessageDialog(this, "不准开小号！！！(╯•̀ὤ•́)╯");
-//                }
-//            }
-
-
+            String name = nameField.getText();
+            String email = emailField.getText();
+            String emailCode = emailCodeField.getText();
+            String password = PasswordField.getText();
+            String confirmPassword = confirmPasswordField.getText();
+            if (name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || emailCode.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "不准交白卷！！！ (・`ω´・)");
+            } else if (!name.matches(nameInput)) {
+                JOptionPane.showMessageDialog(this, "用户名只能是长度小于16位的字母和数字哦！_(¦3」∠)_");
+            } else if (!password.matches(passwordInput) || !confirmPassword.matches(passwordInput)) {
+                JOptionPane.showMessageDialog(this, "密码只能是长度6到16位的字母和数字哦！_(¦3」∠)_");
+            } else if (!password.equals(confirmPasswordField.getText())) {
+                JOptionPane.showMessageDialog(this, "两次输入的密码不是双胞胎吧？ (´⊙ω⊙`)");
+            } else if (tempEmail != null && !email.equals(tempEmail)) { // 新增邮箱变更校验
+                JOptionPane.showMessageDialog(this, "居然当着我的面换邮箱！ (╯•̀ὤ•́)╯");
+            } else if (!emailCode.equals(tempCode)) {
+                JOptionPane.showMessageDialog(this, "验证码好像不是这个呀！ (⁰▿⁰)");
+            } else if (currentTime == 0 && (currentTime - System.currentTimeMillis()) > durationTime) { // 验证码过期时间 5min
+                JOptionPane.showMessageDialog(this, "验证码超过保质期，不能用了！ ಥ_ಥ");
+            } else {
+                UserDao.register(new User(
+                        0,
+                        nameField.getText(),
+                        password,
+                        emailField.getText(),
+                        "0",
+                        "0"
+                ));
+                currentTime = 0;
+                new LoginFrame().setVisible(true);
+                this.dispose();
+            }
         }
         if (e.getSource() == backBtn) {
             new LoginFrame().setVisible(true);

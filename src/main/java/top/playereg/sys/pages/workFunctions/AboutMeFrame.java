@@ -1,5 +1,7 @@
 package top.playereg.sys.pages.workFunctions;
 
+import top.playereg.sys.dao.UserDao;
+import top.playereg.sys.pages.safeFrame.LoginFrame;
 import top.playereg.sys.utils.PingNetTool;
 import top.playereg.sys.utils.SendEmailTool;
 import top.playereg.sys.utils.SetFrameTool;
@@ -12,14 +14,11 @@ import java.awt.event.ActionListener;
 
 import static top.playereg.sys.utils.DiyColors.darkgreen;
 import static top.playereg.sys.utils.EmailText.*;
+import static top.playereg.sys.utils.InputTool.passwordInput;
 import static top.playereg.sys.utils.SendEmailTool.*;
 import static top.playereg.sys.utils.UserSaveTool.*;
 
 public class AboutMeFrame extends JFrame implements ActionListener {
-    public static void main(String[] args) {
-        new AboutMeFrame();
-    }
-
     private static long currentTime = 0;
     private String tempCode = null;
 
@@ -75,11 +74,9 @@ public class AboutMeFrame extends JFrame implements ActionListener {
         SetFrameTool.setFontStyle(is_rootLabel, 20, Color.white,
                 50, 200, 100, 30, aboutMePanel);
         String tempIsRoot = getCurerntLoginUserIsRoot();
-        if (tempIsRoot.equals("1")) {
-            is_rootText = new JLabel("管理员");
-        } else {
-            is_rootText = new JLabel("普通用户");
-        }
+        if (tempIsRoot.equals("1")) is_rootText = new JLabel("管理员");
+        if (tempIsRoot.equals("0")) is_rootText = new JLabel("普通用户");
+
         SetFrameTool.setFontStyle(is_rootText, 20, Color.white,
                 150, 200, 300, 30, aboutMePanel);
         //  修改密码&删除账户
@@ -134,13 +131,30 @@ public class AboutMeFrame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == ChangePasswordBtn) {
             // todo 修改密码
+            String email = emailText.getText();
+            String emailCode = emailCodeField.getText();
+            String newPassword = new String(PasswordField.getPassword());
+            String confirmPassword = new String(confirmPasswordField.getPassword());
+
+            if (email.isEmpty() || emailCode.isEmpty() || newPassword.isEmpty() || confirmPassword.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "不准交白卷！！！ (・`ω´・)");
+            } else if (!newPassword.matches(passwordInput) || !confirmPassword.matches(passwordInput)){
+                JOptionPane.showMessageDialog(this, "密码只能是长度6到16位的字母和数字哦！_(¦3」∠)_");
+            } else if (!newPassword.equals(confirmPasswordField.getText())) {
+                JOptionPane.showMessageDialog(this, "两次输入的密码不是双胞胎吧？ (´⊙ω⊙`)");
+            } else if (!emailCode.equals(tempCode)) {
+                JOptionPane.showMessageDialog(this, "验证码好像不是这个呀！ (⁰▿⁰)");
+            } else if (currentTime == 0 && (currentTime - System.currentTimeMillis()) > durationTime) { // 验证码过期时间 5min
+                JOptionPane.showMessageDialog(this, "验证码超过保质期，不能用了！ ಥ_ಥ");
+            } else {
+                UserDao.updatePassword(email, newPassword);
+                currentTime = 0;
+            }
         }
         if (e.getSource() == deleteBtn) {
             // todo 注销账户
         }
         if (e.getSource() == sendEmailCodeBtn) {
-            // todo 发送验证码
-            currentTime = 0;
             currentTime = 0;
             if (!(PingNetTool.ping("qq.com") || PingNetTool.ping("bilibili.com"))) {
                 JOptionPane.showMessageDialog(this, "蜘蛛：网，网在哪？我网呢？ (´⊙ω⊙`)");
@@ -161,7 +175,6 @@ public class AboutMeFrame extends JFrame implements ActionListener {
                     JOptionPane.showMessageDialog(this, "验证码已发送");
                 } else {
                     JOptionPane.showMessageDialog(this, "验证码发送失败");
-
                 }
             }
         }
