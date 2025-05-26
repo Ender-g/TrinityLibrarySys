@@ -9,20 +9,14 @@
 package top.playereg.sys.pages.safeFrame;
 
 import top.playereg.sys.dao.UserDao;
-import top.playereg.sys.entity.User;
 import top.playereg.sys.utils.*;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import static top.playereg.sys.utils.DiyColors.*;
-import static top.playereg.sys.utils.EmailText.*;
 import static top.playereg.sys.utils.SendEmailTool.durationTime;
 import static top.playereg.sys.utils.InputTool.emailInput;
 import static top.playereg.sys.utils.InputTool.passwordInput;
@@ -36,7 +30,7 @@ public class ForgetPasswordFrame extends JFrame implements ActionListener {
     /* 声明组件%start================================================================================== */
     private JLabel forgetPasswordLabel; // 忘记密码面板
     private JLabel titleLabel; // 标题
-    private JLabel emailLabel, newPasswordLabel, confirmPasswordLabel, codeLabel; // 邮箱、密码、验证码（文本）
+    private JLabel emailLabel, newPasswordLabel, confirmPasswordLabel, emailCodeLabel; // 邮箱、密码、验证码（文本）
     private JTextField emailField, emailCodeField; //  邮箱、验证码（输入框）
     private JPasswordField newPasswordField, confirmPasswordField; // 新密码、确认密码（输入框）
     private JButton sendEmailCodeBtn, submitBtn, backBtn; // 获取验证码、提交、返回按钮
@@ -73,8 +67,8 @@ public class ForgetPasswordFrame extends JFrame implements ActionListener {
                 200, 120, 250, 35, forgetPasswordLabel);
 
         // 验证码输入
-        codeLabel = new JLabel("验 证 码");
-        SetFrameTool.setFontStyle(codeLabel, 20, Color.white,
+        emailCodeLabel = new JLabel("验 证 码");
+        SetFrameTool.setFontStyle(emailCodeLabel, 20, Color.white,
                 100, 180, 150, 35, forgetPasswordLabel);
         emailCodeField = new JTextField();
         SetFrameTool.setFontStyle(emailCodeField, 15, Color.black,
@@ -167,6 +161,7 @@ public class ForgetPasswordFrame extends JFrame implements ActionListener {
         }
         if (e.getSource() == sendEmailCodeBtn) {
             currentTime = 0;
+            String code = (int) ((Math.random() * 9 + 1) * 100000) + "";
             if (!(PingNetTool.ping("qq.com") || PingNetTool.ping("bilibili.com"))) {
                 JOptionPane.showMessageDialog(this, "蜘蛛：网，网在哪？我网呢？ (´⊙ω⊙`)");
             } else if (!PingNetTool.ping("resend.com")) {
@@ -181,7 +176,14 @@ public class ForgetPasswordFrame extends JFrame implements ActionListener {
                         "ciallo@email.playereg.top",
                         emailField.getText(),
                         "丛雨来消息了！！！",
-                        text3
+                        "<h1 style=\"font-size: 18px\">Ciallo～(∠・ω< )⌒☆</h1>" +
+                                "<h1 style=\"font-size: 18px\">主人，您需要更改密码吗？</h1>" +
+                                "<h1 style=\"font-size: 18px\">您的验证码是：</h1>" +
+                                "<div style=\"font-size: 50px;text-align: center;margin-top: 70px;\">" + code + "</div>" +
+                                "<div style=\"font-size: 13px;text-align: center;margin-top: 100px;\">" +
+                                "主人的验证码5分钟内有效，请不要外传哦！</div>" +
+                                "<div style=\"font-size: 13px;text-align: center;margin-top: 20px;\">" +
+                                "请勿回复此邮件，此邮件为系统自动发送，请勿回复。</div>"
                 );
                 if (isSend) {
                     emailCodeField.setEditable(true);

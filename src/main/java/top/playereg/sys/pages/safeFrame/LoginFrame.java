@@ -19,7 +19,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import static top.playereg.sys.utils.DiyColors.*;
-import static top.playereg.sys.utils.EmailText.*;
 import static top.playereg.sys.utils.SendEmailTool.durationTime;
 import static top.playereg.sys.utils.InputTool.*;
 
@@ -163,6 +162,7 @@ public class LoginFrame extends JFrame implements ActionListener {
         }
         if (e.getSource() == sendEmailCodeBtn) {
             currentTime = 0;
+            String code = (int) ((Math.random() * 9 + 1) * 100000) + "";
             if (!(PingNetTool.ping("qq.com") || PingNetTool.ping("bilibili.com"))) {
                 JOptionPane.showMessageDialog(this, "蜘蛛：网，网在哪？我网呢？ (´⊙ω⊙`)");
             } else if (!PingNetTool.ping("resend.com")) {
@@ -177,7 +177,14 @@ public class LoginFrame extends JFrame implements ActionListener {
                         "ciallo@email.playereg.top",
                         emailField.getText(),
                         "丛雨来消息了！！！",
-                        text1
+                        "<h1 style=\"font-size: 18px\">Ciallo～(∠・ω< )⌒☆</h1>" +
+                                "<h1 style=\"font-size: 18px\">主人，欢迎回来！！！</h1>" +
+                                "<h1 style=\"font-size: 18px\">您的验证码是：</h1>" +
+                                "<div style=\"font-size: 50px;text-align: center;margin-top: 70px;\">" + code + "</div>" +
+                                "<div style=\"font-size: 13px;text-align: center;margin-top: 100px;\">" +
+                                "主人的验证码5分钟内有效，请不要外传哦！</div>" +
+                                "<div style=\"font-size: 13px;text-align: center;margin-top: 20px;\">" +
+                                "请勿回复此邮件，此邮件为系统自动发送，请勿回复。</div>"
                 );
                 if (isSend) {
                     emailCodeField.setEditable(true);

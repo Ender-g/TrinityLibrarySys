@@ -2,10 +2,7 @@ package top.playereg.sys.pages.workFunctions;
 
 import top.playereg.sys.dao.UserDao;
 import top.playereg.sys.pages.safeFrame.LoginFrame;
-import top.playereg.sys.utils.PingNetTool;
-import top.playereg.sys.utils.SendEmailTool;
-import top.playereg.sys.utils.SetFrameTool;
-import top.playereg.sys.utils.UserSaveTool;
+import top.playereg.sys.utils.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,7 +10,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import static top.playereg.sys.utils.DiyColors.darkgreen;
-import static top.playereg.sys.utils.EmailText.*;
 import static top.playereg.sys.utils.InputTool.passwordInput;
 import static top.playereg.sys.utils.SendEmailTool.*;
 import static top.playereg.sys.utils.UserSaveTool.*;
@@ -88,22 +84,27 @@ public class AboutMeFrame extends JFrame implements ActionListener {
         SetFrameTool.setFontStyle(passwordLabel, 20, Color.white,
                 50, 300, 150, 30, aboutMePanel);
         PasswordField = new JPasswordField();
-        SetFrameTool.setFontStyle(PasswordField, 20, Color.white,
+        SetFrameTool.setFontStyle(PasswordField, 10, Color.black,
                 150, 300, 200, 30, aboutMePanel);
+        PasswordField.setEchoChar('●');
 
         confirmPasswordLabel = new JLabel("确认密码：");
         SetFrameTool.setFontStyle(confirmPasswordLabel, 20, Color.white,
                 50, 350, 150, 30, aboutMePanel);
         confirmPasswordField = new JPasswordField();
-        SetFrameTool.setFontStyle(confirmPasswordField, 20, Color.white,
+        SetFrameTool.setFontStyle(confirmPasswordField, 10, Color.black,
                 150, 350, 200, 30, aboutMePanel);
+        confirmPasswordField.setEchoChar('●');
 
         emailCodeLabel = new JLabel("验 证 码：");
         SetFrameTool.setFontStyle(emailCodeLabel, 20, Color.white,
                 50, 400, 150, 30, aboutMePanel);
         emailCodeField = new JTextField();
-        SetFrameTool.setFontStyle(emailCodeField, 20, Color.white,
+        SetFrameTool.setFontStyle(emailCodeField, 20, Color.black,
                 150, 400, 200, 30, aboutMePanel);
+        InputTool.jast6NumberInput(emailCodeField); // 输入限制
+        emailCodeField.setEditable(false); // 禁止手动输入
+
         sendEmailCodeBtn = new JButton(">>> 发送验证码 <<<");
         SetFrameTool.setBtnStyle(sendEmailCodeBtn, darkgreen, Color.white,
                 20, 50, 450, 300, 30, aboutMePanel);
@@ -130,7 +131,6 @@ public class AboutMeFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == ChangePasswordBtn) {
-            // todo 修改密码
             String email = emailText.getText();
             String emailCode = emailCodeField.getText();
             String newPassword = new String(PasswordField.getPassword());
@@ -138,7 +138,7 @@ public class AboutMeFrame extends JFrame implements ActionListener {
 
             if (email.isEmpty() || emailCode.isEmpty() || newPassword.isEmpty() || confirmPassword.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "不准交白卷！！！ (・`ω´・)");
-            } else if (!newPassword.matches(passwordInput) || !confirmPassword.matches(passwordInput)){
+            } else if (!newPassword.matches(passwordInput) || !confirmPassword.matches(passwordInput)) {
                 JOptionPane.showMessageDialog(this, "密码只能是长度6到16位的字母和数字哦！_(¦3」∠)_");
             } else if (!newPassword.equals(confirmPasswordField.getText())) {
                 JOptionPane.showMessageDialog(this, "两次输入的密码不是双胞胎吧？ (´⊙ω⊙`)");
@@ -149,13 +149,23 @@ public class AboutMeFrame extends JFrame implements ActionListener {
             } else {
                 UserDao.updatePassword(email, newPassword);
                 currentTime = 0;
+                this.dispose();
             }
         }
         if (e.getSource() == deleteBtn) {
-            // todo 注销账户
+            if (JOptionPane.showConfirmDialog(this, "确定注销账户吗？", "注销账户", JOptionPane.YES_NO_OPTION) == 0) {
+                UserDao.deleteUser(UserSaveTool.getCurerntLoginUserEmail());
+                UserSaveTool.clear();
+                UserSaveTool.clear();
+                for (Window window : Window.getWindows()) {
+                    window.dispose();
+                }
+                new LoginFrame().setVisible(true);
+            }
         }
         if (e.getSource() == sendEmailCodeBtn) {
             currentTime = 0;
+            String code = (int) ((Math.random() * 9 + 1) * 100000) + "";
             if (!(PingNetTool.ping("qq.com") || PingNetTool.ping("bilibili.com"))) {
                 JOptionPane.showMessageDialog(this, "蜘蛛：网，网在哪？我网呢？ (´⊙ω⊙`)");
             } else if (!PingNetTool.ping("resend.com")) {
@@ -166,7 +176,14 @@ public class AboutMeFrame extends JFrame implements ActionListener {
                         "ciallo@email.playereg.top",
                         emailText.getText(),
                         "丛雨来消息了！！！",
-                        text2
+                        "<h1 style=\"font-size: 18px\">Ciallo～(∠・ω< )⌒☆</h1>" +
+                                "<h1 style=\"font-size: 18px\">主人，您需要更改密码吗？</h1>" +
+                                "<h1 style=\"font-size: 18px\">您的验证码是：</h1>" +
+                                "<div style=\"font-size: 50px;text-align: center;margin-top: 70px;\">" + code + "</div>" +
+                                "<div style=\"font-size: 13px;text-align: center;margin-top: 100px;\">" +
+                                "主人的验证码5分钟内有效，请不要外传哦！</div>" +
+                                "<div style=\"font-size: 13px;text-align: center;margin-top: 20px;\">" +
+                                "请勿回复此邮件，此邮件为系统自动发送，请勿回复。</div>"
                 );
                 if (isSend) {
                     emailCodeField.setEditable(true);
