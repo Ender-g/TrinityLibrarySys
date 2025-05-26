@@ -42,7 +42,7 @@ public class ReturnBookFrame extends JFrame {
                 new JButton("归还图书"),
         };
         //绘制按钮
-        Color[] color = new Color[]{lightgreen, lightblue, Color.lightGray};
+        Color[] color = new Color[]{lightblue};
         for (int i = 0; i < btn.length; i++) {
             SetFrameTool.setBtnStyle(
                     btn[i],
@@ -57,14 +57,9 @@ public class ReturnBookFrame extends JFrame {
         };
 
 
-
-
-
         this.setLayout(null);
         setVisible(true);
 
     }
-
-
 
 }
