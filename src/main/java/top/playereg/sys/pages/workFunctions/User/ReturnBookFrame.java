@@ -5,6 +5,9 @@ import top.playereg.sys.utils.SetFrameTool;
 import javax.swing.*;
 import java.awt.*;
 
+import static top.playereg.sys.utils.DiyColors.lightblue;
+import static top.playereg.sys.utils.DiyColors.lightgreen;
+
 public class ReturnBookFrame extends JFrame {
     public static void main(String[] args) {
         new ReturnBookFrame();
@@ -33,6 +36,25 @@ public class ReturnBookFrame extends JFrame {
         topPanel.setBounds(0, 0, 1000, 100);
         topPanel.setLayout(null);
         this.add(topPanel);
+
+        //创建按钮
+        btn  = new JButton[]{
+                new JButton("归还图书"),
+        };
+        //绘制按钮
+        Color[] color = new Color[]{lightgreen, lightblue, Color.lightGray};
+        for (int i = 0; i < btn.length; i++) {
+            SetFrameTool.setBtnStyle(
+                    btn[i],
+                    color[i],
+                    Color.black,
+                    20,
+                    400 + i * 200,
+                    30,
+                    150,
+                    50,
+                    topPanel);
+        };
 
 
 

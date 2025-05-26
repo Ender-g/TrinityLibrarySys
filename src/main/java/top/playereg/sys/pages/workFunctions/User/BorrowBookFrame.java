@@ -44,7 +44,8 @@ public class BorrowBookFrame extends JFrame {
                 new JButton("查询图书"),
                 new JButton("借阅图书")
         };
-        Color[] color = new Color[]{lightgreen, lightblue, Color.lightGray};
+
+        Color[] color = new Color[]{lightgreen, lightblue};
         for (int i = 0; i < btn.length; i++) {
            SetFrameTool.setBtnStyle(
                    btn[i],
@@ -56,7 +57,7 @@ public class BorrowBookFrame extends JFrame {
                    150,
                    50,
                    topJpanel);
-        }
+        };
 
 
 
