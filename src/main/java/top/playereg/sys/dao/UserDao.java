@@ -115,7 +115,7 @@ public class UserDao {
                 int rows = ps.executeUpdate();
                 System.out.println("rows = " + rows);
                 if (rows > 0) {
-                    JOptionPane.showMessageDialog(null, "恭喜！注册成功！( ﾟ∀ﾟ)ﾉ", "恭喜", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "注册成功！欢迎加入我们！ ( ﾟ∀ﾟ)ﾉ", "恭喜", JOptionPane.INFORMATION_MESSAGE);
                     return true;
                 } else {
                     JOptionPane.showMessageDialog(null, "注册失败！( ﾟ∀ﾟ)ﾉ", "错误", JOptionPane.ERROR_MESSAGE);
@@ -165,13 +165,8 @@ public class UserDao {
                 ps.setString(1, HashTool.toHashCode(password));
                 ps.setString(2, email);
                 int rows = ps.executeUpdate();
-                if (rows > 0) {
-                    JOptionPane.showMessageDialog(null, "密码修改成功！请记住新密码哦~ (＾∀＾●)ノ", "成功", JOptionPane.INFORMATION_MESSAGE);
-                    return true;
-                } else {
-                    JOptionPane.showMessageDialog(null, "密码修改失败！请检查邮箱是否正确！", "错误", JOptionPane.ERROR_MESSAGE);
-                    return false;
-                }
+                JOptionPane.showMessageDialog(null, "密码修改成功！请记住新密码哦~ (＾∀＾●)ノ", "成功", JOptionPane.INFORMATION_MESSAGE);
+                return true;
             } else {
                 JOptionPane.showMessageDialog(null, "用户不存在！请检查邮箱是否正确！", "错误", JOptionPane.ERROR_MESSAGE);
                 return false;
@@ -219,7 +214,7 @@ public class UserDao {
                 ps.setString(1, email);
                 int rows = ps.executeUpdate();
                 if (rows > 0) {
-                    JOptionPane.showMessageDialog(null, "用户删除成功！请重新登录！", "成功", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "用户删除成功！", "成功", JOptionPane.INFORMATION_MESSAGE);
                     return true;
                 } else {
                     JOptionPane.showMessageDialog(null, "用户删除失败！请检查邮箱是否正确！", "错误", JOptionPane.ERROR_MESSAGE);

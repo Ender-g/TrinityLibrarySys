@@ -33,6 +33,7 @@ public class LoginFrame extends JFrame implements ActionListener {
     private JTextField emailField, emailCodeField; // 邮箱、验证码（文本框）
     private JPasswordField passwordField; // 密码（输入框）
     private JButton sendEmailCodeBtn, loginBtn, registerBtn, forgetBtn; // 登录、注册、忘记密码（按钮）
+    private JButton GithubBtn, BilibiliBtn;
 
     /* 声明组件%end================================================================================== */
 
@@ -102,6 +103,24 @@ public class LoginFrame extends JFrame implements ActionListener {
         registerBtn = new JButton("注  册");
         SetFrameTool.setBtnStyle(registerBtn, skyblue, Color.black,
                 20, 690, 350, 140, 50, loginPanel);
+
+        // Github按钮
+        GithubBtn = new JButton();
+        GoToMyWeb.goToMyWebBtn(
+                "https://github.com/Ender-g/LibrarySys",
+                "src/main/java/top/playereg/sys/img/github.png",
+                Color.white,
+                840, 450, 40, 40,
+                loginPanel
+        );
+        BilibiliBtn = new JButton();
+        GoToMyWeb.goToMyWebBtn(
+                "https://space.bilibili.com/520500365",
+                "src/main/java/top/playereg/sys/img/bilibili.png",
+                Color.white,
+                790, 450, 40, 40,
+                loginPanel
+        );
         /* 创建组件%end=========================================================================== */
 
         /* 设置登录背景%start====================================================================== */

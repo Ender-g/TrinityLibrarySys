@@ -80,7 +80,7 @@ public class AboutMeFrame extends JFrame implements ActionListener {
         //  修改密码&删除账户
         changePasswordTitleLabel = new JLabel("=============================================");
         SetFrameTool.setFontStyle(changePasswordTitleLabel, 20, Color.white,
-                50, 250, 500, 30, aboutMePanel);
+                40, 250, 500, 30, aboutMePanel);
 
         passwordLabel = new JLabel("新 密 码：");
         SetFrameTool.setFontStyle(passwordLabel, 20, Color.white,
@@ -116,6 +116,10 @@ public class AboutMeFrame extends JFrame implements ActionListener {
         deleteBtn = new JButton("注销账户");
         SetFrameTool.setBtnStyle(deleteBtn, Color.red, Color.white,
                 20, 370, 400, 150, 80, aboutMePanel);
+        if (tempIsRoot.equals("1")) {
+            deleteBtn.setText("无法注销");
+            deleteBtn.setEnabled(false);
+        }
         /* 创建组件%end=========================================================================== */
 
         /* 背景图片%start=========================================================================== */
@@ -168,8 +172,6 @@ public class AboutMeFrame extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(this, "验证码好像不是这个呀！ (⁰▿⁰)");
             } else if (currentTime == 0 && (currentTime - System.currentTimeMillis()) > durationTime) { // 验证码过期时间 5min
                 JOptionPane.showMessageDialog(this, "验证码超过保质期，不能用了！ ಥ_ಥ");
-            } else if (UserSaveTool.getCurerntLoginUserIsRoot().equals("1")) {
-                JOptionPane.showMessageDialog(this, "root用户不能注销账户！ ( ´・ω・｀)");
             } else {
                 if (JOptionPane.showConfirmDialog(this, "确定注销账户吗？", "注销账户", JOptionPane.YES_NO_OPTION) == 0) {
                     UserDao.deleteUser(getCurerntLoginUserEmail());

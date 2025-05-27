@@ -155,8 +155,7 @@ public class ForgetPasswordFrame extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(this, "验证码好像不是这个呀！ (⁰▿⁰)");
             } else if (currentTime == 0 && (currentTime - System.currentTimeMillis()) > durationTime) { // 验证码过期时间 5min
                 JOptionPane.showMessageDialog(this, "验证码超过保质期，不能用了！ ಥ_ಥ");
-            } else {
-                UserDao.updatePassword(email, newPassword);
+            } else if(UserDao.updatePassword(email, newPassword)) {
                 currentTime = 0;
                 new LoginFrame().setVisible(true);
                 this.dispose();
