@@ -6,7 +6,7 @@
  *
  * */
 
-package top.playereg.sys.pages.workFunctions;
+package top.playereg.sys.pages.WorkFunctions;
 
 import top.playereg.sys.dao.UserDao;
 import top.playereg.sys.pages.safeFrame.LoginFrame;
