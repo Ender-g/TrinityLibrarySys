@@ -115,11 +115,11 @@ public class RootMainFrame extends JFrame implements ActionListener {
                 System.out.println(button.getText());
                 switch (button.getText()) {
                     case "用户管理":
-//                        if (userManageFrame == null || !userManageFrame.isVisible()) {
-//                            userManageFrame = new UserManageFrame();
-//                        } else {
-//                            userManageFrame.setVisible(true);
-//                        }
+                        if (userManageFrame == null || !userManageFrame.isVisible()) {
+                            userManageFrame = new UserManageFrame();
+                        } else {
+                            userManageFrame.setVisible(true);
+                        }
                         break;
                     case "图书管理":
                         if (bookManageFrame == null || !bookManageFrame.isVisible()) {
