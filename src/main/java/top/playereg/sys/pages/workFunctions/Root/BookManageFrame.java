@@ -6,7 +6,7 @@
  *
  * */
 
-package top.playereg.sys.pages.workFunctions.Root;
+package top.playereg.sys.pages.WorkFunctions.Root;
 
 import static top.playereg.sys.utils.DiyColors.*;
 import top.playereg.sys.utils.SetFrameTool;

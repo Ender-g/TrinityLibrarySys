@@ -1,4 +1,4 @@
-package top.playereg.sys.pages.workFunctions.Root;
+package top.playereg.sys.pages.WorkFunctions.Root;
 
 import top.playereg.sys.pages.mainFrame.UserMainFrame;
 import top.playereg.sys.utils.SetFrameTool;

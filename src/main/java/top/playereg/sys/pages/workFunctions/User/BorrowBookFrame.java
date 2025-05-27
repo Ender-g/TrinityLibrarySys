@@ -1,6 +1,5 @@
-package top.playereg.sys.pages.workFunctions.User;
+package top.playereg.sys.pages.WorkFunctions.User;
 
-import top.playereg.sys.pages.workFunctions.Root.BookManageFrame;
 import top.playereg.sys.utils.SetFrameTool;
 
 import javax.swing.*;

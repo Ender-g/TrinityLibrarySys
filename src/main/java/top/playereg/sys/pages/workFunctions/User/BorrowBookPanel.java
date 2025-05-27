@@ -1,4 +1,4 @@
-package top.playereg.sys.pages.workFunctions.User;
+package top.playereg.sys.pages.WorkFunctions.User;
 
 import javax.swing.*;
 import java.awt.*;
