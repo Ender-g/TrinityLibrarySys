@@ -7,7 +7,8 @@ public class UserSaveTool {
     private static String curerntLoginUserEmail = null; // 当前登录用户邮箱
     private static String curerntLoginUserIsRoot = null; // 当前登录用户是否是管理员
     private static String curerntLoginUserIsDel = null; // 当前登录用户是否被删除
-    private static String curerntLoginUserTheBorrow = null; // 当前登录用户借阅
+    private static String curerntLoginUserBookBorrowID = null; // 当前登录用户借阅
+    private static String curerntLoginUserBookBorrowTime = null;
     //  清空用户信息
     public static void clear() {
         curerntLoginUserId = null;
@@ -16,7 +17,8 @@ public class UserSaveTool {
         curerntLoginUserEmail = null;
         curerntLoginUserIsRoot = null;
         curerntLoginUserIsDel = null;
-        curerntLoginUserTheBorrow = null;
+        curerntLoginUserBookBorrowID = null;
+        curerntLoginUserBookBorrowTime = null;
         System.out.println("用户信息已清空！");
     }
 
@@ -84,12 +86,21 @@ public class UserSaveTool {
         System.out.println("当前登录用户是否被删除：" + curerntLoginUserIsDel);
     }
 
-    public static String getCurerntLoginUserTheBorrow() {
-        return curerntLoginUserTheBorrow;
+    public static String getCurerntLoginUserBookBorrowID() {
+        return curerntLoginUserBookBorrowID;
     }
 
-    public static void setCurerntLoginUserTheBorrow(String curerntLoginUserTheBorrow) {
-        UserSaveTool.curerntLoginUserTheBorrow = curerntLoginUserTheBorrow;
-        System.out.println("当前登录用户借阅：" + curerntLoginUserTheBorrow);
+    public static void setCurerntLoginUserBookBorrowID(String curerntLoginUserBookBorrowID) {
+        UserSaveTool.curerntLoginUserBookBorrowID = curerntLoginUserBookBorrowID;
+        System.out.println("当前登录用户借阅：" + curerntLoginUserBookBorrowID);
+    }
+
+    public static String getCurerntLoginUserBookBorrowTime() {
+        return curerntLoginUserBookBorrowTime;
+    }
+
+    public static void setCurerntLoginUserBookBorrowTime(String curerntLoginUserBookBorrowTime) {
+        UserSaveTool.curerntLoginUserBookBorrowTime = curerntLoginUserBookBorrowTime;
+        System.out.println("当前登录用户借阅时间：" + curerntLoginUserBookBorrowTime);
     }
 }

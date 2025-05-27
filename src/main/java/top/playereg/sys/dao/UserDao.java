@@ -53,7 +53,8 @@ public class UserDao {
                 UserSaveTool.setCurerntLoginUserEmail(email); // 邮箱保存
                 UserSaveTool.setCurerntLoginUserIsRoot(String.valueOf(rs.getInt("is_root"))); // 保存is_root
                 UserSaveTool.setCurerntLoginUserIsDel(String.valueOf(rs.getInt("is_del"))); // 保存is_del
-                UserSaveTool.setCurerntLoginUserTheBorrow(String.valueOf(rs.getInt("theBorrow"))); // 借阅数保存
+                UserSaveTool.setCurerntLoginUserBookBorrowID(String.valueOf(rs.getInt("bookBorrowID"))); // 借阅数保存
+                UserSaveTool.setCurerntLoginUserBookBorrowTime(rs.getString("bookBorrowTime")); // 借阅时间保存
                 return true;
             } else {
                 if (tempIsDel != 0) {

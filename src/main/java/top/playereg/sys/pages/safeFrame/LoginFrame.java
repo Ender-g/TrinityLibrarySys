@@ -109,16 +109,14 @@ public class LoginFrame extends JFrame implements ActionListener {
         GoToMyWeb.goToMyWebBtn(
                 "https://github.com/Ender-g/LibrarySys",
                 "src/main/java/top/playereg/sys/img/github.png",
-                Color.white,
-                840, 450, 40, 40,
+                Color.white, 840, 450, 40, 40,
                 loginPanel
         );
         BilibiliBtn = new JButton();
         GoToMyWeb.goToMyWebBtn(
                 "https://space.bilibili.com/520500365",
                 "src/main/java/top/playereg/sys/img/bilibili.png",
-                Color.white,
-                790, 450, 40, 40,
+                Color.white, 790, 450, 40, 40,
                 loginPanel
         );
         /* 创建组件%end=========================================================================== */
