@@ -1,3 +1,11 @@
+/*
+ *
+ * @author: playereg
+ * @description: 跳转到我的网站
+ * @version: 1.0
+ *
+ * */
+
 package top.playereg.sys.utils;
 
 import javax.swing.*;
@@ -21,6 +29,8 @@ public class GoToMyWeb extends JFrame{
             try {
                 Desktop.getDesktop().browse(java.net.URI.create(webUrl));
             } catch (Exception ex) {
+                System.err.println("Error opening web browser: " + ex.getMessage());
+                JOptionPane.showMessageDialog(null, "无法打开浏览器");
                 ex.printStackTrace();
             }
         });

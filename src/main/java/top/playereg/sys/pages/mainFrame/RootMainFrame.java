@@ -1,3 +1,11 @@
+/*
+ *
+ * @author: playereg
+ * @description: 用户业务面板
+ * @version: 1.0
+ *
+ * */
+
 package top.playereg.sys.pages.mainFrame;
 
 import top.playereg.sys.pages.safeFrame.LoginFrame;

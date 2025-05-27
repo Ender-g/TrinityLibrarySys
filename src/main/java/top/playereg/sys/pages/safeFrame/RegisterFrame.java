@@ -10,10 +10,7 @@ package top.playereg.sys.pages.safeFrame;
 
 import top.playereg.sys.dao.UserDao;
 import top.playereg.sys.entity.User;
-import top.playereg.sys.utils.InputTool;
-import top.playereg.sys.utils.PingNetTool;
-import top.playereg.sys.utils.SendEmailTool;
-import top.playereg.sys.utils.SetFrameTool;
+import top.playereg.sys.utils.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -181,12 +178,8 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
             } else if (currentTime == 0 && (currentTime - System.currentTimeMillis()) > durationTime) { // 验证码过期时间 5min
                 JOptionPane.showMessageDialog(this, "验证码超过保质期，不能用了！ ಥ_ಥ");
             } else if (UserDao.register(new User(
-                    0,
-                    nameField.getText(),
-                    password,
-                    emailField.getText(),
-                    "0",
-                    "0"
+                    0, name, password, email,
+                    "0", "0", "0", "0"
             ))) {
                 currentTime = 0;
                 new LoginFrame().setVisible(true);

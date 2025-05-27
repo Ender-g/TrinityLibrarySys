@@ -8,6 +8,8 @@ public class User {
     private String email;
     private String is_root;
     private String is_del;
+    private String book_borrow_id;
+    private String book_borrow_time;
     /* 构造属性%end=================================================================================================== */
 
     /* 无参构造方法%start============================================================================================== */
@@ -22,7 +24,9 @@ public class User {
             String password,
             String email,
             String is_root,
-            String is_del
+            String is_del,
+            String book_borrow_id,
+            String book_borrow_time
     ) {
         this.id = id;
         this.username = username;
@@ -30,6 +34,8 @@ public class User {
         this.email = email;
         this.is_root = is_root;
         this.is_del = is_del;
+        this.book_borrow_id = book_borrow_id;
+        this.book_borrow_time = book_borrow_time;
     }
     /* 全参构造方法%end============================================================================================= */
 
@@ -81,6 +87,23 @@ public class User {
     public void setIs_del(String is_del) {
         this.is_del = is_del;
     }
+
+    public String getBook_borrow_id() {
+        return book_borrow_id;
+    }
+
+    public void setBook_borrow_id(String book_borrow_id) {
+        this.book_borrow_id = book_borrow_id;
+    }
+
+    public String getBook_borrow_time() {
+        return book_borrow_time;
+    }
+
+    public void setBook_borrow_time(String book_borrow_time) {
+        this.book_borrow_time = book_borrow_time;
+    }
+
     /* get&set%end============================================================================================= */
 
     /* toString%start============================================================================================= */
@@ -93,6 +116,8 @@ public class User {
                 ", email='" + email + '\'' +
                 ", is_root='" + is_root + '\'' +
                 ", is_del='" + is_del + '\'' +
+                ", book_borrow_id='" + book_borrow_id + '\'' +
+                ", book_borrow_time='" + book_borrow_time + '\'' +
                 '}';
     }
     /* toString%end============================================================================================= */

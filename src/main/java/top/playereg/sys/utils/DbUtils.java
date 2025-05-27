@@ -1,3 +1,11 @@
+/*
+ *
+ * @author: playereg
+ * @description: 数据库工具类
+ * @version: 1.0
+ *
+ * */
+
 package top.playereg.sys.utils;
 
 import javax.swing.*;

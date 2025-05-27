@@ -1,3 +1,11 @@
+/*
+ *
+ * @author: playereg
+ * @description: 个人中心页面
+ * @version: 1.0
+ *
+ * */
+
 package top.playereg.sys.pages.workFunctions;
 
 import top.playereg.sys.dao.UserDao;
@@ -168,7 +176,9 @@ public class AboutMeFrame extends JFrame implements ActionListener {
 
         // 注销账户按钮
         if (e.getSource() == deleteBtn) {
-            if (!emailCode.equals(tempCode)) {
+            if (emailCode.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "需要验证码！！！ (・`ω´・)");
+            } else if (!emailCode.equals(tempCode)) {
                 JOptionPane.showMessageDialog(this, "验证码好像不是这个呀！ (⁰▿⁰)");
             } else if (currentTime == 0 && (currentTime - System.currentTimeMillis()) > durationTime) { // 验证码过期时间 5min
                 JOptionPane.showMessageDialog(this, "验证码超过保质期，不能用了！ ಥ_ಥ");
@@ -182,8 +192,9 @@ public class AboutMeFrame extends JFrame implements ActionListener {
                     new LoginFrame().setVisible(true);
                 }
             }
-
         }
+
+        // 发送验证码按钮
         if (e.getSource() == sendEmailCodeBtn) {
             currentTime = 0;
             String code = (int) ((Math.random() * 9 + 1) * 100000) + "";
