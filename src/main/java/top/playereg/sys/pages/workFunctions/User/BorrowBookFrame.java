@@ -1,14 +1,17 @@
 package top.playereg.sys.pages.workFunctions.User;
 
+import top.playereg.sys.pages.workFunctions.Root.BookManageFrame;
 import top.playereg.sys.utils.SetFrameTool;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import static top.playereg.sys.utils.DiyColors.*;
 
 
-public class BorrowBookFrame extends JFrame {
+public class BorrowBookFrame extends JFrame implements ActionListener {
     public static void main(String[] args) {
         new BorrowBookFrame();
     }
@@ -59,10 +62,48 @@ public class BorrowBookFrame extends JFrame {
                    topJpanel);
         };
 
+        bottomJpanel = new JLabel();
+        bottomJpanel.setOpaque(true);
+        bottomJpanel.setLayout(null);
+        bottomJpanel.setBounds(0, 100, 1000, 500);
+        this.add(bottomJpanel);
 
 
         this.setLayout(null);
 
         this.setVisible(true);
+        for (JButton button : btn) button.addActionListener(this);
+    }
+
+    /**
+     * @param e
+     */
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        for (JButton button : btn) {
+            if (e.getSource() == button) {
+                System.out.println(button.getText());
+                switch (button.getText()) {
+//                    case "查询图书":
+//
+//                        break;
+                    case "借阅图书":
+                        bottomJpanel.removeAll();
+
+                        BorrowBookPanel borrowBookPanel = new BorrowBookPanel();
+                        borrowBookPanel.setBounds(
+                                0, 0,
+                                bottomJpanel.getWidth(),
+                                bottomJpanel.getHeight()); // 设置正确位置和大小
+
+                        bottomJpanel.add(borrowBookPanel);
+                        bottomJpanel.revalidate(); // 刷新布局
+                        bottomJpanel.repaint();    // 重绘面板
+                        break;
+
+                }
+            }
+        }
+
     }
 }

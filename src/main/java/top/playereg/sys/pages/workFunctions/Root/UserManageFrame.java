@@ -1,5 +1,6 @@
 package top.playereg.sys.pages.workFunctions.Root;
 
+import top.playereg.sys.pages.mainFrame.UserMainFrame;
 import top.playereg.sys.utils.SetFrameTool;
 import top.playereg.sys.utils.DiyColors;
 
@@ -11,7 +12,7 @@ public class UserManageFrame extends JFrame {
     private JButton[] buttons;
 
     public static void main(String[] args) {
-        new BookManageFrame();
+        new UserManageFrame();
     }
 
     public UserManageFrame() {
