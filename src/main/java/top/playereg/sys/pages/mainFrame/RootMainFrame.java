@@ -10,6 +10,11 @@ package top.playereg.sys.pages.mainFrame;
 
 import top.playereg.sys.pages.safeFrame.LoginFrame;
 import top.playereg.sys.pages.workFunctions.AboutMeFrame;
+import top.playereg.sys.pages.workFunctions.Root.BookManageFrame;
+import top.playereg.sys.pages.workFunctions.Root.UserManageFrame;
+import top.playereg.sys.pages.workFunctions.User.BorrowBookFrame;
+import top.playereg.sys.pages.workFunctions.User.MyBorrowFrame;
+import top.playereg.sys.pages.workFunctions.User.ReturnBookFrame;
 import top.playereg.sys.utils.SetFrameTool;
 import top.playereg.sys.utils.UserSaveTool;
 
@@ -30,6 +35,10 @@ public class RootMainFrame extends JFrame implements ActionListener {
     private JButton aboutMeButton; // 关于我
     private JButton[] btn;
     private JButton logoutButton;
+    // 在 RootMainFrame 类中添加对应的成员变量来保存窗口实例
+    public BookManageFrame bookManageFrame;
+    public BorrowBookFrame borrowBookFrame;
+    public UserManageFrame userManageFrame;
 
     public RootMainFrame() {
         /* 设置窗体%start============================================================================ */
@@ -54,14 +63,14 @@ public class RootMainFrame extends JFrame implements ActionListener {
                 120, 50, 300, 50, rootPanel);
 
         // 关于我
-        aboutMeButton = new JButton("关于我",  new ImageIcon(
+        aboutMeButton = new JButton("关于我", new ImageIcon(
                 "src/main/java/top/playereg/sys/img/aboutme1.png", "aboutme"));
         aboutMeButton.setBorderPainted(false);
         SetFrameTool.setBtnStyle(aboutMeButton, skyblue, Color.black,
                 20, 1000, 50, 150, 50, rootPanel);
 
         // 登出
-        logoutButton = new JButton("登出",  new ImageIcon("src/main/java/top/playereg/sys/img/back2.png"));
+        logoutButton = new JButton("登出", new ImageIcon("src/main/java/top/playereg/sys/img/back2.png"));
         logoutButton.setBorderPainted(false);
         SetFrameTool.setBtnStyle(logoutButton, skyblue, Color.black,
                 20, 50, 600, 150, 50, rootPanel);
@@ -75,7 +84,7 @@ public class RootMainFrame extends JFrame implements ActionListener {
         Color[] color = new Color[]{lightgreen, lightblue, Color.lightGray};
         for (int i = 0; i < btn.length; i++) {
             SetFrameTool.setTopImgBtnStyle(btn[i], color[i], Color.black,
-                    20, 320+i*200, 300, 150, 150, rootPanel);
+                    20, 320 + i * 200, 300, 150, 150, rootPanel);
         }
 
         /* 创建组件%end=========================================================================== */
@@ -103,13 +112,30 @@ public class RootMainFrame extends JFrame implements ActionListener {
             this.dispose();
             new LoginFrame();
         }
-        for (JButton button : btn){
+        for (JButton button : btn) {
             if (e.getSource() == button) {
                 System.out.println(button.getText());
                 switch (button.getText()) {
-//                    case "用户管理" -> new UserManageFrame();
-//                    case "图书管理" -> new BookManageFrame();
-//                    case "借阅管理" -> new BorrowManageFrame();
+                    case "用户管理":
+//                        if (userManageFrame == null || !userManageFrame.isVisible()) {
+//                            userManageFrame = new UserManageFrame();
+//                        } else {
+//                            userManageFrame.setVisible(true);
+//                        }
+                        break;
+                    case "图书管理":
+                        if (bookManageFrame == null || !bookManageFrame.isVisible()) {
+                            bookManageFrame = new BookManageFrame();
+                        } else {
+                            bookManageFrame.setVisible(true);
+                        }
+                        break;
+                    case "借阅管理":
+                        if (borrowBookFrame == null || !borrowBookFrame.isVisible()) {
+                            borrowBookFrame = new BorrowBookFrame();
+                        } else {
+                            borrowBookFrame.setVisible(true);
+                        }
                 }
             }
         }

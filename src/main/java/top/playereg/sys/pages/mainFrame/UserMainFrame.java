@@ -118,20 +118,20 @@ public class UserMainFrame extends JFrame implements ActionListener {
                             borrowBookFrame.setVisible(true);
                         }
                         break;
-//                    case "归还图书":
-//                        if (returnBookFrame == null || !returnBookFrame.isDisplayable()) {
-//                            returnBookFrame = new ReturnBookFrame();
-//                        } else {
-//                            returnBookFrame.setVisible(true);
-//                        }
-//                        break;
-//                    case "我的借阅":
-//                        if (myBorrowFrame == null || !myBorrowFrame.isDisplayable()) {
-//                            myBorrowFrame = new MyBorrowFrame();
-//                        } else {
-//                            myBorrowFrame.setVisible(true);
-//                        }
-//                        break;
+                    case "归还图书":
+                        if (returnBookFrame == null || !returnBookFrame.isDisplayable()) {
+                            returnBookFrame = new ReturnBookFrame();
+                        } else {
+                            returnBookFrame.setVisible(true);
+                        }
+                        break;
+                    case "我的借阅":
+                        if (myBorrowFrame == null || !myBorrowFrame.isDisplayable()) {
+                            myBorrowFrame = new MyBorrowFrame();
+                        } else {
+                            myBorrowFrame.setVisible(true);
+                        }
+                        break;
                 }
             }
         }
