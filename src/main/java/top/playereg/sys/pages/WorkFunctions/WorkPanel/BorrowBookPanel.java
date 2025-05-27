@@ -1,9 +1,7 @@
-package top.playereg.sys.pages.WorkFunctions.User;
+package top.playereg.sys.pages.WorkFunctions.WorkPanel;
 
 import javax.swing.*;
 import java.awt.*;
-
-import static java.awt.Color.*;
 
 public class BorrowBookPanel extends JPanel {
 
