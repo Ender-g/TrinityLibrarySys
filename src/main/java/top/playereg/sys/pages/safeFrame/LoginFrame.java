@@ -9,7 +9,7 @@
 package top.playereg.sys.pages.safeFrame;
 
 import top.playereg.sys.dao.UserDao;
-import top.playereg.sys.pages.mainFrame.AdminMainFrame;
+import top.playereg.sys.pages.mainFrame.RootMainFrame;
 import top.playereg.sys.pages.mainFrame.UserMainFrame;
 import top.playereg.sys.utils.*;
 
@@ -17,14 +17,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Objects;
 
 import static top.playereg.sys.utils.DiyColors.*;
-import static top.playereg.sys.utils.EmailText.*;
 import static top.playereg.sys.utils.SendEmailTool.durationTime;
 import static top.playereg.sys.utils.InputTool.*;
 
@@ -39,6 +33,7 @@ public class LoginFrame extends JFrame implements ActionListener {
     private JTextField emailField, emailCodeField; // 邮箱、验证码（文本框）
     private JPasswordField passwordField; // 密码（输入框）
     private JButton sendEmailCodeBtn, loginBtn, registerBtn, forgetBtn; // 登录、注册、忘记密码（按钮）
+    private JButton GithubBtn, BilibiliBtn;
 
     /* 声明组件%end================================================================================== */
 
@@ -108,6 +103,22 @@ public class LoginFrame extends JFrame implements ActionListener {
         registerBtn = new JButton("注  册");
         SetFrameTool.setBtnStyle(registerBtn, skyblue, Color.black,
                 20, 690, 350, 140, 50, loginPanel);
+
+        // Github按钮
+        GithubBtn = new JButton();
+        GoToMyWeb.goToMyWebBtn(
+                "https://github.com/Ender-g/LibrarySys",
+                "src/main/java/top/playereg/sys/img/github.png",
+                Color.white, 840, 450, 40, 40,
+                loginPanel
+        );
+        BilibiliBtn = new JButton();
+        GoToMyWeb.goToMyWebBtn(
+                "https://space.bilibili.com/520500365",
+                "src/main/java/top/playereg/sys/img/bilibili.png",
+                Color.white, 790, 450, 40, 40,
+                loginPanel
+        );
         /* 创建组件%end=========================================================================== */
 
         /* 设置登录背景%start====================================================================== */
@@ -128,14 +139,19 @@ public class LoginFrame extends JFrame implements ActionListener {
     /* 执行监听%start=========================================================================== */
     @Override
     public void actionPerformed(ActionEvent e) {
+        String email = emailField.getText();
+        String password = new String(passwordField.getPassword());
+        String emailCode = emailCodeField.getText();
+
+        System.out.println("email: " + email
+                + "\npassword: " + password
+                + "\n"
+        );
+
+        // 登录按钮
         if (e.getSource() == loginBtn) {
-            //  登录逻辑实现
-            String email = emailField.getText();
-            String password = new String(passwordField.getPassword());
-            String emailCode = emailCodeField.getText();
             if (email.isEmpty() || password.isEmpty() || emailCode.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "不准交白卷！！！ (・`ω´・)");
-                return;
             } else if (!emailCode.equals(tempCode)) {
                 JOptionPane.showMessageDialog(this, "验证码好像不是这个呀！ (⁰▿⁰)");
             } else if (currentTime == 0 && (currentTime - System.currentTimeMillis()) > durationTime) {
@@ -151,46 +167,58 @@ public class LoginFrame extends JFrame implements ActionListener {
                         this.dispose();
                     }
                     if (UserSaveTool.getCurerntLoginUserIsRoot().equals("1")) {
-                        new AdminMainFrame().setVisible(true);
+                        new RootMainFrame().setVisible(true);
                         this.dispose();
                     }
-
                 }
             }
         }
+        // 注册按钮
         if (e.getSource() == registerBtn) {
             currentTime = 0;
             new RegisterFrame().setVisible(true);
             this.dispose(); // 关闭当前窗口
         }
+
+        // 忘记密码按钮
         if (e.getSource() == forgetBtn) {
             currentTime = 0;
             new ForgetPasswordFrame().setVisible(true);
             this.dispose();
         }
+
+        // 发送验证码按钮
         if (e.getSource() == sendEmailCodeBtn) {
             currentTime = 0;
+            String code = (int) ((Math.random() * 9 + 1) * 100000) + "";
             if (!(PingNetTool.ping("qq.com") || PingNetTool.ping("bilibili.com"))) {
                 JOptionPane.showMessageDialog(this, "蜘蛛：网，网在哪？我网呢？ (´⊙ω⊙`)");
             } else if (!PingNetTool.ping("resend.com")) {
                 JOptionPane.showMessageDialog(this, "服务器居然长腿跑了！！！ (*´д`)");
-            } else if (emailField.getText().isEmpty()) {
+            } else if (email.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "居然是！皇帝的新邮箱！！！ ( ×ω× )");
-            } else if (!emailField.getText().matches(emailInput)) {
+            } else if (!email.matches(emailInput)) {
                 JOptionPane.showMessageDialog(this, "这个长得像邮箱吗？ (*´･д･)?");
             } else {
                 Boolean isSend = SendEmailTool.sendEmail(
                         "丛雨",
                         "ciallo@email.playereg.top",
-                        emailField.getText(),
+                        email,
                         "丛雨来消息了！！！",
-                        text1
+                        "<h1 style=\"font-size: 18px\">Ciallo～(∠・ω< )⌒☆</h1>" +
+                                "<h1 style=\"font-size: 18px\">主人，欢迎回来！！！</h1>" +
+                                "<h1 style=\"font-size: 18px\">您的验证码是：</h1>" +
+                                "<div style=\"font-size: 50px;text-align: center;margin-top: 70px;\">" + code + "</div>" +
+                                "<div style=\"font-size: 13px;text-align: center;margin-top: 100px;\">" +
+                                "主人的验证码5分钟内有效，请不要外传哦！</div>" +
+                                "<div style=\"font-size: 13px;text-align: center;margin-top: 20px;\">" +
+                                "请勿回复此邮件，此邮件为系统自动发送，请勿回复。</div>"
                 );
                 if (isSend) {
                     emailCodeField.setEditable(true);
                     currentTime = System.currentTimeMillis();
                     tempCode = code;
-                    tempEmail = emailField.getText(); // 记录发送验证码时的邮箱
+                    tempEmail = email; // 记录发送验证码时的邮箱
                     JOptionPane.showMessageDialog(this, "验证码已发送");
                 } else {
                     JOptionPane.showMessageDialog(this, "验证码发送失败");
