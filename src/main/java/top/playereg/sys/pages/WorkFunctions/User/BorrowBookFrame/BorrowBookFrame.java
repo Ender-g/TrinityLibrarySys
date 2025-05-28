@@ -15,8 +15,7 @@ public class BorrowBookFrame extends JFrame implements ActionListener {
     private JLabel topPanel, bottomPanel;
     private JButton[] topBtn = new JButton[]{
             new JButton("查询图书"),
-            new JButton("借阅图书"),
-            new JButton("借书记录")
+            new JButton("借阅图书")
     };
 
     public BorrowBookFrame() {
@@ -89,20 +88,6 @@ public class BorrowBookFrame extends JFrame implements ActionListener {
                         break;
                     }
 
-                    case "借书记录": {
-                        SetFrameTool.updateTopMenuStyle(topBtn, button);
-                        bottomPanel.removeAll();
-                        BorrowRecordPanel borrowRecordPanel = new BorrowRecordPanel();
-                        borrowRecordPanel.setBounds(
-                                0, 0,
-                                bottomPanel.getWidth(),
-                                bottomPanel.getHeight()
-                        );
-                        bottomPanel.add(borrowRecordPanel);
-                        bottomPanel.revalidate();
-                        bottomPanel.repaint();
-                        break;
-                    }
                     default:
                         break;
                 }

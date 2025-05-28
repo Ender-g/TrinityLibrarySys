@@ -22,7 +22,7 @@ public class BookManageFrame extends JFrame implements ActionListener {
 
     private JLabel topPanel, bottomPanel;
     private JButton[] topBtn = new JButton[]{
-            new JButton("增加图书"),
+            new JButton("新增图书"),
             new JButton("删除图书"),
     };
 
@@ -67,7 +67,7 @@ public class BookManageFrame extends JFrame implements ActionListener {
                 System.out.println(button.getText());
                 switch (button.getText()) {
 
-                    case "增加图书": {
+                    case "新增图书": {
                         SetFrameTool.updateTopMenuStyle(topBtn, button);
                         bottomPanel.removeAll();
                         AddBookPanel addBookPanel = new AddBookPanel();

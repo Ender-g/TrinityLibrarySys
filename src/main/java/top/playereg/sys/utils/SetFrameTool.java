@@ -86,7 +86,7 @@ public class SetFrameTool extends JFrame {
         Panel.add(jButton);
     }
 
-    //菜单按钮
+    //图片居中按钮
     public static void setImgBtnStyle(
             JButton jButton, // 按钮名称
             Color btnColor, // 按钮颜色
@@ -116,11 +116,11 @@ public class SetFrameTool extends JFrame {
             JLabel bottomPanel,
             int spacing // 新增间距参数
     ) {
-        int fontSize = 12;
+        int fontSize = 15;
         int x = 0;
         int y = 0;
-        int width = 90;
-        int height = 20;
+        int width = 100;
+        int height = 30;
 
         if (jButton == null || jButton.length == 0 || topPanel == null) {
             throw new IllegalArgumentException("按钮数组或面板不能为空");
