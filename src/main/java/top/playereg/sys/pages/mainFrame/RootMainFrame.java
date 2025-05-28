@@ -117,6 +117,7 @@ public class RootMainFrame extends JFrame implements ActionListener {
                     case "用户管理":
                         if (userManageFrame == null || !userManageFrame.isVisible()) {
                             userManageFrame = new UserManageFrame();
+                            //默认打开
                         } else {
                             userManageFrame.setVisible(true);
                         }

@@ -22,8 +22,8 @@ public class BookManageFrame extends JFrame implements ActionListener {
 
     private JLabel topPanel, bottomPanel;
     private JButton[] topBtn = new JButton[]{
-            new JButton("新增图书"),
-            new JButton("删除图书"),
+            new JButton("图书列表"),
+            new JButton("图书管理"),
     };
 
     public BookManageFrame() {
@@ -67,31 +67,31 @@ public class BookManageFrame extends JFrame implements ActionListener {
                 System.out.println(button.getText());
                 switch (button.getText()) {
 
-                    case "新增图书": {
+                    case "图书管理": {
                         SetFrameTool.updateTopMenuStyle(topBtn, button);
                         bottomPanel.removeAll();
-                        AddBookPanel addBookPanel = new AddBookPanel();
-                        addBookPanel.setBounds(
+                        ManageBookPanel manageBookPanel = new ManageBookPanel();
+                        manageBookPanel.setBounds(
                                 0, 0,
                                 bottomPanel.getWidth(),
                                 bottomPanel.getHeight()
                         );
-                        bottomPanel.add(addBookPanel);
+                        bottomPanel.add(manageBookPanel);
                         bottomPanel.revalidate();
                         bottomPanel.repaint();
                         break;
                     }
 
-                    case "删除图书": {
+                    case "图书列表": {
                         SetFrameTool.updateTopMenuStyle(topBtn, button);
                         bottomPanel.removeAll();
-                        DelBookPanel delBookPanel = new DelBookPanel();
-                        delBookPanel.setBounds(
+                        ListAllBookPanel listAllBookPanel = new ListAllBookPanel();
+                        listAllBookPanel.setBounds(
                                 0, 0,
                                 bottomPanel.getWidth(),
                                 bottomPanel.getHeight()
                         );
-                        bottomPanel.add(delBookPanel);
+                        bottomPanel.add(listAllBookPanel);
                         bottomPanel.revalidate();
                         bottomPanel.repaint();
                         break;

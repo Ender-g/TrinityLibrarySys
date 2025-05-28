@@ -10,8 +10,10 @@ import java.awt.event.ActionListener;
 public class UserManageFrame extends JFrame implements ActionListener {
     private JLabel topPanel, bottomPanel;
     private JButton[] topBtn = new JButton[]{
+            new JButton("所有用户"),
             new JButton("查询用户"),
-            new JButton("删除用户")
+            new JButton("删除用户"),
+            new JButton("赋予权限")
     };
 
     public static void main(String[] args) {
@@ -59,6 +61,20 @@ public class UserManageFrame extends JFrame implements ActionListener {
             if (e.getSource() == button) {
                 System.out.println(button.getText());
                 switch (button.getText()) {
+                    case "所有用户": {
+                        SetFrameTool.updateTopMenuStyle(topBtn, button);
+                        bottomPanel.removeAll();
+                        ListAllUserPanel listAllUserPanel = new ListAllUserPanel();
+                        listAllUserPanel.setBounds(
+                                0, 0,
+                                bottomPanel.getWidth(),
+                                bottomPanel.getHeight()
+                        );
+                        bottomPanel.add(listAllUserPanel);
+                        bottomPanel.revalidate();
+                        bottomPanel.repaint();
+                        break;
+                    }
 
                     case "查询用户": {
                         SetFrameTool.updateTopMenuStyle(topBtn, button);
@@ -85,6 +101,21 @@ public class UserManageFrame extends JFrame implements ActionListener {
                                 bottomPanel.getHeight()
                         );
                         bottomPanel.add(delUserPanel);
+                        bottomPanel.revalidate();
+                        bottomPanel.repaint();
+                        break;
+                    }
+
+                    case "赋予权限": {
+                        SetFrameTool.updateTopMenuStyle(topBtn, button);
+                        bottomPanel.removeAll();
+                        GiveRootPanel giveRootPanel = new GiveRootPanel();
+                        giveRootPanel.setBounds(
+                                0, 0,
+                                bottomPanel.getWidth(),
+                                bottomPanel.getHeight()
+                        );
+                        bottomPanel.add(giveRootPanel);
                         bottomPanel.revalidate();
                         bottomPanel.repaint();
                         break;
