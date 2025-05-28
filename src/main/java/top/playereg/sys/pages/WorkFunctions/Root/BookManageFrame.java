@@ -9,6 +9,7 @@
 package top.playereg.sys.pages.WorkFunctions.Root;
 
 import static top.playereg.sys.utils.DiyColors.*;
+
 import top.playereg.sys.utils.SetFrameTool;
 
 import javax.swing.*;
@@ -18,8 +19,13 @@ public class BookManageFrame extends JFrame {
     public static void main(String[] args) {
         new BookManageFrame();
     }
-    private JLabel topPanel,bottonPanel;
-    private JButton[]  btn;
+
+    private JLabel topPanel, bottonPanel;
+    private JButton[] topBtn = new JButton[]{
+            new JButton("增加图书"),
+            new JButton("删除图书"),
+    };
+    ;
 
     public BookManageFrame() {
 
@@ -27,7 +33,7 @@ public class BookManageFrame extends JFrame {
                 "图书管理",
                 1000,
                 600,
-                "src/main/java/top/playereg/sys/img/bookManage.png",
+                "src/main/java/top/playereg/sys/img/book.png",
                 this);
 
         //设置窗体关闭，不结束程序
@@ -35,35 +41,21 @@ public class BookManageFrame extends JFrame {
         addWindowListener(new java.awt.event.WindowAdapter() { // 窗口关闭事件
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
                 dispose();
-            }});
+            }
+        });
 
-        //设置顶部面板
+        // 创建顶部菜单
         topPanel = new JLabel();
         topPanel.setOpaque(true);
-        topPanel.setBackground(skyblue);
-        topPanel.setBounds(0,0,1000,100);
         topPanel.setLayout(null);
         this.add(topPanel);
+        SetFrameTool.setTopMenuStyle(topBtn, Color.white,
+                Color.black, topPanel, 0);
 
-        btn=new JButton[]{
-                new JButton("增加图书"),
-                new JButton("删除图书"),
-        };
-        Color[] color = new Color[]{darkgreen,lightgreen};
-       for (int i = 0; i < btn.length; i++){
-           SetFrameTool.setBtnStyle(
-                   btn[i],
-                   color[i],
-                   Color.black,
-                   20,
-                   300 + i * 200,
-                   30,
-                   150,
-                   50,
-                   topPanel);
-       };
-
-
+        bottonPanel = new JLabel();
+        bottonPanel.setOpaque(true);
+        bottonPanel.setLayout(null);
+        this.add(bottonPanel);
 
         this.setLayout(null);
         setVisible(true);

@@ -23,7 +23,7 @@ public class GoToMyWeb extends JFrame{
             JLabel Panel
     ){
         JButton jButton = new JButton(null,  new ImageIcon(imgUrl));
-        SetFrameTool.setTopImgBtnStyle(jButton, btnColor, skyblue,
+        SetFrameTool.setImgBtnStyle(jButton, btnColor, skyblue,
             20, x, y, width, height, Panel);
         //点击后颜色不变
         jButton.setRolloverEnabled(false);

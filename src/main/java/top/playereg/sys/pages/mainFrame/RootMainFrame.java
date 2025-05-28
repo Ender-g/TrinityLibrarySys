@@ -81,7 +81,7 @@ public class RootMainFrame extends JFrame implements ActionListener {
         };
         Color[] color = new Color[]{lightgreen, lightblue, Color.lightGray};
         for (int i = 0; i < btn.length; i++) {
-            SetFrameTool.setTopImgBtnStyle(btn[i], color[i], Color.black,
+            SetFrameTool.setImgBtnStyle(btn[i], color[i], Color.black,
                     20, 320 + i * 200, 300, 150, 150, rootPanel);
         }
 

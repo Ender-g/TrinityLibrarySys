@@ -10,56 +10,39 @@ import static top.playereg.sys.utils.DiyColors.lightgreen;
 
 public class ReturnBookFrame extends JFrame {
     public static void main(String[] args) {
-        new ReturnBookFrame();
+        new ReturnBookFrame(); // test
     }
-    public JLabel topPanel,bottonPanel;
-    public JButton[]  btn;
+
+    public JLabel topPanel, bottonPanel;
+    public JButton[] topBtn = new JButton[]{ // 顶部菜单
+            new JButton("归还图书"),
+            new JButton("还书记录")
+    };
 
     public ReturnBookFrame() {
         SetFrameTool.setFrame(
                 "归还图书",
                 1000,
                 600,
-                "src/main/resources/icon/logo.png",
+                "src/main/java/top/playereg/sys/img/book.png",
                 this);
         //设置窗体关闭，不结束程序
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() { // 窗口关闭事件
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
                 dispose();
-            }});
+            }
+        });
 
-        //创建顶部面板
+        // 创建顶部菜单
         topPanel = new JLabel();
         topPanel.setOpaque(true);
-        topPanel.setBackground(Color.pink);
-        topPanel.setBounds(0, 0, 1000, 100);
         topPanel.setLayout(null);
         this.add(topPanel);
-
-        //创建按钮
-        btn  = new JButton[]{
-                new JButton("归还图书"),
-        };
-        //绘制按钮
-        Color[] color = new Color[]{lightblue};
-        for (int i = 0; i < btn.length; i++) {
-            SetFrameTool.setBtnStyle(
-                    btn[i],
-                    color[i],
-                    Color.black,
-                    20,
-                    400 + i * 200,
-                    30,
-                    150,
-                    50,
-                    topPanel);
-        };
-
+        SetFrameTool.setTopMenuStyle(topBtn, Color.white,
+                Color.black, topPanel, 0);
 
         this.setLayout(null);
         setVisible(true);
-
     }
-
 }

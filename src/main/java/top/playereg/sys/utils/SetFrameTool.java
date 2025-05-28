@@ -85,7 +85,7 @@ public class SetFrameTool extends JFrame {
     }
 
     //菜单按钮
-    public static void setTopImgBtnStyle(
+    public static void setImgBtnStyle(
             JButton jButton, // 按钮名称
             Color btnColor, // 按钮颜色
             Color btnTextColor, // 按钮文字颜色
@@ -103,5 +103,42 @@ public class SetFrameTool extends JFrame {
         //不要边框
         jButton.setBorderPainted(false);
         Panel.add(jButton);
+    }
+
+    // 顶部菜单样式（按钮模拟）
+    public static void setTopMenuStyle(
+            JButton[] jButton,
+            Color btnColor,
+            Color btnTextColor,
+            JLabel Panel,
+            int spacing // 新增间距参数
+    ) {
+        int fontSize = 12;
+        int x = 0;
+        int y = 0;
+        int width = 90;
+        int height = 20;
+
+        if (jButton == null || jButton.length == 0 || Panel == null) {
+            throw new IllegalArgumentException("按钮数组或面板不能为空");
+        }
+
+        Panel.setLayout(null); // 确保使用绝对布局
+        Panel.setBackground(btnColor);
+        Panel.setBounds(0, 0, 10000, height + 1);
+        Panel.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.black));
+
+        for (int i = 0; i < jButton.length; i++) {
+            setBtnStyle(
+                    jButton[i],
+                    btnColor,
+                    btnTextColor,
+                    fontSize,
+                    x, y, width, height,
+                    Panel
+            );
+            x += width + spacing; // 加入间距
+            Panel.add(jButton[i]); // 逐个添加按钮
+        }
     }
 }
