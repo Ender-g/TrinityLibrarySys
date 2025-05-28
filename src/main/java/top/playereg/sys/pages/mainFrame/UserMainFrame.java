@@ -10,9 +10,9 @@ package top.playereg.sys.pages.mainFrame;
 
 import top.playereg.sys.pages.safeFrame.LoginFrame;
 import top.playereg.sys.pages.WorkFunctions.AboutMeFrame;
-import top.playereg.sys.pages.WorkFunctions.User.BorrowBookFrame;
-import top.playereg.sys.pages.WorkFunctions.User.MyBorrowFrame;
-import top.playereg.sys.pages.WorkFunctions.User.ReturnBookFrame;
+import top.playereg.sys.pages.WorkFunctions.User.BorrowBookFrame.BorrowBookFrame;
+import top.playereg.sys.pages.WorkFunctions.User.MyBorrowFrame.MyBorrowFrame;
+import top.playereg.sys.pages.WorkFunctions.User.ReturnBookFrame.ReturnBookFrame;
 import top.playereg.sys.utils.SetFrameTool;
 import top.playereg.sys.utils.UserSaveTool;
 

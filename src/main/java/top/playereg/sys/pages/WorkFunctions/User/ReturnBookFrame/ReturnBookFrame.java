@@ -1,27 +1,24 @@
-package top.playereg.sys.pages.WorkFunctions.Root;
+package top.playereg.sys.pages.WorkFunctions.User.ReturnBookFrame;
 
 import top.playereg.sys.utils.SetFrameTool;
 
 import javax.swing.*;
-
 import java.awt.*;
 
-import static top.playereg.sys.utils.DiyColors.*;
+public class ReturnBookFrame extends JFrame {
+    public static void main(String[] args) {
+        new ReturnBookFrame(); // test
+    }
 
-public class BorrowManageFrame extends JFrame {
     public JLabel topPanel, bottonPanel;
-    public JButton[] topBtn = new JButton[]{
-            new JButton("借阅记录"),
+    public JButton[] topBtn = new JButton[]{ // 顶部菜单
+            new JButton("归还图书"),
             new JButton("还书记录")
     };
 
-    public static void main(String[] args) {
-        new BorrowManageFrame();
-    }
-
-    public BorrowManageFrame() {
+    public ReturnBookFrame() {
         SetFrameTool.setFrame(
-                "借阅管理",
+                "归还图书",
                 1000,
                 600,
                 "src/main/java/top/playereg/sys/img/book.png",

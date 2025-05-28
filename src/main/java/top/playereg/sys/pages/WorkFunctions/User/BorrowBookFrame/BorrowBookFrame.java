@@ -1,15 +1,11 @@
-package top.playereg.sys.pages.WorkFunctions.User;
+package top.playereg.sys.pages.WorkFunctions.User.BorrowBookFrame;
 
-import top.playereg.sys.pages.WorkFunctions.WorkPanel.User.BorrowBookPanel;
-import top.playereg.sys.pages.WorkFunctions.WorkPanel.User.InquireBookPanel;
 import top.playereg.sys.utils.SetFrameTool;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import top.playereg.sys.utils.SetFrameTool.*;
 
 public class BorrowBookFrame extends JFrame implements ActionListener {
     public static void main(String[] args) {

@@ -1,40 +1,29 @@
-/*
- *
- * @author: playereg
- * @description: 根管理员书籍管理页面
- * @version: 1.0
- *
- * */
-
-package top.playereg.sys.pages.WorkFunctions.Root;
-
-import static top.playereg.sys.utils.DiyColors.*;
+package top.playereg.sys.pages.WorkFunctions.Root.BorrowManageFrame;
 
 import top.playereg.sys.utils.SetFrameTool;
 
 import javax.swing.*;
+
 import java.awt.*;
 
-public class BookManageFrame extends JFrame {
-    public static void main(String[] args) {
-        new BookManageFrame();
-    }
-
-    private JLabel topPanel, bottonPanel;
-    private JButton[] topBtn = new JButton[]{
-            new JButton("增加图书"),
-            new JButton("删除图书"),
+public class BorrowManageFrame extends JFrame {
+    public JLabel topPanel, bottonPanel;
+    public JButton[] topBtn = new JButton[]{
+            new JButton("借阅记录"),
+            new JButton("还书记录")
     };
 
-    public BookManageFrame() {
+    public static void main(String[] args) {
+        new BorrowManageFrame();
+    }
 
+    public BorrowManageFrame() {
         SetFrameTool.setFrame(
-                "图书管理",
+                "借阅管理",
                 1000,
                 600,
                 "src/main/java/top/playereg/sys/img/book.png",
                 this);
-
         //设置窗体关闭，不结束程序
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() { // 窗口关闭事件

@@ -1,7 +1,6 @@
-package top.playereg.sys.pages.WorkFunctions.Root;
+package top.playereg.sys.pages.WorkFunctions.Root.UserManageFrame;
 
 import top.playereg.sys.utils.SetFrameTool;
-import top.playereg.sys.utils.DiyColors;
 
 import javax.swing.*;
 import java.awt.*;
