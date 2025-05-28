@@ -1,11 +1,16 @@
 package top.playereg.sys.pages.WorkFunctions.Root.BookManageFrame;
 
+import top.playereg.sys.dao.BookDao;
+import top.playereg.sys.entity.Books;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import static top.playereg.sys.utils.DiyColors.*;
 
-public class ManageBookPanel extends JPanel {
+public class ManageBookPanel extends JPanel implements ActionListener {
     private JPanel topPanel, middlePanel, bottomPanel;
     private JButton addBtn, delBtn, changeBtn; // 添加，删除，修改按钮
     // 添加部分面板中添加组件
@@ -128,5 +133,114 @@ public class ManageBookPanel extends JPanel {
         changeBookNumberText.setFont(new Font("黑体", Font.BOLD, 20));
         bottomPanel.add(changeBookNumberText);
         /* 在修改部分面板中添加组件%end================================================================================== */
+
+        addBtn.addActionListener(this);
+        delBtn.addActionListener(this);
+        changeBtn.addActionListener(this);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // 添加图书
+        if (e.getSource() == addBtn) {
+            System.out.println("添加");
+            if (addBookNameText.getText().equals("") || addBookNumberText.getText().equals("")) {
+                JOptionPane.showMessageDialog(
+                        null, // 父组件设为null，强制对话框在屏幕中央显示
+                        "书名和数量不能为空",
+                        "提示", // 标题
+                        JOptionPane.INFORMATION_MESSAGE
+                );
+            } else {
+                Books book = new Books();
+                book.setBookName(addBookNameText.getText());
+                book.setBookNumber(addBookNumberText.getText());
+                book.setIs_del("0");
+                BookDao bookDao = new BookDao();
+                if (bookDao.addBook(book)) {
+                    JOptionPane.showMessageDialog(
+                            null, // 父组件设为null，强制对话框在屏幕中央显示
+                            "添加成功",
+                            "提示", // 标题
+                            JOptionPane.INFORMATION_MESSAGE
+                    );
+                    addBookNameText.setText("");
+                    addBookNumberText.setText("");
+                } else {
+                    JOptionPane.showMessageDialog(
+                            null, // 父组件设为null，强制对话框在屏幕中央显示
+                            "添加失败",
+                            "提示", // 标题
+                            JOptionPane.INFORMATION_MESSAGE
+                    );
+                }
+            }
+        }
+        // 删除图书
+        if (e.getSource() == delBtn) {
+            System.out.println("删除");
+            if (delBookIDText.getText().equals("")) {
+                JOptionPane.showMessageDialog(
+                        null, // 父组件设为null，强制对话框在屏幕中央显示
+                        "ID不能为空",
+                        "提示", // 标题
+                        JOptionPane.INFORMATION_MESSAGE
+                );
+            } else {
+                BookDao bookDao = new BookDao();
+                if (bookDao.deleteBook(Integer.parseInt(delBookIDText.getText()))) {
+                    JOptionPane.showMessageDialog(
+                            null, // 父组件设为null，强制对话框在屏幕中央显示
+                            "删除成功",
+                            "提示", // 标题
+                            JOptionPane.INFORMATION_MESSAGE
+                    );
+                    delBookIDText.setText("");
+                } else {
+                    JOptionPane.showMessageDialog(
+                            null, // 父组件设为null，强制对话框在屏幕中央显示
+                            "删除失败 书本不存在",
+                            "提示", // 标题
+                            JOptionPane.INFORMATION_MESSAGE
+                    );
+                    delBookIDText.setText("");
+                }
+            }
+        }
+        // 修改图书
+        if (e.getSource() == changeBtn) {
+            if (changeBookIDText.getText().isEmpty() || changeBookNameText.getText().isEmpty() || changeBookNumberText.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(
+                        null, // 父组件设为null，强制对话框在屏幕中央显示
+                        "请填写完整信息",
+                        "提示", // 标题
+                        JOptionPane.INFORMATION_MESSAGE
+                );
+            } else {
+                Books book = new Books();
+                book.setId(Integer.parseInt(changeBookIDText.getText()));
+                book.setBookName(changeBookNameText.getText());
+                book.setBookNumber(changeBookNumberText.getText());
+                book.setIs_del("0");
+                if (BookDao.updateBook(book)) {
+                    JOptionPane.showMessageDialog(
+                            null, // 父组件设为null，强制对话框在屏幕中央显示
+                            "修改成功",
+                            "提示", // 标题
+                            JOptionPane.INFORMATION_MESSAGE
+                    );
+                    changeBookIDText.setText("");
+                    changeBookNameText.setText("");
+                    changeBookNumberText.setText("");
+                } else {
+                    JOptionPane.showMessageDialog(
+                            null, // 父组件设为null，强制对话框在屏幕中央显示
+                            "修改失败 书本不存在",
+                            "错误", // 标题
+                            JOptionPane.ERROR_MESSAGE
+                    );
+                }
+            }
+        }
     }
 }
