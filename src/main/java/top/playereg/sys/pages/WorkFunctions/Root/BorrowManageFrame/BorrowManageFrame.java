@@ -5,12 +5,14 @@ import top.playereg.sys.utils.SetFrameTool;
 import javax.swing.*;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class BorrowManageFrame extends JFrame {
-    public JLabel topPanel, bottonPanel;
+public class BorrowManageFrame extends JFrame implements ActionListener {
+    public JLabel topPanel, bottomPanel;
     public JButton[] topBtn = new JButton[]{
             new JButton("借阅记录"),
-            new JButton("还书记录")
+            new JButton("归还记录")
     };
 
     public static void main(String[] args) {
@@ -37,14 +39,60 @@ public class BorrowManageFrame extends JFrame {
         topPanel.setOpaque(true);
         topPanel.setLayout(null);
         this.add(topPanel);
-        bottonPanel = new JLabel();
-        bottonPanel.setOpaque(true);
-        bottonPanel.setLayout(null);
-        this.add(bottonPanel);
+        bottomPanel = new JLabel();
+        bottomPanel.setOpaque(true);
+        bottomPanel.setLayout(null);
+        this.add(bottomPanel);
         SetFrameTool.setTopMenuStyle(topBtn, Color.white,
-                Color.black, topPanel, bottonPanel, 0);
+                Color.black, topPanel, bottomPanel, 0);
 
         this.setLayout(null);
         setVisible(true);
+
+        for (JButton button : topBtn) button.addActionListener(this);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        for (JButton button : topBtn) {
+            if (e.getSource() == button) {
+                System.out.println(button.getText());
+                switch (button.getText()) {
+
+                    case "借阅记录": {
+                        SetFrameTool.updateTopMenuStyle(topBtn, button);
+                        bottomPanel.removeAll();
+                        BorrowRecordPanel borrowRecordPanel = new BorrowRecordPanel();
+                        borrowRecordPanel.setBounds(
+                                0, 0,
+                                bottomPanel.getWidth(),
+                                bottomPanel.getHeight()
+                        );
+                        bottomPanel.add(borrowRecordPanel);
+                        bottomPanel.revalidate();
+                        bottomPanel.repaint();
+                        break;
+                    }
+
+                    case "归还记录": {
+                        SetFrameTool.updateTopMenuStyle(topBtn, button);
+                        bottomPanel.removeAll();
+                        ReturnRecordPanel returnRecordPanel = new ReturnRecordPanel();
+                        returnRecordPanel.setBounds(
+                                0, 0,
+                                bottomPanel.getWidth(),
+                                bottomPanel.getHeight()
+                        );
+                        bottomPanel.add(returnRecordPanel);
+                        bottomPanel.revalidate();
+                        bottomPanel.repaint();
+                        break;
+                    }
+
+                    default:
+                        break;
+                }
+            }
+        }
     }
 }

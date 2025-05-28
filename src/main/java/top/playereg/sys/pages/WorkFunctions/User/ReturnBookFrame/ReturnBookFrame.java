@@ -4,13 +4,15 @@ import top.playereg.sys.utils.SetFrameTool;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class ReturnBookFrame extends JFrame {
+public class ReturnBookFrame extends JFrame implements ActionListener {
     public static void main(String[] args) {
         new ReturnBookFrame(); // test
     }
 
-    public JLabel topPanel, bottonPanel;
+    public JLabel topPanel, bottomPanel;
     public JButton[] topBtn = new JButton[]{ // 顶部菜单
             new JButton("归还图书"),
             new JButton("还书记录")
@@ -36,14 +38,24 @@ public class ReturnBookFrame extends JFrame {
         topPanel.setOpaque(true);
         topPanel.setLayout(null);
         this.add(topPanel);
-        bottonPanel = new JLabel();
-        bottonPanel.setOpaque(true);
-        bottonPanel.setLayout(null);
-        this.add(bottonPanel);
+        bottomPanel = new JLabel();
+        bottomPanel.setOpaque(true);
+        bottomPanel.setLayout(null);
+        this.add(bottomPanel);
         SetFrameTool.setTopMenuStyle(topBtn, Color.white,
-                Color.black, topPanel, bottonPanel, 0);
+                Color.black, topPanel, bottomPanel, 0);
 
         this.setLayout(null);
         setVisible(true);
+        for (JButton button : topBtn) button.addActionListener(this);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        for (JButton button : topBtn) {
+            if (e.getSource() == button) {
+                System.out.println(button.getText());
+            }
+        }
     }
 }

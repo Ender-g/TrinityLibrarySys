@@ -47,7 +47,6 @@ public class BorrowBookFrame extends JFrame implements ActionListener {
 
 
         this.setLayout(null);
-
         this.setVisible(true);
         for (JButton button : topBtn) button.addActionListener(this);
     }
@@ -58,9 +57,9 @@ public class BorrowBookFrame extends JFrame implements ActionListener {
             if (e.getSource() == button) {
                 System.out.println(button.getText());
                 switch (button.getText()) {
-                    case "查询图书":
+
+                    case "查询图书": {
                         SetFrameTool.updateTopMenuStyle(topBtn, button);
-                        System.out.println("查询图书");
                         bottomPanel.removeAll();
                         InquireBookPanel inquireBookPanel = new InquireBookPanel();
                         inquireBookPanel.setBounds(
@@ -68,25 +67,28 @@ public class BorrowBookFrame extends JFrame implements ActionListener {
                                 bottomPanel.getWidth(),
                                 bottomPanel.getHeight()
                         );
-
                         bottomPanel.add(inquireBookPanel);
                         bottomPanel.revalidate();
                         bottomPanel.repaint();
                         break;
-                    case "借阅图书":
+                    }
+
+                    case "借阅图书": {
                         SetFrameTool.updateTopMenuStyle(topBtn, button);
-                        System.out.println("借阅图书");
                         bottomPanel.removeAll();
                         BorrowBookPanel borrowBookPanel = new BorrowBookPanel();
                         borrowBookPanel.setBounds(
                                 0, 0,
                                 bottomPanel.getWidth(),
                                 bottomPanel.getHeight()
-                        ); // 设置正确位置和大小
-
+                        );
                         bottomPanel.add(borrowBookPanel);
                         bottomPanel.revalidate(); // 刷新布局
                         bottomPanel.repaint();    // 重绘面板
+                        break;
+                    }
+
+                    default:
                         break;
                 }
             }

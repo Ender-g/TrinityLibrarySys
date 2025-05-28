@@ -12,13 +12,15 @@ import top.playereg.sys.utils.SetFrameTool;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class BookManageFrame extends JFrame {
+public class BookManageFrame extends JFrame implements ActionListener {
     public static void main(String[] args) {
         new BookManageFrame();
     }
 
-    private JLabel topPanel, bottonPanel;
+    private JLabel topPanel, bottomPanel;
     private JButton[] topBtn = new JButton[]{
             new JButton("增加图书"),
             new JButton("删除图书"),
@@ -46,14 +48,58 @@ public class BookManageFrame extends JFrame {
         topPanel.setOpaque(true);
         topPanel.setLayout(null);
         this.add(topPanel);
-        bottonPanel = new JLabel();
-        bottonPanel.setOpaque(true);
-        bottonPanel.setLayout(null);
-        this.add(bottonPanel);
+        bottomPanel = new JLabel();
+        bottomPanel.setOpaque(true);
+        bottomPanel.setLayout(null);
+        this.add(bottomPanel);
         SetFrameTool.setTopMenuStyle(topBtn, Color.white,
-                Color.black, topPanel, bottonPanel, 0);
+                Color.black, topPanel, bottomPanel, 0);
 
         this.setLayout(null);
         setVisible(true);
+        for (JButton button : topBtn) button.addActionListener(this);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        for (JButton button : topBtn) {
+            if (e.getSource() == button) {
+                System.out.println(button.getText());
+                switch (button.getText()) {
+
+                    case "增加图书": {
+                        SetFrameTool.updateTopMenuStyle(topBtn, button);
+                        bottomPanel.removeAll();
+                        AddBookPanel addBookPanel = new AddBookPanel();
+                        addBookPanel.setBounds(
+                                0, 0,
+                                bottomPanel.getWidth(),
+                                bottomPanel.getHeight()
+                        );
+                        bottomPanel.add(addBookPanel);
+                        bottomPanel.revalidate();
+                        bottomPanel.repaint();
+                        break;
+                    }
+
+                    case "删除图书": {
+                        SetFrameTool.updateTopMenuStyle(topBtn, button);
+                        bottomPanel.removeAll();
+                        DelBookPanel delBookPanel = new DelBookPanel();
+                        delBookPanel.setBounds(
+                                0, 0,
+                                bottomPanel.getWidth(),
+                                bottomPanel.getHeight()
+                        );
+                        bottomPanel.add(delBookPanel);
+                        bottomPanel.revalidate();
+                        bottomPanel.repaint();
+                        break;
+                    }
+                    default:
+                        break;
+                }
+            }
+        }
     }
 }
