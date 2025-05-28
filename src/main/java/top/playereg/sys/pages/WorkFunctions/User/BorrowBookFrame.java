@@ -1,5 +1,7 @@
 package top.playereg.sys.pages.WorkFunctions.User;
 
+import top.playereg.sys.pages.WorkFunctions.WorkPanel.User.BorrowBookPanel;
+import top.playereg.sys.pages.WorkFunctions.WorkPanel.User.InquireBookPanel;
 import top.playereg.sys.utils.SetFrameTool;
 
 import javax.swing.*;
@@ -7,8 +9,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import top.playereg.sys.pages.WorkFunctions.WorkPanel.*;
-
+import top.playereg.sys.utils.SetFrameTool.*;
 
 public class BorrowBookFrame extends JFrame implements ActionListener {
     public static void main(String[] args) {
@@ -36,20 +37,17 @@ public class BorrowBookFrame extends JFrame implements ActionListener {
             }
         });
 
-        // 创建顶部菜单
+        // 创建面板
         topPanel = new JLabel();
         topPanel.setOpaque(true);
         topPanel.setLayout(null);
         this.add(topPanel);
-        SetFrameTool.setTopMenuStyle(topBtn, Color.white,
-                Color.black, topPanel, 0);
-
-
         bottomPanel = new JLabel();
         bottomPanel.setOpaque(true);
         bottomPanel.setLayout(null);
-        bottomPanel.setBounds(0, 100, 1000, 500);
         this.add(bottomPanel);
+        SetFrameTool.setTopMenuStyle(topBtn, Color.white,
+                Color.black, topPanel, bottomPanel, 0);
 
 
         this.setLayout(null);
@@ -58,9 +56,6 @@ public class BorrowBookFrame extends JFrame implements ActionListener {
         for (JButton button : topBtn) button.addActionListener(this);
     }
 
-    /**
-     * @param e
-     */
     @Override
     public void actionPerformed(ActionEvent e) {
         for (JButton button : topBtn) {
@@ -68,26 +63,37 @@ public class BorrowBookFrame extends JFrame implements ActionListener {
                 System.out.println(button.getText());
                 switch (button.getText()) {
                     case "查询图书":
+                        SetFrameTool.updateTopMenuStyle(topBtn, button);
+                        System.out.println("查询图书");
                         bottomPanel.removeAll();
+                        InquireBookPanel inquireBookPanel = new InquireBookPanel();
+                        inquireBookPanel.setBounds(
+                                0, 0,
+                                bottomPanel.getWidth(),
+                                bottomPanel.getHeight()
+                        );
 
+                        bottomPanel.add(inquireBookPanel);
+                        bottomPanel.revalidate();
+                        bottomPanel.repaint();
                         break;
                     case "借阅图书":
+                        SetFrameTool.updateTopMenuStyle(topBtn, button);
+                        System.out.println("借阅图书");
                         bottomPanel.removeAll();
-
                         BorrowBookPanel borrowBookPanel = new BorrowBookPanel();
                         borrowBookPanel.setBounds(
                                 0, 0,
                                 bottomPanel.getWidth(),
-                                bottomPanel.getHeight()); // 设置正确位置和大小
+                                bottomPanel.getHeight()
+                        ); // 设置正确位置和大小
 
                         bottomPanel.add(borrowBookPanel);
                         bottomPanel.revalidate(); // 刷新布局
                         bottomPanel.repaint();    // 重绘面板
                         break;
-
                 }
             }
         }
-
     }
 }

@@ -48,13 +48,12 @@ public class BookManageFrame extends JFrame {
         topPanel.setOpaque(true);
         topPanel.setLayout(null);
         this.add(topPanel);
-        SetFrameTool.setTopMenuStyle(topBtn, Color.white,
-                Color.black, topPanel, 0);
-
         bottonPanel = new JLabel();
         bottonPanel.setOpaque(true);
         bottonPanel.setLayout(null);
         this.add(bottonPanel);
+        SetFrameTool.setTopMenuStyle(topBtn, Color.white,
+                Color.black, topPanel, bottonPanel, 0);
 
         this.setLayout(null);
         setVisible(true);

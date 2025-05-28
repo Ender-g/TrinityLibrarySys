@@ -39,8 +39,12 @@ public class BorrowManageFrame extends JFrame {
         topPanel.setOpaque(true);
         topPanel.setLayout(null);
         this.add(topPanel);
+        bottonPanel = new JLabel();
+        bottonPanel.setOpaque(true);
+        bottonPanel.setLayout(null);
+        this.add(bottonPanel);
         SetFrameTool.setTopMenuStyle(topBtn, Color.white,
-                Color.black, topPanel, 0);
+                Color.black, topPanel, bottonPanel, 0);
 
         this.setLayout(null);
         setVisible(true);

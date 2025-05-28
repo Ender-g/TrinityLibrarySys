@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class UserManageFrame extends JFrame {
-    private JLabel topPanel;
+    private JLabel topPanel, bottonPanel;
     private JButton[] topBtn = new JButton[]{
             new JButton("查询用户"),
             new JButton("删除用户")
@@ -39,8 +39,12 @@ public class UserManageFrame extends JFrame {
         topPanel.setOpaque(true);
         topPanel.setLayout(null);
         this.add(topPanel);
+        bottonPanel = new JLabel();
+        bottonPanel.setOpaque(true);
+        bottonPanel.setLayout(null);
+        this.add(bottonPanel);
         SetFrameTool.setTopMenuStyle(topBtn, Color.white,
-                Color.black, topPanel, 0);
+                Color.black, topPanel, bottonPanel, 0);
 
         this.setLayout(null);
         setVisible(true);

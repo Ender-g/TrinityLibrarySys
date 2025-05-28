@@ -110,7 +110,8 @@ public class SetFrameTool extends JFrame {
             JButton[] jButton,
             Color btnColor,
             Color btnTextColor,
-            JLabel Panel,
+            JLabel topPanel,
+            JLabel bottomPanel,
             int spacing // 新增间距参数
     ) {
         int fontSize = 12;
@@ -119,15 +120,26 @@ public class SetFrameTool extends JFrame {
         int width = 90;
         int height = 20;
 
-        if (jButton == null || jButton.length == 0 || Panel == null) {
+        if (jButton == null || jButton.length == 0 || topPanel == null) {
             throw new IllegalArgumentException("按钮数组或面板不能为空");
         }
 
-        Panel.setLayout(null); // 确保使用绝对布局
-        Panel.setBackground(btnColor);
-        Panel.setBounds(0, 0, 10000, height + 1);
-        Panel.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.black));
-
+        topPanel.setLayout(null); // 确保使用绝对布局
+        topPanel.setBackground(btnColor);
+        topPanel.setBounds(0, 0, 10000, height + 1);
+        topPanel.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.black));
+        topPanel.setVisible(true);
+        bottomPanel.setLayout(null);
+        bottomPanel.setBackground(btnColor);
+        bottomPanel.setBounds(0, height + 1, 10000, 10000);
+        // 背景图片
+        SetFrameTool.setPanleBackgroundImg(
+                "src/main/java/top/playereg/sys/img/background_workfunction.png",
+                0, -30,
+                1000, 600,
+                bottomPanel
+        );
+        bottomPanel.setVisible(true);
         for (int i = 0; i < jButton.length; i++) {
             setBtnStyle(
                     jButton[i],
@@ -135,10 +147,25 @@ public class SetFrameTool extends JFrame {
                     btnTextColor,
                     fontSize,
                     x, y, width, height,
-                    Panel
+                    topPanel
             );
             x += width + spacing; // 加入间距
-            Panel.add(jButton[i]); // 逐个添加按钮
+            topPanel.add(jButton[i]); // 逐个添加按钮
+        }
+    }
+
+    // 切换选定菜单样式
+    public static void updateTopMenuStyle(
+            JButton[] topBtn, // 顶部菜单按钮
+            JButton activeButton // 当前选定的菜单按钮
+    ) {
+        for (JButton button : topBtn) {
+            button.setBackground(Color.WHITE);
+            button.setForeground(Color.BLACK);
+        }
+        if (activeButton != null) {
+            activeButton.setBackground(Color.GRAY);
+            activeButton.setForeground(Color.WHITE);
         }
     }
 }
