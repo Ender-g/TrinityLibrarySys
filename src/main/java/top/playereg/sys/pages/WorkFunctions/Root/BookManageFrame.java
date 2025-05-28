@@ -25,7 +25,6 @@ public class BookManageFrame extends JFrame {
             new JButton("增加图书"),
             new JButton("删除图书"),
     };
-    ;
 
     public BookManageFrame() {
 

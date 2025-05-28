@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import top.playereg.sys.pages.WorkFunctions.WorkPanel.BorrowBookPanel;
+import top.playereg.sys.pages.WorkFunctions.WorkPanel.*;
 
 
 public class BorrowBookFrame extends JFrame implements ActionListener {
@@ -67,9 +67,10 @@ public class BorrowBookFrame extends JFrame implements ActionListener {
             if (e.getSource() == button) {
                 System.out.println(button.getText());
                 switch (button.getText()) {
-//                    case "查询图书":
-//
-//                        break;
+                    case "查询图书":
+                        bottomPanel.removeAll();
+
+                        break;
                     case "借阅图书":
                         bottomPanel.removeAll();
 
