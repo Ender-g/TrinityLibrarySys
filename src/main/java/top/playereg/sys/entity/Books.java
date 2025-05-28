@@ -1,3 +1,11 @@
+/*
+ *
+ * @author: playereg
+ * @description: 书本实体类
+ * @version: 1.0
+ *
+ * */
+
 package top.playereg.sys.entity;
 
 public class Books {

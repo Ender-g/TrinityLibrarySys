@@ -1,3 +1,11 @@
+/*
+ *
+ * @author: playereg
+ * @description: 书本数据访问层
+ * @version: 1.0
+ *
+ * */
+
 package top.playereg.sys.dao;
 
 import top.playereg.sys.entity.Books;

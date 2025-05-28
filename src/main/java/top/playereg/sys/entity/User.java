@@ -1,3 +1,11 @@
+/*
+ *
+ * @author: playereg
+ * @description: 用户实体类
+ * @version: 1.0
+ *
+ * */
+
 package top.playereg.sys.entity;
 
 public class User {

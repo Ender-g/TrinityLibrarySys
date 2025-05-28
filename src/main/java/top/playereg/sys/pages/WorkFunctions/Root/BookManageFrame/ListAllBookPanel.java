@@ -1,3 +1,11 @@
+/*
+ *
+ * @author: playereg
+ * @description: 列举图书表
+ * @version: 1.0
+ *
+ * */
+
 package top.playereg.sys.pages.WorkFunctions.Root.BookManageFrame;
 
 import javax.swing.*;

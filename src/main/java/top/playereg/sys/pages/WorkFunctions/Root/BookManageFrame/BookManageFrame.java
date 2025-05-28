@@ -1,7 +1,7 @@
 /*
  *
  * @author: playereg
- * @description: 根管理员书籍管理页面
+ * @description: 图书管理面板
  * @version: 1.0
  *
  * */

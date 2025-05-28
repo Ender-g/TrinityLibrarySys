@@ -139,10 +139,6 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
         /* 监听%end=========================================================================== */
     }
 
-    public static void main(String[] args) {
-        new RegisterFrame();
-    }
-
     /* 执行监听%start=========================================================================== */
 
     /* 执行监听%end=========================================================================== */

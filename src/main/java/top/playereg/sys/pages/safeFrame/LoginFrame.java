@@ -224,7 +224,4 @@ public class LoginFrame extends JFrame implements ActionListener {
     }
 
     /* 执行监听%end=========================================================================== */
-    public static void main(String[] args) {
-        new LoginFrame();
-    }
 }

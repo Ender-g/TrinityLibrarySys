@@ -1,3 +1,11 @@
+/*
+ *
+ * @author: playereg
+ * @description: 图书增删改
+ * @version: 1.0
+ *
+ * */
+
 package top.playereg.sys.pages.WorkFunctions.Root.BookManageFrame;
 
 import top.playereg.sys.dao.BookDao;

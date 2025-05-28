@@ -1,7 +1,7 @@
 /*
  *
  * @author: playereg
- * @description: 用户业务面板
+ * @description: 管理员主面板
  * @version: 1.0
  *
  * */
@@ -107,7 +107,7 @@ public class RootMainFrame extends JFrame implements ActionListener {
         if (e.getSource() == logoutButton) {
             System.out.println("登出");
             UserSaveTool.clear();
-            this.dispose();
+            for (Window window : Window.getWindows()) window.dispose();
             new LoginFrame();
         }
         for (JButton button : btn) {
