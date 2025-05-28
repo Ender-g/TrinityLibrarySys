@@ -55,6 +55,41 @@ public class ReturnBookFrame extends JFrame implements ActionListener {
         for (JButton button : topBtn) {
             if (e.getSource() == button) {
                 System.out.println(button.getText());
+                switch (button.getText()) {
+
+                    case "归还图书": {
+                        SetFrameTool.updateTopMenuStyle(topBtn, button);
+                        bottomPanel.removeAll();
+                        ReturnBookPanel returnBookPanel = new ReturnBookPanel();
+                        returnBookPanel.setBounds(
+                                0, 0,
+                                bottomPanel.getWidth(),
+                                bottomPanel.getHeight()
+                        );
+                        bottomPanel.add(returnBookPanel);
+                        bottomPanel.revalidate();
+                        bottomPanel.repaint();
+                        break;
+                    }
+
+                    case "还书记录": {
+                        SetFrameTool.updateTopMenuStyle(topBtn, button);
+                        bottomPanel.removeAll();
+                        ReturnRecordPanel returnRecordPanel = new ReturnRecordPanel();
+                        returnRecordPanel.setBounds(
+                                0, 0,
+                                bottomPanel.getWidth(),
+                                bottomPanel.getHeight()
+                        );
+                        bottomPanel.add(returnRecordPanel);
+                        bottomPanel.revalidate();
+                        bottomPanel.repaint();
+                        break;
+                    }
+
+                    default:
+                        break;
+                }
             }
         }
     }

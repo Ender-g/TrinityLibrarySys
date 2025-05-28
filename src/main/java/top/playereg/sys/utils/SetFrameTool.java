@@ -11,6 +11,8 @@ package top.playereg.sys.utils;
 import javax.swing.*;
 import java.awt.*;
 
+import static top.playereg.sys.utils.DiyColors.*;
+
 public class SetFrameTool extends JFrame {
     /* 设置窗体工具类 */
     public static void setFrame(
@@ -127,7 +129,6 @@ public class SetFrameTool extends JFrame {
         topPanel.setLayout(null); // 确保使用绝对布局
         topPanel.setBackground(btnColor);
         topPanel.setBounds(0, 0, 10000, height + 1);
-        topPanel.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.black));
         topPanel.setVisible(true);
         bottomPanel.setLayout(null);
         bottomPanel.setBackground(btnColor);
@@ -164,8 +165,8 @@ public class SetFrameTool extends JFrame {
             button.setForeground(Color.BLACK);
         }
         if (activeButton != null) {
-            activeButton.setBackground(Color.GRAY);
-            activeButton.setForeground(Color.WHITE);
+            activeButton.setBackground(lightblue);
+            activeButton.setForeground(Color.white);
         }
     }
 }
