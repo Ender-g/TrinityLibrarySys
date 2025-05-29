@@ -90,7 +90,6 @@ public class BookDao {
         }
     }
 
-
     // 获取所有未删除图书
     public List<Books> getAllBooks() {
         Connection conn = DbUtils.getConnection();
@@ -149,4 +148,39 @@ public class BookDao {
         }
         return count;
     }
+
+    // 获取指定id的图书的信息
+    public static Books getBook(int id) {
+        Connection conn = DbUtils.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Books book = null;
+
+        try {
+            String sql = "SELECT * FROM tb_books WHERE id = ? AND is_del = 0";
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                book = new Books();
+                book.setId(rs.getInt("id"));
+                book.setBookName(rs.getString("bookName"));
+                book.setBookNumber(rs.getString("bookNumber"));
+                book.setIs_del(rs.getString("is_del"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (ps != null) ps.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return book;
+    }
+
 }

@@ -16,7 +16,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static top.playereg.sys.utils.DiyColors.*;
+import static top.playereg.sys.utils.DiyColors.lightblue;
+import static top.playereg.sys.utils.DiyColors.skyblue;
 
 public class ManageBookPanel extends JPanel implements ActionListener {
     private JPanel topPanel, middlePanel, bottomPanel;
@@ -217,18 +218,50 @@ public class ManageBookPanel extends JPanel implements ActionListener {
         }
         // 修改图书
         if (e.getSource() == changeBtn) {
-            if (changeBookIDText.getText().isEmpty() || changeBookNameText.getText().isEmpty() || changeBookNumberText.getText().isEmpty()) {
+            if (changeBookIDText.getText().isEmpty()) {
+                if (changeBookNameText.getText().isEmpty() && changeBookNumberText.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(
+                            null, // 父组件设为null，强制对话框在屏幕中央显示
+                            "请完善需要修改的书本信息",
+                            "提示", // 标题
+                            JOptionPane.INFORMATION_MESSAGE
+                    );
+                }
+            } else if (changeBookNameText.getText().isEmpty() && changeBookNumberText.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(
                         null, // 父组件设为null，强制对话框在屏幕中央显示
-                        "请填写完整信息",
+                        "请完善需要修改的书本信息",
+                        "提示", // 标题
+                        JOptionPane.INFORMATION_MESSAGE
+                );
+            } else if (BookDao.getBook(Integer.parseInt(changeBookIDText.getText())) == null ||
+                    BookDao.getBook(Integer.parseInt(changeBookIDText.getText())).getIs_del().equals("1")
+            ) {
+                JOptionPane.showMessageDialog(
+                        null, // 父组件设为null，强制对话框在屏幕中央显示
+                        "书本不存在",
                         "提示", // 标题
                         JOptionPane.INFORMATION_MESSAGE
                 );
             } else {
                 Books book = new Books();
                 book.setId(Integer.parseInt(changeBookIDText.getText()));
-                book.setBookName(changeBookNameText.getText());
-                book.setBookNumber(changeBookNumberText.getText());
+                // 如果书名数量为空，则保持数据库中原来的数据
+                if (changeBookNameText.getText().isEmpty()) {
+                    // 获取数据库中原有的书名
+                    book.setBookName(
+                            BookDao.getBook(Integer.parseInt(changeBookIDText.getText())).getBookName()
+                    );
+                } else {
+                    book.setBookName(changeBookNameText.getText());
+                }
+                if (changeBookNumberText.getText().isEmpty()) {
+                    book.setBookNumber(
+                            BookDao.getBook(Integer.parseInt(changeBookIDText.getText())).getBookNumber()
+                    );
+                } else {
+                    book.setBookNumber(changeBookNumberText.getText());
+                }
                 book.setIs_del("0");
                 if (BookDao.updateBook(book)) {
                     JOptionPane.showMessageDialog(
