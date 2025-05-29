@@ -91,7 +91,7 @@ public class BookDao {
     }
 
     // 获取所有未删除图书
-    public List<Books> getAllBooks() {
+    public static List<Books> getAllBooks() {
         Connection conn = DbUtils.getConnection();
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -123,7 +123,7 @@ public class BookDao {
     }
 
     // 获取书本总种数
-    public int countBooks() {
+    public static int countBooks() {
         Connection conn = DbUtils.getConnection();
         PreparedStatement ps = null;
         ResultSet rs = null;
