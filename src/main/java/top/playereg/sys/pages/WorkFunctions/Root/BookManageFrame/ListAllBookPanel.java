@@ -52,6 +52,8 @@ public class ListAllBookPanel extends JPanel {
         // 添加滚动面板到面板
         add(scrollPane);
 
+        table.setEnabled(false);
+
         // 加载数据
         loadBooksData();
     }
