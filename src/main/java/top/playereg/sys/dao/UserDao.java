@@ -18,6 +18,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDao {
     /* 登录逻辑%start========================================================================================== */
@@ -232,4 +234,81 @@ public class UserDao {
         }
     }
     /* 删除用户逻辑%end========================================================================================== */
+
+    /* 更新用户角色逻辑%start========================================================================================== */
+    public static boolean updateUserRole(String id, int role) {
+        Connection conn = DbUtils.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            // 先检查用户是否存在
+            String sql = "SELECT * FROM tb_user WHERE id = ? and is_del = 0";
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, id);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                // 更新角色权限
+                sql = "UPDATE tb_user SET is_root = ? WHERE id = ?";
+                ps = conn.prepareStatement(sql);
+                ps.setInt(1, role);
+                ps.setString(2, id);
+
+                int rows = ps.executeUpdate();
+                return rows > 0;
+            } else {
+                JOptionPane.showMessageDialog(null, "用户不存在！", "错误", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "数据库操作失败！请检查数据库是否正常！", "错误", JOptionPane.ERROR_MESSAGE);
+            return false;
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (ps != null) ps.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    /* 更新用户角色逻辑%end========================================================================================== */
+
+    /* 获取所有用户逻辑%start========================================================================================== */
+    public static List<User> getAllUsers() {
+        Connection conn = DbUtils.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        List<User> userList = new ArrayList<>();
+
+        String sql = "SELECT * FROM tb_user WHERE is_del = 0";
+        try {
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                User user = new User();
+                user.setId(rs.getInt("id"));
+                user.setUsername(rs.getString("username"));
+                user.setEmail(rs.getString("email"));
+                user.setIs_root(rs.getString("is_root"));
+                userList.add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "数据库操作失败！请检查数据库是否正常！", "错误", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (ps != null) ps.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return userList;
+    }
+    /* 获取所有用户逻辑%end========================================================================================== */
 }

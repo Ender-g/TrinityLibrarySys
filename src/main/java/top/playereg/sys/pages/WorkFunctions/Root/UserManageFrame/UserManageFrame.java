@@ -11,9 +11,7 @@ public class UserManageFrame extends JFrame implements ActionListener {
     private JLabel topPanel, bottomPanel;
     private JButton[] topBtn = new JButton[]{
             new JButton("所有用户"),
-            new JButton("查询用户"),
-            new JButton("删除用户"),
-            new JButton("赋予权限")
+            new JButton("管理用户")
     };
 
     public static void main(String[] args) {
@@ -76,46 +74,16 @@ public class UserManageFrame extends JFrame implements ActionListener {
                         break;
                     }
 
-                    case "查询用户": {
+                    case "管理用户": {
                         SetFrameTool.updateTopMenuStyle(topBtn, button);
                         bottomPanel.removeAll();
-                        InquirieUserPanel inquireUserPanel = new InquirieUserPanel();
-                        inquireUserPanel.setBounds(
+                        ManageUserPanel manageUserPanel = new ManageUserPanel();
+                        manageUserPanel.setBounds(
                                 0, 0,
                                 bottomPanel.getWidth(),
                                 bottomPanel.getHeight()
                         );
-                        bottomPanel.add(inquireUserPanel);
-                        bottomPanel.revalidate();
-                        bottomPanel.repaint();
-                        break;
-                    }
-
-                    case "删除用户": {
-                        SetFrameTool.updateTopMenuStyle(topBtn, button);
-                        bottomPanel.removeAll();
-                        DelUserPanel delUserPanel = new DelUserPanel();
-                        delUserPanel.setBounds(
-                                0, 0,
-                                bottomPanel.getWidth(),
-                                bottomPanel.getHeight()
-                        );
-                        bottomPanel.add(delUserPanel);
-                        bottomPanel.revalidate();
-                        bottomPanel.repaint();
-                        break;
-                    }
-
-                    case "赋予权限": {
-                        SetFrameTool.updateTopMenuStyle(topBtn, button);
-                        bottomPanel.removeAll();
-                        GiveRootPanel giveRootPanel = new GiveRootPanel();
-                        giveRootPanel.setBounds(
-                                0, 0,
-                                bottomPanel.getWidth(),
-                                bottomPanel.getHeight()
-                        );
-                        bottomPanel.add(giveRootPanel);
+                        bottomPanel.add(manageUserPanel);
                         bottomPanel.revalidate();
                         bottomPanel.repaint();
                         break;

@@ -6,21 +6,20 @@
  *
  * */
 
-package top.playereg.sys.pages.WorkFunctions.User.BorrowBookFrame;
+package top.playereg.sys.pages.WorkFunctions.User.UserWorkFrame;
 
 import top.playereg.sys.dao.BookDao;
 import top.playereg.sys.entity.Books;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.util.List;
 
 import static top.playereg.sys.utils.DiyColors.skyblue;
 
 public class ListAllBookPanel extends JPanel {
-    private String[] columnNames = {"图书编号", "图书名称", "图书数量"};
+    private String[] columnNames = {"ID", "名称", "数量"};
     private DefaultTableModel tableModel;
     private JTable table;
 

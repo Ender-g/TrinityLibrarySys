@@ -24,15 +24,17 @@ import java.awt.event.ActionListener;
 import static top.playereg.sys.utils.DiyColors.*;
 
 public class RootMainFrame extends JFrame implements ActionListener {
-    // 在 RootMainFrame 类中添加对应的成员变量来保存窗口实例
-    public BookManageFrame bookManageFrame;
-    public BorrowManageFrame borrowManageFrame;
-    public UserManageFrame userManageFrame;
     private JLabel rootPanel; // 管理员面板
     private JLabel tittleLabel; // 标题
     private JButton aboutMeButton; // 关于我
     private JButton[] btn;
     private JButton logoutButton;
+
+    // 在 RootMainFrame 类中添加对应的成员变量来保存窗口实例
+    public AboutMeFrame aboutMeFrame;
+    public BookManageFrame bookManageFrame;
+    public BorrowManageFrame borrowManageFrame;
+    public UserManageFrame userManageFrame;
     public RootMainFrame() {
         /* 设置窗体%start============================================================================ */
         SetFrameTool.setFrame("崔尼蒂图书馆-管理面板 v1.0.0", 1200, 720,
@@ -101,7 +103,11 @@ public class RootMainFrame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == aboutMeButton) {
             System.out.println("关于我");
-            new AboutMeFrame();
+            if (aboutMeFrame == null || !aboutMeFrame.isDisplayable()) {
+                aboutMeFrame = new AboutMeFrame();
+            } else {
+                aboutMeFrame.setVisible(true);
+            }
         }
         if (e.getSource() == logoutButton) {
             System.out.println("登出");

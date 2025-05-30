@@ -10,9 +10,8 @@ package top.playereg.sys.pages.mainFrame;
 
 import top.playereg.sys.pages.safeFrame.LoginFrame;
 import top.playereg.sys.pages.WorkFunctions.AboutMeFrame;
-import top.playereg.sys.pages.WorkFunctions.User.BorrowBookFrame.BorrowBookFrame;
+import top.playereg.sys.pages.WorkFunctions.User.UserWorkFrame.UserWorkFrame;
 import top.playereg.sys.pages.WorkFunctions.User.MyBorrowFrame.MyBorrowFrame;
-import top.playereg.sys.pages.WorkFunctions.User.ReturnBookFrame.ReturnBookFrame;
 import top.playereg.sys.utils.SetFrameTool;
 import top.playereg.sys.utils.UserSaveTool;
 
@@ -32,8 +31,8 @@ public class UserMainFrame extends JFrame implements ActionListener {
     private JButton[] btn;
     private JButton logoutButton;
     // 在 UserMainFrame 类中添加对应的成员变量来保存窗口实例
-    private BorrowBookFrame borrowBookFrame;
-    private ReturnBookFrame returnBookFrame;
+    private AboutMeFrame aboutMeFrame;
+    private UserWorkFrame userWorkFrame;
     private MyBorrowFrame myBorrowFrame;
 
     public UserMainFrame() {
@@ -72,14 +71,13 @@ public class UserMainFrame extends JFrame implements ActionListener {
                 20, 50, 600, 150, 50, userPanel);
         // 菜单按钮
         btn = new JButton[]{
-                new JButton("借阅图书", new ImageIcon("src/main/java/top/playereg/sys/img/borrow.png", "borrow")),
-                new JButton("归还图书", new ImageIcon("src/main/java/top/playereg/sys/img/return.png", "return")),
+                new JButton("业务功能", new ImageIcon("src/main/java/top/playereg/sys/img/borrow.png", "works")),
                 new JButton("我的借阅", new ImageIcon("src/main/java/top/playereg/sys/img/myborrow.png", "myborrow"))
         };
         Color[] color = new Color[]{lightgreen, lightblue, Color.lightGray};
         for (int i = 0; i < btn.length; i++) {
             SetFrameTool.setImgBtnStyle(btn[i], color[i], Color.black,
-                    20, 320+i*200, 300, 150, 150, userPanel);
+                    20, 420 + i * 200, 300, 150, 150, userPanel);
         }
         /* 创建组件%end=========================================================================== */
 
@@ -99,7 +97,12 @@ public class UserMainFrame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == aboutMeButton) {
             System.out.println("关于我");
-            new AboutMeFrame();
+
+            if (aboutMeFrame == null || !aboutMeFrame.isDisplayable()) {
+                aboutMeFrame = new AboutMeFrame();
+            } else {
+                aboutMeFrame.setVisible(true);
+            }
         }
         if (e.getSource() == logoutButton) {
             System.out.println("登出");
@@ -111,18 +114,11 @@ public class UserMainFrame extends JFrame implements ActionListener {
             if (e.getSource() == button) {
                 System.out.println(button.getText());
                 switch (button.getText()) {
-                    case "借阅图书":
-                        if (borrowBookFrame == null || !borrowBookFrame.isDisplayable()) {
-                            borrowBookFrame = new BorrowBookFrame();
+                    case "业务功能":
+                        if (userWorkFrame == null || !userWorkFrame.isDisplayable()) {
+                            userWorkFrame = new UserWorkFrame();
                         } else {
-                            borrowBookFrame.setVisible(true);
-                        }
-                        break;
-                    case "归还图书":
-                        if (returnBookFrame == null || !returnBookFrame.isDisplayable()) {
-                            returnBookFrame = new ReturnBookFrame();
-                        } else {
-                            returnBookFrame.setVisible(true);
+                            userWorkFrame.setVisible(true);
                         }
                         break;
                     case "我的借阅":

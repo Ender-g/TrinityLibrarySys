@@ -1,4 +1,4 @@
-package top.playereg.sys.pages.WorkFunctions.User.ReturnBookFrame;
+package top.playereg.sys.pages.WorkFunctions.User.UserWorkFrame;
 
 import top.playereg.sys.utils.SetFrameTool;
 
@@ -7,20 +7,21 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ReturnBookFrame extends JFrame implements ActionListener {
+public class UserWorkFrame extends JFrame implements ActionListener {
     public static void main(String[] args) {
-        new ReturnBookFrame(); // test
+        new UserWorkFrame();
     }
 
-    public JLabel topPanel, bottomPanel;
-    public JButton[] topBtn = new JButton[]{ // 顶部菜单
-            new JButton("归还图书"),
-            new JButton("还书记录")
+    private JLabel topPanel, bottomPanel;
+    private JButton[] topBtn = new JButton[]{
+            new JButton("所有图书"),
+            new JButton("借阅图书"),
+            new JButton("归还图书")
     };
 
-    public ReturnBookFrame() {
-        SetFrameTool.setFrame(
-                "归还图书",
+    public UserWorkFrame() {
+        //设置窗体
+        SetFrameTool.setFrame("借阅图书",
                 1000,
                 600,
                 "src/main/java/top/playereg/sys/img/book.png",
@@ -33,7 +34,7 @@ public class ReturnBookFrame extends JFrame implements ActionListener {
             }
         });
 
-        // 创建顶部菜单
+        // 创建面板
         topPanel = new JLabel();
         topPanel.setOpaque(true);
         topPanel.setLayout(null);
@@ -45,8 +46,9 @@ public class ReturnBookFrame extends JFrame implements ActionListener {
         SetFrameTool.setTopMenuStyle(topBtn, Color.white,
                 Color.black, topPanel, bottomPanel, 0);
 
+
         this.setLayout(null);
-        setVisible(true);
+        this.setVisible(true);
         for (JButton button : topBtn) button.addActionListener(this);
     }
 
@@ -56,6 +58,36 @@ public class ReturnBookFrame extends JFrame implements ActionListener {
             if (e.getSource() == button) {
                 System.out.println(button.getText());
                 switch (button.getText()) {
+
+                    case "所有图书": {
+                        SetFrameTool.updateTopMenuStyle(topBtn, button);
+                        bottomPanel.removeAll();
+                        ListAllBookPanel listAllBookPanel = new ListAllBookPanel();
+                        listAllBookPanel.setBounds(
+                                0, 0,
+                                bottomPanel.getWidth(),
+                                bottomPanel.getHeight()
+                        );
+                        bottomPanel.add(listAllBookPanel);
+                        bottomPanel.revalidate();
+                        bottomPanel.repaint();
+                        break;
+                    }
+
+                    case "借阅图书": {
+                        SetFrameTool.updateTopMenuStyle(topBtn, button);
+                        bottomPanel.removeAll();
+                        BorrowBookPanel borrowBookPanel = new BorrowBookPanel();
+                        borrowBookPanel.setBounds(
+                                0, 0,
+                                bottomPanel.getWidth(),
+                                bottomPanel.getHeight()
+                        );
+                        bottomPanel.add(borrowBookPanel);
+                        bottomPanel.revalidate(); // 刷新布局
+                        bottomPanel.repaint();    // 重绘面板
+                        break;
+                    }
 
                     case "归还图书": {
                         SetFrameTool.updateTopMenuStyle(topBtn, button);
@@ -71,22 +103,6 @@ public class ReturnBookFrame extends JFrame implements ActionListener {
                         bottomPanel.repaint();
                         break;
                     }
-
-                    case "还书记录": {
-                        SetFrameTool.updateTopMenuStyle(topBtn, button);
-                        bottomPanel.removeAll();
-                        ReturnRecordPanel returnRecordPanel = new ReturnRecordPanel();
-                        returnRecordPanel.setBounds(
-                                0, 0,
-                                bottomPanel.getWidth(),
-                                bottomPanel.getHeight()
-                        );
-                        bottomPanel.add(returnRecordPanel);
-                        bottomPanel.revalidate();
-                        bottomPanel.repaint();
-                        break;
-                    }
-
                     default:
                         break;
                 }

@@ -40,8 +40,7 @@ public class LoginFrame extends JFrame implements ActionListener {
     public LoginFrame() {
         /* 设置窗体%start============================================================================ */
         SetFrameTool.setFrame("崔尼蒂图书馆-登录 v1.0.0", 960, 540,
-                "src/main/java/top/playereg/sys/img/book.png", this
-        );
+                "src/main/java/top/playereg/sys/img/book.png", this);
         /* 设置窗体%end============================================================================ */
 
         /* 设置登录面板%start======================================================================== */
