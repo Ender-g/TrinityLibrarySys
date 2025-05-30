@@ -9,32 +9,33 @@
 package top.playereg.sys.utils;
 
 public class UserSaveTool {
-    private static String curerntLoginUserId = null;
-    private static String curerntLoginUserName = null; // 当前登录用户名
-    private static String curerntLoginUserPassword = null; // 当前登录用户密码
-    private static String curerntLoginUserEmail = null; // 当前登录用户邮箱
-    private static String curerntLoginUserIsRoot = null; // 当前登录用户是否是管理员
-    private static String curerntLoginUserIsDel = null; // 当前登录用户是否被删除
-    private static String curerntLoginUserBookBorrowID = null; // 当前登录用户借阅
-    private static String curerntLoginUserBookBorrowTime = null;
+    private static int curerntLoginUserId;
+    private static String curerntLoginUserName; // 当前登录用户名
+    private static String curerntLoginUserPassword; // 当前登录用户密码
+    private static String curerntLoginUserEmail; // 当前登录用户邮箱
+    private static String curerntLoginUserIsRoot; // 当前登录用户是否是管理员
+    private static String curerntLoginUserIsDel; // 当前登录用户是否被删除
+    private static int curerntLoginUserBookBorrowID; // 当前登录用户借阅
+    private static int curerntLoginUserBookBorrowTime; //  当前登录用户借阅时间
+
     //  清空用户信息
     public static void clear() {
-        curerntLoginUserId = null;
+        curerntLoginUserId = -1;
         curerntLoginUserName = null;
         curerntLoginUserPassword = null;
         curerntLoginUserEmail = null;
         curerntLoginUserIsRoot = null;
         curerntLoginUserIsDel = null;
-        curerntLoginUserBookBorrowID = null;
-        curerntLoginUserBookBorrowTime = null;
+        curerntLoginUserBookBorrowID = -1;
+        curerntLoginUserBookBorrowTime = -1;
         System.out.println("用户信息已清空！");
     }
 
-    public static String getCurerntLoginUserId() {
+    public static int getCurerntLoginUserId() {
         return curerntLoginUserId;
     }
 
-    public static void setCurerntLoginUserId(String curerntLoginUserId) {
+    public static void setCurerntLoginUserId(int curerntLoginUserId) {
         UserSaveTool.curerntLoginUserId = curerntLoginUserId;
         System.out.println("当前登录用户ID：" + curerntLoginUserId);
     }
@@ -94,20 +95,20 @@ public class UserSaveTool {
         System.out.println("当前登录用户是否被删除：" + curerntLoginUserIsDel);
     }
 
-    public static String getCurerntLoginUserBookBorrowID() {
+    public static int getCurerntLoginUserBookBorrowID() {
         return curerntLoginUserBookBorrowID;
     }
 
-    public static void setCurerntLoginUserBookBorrowID(String curerntLoginUserBookBorrowID) {
+    public static void setCurerntLoginUserBookBorrowID(int curerntLoginUserBookBorrowID) {
         UserSaveTool.curerntLoginUserBookBorrowID = curerntLoginUserBookBorrowID;
         System.out.println("当前登录用户借阅：" + curerntLoginUserBookBorrowID);
     }
 
-    public static String getCurerntLoginUserBookBorrowTime() {
+    public static int getCurerntLoginUserBookBorrowTime() {
         return curerntLoginUserBookBorrowTime;
     }
 
-    public static void setCurerntLoginUserBookBorrowTime(String curerntLoginUserBookBorrowTime) {
+    public static void setCurerntLoginUserBookBorrowTime(int curerntLoginUserBookBorrowTime) {
         UserSaveTool.curerntLoginUserBookBorrowTime = curerntLoginUserBookBorrowTime;
         System.out.println("当前登录用户借阅时间：" + curerntLoginUserBookBorrowTime);
     }

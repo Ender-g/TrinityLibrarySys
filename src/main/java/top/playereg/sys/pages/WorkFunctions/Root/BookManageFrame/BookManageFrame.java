@@ -24,6 +24,7 @@ public class BookManageFrame extends JFrame implements ActionListener {
     private JButton[] topBtn = new JButton[]{
             new JButton("图书列表"),
             new JButton("图书管理"),
+            new JButton("已删除"),
     };
 
     public BookManageFrame() {
@@ -92,6 +93,21 @@ public class BookManageFrame extends JFrame implements ActionListener {
                                 bottomPanel.getHeight()
                         );
                         bottomPanel.add(listAllBookPanel);
+                        bottomPanel.revalidate();
+                        bottomPanel.repaint();
+                        break;
+                    }
+
+                    case "已删除": {
+                        SetFrameTool.updateTopMenuStyle(topBtn, button);
+                        bottomPanel.removeAll();
+                        ListAllDeletedBookPanel listAllDeletedBookPanel = new ListAllDeletedBookPanel();
+                        listAllDeletedBookPanel.setBounds(
+                                0, 0,
+                                bottomPanel.getWidth(),
+                                bottomPanel.getHeight()
+                        );
+                        bottomPanel.add(listAllDeletedBookPanel);
                         bottomPanel.revalidate();
                         bottomPanel.repaint();
                         break;

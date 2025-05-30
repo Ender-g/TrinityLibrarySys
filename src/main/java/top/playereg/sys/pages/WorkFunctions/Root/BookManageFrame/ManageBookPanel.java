@@ -21,11 +21,11 @@ import static top.playereg.sys.utils.DiyColors.skyblue;
 
 public class ManageBookPanel extends JPanel implements ActionListener {
     private JPanel topPanel, middlePanel, bottomPanel;
-    private JButton addBtn, delBtn, changeBtn; // 添加，删除，修改按钮
+    private JButton addBtn, delBtn, changeBtn; // 添加，删除，恢复，修改按钮
     // 添加部分面板中添加组件
     private JLabel addBookNameLabel, addBookNumberLabel; // 书名，数量（文本）
     private JTextField addBookNameText, addBookNumberText; // 书名，数量（文本框）
-    // 删除部分面板中添加组件
+    // 删除恢复部分面板中添加组件
     private JLabel delBookIDLabel; // 书籍ID（文本）
     private JTextField delBookIDText; // 书籍ID（文本框）
     // 修改部分面板中添加组件
@@ -163,7 +163,7 @@ public class ManageBookPanel extends JPanel implements ActionListener {
             } else {
                 Books book = new Books();
                 book.setBookName(addBookNameText.getText());
-                book.setBookNumber(addBookNumberText.getText());
+                book.setBookNumber(Integer.parseInt(addBookNumberText.getText()));
                 book.setIs_del("0");
                 BookDao bookDao = new BookDao();
                 if (bookDao.addBook(book)) {
@@ -260,7 +260,7 @@ public class ManageBookPanel extends JPanel implements ActionListener {
                             BookDao.getBook(Integer.parseInt(changeBookIDText.getText())).getBookNumber()
                     );
                 } else {
-                    book.setBookNumber(changeBookNumberText.getText());
+                    book.setBookNumber(Integer.parseInt(changeBookNumberText.getText()));
                 }
                 book.setIs_del("0");
                 if (BookDao.updateBook(book)) {

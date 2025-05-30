@@ -11,13 +11,13 @@ package top.playereg.sys.entity;
 public class Books {
     private int id;
     private String bookName;
-    private String bookNumber;
+    private int bookNumber;
     private String is_del;
 
     public Books() {
     }
 
-    public Books(int id, String bookName, String bookNumber, String is_del) {
+    public Books(int id, String bookName, int bookNumber, String is_del) {
         this.id = id;
         this.bookName = bookName;
         this.bookNumber = bookNumber;
@@ -40,11 +40,11 @@ public class Books {
         this.bookName = bookName;
     }
 
-    public String getBookNumber() {
+    public int getBookNumber() {
         return bookNumber;
     }
 
-    public void setBookNumber(String bookNumber) {
+    public void setBookNumber(int bookNumber) {
         this.bookNumber = bookNumber;
     }
 

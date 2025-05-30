@@ -47,14 +47,14 @@ public class UserDao {
                 }
             }
             if (currentPassword.equals(HashTool.toHashCode(password)) && tempIsDel == 0) { // 密码正确
-                UserSaveTool.setCurerntLoginUserId(rs.getString("id"));
+                UserSaveTool.setCurerntLoginUserId(rs.getInt("id"));
                 UserSaveTool.setCurerntLoginUserName(rs.getString("username")); // 保存用户名
                 UserSaveTool.setCurerntLoginUserPassword(currentPassword); // 密码保存
                 UserSaveTool.setCurerntLoginUserEmail(email); // 邮箱保存
                 UserSaveTool.setCurerntLoginUserIsRoot(String.valueOf(rs.getInt("is_root"))); // 保存is_root
                 UserSaveTool.setCurerntLoginUserIsDel(String.valueOf(rs.getInt("is_del"))); // 保存is_del
-                UserSaveTool.setCurerntLoginUserBookBorrowID(String.valueOf(rs.getInt("bookBorrowID"))); // 借阅数保存
-                UserSaveTool.setCurerntLoginUserBookBorrowTime(rs.getString("bookBorrowTime")); // 借阅时间保存
+                UserSaveTool.setCurerntLoginUserBookBorrowID(rs.getInt("bookBorrowID")); // 借阅数保存
+                UserSaveTool.setCurerntLoginUserBookBorrowTime(rs.getInt("bookBorrowTime")); // 借阅时间保存
                 return true;
             } else {
                 if (tempIsDel != 0) {

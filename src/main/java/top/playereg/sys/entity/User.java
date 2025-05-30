@@ -15,8 +15,8 @@ public class User {
     private String email;
     private String is_root;
     private String is_del;
-    private String book_borrow_id;
-    private String book_borrow_time;
+    private int book_borrow_id;
+    private int book_borrow_time;
 
     public User() {
     }
@@ -28,8 +28,8 @@ public class User {
             String email,
             String is_root,
             String is_del,
-            String book_borrow_id,
-            String book_borrow_time
+            int book_borrow_id,
+            int book_borrow_time
     ) {
         this.id = id;
         this.username = username;
@@ -89,19 +89,19 @@ public class User {
         this.is_del = is_del;
     }
 
-    public String getBook_borrow_id() {
+    public int getBook_borrow_id() {
         return book_borrow_id;
     }
 
-    public void setBook_borrow_id(String book_borrow_id) {
+    public void setBook_borrow_id(int book_borrow_id) {
         this.book_borrow_id = book_borrow_id;
     }
 
-    public String getBook_borrow_time() {
+    public int getBook_borrow_time() {
         return book_borrow_time;
     }
 
-    public void setBook_borrow_time(String book_borrow_time) {
+    public void setBook_borrow_time(int book_borrow_time) {
         this.book_borrow_time = book_borrow_time;
     }
 

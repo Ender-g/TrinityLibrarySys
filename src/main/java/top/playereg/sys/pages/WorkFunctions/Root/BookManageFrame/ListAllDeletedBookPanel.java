@@ -1,7 +1,7 @@
 /*
  *
  * @author: playereg
- * @description: 列举图书表
+ * @description: 列举已删除图书表
  * @version: 1.0
  *
  * */
@@ -19,12 +19,12 @@ import java.util.List;
 
 import static top.playereg.sys.utils.DiyColors.skyblue;
 
-public class ListAllBookPanel extends JPanel {
+public class ListAllDeletedBookPanel extends JPanel {
     private String[] columnNames = {"图书编号", "图书名称", "图书数量"};
     private DefaultTableModel tableModel;
     private JTable table;
 
-    public ListAllBookPanel() {
+    public ListAllDeletedBookPanel() {
         setLayout(null);
         setBackground(Color.white);
 
@@ -63,7 +63,7 @@ public class ListAllBookPanel extends JPanel {
 
     // 从数据库加载书籍数据并填充到表格
     private void loadBooksData() {
-        List<Books> booksList = BookDao.getAllBooks(); // 调用 DAO 获取数据
+        List<Books> booksList = BookDao.getDeletedBooks(); // 调用 DAO 获取已删除数据
 
         // 清空现有表格数据
         tableModel.setRowCount(0);

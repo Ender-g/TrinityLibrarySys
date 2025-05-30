@@ -24,7 +24,7 @@ public class BookDao {
             String sql = "INSERT INTO tb_books (bookName, bookNumber, is_del) VALUES (?, ?, 0)";
             ps = conn.prepareStatement(sql);
             ps.setString(1, book.getBookName());
-            ps.setString(2, book.getBookNumber());
+            ps.setInt(2, book.getBookNumber());
             int rows = ps.executeUpdate();
             return rows > 0;
         } catch (SQLException e) {
@@ -72,7 +72,7 @@ public class BookDao {
             String sql = "UPDATE tb_books SET bookName = ?, bookNumber = ? WHERE id = ? AND is_del = 0";
             ps = conn.prepareStatement(sql);
             ps.setString(1, book.getBookName());
-            ps.setString(2, book.getBookNumber());
+            ps.setInt(2, book.getBookNumber());
             ps.setInt(3, book.getId());
 
             int rows = ps.executeUpdate();
@@ -104,7 +104,39 @@ public class BookDao {
                 Books book = new Books();
                 book.setId(rs.getInt("id"));
                 book.setBookName(rs.getString("bookName"));
-                book.setBookNumber(rs.getString("bookNumber"));
+                book.setBookNumber(rs.getInt("bookNumber"));
+                book.setIs_del(rs.getString("is_del"));
+                booksList.add(book);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (ps != null) ps.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return booksList;
+    }
+
+    // 获取所有已删除图书
+    public static List<Books> getDeletedBooks() {
+        Connection conn = DbUtils.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        List<Books> booksList = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM tb_books WHERE is_del = 1";
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Books book = new Books();
+                book.setId(rs.getInt("id"));
+                book.setBookName(rs.getString("bookName"));
+                book.setBookNumber(rs.getInt("bookNumber"));
                 book.setIs_del(rs.getString("is_del"));
                 booksList.add(book);
             }
@@ -166,7 +198,7 @@ public class BookDao {
                 book = new Books();
                 book.setId(rs.getInt("id"));
                 book.setBookName(rs.getString("bookName"));
-                book.setBookNumber(rs.getString("bookNumber"));
+                book.setBookNumber(rs.getInt("bookNumber"));
                 book.setIs_del(rs.getString("is_del"));
             }
         } catch (SQLException e) {

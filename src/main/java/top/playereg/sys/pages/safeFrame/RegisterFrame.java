@@ -175,7 +175,7 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
                 JOptionPane.showMessageDialog(this, "验证码超过保质期，不能用了！ ಥ_ಥ");
             } else if (UserDao.register(new User(
                     0, name, password, email,
-                    "0", "0", "0", "0"
+                    "0", "0", 0, 0
             ))) {
                 currentTime = 0;
                 new LoginFrame().setVisible(true);
