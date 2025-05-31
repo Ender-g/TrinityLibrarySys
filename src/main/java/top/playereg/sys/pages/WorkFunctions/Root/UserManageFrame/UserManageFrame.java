@@ -16,10 +16,6 @@ public class UserManageFrame extends JFrame implements ActionListener {
             new JButton("管理用户")
     };
 
-    public static void main(String[] args) {
-        new UserManageFrame();
-    }
-
     public UserManageFrame() {
         // 初始化窗口
         SetFrameTool.setFrame(

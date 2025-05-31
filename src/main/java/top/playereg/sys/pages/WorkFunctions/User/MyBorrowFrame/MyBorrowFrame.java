@@ -19,9 +19,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 public class MyBorrowFrame extends JFrame {
-    public static void main(String[] args) {
-        new MyBorrowFrame();
-    }
 
     private JLabel myBorrowPanel;
     private JLabel borrowPanel, returnPanel;

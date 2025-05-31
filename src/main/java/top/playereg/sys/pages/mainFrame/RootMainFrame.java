@@ -93,10 +93,6 @@ public class RootMainFrame extends JFrame implements ActionListener {
         for (JButton button : btn) button.addActionListener(this);
     }
 
-    public static void main(String[] args) {
-        new RootMainFrame();
-    }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == aboutMeButton) {

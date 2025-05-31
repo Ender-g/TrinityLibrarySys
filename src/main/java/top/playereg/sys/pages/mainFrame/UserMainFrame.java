@@ -23,7 +23,6 @@ import java.awt.event.ActionListener;
 import static top.playereg.sys.utils.DiyColors.*;
 
 public class UserMainFrame extends JFrame implements ActionListener {
-    public static void main(String[] args) {new UserMainFrame();} // test
 
     private JLabel userPanel; // 用户面板
     private JLabel tittleLabel; // 标题

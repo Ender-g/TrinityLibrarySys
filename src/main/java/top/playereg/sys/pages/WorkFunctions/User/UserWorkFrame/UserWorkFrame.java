@@ -19,9 +19,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class UserWorkFrame extends JFrame implements ActionListener {
-    public static void main(String[] args) {
-        new UserWorkFrame();
-    }
 
     private JLabel topPanel, bottomPanel;
     private JButton[] topBtn = new JButton[]{
