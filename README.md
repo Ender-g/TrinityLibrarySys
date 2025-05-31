@@ -1,11 +1,8 @@
 # 崔尼蒂图书馆管理系统
 
----
-
 ## 一、项目简介
 基于Java Swing开发的图书馆管理系统，包含用户注册/登录、图书管理、借阅管理、密码找回等功能模块，采用MySQL数据库存储数据，通过Resend邮件服务实现验证码发送功能。
 
----
 
 ## 二、技术栈
 
@@ -19,8 +16,6 @@
   - [Resend Java SDK](https://www.resend.com/docs)（邮件发送）
   - Gson（JSON解析）
   - MySQL JDBC驱动（数据库连接）
-
----
 
 ## 三、功能模块
 
@@ -39,8 +34,6 @@
 - 图书库存管理（增删改）
 - 已删除图书回收站
 - 实时数据可视化
-
----
 
 ## 四、克隆指南
 
@@ -74,8 +67,6 @@ String url = "jdbc:mysql://127.0.0.1:3306/db_library_app?useSSL=false&serverTime
 String username = "root"; // 修改为你的MySQL用户名
 String password = "123456"; // 修改为你的MySQL密码
 ```
-
----
 
 ## 五、开发者指南
 
@@ -116,8 +107,6 @@ CreateEmailOptions params = CreateEmailOptions.builder().
         build();
 ```
 
----
-
 ## 六、使用教程
 
 ### 用户操作
@@ -135,8 +124,6 @@ CreateEmailOptions params = CreateEmailOptions.builder().
 - 用户管理
 - 图书库存管理
 - 查看删除记录
-
----
 
 ## 七、常见问题
 
@@ -162,14 +149,11 @@ CreateEmailOptions params = CreateEmailOptions.builder().
 2. 检查[DbUtils.java](file://D:\IdeaProjects\LibrarySys\src\main\java\top\playereg\sys\utils\DbUtils.java)连接参数
 3. 确认数据库表结构是否完整
 
----
-
 ## 八、安全设计
 
 1. 密码存储：SHA-256哈希加密（[HashTool.java](file://D:\IdeaProjects\LibrarySys\src\main\java\top\playereg\sys\utils\HashTool.java)）
 2. 邮箱验证：5分钟时效验证码（[SendEmailTool.java](file://D:\IdeaProjects\LibrarySys\src\main\java\top\playereg\sys\utils\SendEmailTool.java)）
 3. 数据隔离：软删除机制（is_del字段）
----
 
 ## 九、版本历史
 
@@ -179,13 +163,9 @@ CreateEmailOptions params = CreateEmailOptions.builder().
 - 完成用户/管理员双角色系统
 - 集成邮件验证系统
 
----
-
 ## 十、许可证
 
 本项目遵循[GNU General Public License v2.0](LICENSE)，允许在遵守协议的前提下自由使用和修改。
-
----
 
 ## 十一、关于我
 ### 邮箱1：playereg@vip.playereg.top
