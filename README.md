@@ -41,7 +41,9 @@
 1. 安装 [JDK 17+](https://adoptium.net/)
 2. 安装 [MySQL 8.0+](https://dev.mysql.com/downloads/mysql/)
 3. 注册 [Resend开发者账户](https://resend.com/) 获取API密钥
-4.
+4. 配置数据库连接（如有需要）
+5. [pom.xml](file://D:\IdeaProjects\LibrarySys\pom.xml)依赖管理
+6.   [ApiKeys.json](file://D:\IdeaProjects\LibrarySys\src\main\java\top\playereg\ApiKeys.json)
 
 ### 初始化流程
 
