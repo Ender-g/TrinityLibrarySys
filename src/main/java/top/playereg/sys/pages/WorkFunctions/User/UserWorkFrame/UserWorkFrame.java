@@ -1,5 +1,16 @@
+/*
+ *
+ * @author: playereg
+ * @description: 用户业务界面
+ * @version: 1.0
+ *
+ * */
+
 package top.playereg.sys.pages.WorkFunctions.User.UserWorkFrame;
 
+import top.playereg.sys.pages.WorkFunctions.User.UserWorkFrame.Panel.BorrowBookPanel;
+import top.playereg.sys.pages.WorkFunctions.User.UserWorkFrame.Panel.ListAllBookPanel;
+import top.playereg.sys.pages.WorkFunctions.User.UserWorkFrame.Panel.ReturnBookPanel;
 import top.playereg.sys.utils.SetFrameTool;
 
 import javax.swing.*;

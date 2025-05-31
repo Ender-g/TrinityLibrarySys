@@ -16,7 +16,7 @@ public class UserSaveTool {
     private static String curerntLoginUserIsRoot; // 当前登录用户是否是管理员
     private static String curerntLoginUserIsDel; // 当前登录用户是否被删除
     private static int curerntLoginUserBookBorrowID; // 当前登录用户借阅
-    private static int curerntLoginUserBookBorrowTime; //  当前登录用户借阅时间
+    private static long curerntLoginUserBookBorrowTime; //  当前登录用户借阅时间
 
     //  清空用户信息
     public static void clear() {
@@ -104,11 +104,11 @@ public class UserSaveTool {
         System.out.println("当前登录用户借阅：" + curerntLoginUserBookBorrowID);
     }
 
-    public static int getCurerntLoginUserBookBorrowTime() {
+    public static long getCurerntLoginUserBookBorrowTime() {
         return curerntLoginUserBookBorrowTime;
     }
 
-    public static void setCurerntLoginUserBookBorrowTime(int curerntLoginUserBookBorrowTime) {
+    public static void setCurerntLoginUserBookBorrowTime(long curerntLoginUserBookBorrowTime) {
         UserSaveTool.curerntLoginUserBookBorrowTime = curerntLoginUserBookBorrowTime;
         System.out.println("当前登录用户借阅时间：" + curerntLoginUserBookBorrowTime);
     }

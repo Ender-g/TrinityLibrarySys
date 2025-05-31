@@ -1,5 +1,7 @@
 package top.playereg.sys.pages.WorkFunctions.Root.UserManageFrame;
 
+import top.playereg.sys.pages.WorkFunctions.Root.UserManageFrame.Panel.ListAllUserPanel;
+import top.playereg.sys.pages.WorkFunctions.Root.UserManageFrame.Panel.ManageUserPanel;
 import top.playereg.sys.utils.SetFrameTool;
 
 import javax.swing.*;

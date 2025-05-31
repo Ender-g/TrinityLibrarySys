@@ -1,30 +1,29 @@
 /*
  *
  * @author: playereg
- * @description: 列举已删除图书表
+ * @description: 列举图书表
  * @version: 1.0
  *
  * */
 
-package top.playereg.sys.pages.WorkFunctions.Root.BookManageFrame;
+package top.playereg.sys.pages.WorkFunctions.Root.BookManageFrame.Panel;
 
 import top.playereg.sys.dao.BookDao;
 import top.playereg.sys.entity.Books;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.util.List;
 
 import static top.playereg.sys.utils.DiyColors.skyblue;
 
-public class ListAllDeletedBookPanel extends JPanel {
-    private String[] columnNames = {"图书编号", "图书名称", "图书数量"};
+public class ListAllBookPanel extends JPanel {
+    private String[] columnNames = {"ID", "名称", "数量"};
     private DefaultTableModel tableModel;
     private JTable table;
 
-    public ListAllDeletedBookPanel() {
+    public ListAllBookPanel() {
         setLayout(null);
         setBackground(Color.white);
 
@@ -63,7 +62,7 @@ public class ListAllDeletedBookPanel extends JPanel {
 
     // 从数据库加载书籍数据并填充到表格
     private void loadBooksData() {
-        List<Books> booksList = BookDao.getDeletedBooks(); // 调用 DAO 获取已删除数据
+        List<Books> booksList = BookDao.getAllBooks(); // 调用 DAO 获取数据
 
         // 清空现有表格数据
         tableModel.setRowCount(0);

@@ -1,4 +1,12 @@
-package top.playereg.sys.pages.WorkFunctions.User.UserWorkFrame;
+/*
+ *
+ * @author: playereg
+ * @description: 返还图书面板
+ * @version: 1.0
+ *
+ * */
+
+package top.playereg.sys.pages.WorkFunctions.User.UserWorkFrame.Panel;
 
 import javax.swing.*;
 import java.awt.*;

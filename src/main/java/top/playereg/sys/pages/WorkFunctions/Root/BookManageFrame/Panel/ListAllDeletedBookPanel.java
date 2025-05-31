@@ -1,7 +1,15 @@
-package top.playereg.sys.pages.WorkFunctions.Root.UserManageFrame;
+/*
+ *
+ * @author: playereg
+ * @description: 列举已删除图书表
+ * @version: 1.0
+ *
+ * */
 
-import top.playereg.sys.dao.UserDao;
-import top.playereg.sys.entity.User;
+package top.playereg.sys.pages.WorkFunctions.Root.BookManageFrame.Panel;
+
+import top.playereg.sys.dao.BookDao;
+import top.playereg.sys.entity.Books;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -10,12 +18,12 @@ import java.util.List;
 
 import static top.playereg.sys.utils.DiyColors.skyblue;
 
-public class ListAllUserPanel extends JPanel {
-    private String[] columnNames = {"ID", "用户名", "邮箱", "权限"};
+public class ListAllDeletedBookPanel extends JPanel {
+    private String[] columnNames = {"图书编号", "图书名称", "图书数量"};
     private DefaultTableModel tableModel;
     private JTable table;
 
-    public ListAllUserPanel() {
+    public ListAllDeletedBookPanel() {
         setLayout(null);
         setBackground(Color.white);
 
@@ -34,15 +42,14 @@ public class ListAllUserPanel extends JPanel {
         table.setRowHeight(30);
         table.setFont(new Font("黑体", Font.PLAIN, 20));
         table.getTableHeader().setReorderingAllowed(false); // 禁止拖动列
-        table.getTableHeader().setResizingAllowed(false); // 禁止列宽拖动
+        table.getTableHeader().setResizingAllowed(false); //  禁止列宽拖动
+
 
         // 设置列宽
-        table.getColumnModel().getColumn(0).setMinWidth(80);
-        table.getColumnModel().getColumn(0).setMaxWidth(80);
-        table.getColumnModel().getColumn(1).setMinWidth(200);
-        table.getColumnModel().getColumn(1).setMaxWidth(200);
-        table.getColumnModel().getColumn(3).setMinWidth(100);
-        table.getColumnModel().getColumn(3).setMaxWidth(100);
+        table.getColumnModel().getColumn(0).setMinWidth(100);
+        table.getColumnModel().getColumn(0).setMaxWidth(100);
+        table.getColumnModel().getColumn(2).setMinWidth(100);
+        table.getColumnModel().getColumn(2).setMaxWidth(100);
 
         // 添加滚动面板到面板
         add(scrollPane);
@@ -50,22 +57,21 @@ public class ListAllUserPanel extends JPanel {
         table.setEnabled(false); // 禁用表格编辑功能
 
         // 加载数据
-        loadUsersData();
+        loadBooksData();
     }
 
-    // 从数据库加载用户数据并填充到表格
-    private void loadUsersData() {
-        List<User> userList = UserDao.getAllUsers(); // 调用 DAO 获取数据
+    // 从数据库加载书籍数据并填充到表格
+    private void loadBooksData() {
+        List<Books> booksList = BookDao.getDeletedBooks(); // 调用 DAO 获取已删除数据
 
         // 清空现有表格数据
         tableModel.setRowCount(0);
 
-        for (User user : userList) {
+        for (Books book : booksList) {
             Object[] row = {
-                    user.getId(),
-                    user.getUsername(),
-                    user.getEmail(),
-                    "1".equals(user.getIs_root()) ? "管理员" : "普通用户"
+                    book.getId(),
+                    book.getBookName(),
+                    book.getBookNumber()
             };
             tableModel.addRow(row);
         }

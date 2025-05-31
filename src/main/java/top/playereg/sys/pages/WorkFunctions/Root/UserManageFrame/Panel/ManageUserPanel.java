@@ -1,9 +1,7 @@
-package top.playereg.sys.pages.WorkFunctions.Root.UserManageFrame;
+package top.playereg.sys.pages.WorkFunctions.Root.UserManageFrame.Panel;
 
 import javax.swing.*;
 import java.awt.*;
-
-import static top.playereg.sys.utils.DiyColors.skyblue;
 
 public class ManageUserPanel extends JPanel {
     private JLabel ManageUserLabel;

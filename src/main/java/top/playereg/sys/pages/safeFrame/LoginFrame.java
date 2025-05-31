@@ -144,12 +144,13 @@ public class LoginFrame extends JFrame implements ActionListener {
 
         // 登录按钮
         if (e.getSource() == loginBtn) {
+            System.out.println(System.currentTimeMillis() - currentTime);
             if (email.isEmpty() || password.isEmpty() || emailCode.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "不准交白卷！！！ (・`ω´・)");
             } else if (!emailCode.equals(tempCode)) {
                 JOptionPane.showMessageDialog(this, "验证码好像不是这个呀！ (⁰▿⁰)");
-            } else if (currentTime == 0 && (currentTime - System.currentTimeMillis()) > durationTime) {
-                JOptionPane.showMessageDialog(this, "验证码超过保质期，不能用了！ ಥ_ಥ");
+            } else if ((System.currentTimeMillis() - currentTime) > durationTime) {
+                JOptionPane.showMessageDialog(this, "验证码超过保质期，不能用了！ \\(QwQ)/");
             } else if (!passwordField.getText().matches(passwordInput)) {
                 JOptionPane.showMessageDialog(this, "密码是6到16位的字母数字组成的哦！");
             } else if (tempEmail != null && !email.equals(tempEmail)) {

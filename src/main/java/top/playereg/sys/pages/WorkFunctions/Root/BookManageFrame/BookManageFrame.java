@@ -8,6 +8,9 @@
 
 package top.playereg.sys.pages.WorkFunctions.Root.BookManageFrame;
 
+import top.playereg.sys.pages.WorkFunctions.Root.BookManageFrame.Panel.ListAllBookPanel;
+import top.playereg.sys.pages.WorkFunctions.Root.BookManageFrame.Panel.ListAllDeletedBookPanel;
+import top.playereg.sys.pages.WorkFunctions.Root.BookManageFrame.Panel.ManageBookPanel;
 import top.playereg.sys.utils.SetFrameTool;
 
 import javax.swing.*;

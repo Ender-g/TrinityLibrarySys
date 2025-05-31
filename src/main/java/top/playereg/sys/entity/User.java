@@ -15,7 +15,7 @@ public class User {
     private String email;
     private String is_root;
     private String is_del;
-    private int book_borrow_id;
+    private long book_borrow_id;
     private int book_borrow_time;
 
     public User() {
@@ -89,11 +89,11 @@ public class User {
         this.is_del = is_del;
     }
 
-    public int getBook_borrow_id() {
+    public long getBook_borrow_id() {
         return book_borrow_id;
     }
 
-    public void setBook_borrow_id(int book_borrow_id) {
+    public void setBook_borrow_id(long book_borrow_id) {
         this.book_borrow_id = book_borrow_id;
     }
 

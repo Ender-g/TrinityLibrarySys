@@ -55,8 +55,8 @@ public class UserDao {
                 UserSaveTool.setCurerntLoginUserEmail(email); // 邮箱保存
                 UserSaveTool.setCurerntLoginUserIsRoot(String.valueOf(rs.getInt("is_root"))); // 保存is_root
                 UserSaveTool.setCurerntLoginUserIsDel(String.valueOf(rs.getInt("is_del"))); // 保存is_del
-                UserSaveTool.setCurerntLoginUserBookBorrowID(rs.getInt("bookBorrowID")); // 借阅数保存
-                UserSaveTool.setCurerntLoginUserBookBorrowTime(rs.getInt("bookBorrowTime")); // 借阅时间保存
+                UserSaveTool.setCurerntLoginUserBookBorrowID((int) rs.getLong("bookBorrowID"));
+                UserSaveTool.setCurerntLoginUserBookBorrowTime(rs.getLong("bookBorrowTime")); // 借阅时间保存
                 return true;
             } else {
                 if (tempIsDel != 0) {
@@ -275,6 +275,41 @@ public class UserDao {
         }
     }
     /* 更新用户角色逻辑%end========================================================================================== */
+
+    /* 更新用户借阅信息%start======================================================================================== */
+    public static void updateUserBookBorrowInfo(int curerntLoginUserId, int bookId, long time) {
+        Connection conn = DbUtils.getConnection();
+        PreparedStatement ps = null;
+        String sql = "UPDATE tb_user SET bookBorrowID = ?, bookBorrowTime = ? WHERE id = ? and is_del = 0";
+
+        try {
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, bookId);              // 设置借阅图书ID
+            ps.setLong(2, time);               // 设置借阅时间戳
+            ps.setInt(3, curerntLoginUserId);  // 设置用户ID
+
+            int rows = ps.executeUpdate();     // 执行更新
+
+            if (rows > 0) {
+                JOptionPane.showMessageDialog(null, "借阅信息更新成功！", "提示", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "借阅信息更新失败，请检查用户ID是否正确！", "错误", JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "数据库操作失败！请检查数据库是否正常！", "错误", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            try {
+                if (ps != null) ps.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /* 更新用户借阅信息%end======================================================================================== */
 
     /* 获取所有用户逻辑%start========================================================================================== */
     public static List<User> getAllUsers() {

@@ -6,7 +6,7 @@
  *
  * */
 
-package top.playereg.sys.pages.WorkFunctions.Root.BookManageFrame;
+package top.playereg.sys.pages.WorkFunctions.Root.BookManageFrame.Panel;
 
 import top.playereg.sys.dao.BookDao;
 import top.playereg.sys.entity.Books;

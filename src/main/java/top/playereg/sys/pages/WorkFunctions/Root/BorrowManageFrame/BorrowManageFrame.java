@@ -1,5 +1,7 @@
 package top.playereg.sys.pages.WorkFunctions.Root.BorrowManageFrame;
 
+import top.playereg.sys.pages.WorkFunctions.Root.BorrowManageFrame.Panel.BorrowRecordPanel;
+import top.playereg.sys.pages.WorkFunctions.Root.BorrowManageFrame.Panel.ReturnRecordPanel;
 import top.playereg.sys.utils.SetFrameTool;
 
 import javax.swing.*;
