@@ -171,4 +171,4 @@ CreateEmailOptions params = CreateEmailOptions.builder().
 
 ### [GitHub仓库-@Ender-g](https://github.com/ender-g/LibrarySys)
 
-### [B站主页-PlayerEG](https://space.bilibili.com/520500365)
+### [B站主页-@PlayerEG](https://space.bilibili.com/520500365)
