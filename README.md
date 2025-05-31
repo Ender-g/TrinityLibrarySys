@@ -125,27 +125,22 @@ CreateEmailOptions params = CreateEmailOptions.builder().
 
 ## 七、常见问题
 
-### Q: 启动报错`ClassNotFoundException`
+>### Q: 启动报错`ClassNotFoundException`
+>### A:
+>1. 检查[pom.xml](file://D:\IdeaProjects\LibrarySys\pom.xml)依赖是否完整
+>2. 执行`mvn dependency:resolve`
 
-### A:
+>### Q: 邮件验证码无法发送
+>### A:
+>1. 检查[ApiKeys.json](file://D:\IdeaProjects\LibrarySys\src\main\java\top\playereg\ApiKeys.json)配置
+>2. 确认Resend账户配额状态
+>3. 检查网络连接（参考[PingNetTool.java](file://D:\IdeaProjects\LibrarySys\src\main\java\top\playereg\sys\utils\PingNetTool.java)）
 
-1. 检查[pom.xml](file://D:\IdeaProjects\LibrarySys\pom.xml)依赖是否完整
-2. 执行`mvn dependency:resolve`
-
-### Q: 邮件验证码无法发送
-
-### A:
-1. 检查[ApiKeys.json](file://D:\IdeaProjects\LibrarySys\src\main\java\top\playereg\ApiKeys.json)配置
-2. 确认Resend账户配额状态
-3. 检查网络连接（参考[PingNetTool.java](file://D:\IdeaProjects\LibrarySys\src\main\java\top\playereg\sys\utils\PingNetTool.java)）
-
-### Q: 登录提示"数据库操作失败"
-
-### A:
-
-1. 验证MySQL服务是否启动
-2. 检查[DbUtils.java](file://D:\IdeaProjects\LibrarySys\src\main\java\top\playereg\sys\utils\DbUtils.java)连接参数
-3. 确认数据库表结构是否完整
+>### Q: 登录提示"数据库操作失败"
+>### A:
+>1. 验证MySQL服务是否启动
+>2. 检查[DbUtils.java](file://D:\IdeaProjects\LibrarySys\src\main\java\top\playereg\sys\utils\DbUtils.java)连接参数
+>3. 确认数据库表结构是否完整
 
 ## 八、安全设计
 
