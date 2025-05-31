@@ -6,7 +6,7 @@
 
 ## 二、技术栈
 
-- **核心语言**：Java 17
+- **核心语言**：Java 18
 - **前端界面**：Swing GUI框架
 - **数据库**：MySQL 8.0+（支持软删除机制）
 - **网络通信**：Resend邮件服务API
@@ -39,12 +39,10 @@
 
 ### 环境准备
 
-1. 安装 [JDK 17+](https://adoptium.net/)
+1. 安装 [JDK 18](https://www.oracle.com/java/technologies/javase/jdk18-archive-downloads.html)
 2. 安装 [MySQL 8.0+](https://dev.mysql.com/downloads/mysql/)
 3. 注册 [Resend开发者账户](https://resend.com/) 获取API密钥
 4. 配置数据库连接（如有需要）
-5. [pom.xml](file://D:\IdeaProjects\LibrarySys\pom.xml)依赖管理
-6.   [ApiKeys.json](file://D:\IdeaProjects\LibrarySys\src\main\java\top\playereg\ApiKeys.json)
 
 ### 初始化流程
 
@@ -59,7 +57,7 @@
 }
 ```
 
-4. 修改数据库连接（如有需要）：
+4. 配置数据库连接（如有需要）：
 
 ```java
 // DbUtils.java
