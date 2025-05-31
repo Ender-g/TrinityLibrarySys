@@ -143,6 +143,7 @@ public class ForgetPasswordFrame extends JFrame implements ActionListener {
 
         // 重置按钮
         if (e.getSource() == submitBtn) {
+            System.out.println(System.currentTimeMillis() - currentTime);
             if (email.isEmpty() || emailCode.isEmpty() || newPassword.isEmpty() || confirmPassword.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "不准交白卷！！！ (・`ω´・)");
             } else if (!newPassword.matches(passwordInput) || !confirmPassword.matches(passwordInput)) {

@@ -11,14 +11,12 @@ package top.playereg.sys.pages.WorkFunctions.User.UserWorkFrame.Panel;
 import top.playereg.sys.dao.BookDao;
 import top.playereg.sys.dao.UserDao;
 import top.playereg.sys.entity.Books;
-import top.playereg.sys.entity.User;
 import top.playereg.sys.utils.UserSaveTool;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Objects;
 
 import static top.playereg.sys.utils.DiyColors.*;
 

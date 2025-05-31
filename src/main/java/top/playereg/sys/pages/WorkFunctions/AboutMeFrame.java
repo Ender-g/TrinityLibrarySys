@@ -157,6 +157,7 @@ public class AboutMeFrame extends JFrame implements ActionListener {
 
         // 修改密码按钮
         if (e.getSource() == ChangePasswordBtn) {
+            System.out.println(System.currentTimeMillis() - currentTime);
             if (email.isEmpty() || emailCode.isEmpty() || newPassword.isEmpty() || confirmPassword.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "不准交白卷！！！ (・`ω´・)");
             } else if (!newPassword.matches(passwordInput) || !confirmPassword.matches(passwordInput)) {
@@ -165,7 +166,7 @@ public class AboutMeFrame extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(this, "两次输入的密码不是双胞胎吧？ (´⊙ω⊙`)");
             } else if (!emailCode.equals(tempCode)) {
                 JOptionPane.showMessageDialog(this, "验证码好像不是这个呀！ (⁰▿⁰)");
-            } else if (currentTime == 0 && (currentTime - System.currentTimeMillis()) > durationTime) { // 验证码过期时间 5min
+            } else if (System.currentTimeMillis() - currentTime > durationTime) { // 验证码过期时间 5min
                 JOptionPane.showMessageDialog(this, "验证码超过保质期，不能用了！ ಥ_ಥ");
             } else {
                 UserDao.updatePassword(email, newPassword);
@@ -176,15 +177,16 @@ public class AboutMeFrame extends JFrame implements ActionListener {
 
         // 注销账户按钮
         if (e.getSource() == deleteBtn) {
+            System.out.println(System.currentTimeMillis() - currentTime);
             if (emailCode.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "需要验证码！！！ (・`ω´・)");
             } else if (!emailCode.equals(tempCode)) {
                 JOptionPane.showMessageDialog(this, "验证码好像不是这个呀！ (⁰▿⁰)");
-            } else if (currentTime == 0 && (currentTime - System.currentTimeMillis()) > durationTime) { // 验证码过期时间 5min
+            } else if (System.currentTimeMillis() - currentTime > durationTime) { // 验证码过期时间 5min
                 JOptionPane.showMessageDialog(this, "验证码超过保质期，不能用了！ ಥ_ಥ");
             } else {
                 if (JOptionPane.showConfirmDialog(this, "确定注销账户吗？", "注销账户", JOptionPane.YES_NO_OPTION) == 0) {
-                    UserDao.deleteUser(getCurerntLoginUserEmail());
+                    UserDao.deleteUserByEmail(getCurerntLoginUserEmail());
                     UserSaveTool.clear();
                     for (Window window : Window.getWindows()) {
                         window.dispose();

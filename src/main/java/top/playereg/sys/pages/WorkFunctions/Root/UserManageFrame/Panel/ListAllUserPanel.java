@@ -65,7 +65,7 @@ public class ListAllUserPanel extends JPanel {
                     user.getId(),
                     user.getUsername(),
                     user.getEmail(),
-                    "1".equals(user.getIs_root()) ? "管理员" : "普通用户"
+                    "1".equals(user.getIs_root()) ? "管理员" : "用  户"
             };
             tableModel.addRow(row);
         }

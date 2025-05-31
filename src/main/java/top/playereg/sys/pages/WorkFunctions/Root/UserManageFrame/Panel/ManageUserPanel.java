@@ -1,12 +1,17 @@
 package top.playereg.sys.pages.WorkFunctions.Root.UserManageFrame.Panel;
 
+import top.playereg.sys.dao.UserDao;
+import top.playereg.sys.utils.UserSaveTool;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class ManageUserPanel extends JPanel {
+public class ManageUserPanel extends JPanel implements ActionListener {
     private JLabel ManageUserLabel;
     private JButton DelUserButton, GiveRootButton;
-    private JTextField ManageUserField;
+    private JTextField idField;
     private Image backgroundImage;
 
     public ManageUserPanel() {
@@ -23,11 +28,11 @@ public class ManageUserPanel extends JPanel {
         ManageUserLabel.setBounds(550, 150, 300, 50);
         add(ManageUserLabel);
 
-        ManageUserField = new JTextField();
-        ManageUserField.setForeground(Color.black);
-        ManageUserField.setFont(new Font("黑体", Font.BOLD, 20));
-        ManageUserField.setBounds(550, 200, 250, 50);
-        add(ManageUserField);
+        idField = new JTextField();
+        idField.setForeground(Color.black);
+        idField.setFont(new Font("黑体", Font.BOLD, 20));
+        idField.setBounds(550, 200, 250, 50);
+        add(idField);
 
         DelUserButton = new JButton("删 除 用 户");
         DelUserButton.setForeground(Color.black);
@@ -44,6 +49,9 @@ public class ManageUserPanel extends JPanel {
         GiveRootButton.setBackground(Color.yellow);
         GiveRootButton.setBounds(550, 330, 250, 50);
         add(GiveRootButton);
+
+        GiveRootButton.addActionListener(this);
+        DelUserButton.addActionListener(this);
     }
 
     @Override
@@ -51,4 +59,46 @@ public class ManageUserPanel extends JPanel {
         super.paintComponent(g);
         g.drawImage(backgroundImage, -10, -20, 1000, 562, this);
     }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // 获取输入字段
+        String id = idField.getText();
+        String currentUserId = String.valueOf(UserSaveTool.getCurerntLoginUserId());
+        if (e.getSource() == GiveRootButton) {
+            System.out.println("授权管理员");
+            if (id.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "请输入用户ID");
+                return;
+            } else if (!id.matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(null, "请输入正确的用户ID");
+                return;
+            } else {
+                if (id.equals(currentUserId)) {
+                    JOptionPane.showMessageDialog(null, "您已是管理员");
+                } else {
+                    UserDao.updateUserRole(id, 1);
+                }
+            }
+
+        }
+        if (e.getSource() == DelUserButton) {
+            System.out.println("删除用户");
+            if (id.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "请输入用户ID");
+                return;
+            } else if (!id.matches("[0-9]+")) {
+                JOptionPane.showMessageDialog(null, "请输入正确的用户ID");
+                return;
+            } else {
+                // 不能 删除自己
+                if (id.equals(currentUserId)) {
+                    JOptionPane.showMessageDialog(null, "您不能删除自己");
+                } else {
+                    UserDao.deleteUserById(id);
+                }
+            }
+        }
+    }
 }
+

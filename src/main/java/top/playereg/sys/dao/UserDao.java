@@ -191,7 +191,7 @@ public class UserDao {
     /* 修改改密码逻辑%end========================================================================================== */
 
     /* 删除用户逻辑%start========================================================================================== */
-    public static boolean deleteUser(String email) {
+    public static boolean deleteUserByEmail(String email) {
         Connection conn = DbUtils.getConnection();
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -220,11 +220,54 @@ public class UserDao {
                     JOptionPane.showMessageDialog(null, "用户删除成功！", "成功", JOptionPane.INFORMATION_MESSAGE);
                     return true;
                 } else {
-                    JOptionPane.showMessageDialog(null, "用户删除失败！请检查邮箱是否正确！", "错误", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "用户删除失败！", "错误", JOptionPane.ERROR_MESSAGE);
                     return false;
                 }
             } else {
-                JOptionPane.showMessageDialog(null, "用户不存在！请检查邮箱是否正确！", "错误", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "用户不存在！", "错误", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "数据库操作失败！请检查数据库是否正常！", "错误", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+    }
+
+    public static boolean deleteUserById(String id) {
+        Connection conn = DbUtils.getConnection();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        int tempIsDel = -1;
+        String sql = "SELECT * FROM tb_user WHERE id = ? and is_del = 0";
+        try {
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, id);
+            rs = ps.executeQuery();
+            tempIsDel = -1;
+            while (rs.next()) {
+                int currentIsDel = rs.getInt("is_del");
+                if (currentIsDel == 0) {
+                    tempIsDel = 0;
+                    break;
+                } else {
+                    continue;
+                }
+            }
+            if (tempIsDel == 0) {
+                sql = "UPDATE tb_user SET is_del = 1 WHERE id = ? and is_del = 0";
+                ps = conn.prepareStatement(sql);
+                ps.setString(1, id);
+                int rows = ps.executeUpdate();
+                if (rows > 0) {
+                    JOptionPane.showMessageDialog(null, "用户删除成功！", "成功", JOptionPane.INFORMATION_MESSAGE);
+                    return true;
+                } else {
+                    JOptionPane.showMessageDialog(null, "用户删除失败！", "错误", JOptionPane.ERROR_MESSAGE);
+                    return false;
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "用户不存在！", "错误", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
         } catch (SQLException e) {
@@ -235,7 +278,7 @@ public class UserDao {
     }
     /* 删除用户逻辑%end========================================================================================== */
 
-    /* 更新用户角色逻辑%start========================================================================================== */
+    /* 赋权逻辑%start========================================================================================== */
     public static boolean updateUserRole(String id, int role) {
         Connection conn = DbUtils.getConnection();
         PreparedStatement ps = null;
@@ -255,7 +298,13 @@ public class UserDao {
                 ps.setString(2, id);
 
                 int rows = ps.executeUpdate();
-                return rows > 0;
+                if (rows > 0) {
+                    JOptionPane.showMessageDialog(null, "赋予权限成功！", "成功", JOptionPane.INFORMATION_MESSAGE);
+                    return true;
+                } else {
+                    JOptionPane.showMessageDialog(null, "赋予权限失败！", "错误", JOptionPane.ERROR_MESSAGE);
+                    return false;
+                }
             } else {
                 JOptionPane.showMessageDialog(null, "用户不存在！", "错误", JOptionPane.ERROR_MESSAGE);
                 return false;
@@ -274,7 +323,7 @@ public class UserDao {
             }
         }
     }
-    /* 更新用户角色逻辑%end========================================================================================== */
+    /* 赋权逻辑%end========================================================================================== */
 
     /* 更新用户借阅信息%start======================================================================================== */
     public static void updateUserBookBorrowInfo(int curerntLoginUserId, int bookId, long time) {
@@ -289,13 +338,6 @@ public class UserDao {
             ps.setInt(3, curerntLoginUserId);  // 设置用户ID
 
             int rows = ps.executeUpdate();     // 执行更新
-
-            if (rows > 0) {
-                JOptionPane.showMessageDialog(null, "借阅信息更新成功！", "提示", JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                JOptionPane.showMessageDialog(null, "借阅信息更新失败，请检查用户ID是否正确！", "错误", JOptionPane.ERROR_MESSAGE);
-            }
-
         } catch (SQLException e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "数据库操作失败！请检查数据库是否正常！", "错误", JOptionPane.ERROR_MESSAGE);

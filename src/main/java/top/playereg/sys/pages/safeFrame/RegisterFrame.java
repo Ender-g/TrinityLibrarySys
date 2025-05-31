@@ -159,6 +159,7 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
 
         // 注册按钮
         if (e.getSource() == registerBtn) {
+            System.out.println(System.currentTimeMillis() - currentTime);
             if (name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || emailCode.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "不准交白卷！！！ (・`ω´・)");
             } else if (!name.matches(nameInput)) {
