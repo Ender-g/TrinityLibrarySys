@@ -98,7 +98,6 @@ public class BorrowBookPanel extends JPanel implements ActionListener {
                 }
             }
             int bookId = Integer.parseInt(input);
-            System.out.println("BorrowBookButton: " + bookId);
             Books book = BookDao.getBook(bookId);
             if (book != null) {
                 if (book.getBookNumber() <= 0) {

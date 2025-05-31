@@ -12,12 +12,6 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class HashTool {
-//    test
-    public static void main(String[] args) {
-        String password = "123456";
-        String hashedPassword = toHashCode(password);
-        System.out.println(password  + " 密码哈希：" + hashedPassword);
-    }
 public static String toHashCode(String password) {
     String originalString = password;
     StringBuilder hexString = null;

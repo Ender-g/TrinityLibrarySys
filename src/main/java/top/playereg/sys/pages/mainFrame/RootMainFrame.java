@@ -96,7 +96,6 @@ public class RootMainFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == aboutMeButton) {
-            System.out.println("关于我");
             if (aboutMeFrame == null || !aboutMeFrame.isDisplayable()) {
                 aboutMeFrame = new AboutMeFrame();
             } else {
@@ -104,14 +103,12 @@ public class RootMainFrame extends JFrame implements ActionListener {
             }
         }
         if (e.getSource() == logoutButton) {
-            System.out.println("登出");
             UserSaveTool.clear();
             for (Window window : Window.getWindows()) window.dispose();
             new LoginFrame();
         }
         for (JButton button : btn) {
             if (e.getSource() == button) {
-                System.out.println(button.getText());
                 switch (button.getText()) {
                     case "用户管理":
                         if (userManageFrame == null || !userManageFrame.isVisible()) {

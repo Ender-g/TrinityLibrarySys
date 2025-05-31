@@ -116,7 +116,6 @@ public class UserDao {
                  ps.setString(4, user.getIs_root());
                  ps.setString(5, user.getIs_del());
                 int rows = ps.executeUpdate();
-                System.out.println("rows = " + rows);
                 if (rows > 0) {
                     JOptionPane.showMessageDialog(null, "注册成功！欢迎加入我们！ ( ﾟ∀ﾟ)ﾉ", "恭喜", JOptionPane.INFORMATION_MESSAGE);
                     return true;

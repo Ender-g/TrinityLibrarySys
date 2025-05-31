@@ -79,9 +79,6 @@ public class MyBorrowFrame extends JFrame {
         long tempBorrowTime = UserSaveTool.getCurerntLoginUserBookBorrowTime(); // 获取借阅时间
         long tempReturnTime = tempBorrowTime + 1000 * 60 * 60 * 24 * 7; // 借阅时间加一周
         long tempNowTime = System.currentTimeMillis(); // 获取当前时间
-        System.out.println("借阅时间：" + tempBorrowTime);
-        System.out.println("还书时间：" + tempReturnTime);
-        System.out.println("当前时间：" + tempNowTime);
         if (tempBorrowTime == 0) {
             return "未借阅";
         } else if (tempNowTime > tempReturnTime) {

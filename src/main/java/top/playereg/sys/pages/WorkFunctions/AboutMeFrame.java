@@ -153,15 +153,8 @@ public class AboutMeFrame extends JFrame implements ActionListener {
         String newPassword = new String(PasswordField.getPassword());
         String confirmPassword = new String(confirmPasswordField.getPassword());
 
-        System.out.println("\nemail =" + email
-                + "\nnewPassword =" + newPassword
-                + "\nconfirmPassword =" + confirmPassword
-                + "\n"
-        );
-
         // 修改密码按钮
         if (e.getSource() == ChangePasswordBtn) {
-            System.out.println(System.currentTimeMillis() - currentTime);
             if (email.isEmpty() || emailCode.isEmpty() || newPassword.isEmpty() || confirmPassword.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "不准交白卷！！！ (・`ω´・)");
             } else if (!newPassword.matches(passwordInput) || !confirmPassword.matches(passwordInput)) {
@@ -181,7 +174,6 @@ public class AboutMeFrame extends JFrame implements ActionListener {
 
         // 注销账户按钮
         if (e.getSource() == deleteBtn) {
-            System.out.println(System.currentTimeMillis() - currentTime);
             // 用户还在借书时
             if (UserSaveTool.getCurerntLoginUserBookBorrowID() != 0) {
                 JOptionPane.showMessageDialog(this, "请还书后再注销账户！ (・`ω´・)");

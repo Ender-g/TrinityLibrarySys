@@ -152,7 +152,6 @@ public class ManageBookPanel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         // 添加图书
         if (e.getSource() == addBtn) {
-            System.out.println("添加");
             if (addBookNameText.getText().equals("") || addBookNumberText.getText().equals("")) {
                 JOptionPane.showMessageDialog(
                         null, // 父组件设为null，强制对话框在屏幕中央显示
@@ -187,7 +186,6 @@ public class ManageBookPanel extends JPanel implements ActionListener {
         }
         // 删除图书
         if (e.getSource() == delBtn) {
-            System.out.println("删除");
             if (delBookIDText.getText().equals("")) {
                 JOptionPane.showMessageDialog(
                         null, // 父组件设为null，强制对话框在屏幕中央显示

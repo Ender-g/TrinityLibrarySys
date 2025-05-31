@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="db_library_app@localhost" uuid="650d2a76-4763-46c0-8b61-401426292888">
+    <data-source source="LOCAL" name="db_library_app@localhost" uuid="4f3861b1-e802-4b4f-99db-8b0b81575ebf">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
-      <remarks>系统数据库</remarks>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/db_library_app</jdbc-url>
       <jdbc-additional-properties>

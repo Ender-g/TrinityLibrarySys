@@ -64,7 +64,6 @@ public class UserWorkFrame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         for (JButton button : topBtn) {
             if (e.getSource() == button) {
-                System.out.println(button.getText());
                 switch (button.getText()) {
 
                     case "所有图书": {

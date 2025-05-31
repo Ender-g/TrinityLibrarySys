@@ -16,6 +16,7 @@ public class PingNetTool {
             InetAddress address = InetAddress.getByName(ip);
             return address.isReachable(2000);
         } catch (Exception e) {
+             e.printStackTrace();
             return false;
         }
     }

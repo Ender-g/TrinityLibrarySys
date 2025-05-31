@@ -139,16 +139,8 @@ public class ForgetPasswordFrame extends JFrame implements ActionListener {
         String newPassword = new String(newPasswordField.getPassword());
         String confirmPassword = new String(confirmPasswordField.getPassword());
 
-        System.out.println("email: " + email +
-                "\nnewPassword: " + newPassword +
-                "\nconfirmPassword: " + confirmPassword
-                + "\n"
-        );
-
         // 重置按钮
         if (e.getSource() == submitBtn) {
-            System.out.println("重置密码");
-            System.out.println(System.currentTimeMillis() - currentTime);
             if (email.isEmpty() || emailCode.isEmpty() || newPassword.isEmpty() || confirmPassword.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "不准交白卷！！！ (・`ω´・)");
             } else if (!newPassword.matches(passwordInput) || !confirmPassword.matches(passwordInput)) {
@@ -168,16 +160,8 @@ public class ForgetPasswordFrame extends JFrame implements ActionListener {
             }
         }
 
-        // 返回按钮
-        if (e.getSource() == backBtn) {
-            System.out.println("返回");
-            new LoginFrame().setVisible(true);
-            this.dispose();
-        }
-
         // 获取验证码按钮
         if (e.getSource() == sendEmailCodeBtn) {
-            System.out.println("发送验证码");
             currentTime = 0;
             String code = (int) ((Math.random() * 9 + 1) * 100000) + "";
             if (!(PingNetTool.ping("qq.com") || PingNetTool.ping("bilibili.com"))) {

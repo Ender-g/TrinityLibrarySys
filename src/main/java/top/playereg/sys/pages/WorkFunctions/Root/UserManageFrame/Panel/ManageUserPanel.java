@@ -66,7 +66,6 @@ public class ManageUserPanel extends JPanel implements ActionListener {
         String id = idField.getText();
         String currentUserId = String.valueOf(UserSaveTool.getCurerntLoginUserId());
         if (e.getSource() == GiveRootButton) {
-            System.out.println("授权管理员");
             if (id.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "请输入用户ID");
                 return;
@@ -83,7 +82,6 @@ public class ManageUserPanel extends JPanel implements ActionListener {
 
         }
         if (e.getSource() == DelUserButton) {
-            System.out.println("删除用户");
             if (id.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "请输入用户ID");
                 return;
