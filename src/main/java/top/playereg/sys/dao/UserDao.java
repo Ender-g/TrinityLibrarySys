@@ -110,11 +110,11 @@ public class UserDao {
             } else {
                 sql = "insert into tb_user (username, password, email, is_root, is_del) values (?, ?, ?, ?, ?)"; // 插入用户数据
                 ps = conn.prepareStatement(sql);
-                ps.setString(1, user.getUsername());
-                ps.setString(2, HashTool.toHashCode(user.getPassword()));
-                ps.setString(3, user.getEmail());
-                ps.setString(4, "0");
-                ps.setString(5, "0");
+                 ps.setString(1, user.getUsername());
+                 ps.setString(2, HashTool.toHashCode(user.getPassword()));
+                 ps.setString(3, user.getEmail());
+                 ps.setString(4, user.getIs_root());
+                 ps.setString(5, user.getIs_del());
                 int rows = ps.executeUpdate();
                 System.out.println("rows = " + rows);
                 if (rows > 0) {

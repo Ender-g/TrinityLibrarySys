@@ -182,7 +182,10 @@ public class AboutMeFrame extends JFrame implements ActionListener {
         // 注销账户按钮
         if (e.getSource() == deleteBtn) {
             System.out.println(System.currentTimeMillis() - currentTime);
-            if (emailCode.isEmpty()) {
+            // 用户还在借书时
+            if (UserSaveTool.getCurerntLoginUserBookBorrowID() != 0) {
+                JOptionPane.showMessageDialog(this, "请还书后再注销账户！ (・`ω´・)");
+            } else if (emailCode.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "需要验证码！！！ (・`ω´・)");
             } else if (!emailCode.equals(tempCode)) {
                 JOptionPane.showMessageDialog(this, "验证码好像不是这个呀！ (⁰▿⁰)");
