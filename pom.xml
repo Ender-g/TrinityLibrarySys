@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>top.playereg.sys</groupId>
-    <artifactId>LibrarySys</artifactId>
+    <artifactId>TrinityLibrarySys</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
