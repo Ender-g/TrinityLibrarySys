@@ -10,7 +10,6 @@ package top.playereg.sys.pages.mainFrame;
 
 import top.playereg.sys.pages.WorkFunctions.AboutMeFrame;
 import top.playereg.sys.pages.WorkFunctions.Root.BookManageFrame.BookManageFrame;
-import top.playereg.sys.pages.WorkFunctions.Root.BorrowManageFrame.BorrowManageFrame;
 import top.playereg.sys.pages.WorkFunctions.Root.UserManageFrame.UserManageFrame;
 import top.playereg.sys.pages.safeFrame.LoginFrame;
 import top.playereg.sys.utils.SetFrameTool;
@@ -33,8 +32,8 @@ public class RootMainFrame extends JFrame implements ActionListener {
     // 在 RootMainFrame 类中添加对应的成员变量来保存窗口实例
     public AboutMeFrame aboutMeFrame;
     public BookManageFrame bookManageFrame;
-    public BorrowManageFrame borrowManageFrame;
     public UserManageFrame userManageFrame;
+
     public RootMainFrame() {
         /* 设置窗体%start============================================================================ */
         SetFrameTool.setFrame("崔尼蒂图书馆-管理面板 v1.0.0", 1200, 720,
@@ -72,14 +71,13 @@ public class RootMainFrame extends JFrame implements ActionListener {
 
         // 菜单按钮
         btn = new JButton[]{
-                new JButton("用户管理", new ImageIcon("src/main/java/top/playereg/sys/img/userManage.png"))
-                , new JButton("图书管理", new ImageIcon("src/main/java/top/playereg/sys/img/bookManage.png"))
-                , new JButton("借阅管理", new ImageIcon("src/main/java/top/playereg/sys/img/borrowManage.png"))
+                new JButton("用户管理", new ImageIcon("src/main/java/top/playereg/sys/img/userManage.png")),
+                new JButton("图书管理", new ImageIcon("src/main/java/top/playereg/sys/img/bookManage.png"))
         };
         Color[] color = new Color[]{lightgreen, lightblue, Color.lightGray};
         for (int i = 0; i < btn.length; i++) {
             SetFrameTool.setImgBtnStyle(btn[i], color[i], Color.black,
-                    20, 320 + i * 200, 300, 150, 150, rootPanel);
+                    20, 420 + i * 200, 300, 150, 150, rootPanel);
         }
 
         /* 创建组件%end=========================================================================== */
@@ -134,12 +132,6 @@ public class RootMainFrame extends JFrame implements ActionListener {
                             bookManageFrame.setVisible(true);
                         }
                         break;
-                    case "借阅管理":
-                        if (borrowManageFrame == null || !borrowManageFrame.isVisible()) {
-                            borrowManageFrame = new BorrowManageFrame();
-                        } else {
-                            borrowManageFrame.setVisible(true);
-                        }
                 }
             }
         }

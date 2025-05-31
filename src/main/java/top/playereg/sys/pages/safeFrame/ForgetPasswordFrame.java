@@ -147,6 +147,7 @@ public class ForgetPasswordFrame extends JFrame implements ActionListener {
 
         // 重置按钮
         if (e.getSource() == submitBtn) {
+            System.out.println("重置密码");
             System.out.println(System.currentTimeMillis() - currentTime);
             if (email.isEmpty() || emailCode.isEmpty() || newPassword.isEmpty() || confirmPassword.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "不准交白卷！！！ (・`ω´・)");
@@ -160,7 +161,7 @@ public class ForgetPasswordFrame extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(this, "验证码好像不是这个呀！ (⁰▿⁰)");
             } else if ((System.currentTimeMillis() - currentTime) > durationTime) { // 验证码过期时间 5min
                 JOptionPane.showMessageDialog(this, "验证码超过保质期，不能用了！ \\(QwQ)/");
-            } else if(UserDao.updatePassword(email, newPassword)) {
+            } else if (UserDao.updatePassword(email, newPassword)) {
                 currentTime = 0;
                 new LoginFrame().setVisible(true);
                 this.dispose();
@@ -169,12 +170,14 @@ public class ForgetPasswordFrame extends JFrame implements ActionListener {
 
         // 返回按钮
         if (e.getSource() == backBtn) {
+            System.out.println("返回");
             new LoginFrame().setVisible(true);
             this.dispose();
         }
 
         // 获取验证码按钮
         if (e.getSource() == sendEmailCodeBtn) {
+            System.out.println("发送验证码");
             currentTime = 0;
             String code = (int) ((Math.random() * 9 + 1) * 100000) + "";
             if (!(PingNetTool.ping("qq.com") || PingNetTool.ping("bilibili.com"))) {

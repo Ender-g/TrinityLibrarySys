@@ -162,6 +162,7 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
 
         // 注册按钮
         if (e.getSource() == registerBtn) {
+            System.out.println("注册");
             System.out.println(System.currentTimeMillis() - currentTime);
             if (name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || emailCode.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "不准交白卷！！！ (・`ω´・)");
@@ -189,12 +190,14 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
 
         // 返回按钮
         if (e.getSource() == backBtn) {
+            System.out.println("返回");
             new LoginFrame().setVisible(true);
             this.dispose();
         }
 
         // 发送验证码按钮
         if (e.getSource() == sendEmailCodeBtn) {
+            System.out.println("发送验证码");
             currentTime = 0;
             String code = (int) ((Math.random() * 9 + 1) * 100000) + "";
             if (!(PingNetTool.ping("qq.com") || PingNetTool.ping("bilibili.com"))) {
