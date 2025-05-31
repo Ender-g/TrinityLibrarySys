@@ -9,17 +9,21 @@
 package top.playereg.sys.pages.safeFrame;
 
 import top.playereg.sys.dao.UserDao;
-import top.playereg.sys.utils.*;
+import top.playereg.sys.utils.InputTool;
+import top.playereg.sys.utils.PingNetTool;
+import top.playereg.sys.utils.SendEmailTool;
+import top.playereg.sys.utils.SetFrameTool;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static top.playereg.sys.utils.DiyColors.*;
-import static top.playereg.sys.utils.SendEmailTool.durationTime;
+import static top.playereg.sys.utils.DiyColors.darkgreen;
+import static top.playereg.sys.utils.DiyColors.skyblue;
 import static top.playereg.sys.utils.InputTool.emailInput;
 import static top.playereg.sys.utils.InputTool.passwordInput;
+import static top.playereg.sys.utils.SendEmailTool.durationTime;
 
 
 public class ForgetPasswordFrame extends JFrame implements ActionListener {

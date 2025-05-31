@@ -8,7 +8,7 @@
 
 package top.playereg.sys.utils;
 
-import java.net.*;
+import java.net.InetAddress;
 
 public class PingNetTool {
     public static boolean ping(String ip) {

@@ -19,8 +19,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import static top.playereg.sys.utils.DiyColors.*;
+import static top.playereg.sys.utils.InputTool.emailInput;
+import static top.playereg.sys.utils.InputTool.passwordInput;
 import static top.playereg.sys.utils.SendEmailTool.durationTime;
-import static top.playereg.sys.utils.InputTool.*;
 
 public class LoginFrame extends JFrame implements ActionListener {
     private static long currentTime = 0;

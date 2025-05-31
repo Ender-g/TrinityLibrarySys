@@ -10,7 +10,10 @@ package top.playereg.sys.pages.WorkFunctions;
 
 import top.playereg.sys.dao.UserDao;
 import top.playereg.sys.pages.safeFrame.LoginFrame;
-import top.playereg.sys.utils.*;
+import top.playereg.sys.utils.InputTool;
+import top.playereg.sys.utils.PingNetTool;
+import top.playereg.sys.utils.SetFrameTool;
+import top.playereg.sys.utils.UserSaveTool;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,7 +24,8 @@ import java.awt.event.WindowEvent;
 
 import static top.playereg.sys.utils.DiyColors.darkgreen;
 import static top.playereg.sys.utils.InputTool.passwordInput;
-import static top.playereg.sys.utils.SendEmailTool.*;
+import static top.playereg.sys.utils.SendEmailTool.durationTime;
+import static top.playereg.sys.utils.SendEmailTool.sendEmail;
 import static top.playereg.sys.utils.UserSaveTool.*;
 
 public class AboutMeFrame extends JFrame implements ActionListener {

@@ -10,7 +10,10 @@ package top.playereg.sys.pages.safeFrame;
 
 import top.playereg.sys.dao.UserDao;
 import top.playereg.sys.entity.User;
-import top.playereg.sys.utils.*;
+import top.playereg.sys.utils.InputTool;
+import top.playereg.sys.utils.PingNetTool;
+import top.playereg.sys.utils.SendEmailTool;
+import top.playereg.sys.utils.SetFrameTool;
 
 import javax.swing.*;
 import java.awt.*;
