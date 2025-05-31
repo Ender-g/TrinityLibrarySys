@@ -134,11 +134,9 @@ CreateEmailOptions params = CreateEmailOptions.builder().
 ### Q: 邮件验证码无法发送
 
 ### A:
-
 1. 检查[ApiKeys.json](file://D:\IdeaProjects\LibrarySys\src\main\java\top\playereg\ApiKeys.json)配置
 2. 确认Resend账户配额状态
-3.
-检查网络连接（参考[PingNetTool.java](file://D:\IdeaProjects\LibrarySys\src\main\java\top\playereg\sys\utils\PingNetTool.java)）
+3. 检查网络连接（参考[PingNetTool.java](file://D:\IdeaProjects\LibrarySys\src\main\java\top\playereg\sys\utils\PingNetTool.java)）
 
 ### Q: 登录提示"数据库操作失败"
 
@@ -150,10 +148,8 @@ CreateEmailOptions params = CreateEmailOptions.builder().
 
 ## 安全设计
 
-1.
-密码存储：SHA-256哈希加密（[HashTool.java](file://D:\IdeaProjects\LibrarySys\src\main\java\top\playereg\sys\utils\HashTool.java)）
-2.
-邮箱验证：5分钟时效验证码（[SendEmailTool.java](file://D:\IdeaProjects\LibrarySys\src\main\java\top\playereg\sys\utils\SendEmailTool.java)）
+1. 密码存储：SHA-256哈希加密（[HashTool.java](file://D:\IdeaProjects\LibrarySys\src\main\java\top\playereg\sys\utils\HashTool.java)）
+2. 邮箱验证：5分钟时效验证码（[SendEmailTool.java](file://D:\IdeaProjects\LibrarySys\src\main\java\top\playereg\sys\utils\SendEmailTool.java)）
 3. 数据隔离：软删除机制（is_del字段）
 
 ## 版本历史
