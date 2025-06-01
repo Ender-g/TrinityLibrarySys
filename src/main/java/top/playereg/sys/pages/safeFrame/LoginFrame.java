@@ -153,10 +153,12 @@ public class LoginFrame extends JFrame implements ActionListener {
             } else {
                 if (UserDao.login(email, password) && emailCode.equals(tempCode)) {
                     if (UserSaveTool.getCurerntLoginUserIsRoot().equals("0")) {
+                        currentTime = 0;
                         new UserMainFrame().setVisible(true);
                         this.dispose();
                     }
                     if (UserSaveTool.getCurerntLoginUserIsRoot().equals("1")) {
+                        currentTime = 0;
                         new RootMainFrame().setVisible(true);
                         this.dispose();
                     }

@@ -24,8 +24,8 @@ public class BookDao {
         Connection conn = DbUtils.getConnection();
         PreparedStatement ps = null;
         try {
-            String sql = "INSERT INTO tb_books (bookName, bookNumber, is_del) VALUES (?, ?, 0)";
-            ps = conn.prepareStatement(sql);
+
+            ps = conn.prepareStatement("INSERT INTO tb_books (bookName, bookNumber, is_del) VALUES (?, ?, 0)");
             ps.setString(1, book.getBookName());
             ps.setInt(2, book.getBookNumber());
             int rows = ps.executeUpdate();
@@ -48,8 +48,7 @@ public class BookDao {
         Connection conn = DbUtils.getConnection();
         PreparedStatement ps = null;
         try {
-            String sql = "UPDATE tb_books SET is_del = 1 WHERE id = ? AND is_del = 0";
-            ps = conn.prepareStatement(sql);
+            ps = conn.prepareStatement("UPDATE tb_books SET is_del = 1 WHERE id = ? AND is_del = 0");
             ps.setInt(1, id);
             int rows = ps.executeUpdate();
             return rows > 0;
@@ -72,8 +71,7 @@ public class BookDao {
         PreparedStatement ps = null;
         try {
             // 只更新未删除的书籍
-            String sql = "UPDATE tb_books SET bookName = ?, bookNumber = ? WHERE id = ? AND is_del = 0";
-            ps = conn.prepareStatement(sql);
+            ps = conn.prepareStatement("UPDATE tb_books SET bookName = ?, bookNumber = ? WHERE id = ? AND is_del = 0");
             ps.setString(1, book.getBookName());
             ps.setInt(2, book.getBookNumber());
             ps.setInt(3, book.getId());
@@ -100,8 +98,7 @@ public class BookDao {
         ResultSet rs = null;
         List<Books> booksList = new ArrayList<>();
         try {
-            String sql = "SELECT * FROM tb_books WHERE is_del = 0";
-            ps = conn.prepareStatement(sql);
+            ps = conn.prepareStatement("SELECT * FROM tb_books WHERE is_del = 0");
             rs = ps.executeQuery();
             while (rs.next()) {
                 Books book = new Books();
@@ -132,8 +129,7 @@ public class BookDao {
         ResultSet rs = null;
         List<Books> booksList = new ArrayList<>();
         try {
-            String sql = "SELECT * FROM tb_books WHERE is_del = 1";
-            ps = conn.prepareStatement(sql);
+            ps = conn.prepareStatement("SELECT * FROM tb_books WHERE is_del = 1");
             rs = ps.executeQuery();
             while (rs.next()) {
                 Books book = new Books();
@@ -164,8 +160,7 @@ public class BookDao {
         ResultSet rs = null;
         int count = 0;
         try {
-            String sql = "SELECT COUNT(*) FROM tb_books WHERE is_del = 0";
-            ps = conn.prepareStatement(sql);
+            ps = conn.prepareStatement("SELECT COUNT(*) FROM tb_books WHERE is_del = 0");
             rs = ps.executeQuery();
             if (rs.next()) {
                 count = rs.getInt(1);
@@ -192,8 +187,7 @@ public class BookDao {
         Books book = null;
 
         try {
-            String sql = "SELECT * FROM tb_books WHERE id = ? AND is_del = 0";
-            ps = conn.prepareStatement(sql);
+            ps = conn.prepareStatement("SELECT * FROM tb_books WHERE id = ? AND is_del = 0");
             ps.setInt(1, id);
             rs = ps.executeQuery();
 

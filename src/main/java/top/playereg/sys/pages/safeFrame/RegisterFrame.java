@@ -181,6 +181,7 @@ public class RegisterFrame extends javax.swing.JFrame implements ActionListener 
 
         // 返回按钮
         if (e.getSource() == backBtn) {
+            currentTime = 0;
             new LoginFrame().setVisible(true);
             this.dispose();
         }

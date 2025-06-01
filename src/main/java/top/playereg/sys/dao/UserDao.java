@@ -30,9 +30,8 @@ public class UserDao {
         String currentPassword = "";
         int tempIsDel = -1;
         int tempIsRoot = -1;
-        String sql = "SELECT * FROM tb_user WHERE email = ?";
         try {
-            ps = conn.prepareStatement(sql);
+            ps = conn.prepareStatement("SELECT * FROM tb_user WHERE email = ?");
             ps.setString(1, email);
             rs = ps.executeQuery();
             tempIsDel = -1;
@@ -89,9 +88,8 @@ public class UserDao {
         PreparedStatement ps = null;
         ResultSet rs = null;
         int tempIsDel = -1;
-        String sql = "SELECT * FROM tb_user WHERE email = ? and is_del = 0";
         try {
-            ps = conn.prepareStatement(sql);
+            ps = conn.prepareStatement("SELECT * FROM tb_user WHERE email = ? and is_del = 0");
             ps.setString(1, user.getEmail());
             rs = ps.executeQuery();
             tempIsDel = -1;
@@ -108,8 +106,7 @@ public class UserDao {
                 JOptionPane.showMessageDialog(null, "不准开小号！！！(╯•̀ὤ•́)╯", "错误", JOptionPane.ERROR_MESSAGE);
                 return false;
             } else {
-                sql = "insert into tb_user (username, password, email, is_root, is_del) values (?, ?, ?, ?, ?)"; // 插入用户数据
-                ps = conn.prepareStatement(sql);
+                ps = conn.prepareStatement("insert into tb_user (username, password, email, is_root, is_del) values (?, ?, ?, ?, ?)");
                  ps.setString(1, user.getUsername());
                  ps.setString(2, HashTool.toHashCode(user.getPassword()));
                  ps.setString(3, user.getEmail());
@@ -146,9 +143,8 @@ public class UserDao {
         PreparedStatement ps = null;
         ResultSet rs = null;
         int tempIsDel = -1;
-        String sql = "SELECT * FROM tb_user WHERE email = ? and is_del = 0";
         try {
-            ps = conn.prepareStatement(sql);
+            ps = conn.prepareStatement("SELECT * FROM tb_user WHERE email = ? and is_del = 0");
             ps.setString(1, email);
             rs = ps.executeQuery(); //  查询用户数据
             tempIsDel = -1;
@@ -162,8 +158,7 @@ public class UserDao {
                 }
             }
             if (tempIsDel == 0) {
-                sql = "UPDATE tb_user SET password = ? WHERE email = ? and is_del = 0";
-                ps = conn.prepareStatement(sql);
+                ps = conn.prepareStatement("UPDATE tb_user SET password = ? WHERE email = ? and is_del = 0");
                 ps.setString(1, HashTool.toHashCode(password));
                 ps.setString(2, email);
                 int rows = ps.executeUpdate();
@@ -195,9 +190,8 @@ public class UserDao {
         PreparedStatement ps = null;
         ResultSet rs = null;
         int tempIsDel = -1;
-        String sql = "SELECT * FROM tb_user WHERE email = ? and is_del = 0";
         try {
-            ps = conn.prepareStatement(sql);
+            ps = conn.prepareStatement("SELECT * FROM tb_user WHERE email = ? and is_del = 0");
             ps.setString(1, email);
             rs = ps.executeQuery();
             tempIsDel = -1;
@@ -211,8 +205,7 @@ public class UserDao {
                 }
             }
             if (tempIsDel == 0) {
-                sql = "UPDATE tb_user SET is_del = 1 WHERE email = ? and is_del = 0";
-                ps = conn.prepareStatement(sql);
+                ps = conn.prepareStatement("UPDATE tb_user SET is_del = 1 WHERE email = ? and is_del = 0");
                 ps.setString(1, email);
                 int rows = ps.executeUpdate();
                 if (rows > 0) {
@@ -238,9 +231,8 @@ public class UserDao {
         PreparedStatement ps = null;
         ResultSet rs = null;
         int tempIsDel = -1;
-        String sql = "SELECT * FROM tb_user WHERE id = ? and is_del = 0";
         try {
-            ps = conn.prepareStatement(sql);
+            ps = conn.prepareStatement("SELECT * FROM tb_user WHERE id = ? and is_del = 0");
             ps.setString(1, id);
             rs = ps.executeQuery();
             tempIsDel = -1;
@@ -254,8 +246,7 @@ public class UserDao {
                 }
             }
             if (tempIsDel == 0) {
-                sql = "UPDATE tb_user SET is_del = 1 WHERE id = ? and is_del = 0";
-                ps = conn.prepareStatement(sql);
+                ps = conn.prepareStatement("UPDATE tb_user SET is_del = 1 WHERE id = ? and is_del = 0");
                 ps.setString(1, id);
                 int rows = ps.executeUpdate();
                 if (rows > 0) {
@@ -284,17 +275,16 @@ public class UserDao {
         ResultSet rs = null;
         try {
             // 先检查用户是否存在
-            String sql = "SELECT * FROM tb_user WHERE id = ? and is_del = 0";
-            ps = conn.prepareStatement(sql);
+            ps = conn.prepareStatement("SELECT * FROM tb_user WHERE id = ? and is_del = 0");
             ps.setString(1, id);
             rs = ps.executeQuery();
 
             if (rs.next()) {
                 // 更新角色权限
-                sql = "UPDATE tb_user SET is_root = ? WHERE id = ?";
-                ps = conn.prepareStatement(sql);
+                ps = conn.prepareStatement("UPDATE tb_user SET is_root = ? WHERE id = ? AND is_del = 0");
                 ps.setInt(1, role);
-                ps.setString(2, id);
+                ps.setString(2, id); // 此时两个参数都存在，不会报错
+
 
                 int rows = ps.executeUpdate();
                 if (rows > 0) {
@@ -328,10 +318,9 @@ public class UserDao {
     public static void updateUserBookBorrowInfo(int curerntLoginUserId, int bookId, long time) {
         Connection conn = DbUtils.getConnection();
         PreparedStatement ps = null;
-        String sql = "UPDATE tb_user SET bookBorrowID = ?, bookBorrowTime = ? WHERE id = ? and is_del = 0";
 
         try {
-            ps = conn.prepareStatement(sql);
+            ps = conn.prepareStatement("UPDATE tb_user SET bookBorrowID = ?, bookBorrowTime = ? WHERE id = ? and is_del = 0");
             ps.setInt(1, bookId);              // 设置借阅图书ID
             ps.setLong(2, time);               // 设置借阅时间戳
             ps.setInt(3, curerntLoginUserId);  // 设置用户ID
@@ -359,9 +348,8 @@ public class UserDao {
         ResultSet rs = null;
         List<User> userList = new ArrayList<>();
 
-        String sql = "SELECT * FROM tb_user WHERE is_del = 0";
         try {
-            ps = conn.prepareStatement(sql);
+            ps = conn.prepareStatement("SELECT * FROM tb_user WHERE is_del = 0");
             rs = ps.executeQuery();
 
             while (rs.next()) {
