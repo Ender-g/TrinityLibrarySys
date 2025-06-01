@@ -10,11 +10,17 @@ package top.playereg.sys.pages.WorkFunctions.Root.BookManageFrame.Panel;
 
 import top.playereg.sys.dao.BookDao;
 import top.playereg.sys.entity.Books;
+import top.playereg.sys.utils.DbUtils;
+import top.playereg.sys.utils.InputTool;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import static top.playereg.sys.utils.DiyColors.lightblue;
 import static top.playereg.sys.utils.DiyColors.skyblue;
@@ -25,7 +31,7 @@ public class ManageBookPanel extends JPanel implements ActionListener {
     // 添加部分面板中添加组件
     private JLabel addBookNameLabel, addBookNumberLabel; // 书名，数量（文本）
     private JTextField addBookNameText, addBookNumberText; // 书名，数量（文本框）
-    // 删除恢复部分面板中添加组件
+    // 删除部分面板中添加组件
     private JLabel delBookIDLabel; // 书籍ID（文本）
     private JTextField delBookIDText; // 书籍ID（文本框）
     // 修改部分面板中添加组件
@@ -102,6 +108,7 @@ public class ManageBookPanel extends JPanel implements ActionListener {
         delBookIDText = new JTextField();
         delBookIDText.setBounds(120, 70, 200, 40);
         delBookIDText.setFont(new Font("黑体", Font.BOLD, 20));
+        InputTool.jast6NumberInput(delBookIDText); // 限制输入
         middlePanel.add(delBookIDText);
         /* 在删除部分面板中添加组件%end================================================================================== */
 
@@ -122,6 +129,7 @@ public class ManageBookPanel extends JPanel implements ActionListener {
         changeBookIDText = new JTextField();
         changeBookIDText.setBounds(120, 70, 200, 40);
         changeBookIDText.setFont(new Font("黑体", Font.BOLD, 20));
+        InputTool.jast6NumberInput(changeBookIDText); // 限制输入
         bottomPanel.add(changeBookIDText);
         // 书名
         changeBookNameLabel = new JLabel("书名：");
@@ -186,34 +194,86 @@ public class ManageBookPanel extends JPanel implements ActionListener {
         }
         // 删除图书
         if (e.getSource() == delBtn) {
-            if (delBookIDText.getText().equals("")) {
+            if (delBookIDText.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(
-                        null, // 父组件设为null，强制对话框在屏幕中央显示
+                        null,
                         "ID不能为空",
-                        "提示", // 标题
+                        "提示",
                         JOptionPane.INFORMATION_MESSAGE
                 );
             } else {
                 BookDao bookDao = new BookDao();
-                if (bookDao.deleteBook(Integer.parseInt(delBookIDText.getText()))) {
+
+                // 检查是否有用户正在借阅这本书
+                String sql = "SELECT * FROM tb_user WHERE bookBorrowID = ?";
+                Connection conn = DbUtils.getConnection();
+                PreparedStatement ps = null;
+                ResultSet rs = null;
+
+                try {
+                    ps = conn.prepareStatement(sql);
+                    ps.setInt(1, Integer.parseInt(delBookIDText.getText()));
+                    rs = ps.executeQuery();
+
+                    if (delBookIDText.getText().equals("0")) {
+                        JOptionPane.showMessageDialog(
+                                null,
+                                "请输入正确的ID",
+                                "错误",
+                                JOptionPane.ERROR_MESSAGE
+                        );
+                        return;
+                    } else if (rs.next()) {
+                        // 如果存在正在借阅的用户，则不能删除
+                        JOptionPane.showMessageDialog(
+                                null,
+                                "该书本正在被借阅，无法删除",
+                                "错误",
+                                JOptionPane.ERROR_MESSAGE
+                        );
+                        return;
+                    }
+
+                    // 如果没有用户借阅，执行删除操作
+                    if (bookDao.deleteBook(Integer.parseInt(delBookIDText.getText()))) {
+                        JOptionPane.showMessageDialog(
+                                null,
+                                "删除成功",
+                                "提示",
+                                JOptionPane.INFORMATION_MESSAGE
+                        );
+                        delBookIDText.setText("");
+                    } else {
+                        JOptionPane.showMessageDialog(
+                                null,
+                                "删除失败 书本不存在",
+                                "提示",
+                                JOptionPane.INFORMATION_MESSAGE
+                        );
+                        delBookIDText.setText("");
+                    }
+
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
                     JOptionPane.showMessageDialog(
-                            null, // 父组件设为null，强制对话框在屏幕中央显示
-                            "删除成功",
-                            "提示", // 标题
-                            JOptionPane.INFORMATION_MESSAGE
+                            null,
+                            "数据库操作失败！请检查数据库是否正常！",
+                            "错误",
+                            JOptionPane.ERROR_MESSAGE
                     );
-                    delBookIDText.setText("");
-                } else {
-                    JOptionPane.showMessageDialog(
-                            null, // 父组件设为null，强制对话框在屏幕中央显示
-                            "删除失败 书本不存在",
-                            "提示", // 标题
-                            JOptionPane.INFORMATION_MESSAGE
-                    );
-                    delBookIDText.setText("");
+                } finally {
+                    // 关闭资源
+                    try {
+                        if (rs != null) rs.close();
+                        if (ps != null) ps.close();
+                        if (conn != null) conn.close();
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
                 }
             }
         }
+
         // 修改图书
         if (e.getSource() == changeBtn) {
             if (changeBookIDText.getText().isEmpty()) {
