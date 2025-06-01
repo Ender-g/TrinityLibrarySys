@@ -1,8 +1,9 @@
 # 崔尼蒂图书馆管理系统
 
 ## 一、项目简介
+<div style="font-size: 20px;width: 60%;margin: auto">
 基于Java Swing开发的图书馆管理系统，包含用户注册/登录、图书管理、借阅管理、密码找回等功能模块，采用MySQL数据库存储数据，通过Resend邮件服务实现验证码发送功能。
-
+</div>
 
 ## 二、技术栈
 
@@ -79,7 +80,7 @@ String password = "123456"; // 修改为你的MySQL密码
 | password       | VARCHAR(64)  | SHA-256加密密码 |
 | email          | VARCHAR(255) | 邮箱          |
 | is_root        | TINYINT      | 权限等级(0/1)   |
-| is_del         | TINYINT      | 软删除标记(0/1)       |
+| is_del         | TINYINT      | 软删除标记(0/1)  |
 | bookBorrowID   | BIGINT       | 当前借阅书籍ID    |
 | bookBorrowTime | BIGINT       | 借阅时间戳       |
 
@@ -110,16 +111,13 @@ CreateEmailOptions params = CreateEmailOptions.builder().
 1. 注册新账户
 2. 邮箱验证激活
 3. 普通用户登录后可进行：
-
-- 图书查询
-- 借阅操作
-- 查看借阅记录（仅当前用户）
-
+   - 图书查询
+   - 借阅操作
+   - 查看借阅记录（仅当前用户）
 4. 管理员登录后可进行：
-
-- 用户管理
-- 图书库存管理
-- 查看删除记录
+   - 用户管理
+   - 图书库存管理
+   - 查看删除记录
 
 ## 七、常见问题
 
