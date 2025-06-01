@@ -48,7 +48,7 @@
 
 1. 创建数据库：
    ```CREATE DATABASE db_library_app;```
-2. 执行SQL脚本创建表结构（详见`src/main/resources/schema.sql`）
+2. 执行SQL脚本创建表结构（详见`src/main/java/sql`）
 3. 配置邮件API密钥：(`src/main/java/top/playereg/ApiKeys.json`)
 
 ```json
@@ -79,7 +79,7 @@ String password = "123456"; // 修改为你的MySQL密码
 | password       | VARCHAR(64)  | SHA-256加密密码 |
 | email          | VARCHAR(255) | 邮箱          |
 | is_root        | TINYINT      | 权限等级(0/1)   |
-| is_del         | TINYINT      | 软删除标记       |
+| is_del         | TINYINT      | 软删除标记(0/1)       |
 | bookBorrowID   | BIGINT       | 当前借阅书籍ID    |
 | bookBorrowTime | BIGINT       | 借阅时间戳       |
 
