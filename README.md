@@ -107,8 +107,6 @@ CreateEmailOptions params = CreateEmailOptions.builder().
 
 ## 六、使用教程
 
-### 用户操作
-
 1. 注册新账户
 2. 邮箱验证激活
 3. 普通用户登录后可进行：
