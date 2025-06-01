@@ -1,9 +1,8 @@
 # 崔尼蒂图书馆管理系统
 
 ## 一、项目简介
-<div style="font-size: 20px;width: 60%;margin: auto">
 基于Java Swing开发的图书馆管理系统，包含用户注册/登录、图书管理、借阅管理、密码找回等功能模块，采用MySQL数据库存储数据，通过Resend邮件服务实现验证码发送功能。
-</div>
+
 
 ## 二、技术栈
 
