@@ -85,12 +85,12 @@ String password = "123456"; // 修改为你的MySQL密码
 
 #### 图书表(tb_books)
 
-| 字段名        | 类型           | 描述    |
-| ---------- | ------------ | ----- |
-| id         | INT          | 主键    |
-| bookName   | VARCHAR(255) | 书名    |
-| bookNumber | INT          | 库存数量  |
-| is_del     | TINYINT      | 软删除标记 |
+| 字段名        | 类型           | 描述         |
+| ---------- | ------------ |------------|
+| id         | INT          | 主键         |
+| bookName   | VARCHAR(255) | 书名         |
+| bookNumber | INT          | 库存数量       |
+| is_del     | TINYINT      | 软删除标记(0/1) |
 
 ### 接口规范
 
