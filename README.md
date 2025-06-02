@@ -1,8 +1,8 @@
 # 崔尼蒂图书馆管理系统
 
 ## 一、项目简介
-基于Java Swing开发的图书馆管理系统，包含用户注册/登录、图书管理、借阅管理、密码找回等功能模块，采用MySQL数据库存储数据，通过Resend邮件服务实现验证码发送功能。
 
+基于Java Swing开发的图书馆管理系统，包含用户注册/登录、图书管理、借阅管理、密码找回等功能模块，采用MySQL数据库存储数据，通过Resend邮件服务实现验证码发送功能。
 
 ## 二、技术栈
 
@@ -73,7 +73,7 @@ String password = "123456"; // 修改为你的MySQL密码
 #### 用户表(tb_user)
 
 | 字段名            | 类型           | 描述          |
-|----------------|--------------|-------------|
+| -------------- | ------------ | ----------- |
 | id             | INT          | 主键          |
 | username       | VARCHAR(255) | 用户名         |
 | password       | VARCHAR(64)  | SHA-256加密密码 |
@@ -86,7 +86,7 @@ String password = "123456"; // 修改为你的MySQL密码
 #### 图书表(tb_books)
 
 | 字段名        | 类型           | 描述    |
-|------------|--------------|-------|
+| ---------- | ------------ | ----- |
 | id         | INT          | 主键    |
 | bookName   | VARCHAR(255) | 书名    |
 | bookNumber | INT          | 库存数量  |
@@ -120,22 +120,28 @@ CreateEmailOptions params = CreateEmailOptions.builder().
 
 ## 七、常见问题
 
->### Q: 启动报错`ClassNotFoundException`
->### A:
->1. 检查[pom.xml](file://D:\IdeaProjects\LibrarySys\pom.xml)依赖是否完整
->2. 执行`mvn dependency:resolve`
+> ### Q: 启动报错`ClassNotFoundException`
+> 
+> ### A:
+> 
+> 1. 检查[pom.xml](file://D:\IdeaProjects\LibrarySys\pom.xml)依赖是否完整
+> 2. 执行`mvn dependency:resolve`
 
->### Q: 邮件验证码无法发送
->### A:
->1. 检查[ApiKeys.json](file://D:\IdeaProjects\LibrarySys\src\main\java\top\playereg\ApiKeys.json)配置
->2. 确认Resend账户配额状态
->3. 检查网络连接（参考[PingNetTool.java](file://D:\IdeaProjects\LibrarySys\src\main\java\top\playereg\sys\utils\PingNetTool.java)）
+> ### Q: 邮件验证码无法发送
+> 
+> ### A:
+> 
+> 1. 检查[ApiKeys.json](file://D:\IdeaProjects\LibrarySys\src\main\java\top\playereg\ApiKeys.json)配置
+> 2. 确认Resend账户配额状态
+> 3. 检查网络连接（参考[PingNetTool.java](file://D:\IdeaProjects\LibrarySys\src\main\java\top\playereg\sys\utils\PingNetTool.java)）
 
->### Q: 登录提示"数据库操作失败"
->### A:
->1. 验证MySQL服务是否启动
->2. 检查[DbUtils.java](file://D:\IdeaProjects\LibrarySys\src\main\java\top\playereg\sys\utils\DbUtils.java)连接参数
->3. 确认数据库表结构是否完整
+> ### Q: 登录提示"数据库操作失败"
+> 
+> ### A:
+> 
+> 1. 验证MySQL服务是否启动
+> 2. 检查[DbUtils.java](file://D:\IdeaProjects\LibrarySys\src\main\java\top\playereg\sys\utils\DbUtils.java)连接参数
+> 3. 确认数据库表结构是否完整
 
 ## 八、安全设计
 
@@ -156,6 +162,7 @@ CreateEmailOptions params = CreateEmailOptions.builder().
 本项目遵循[GNU General Public License v2.0](LICENSE)，允许在遵守协议的前提下自由使用和修改。
 
 ## 十一、关于我
+
 - 邮箱1：playereg@vip.playereg.top
 - 邮箱2：playereg@email.playereg.top
 - GitHub主页：[@Ender-g](https://github.com/ender-g)
