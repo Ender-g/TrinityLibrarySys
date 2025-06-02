@@ -98,10 +98,10 @@ String password = "123456"; // 修改为你的MySQL密码
 
 ```java
 CreateEmailOptions params = CreateEmailOptions.builder().
-        from("丛雨 ciallo@email.playereg.top").
+        from("sender <sender@example.com>").
         to("user@example.com").
-        subject("验证码邮件").
-        html("<div>验证码：123456</div>").
+        subject("title").
+        html("HTML content").
         build();
 ```
 
