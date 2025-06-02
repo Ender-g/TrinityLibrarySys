@@ -26,7 +26,6 @@ import static top.playereg.sys.utils.DiyColors.darkgreen;
 import static top.playereg.sys.utils.InputTool.passwordInput;
 import static top.playereg.sys.utils.SendEmailTool.durationTime;
 import static top.playereg.sys.utils.SendEmailTool.sendEmail;
-import static top.playereg.sys.utils.UserSaveTool.*;
 
 public class AboutMeFrame extends JFrame implements ActionListener {
     private static long currentTime = 0;
@@ -71,19 +70,19 @@ public class AboutMeFrame extends JFrame implements ActionListener {
         nameLabel = new JLabel("用户名：");
         SetFrameTool.setFontStyle(nameLabel, 20, Color.white,
                 50, 100, 100, 30, aboutMePanel);
-        nameText = new JLabel(getCurerntLoginUserName());
+        nameText = new JLabel(UserSaveTool.getCurerntLoginUserName());
         SetFrameTool.setFontStyle(nameText, 20, Color.white,
                 150, 100, 300, 30, aboutMePanel);
         emailLabel = new JLabel("邮  箱：");
         SetFrameTool.setFontStyle(emailLabel, 20, Color.white,
                 50, 150, 100, 30, aboutMePanel);
-        emailText = new JLabel(getCurerntLoginUserEmail());
+        emailText = new JLabel(UserSaveTool.getCurerntLoginUserEmail());
         SetFrameTool.setFontStyle(emailText, 20, Color.white,
                 150, 150, 300, 30, aboutMePanel);
         is_rootLabel = new JLabel("权  限：");
         SetFrameTool.setFontStyle(is_rootLabel, 20, Color.white,
                 50, 200, 100, 30, aboutMePanel);
-        String tempIsRoot = getCurerntLoginUserIsRoot();
+        String tempIsRoot = UserSaveTool.getCurerntLoginUserIsRoot();
         if (tempIsRoot.equals("1")) is_rootText = new JLabel("管理员");
         if (tempIsRoot.equals("0")) is_rootText = new JLabel("普通用户");
 
@@ -185,7 +184,7 @@ public class AboutMeFrame extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(this, "验证码超过保质期，不能用了！ ಥ_ಥ");
             } else {
                 if (JOptionPane.showConfirmDialog(this, "确定注销账户吗？", "注销账户", JOptionPane.YES_NO_OPTION) == 0) {
-                    UserDao.deleteUserByEmail(getCurerntLoginUserEmail());
+                    UserDao.deleteUserByEmail(UserSaveTool.getCurerntLoginUserEmail());
                     UserSaveTool.clear();
                     for (Window window : Window.getWindows()) {
                         window.dispose();

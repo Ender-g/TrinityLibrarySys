@@ -44,18 +44,18 @@ public class MyBorrowFrame extends JFrame {
             }
         });
 
-        borrowPanel = new JLabel("正在借阅：");
+        borrowPanel = new JLabel("正 在 借 阅 ：");
         SetFrameTool.setFontStyle(borrowPanel, 20, Color.BLACK,
                 30, 50, 150, 30, myBorrowPanel);
         borrowingBookNamePanel = new JLabel(getBorrowingBookName());
         SetFrameTool.setFontStyle(borrowingBookNamePanel, 20, Color.BLACK,
-                170, 50, 250, 30, myBorrowPanel);
-        returnPanel = new JLabel("归还时间：");
+                180, 50, 250, 30, myBorrowPanel);
+        returnPanel = new JLabel("剩余归还时间：");
         SetFrameTool.setFontStyle(returnPanel, 20, Color.BLACK,
                 30, 100, 150, 30, myBorrowPanel);
         returnTimePanel = new JLabel(returnTime());
         SetFrameTool.setFontStyle(returnTimePanel, 20, Color.BLACK,
-                170, 100, 250, 30, myBorrowPanel);
+                180, 100, 250, 30, myBorrowPanel);
         SetFrameTool.setPanleBackgroundImg(
                 "src/main/java/top/playereg/sys/img/mylogo.png",
                 350, 250, 200, 93, myBorrowPanel);
