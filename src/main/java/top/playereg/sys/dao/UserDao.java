@@ -10,7 +10,7 @@ package top.playereg.sys.dao;
 
 import top.playereg.sys.entity.User;
 import top.playereg.sys.utils.DbUtils;
-import top.playereg.sys.utils.HashTool;
+import top.playereg.sys.utils.GetHashCodeTool;
 import top.playereg.sys.utils.UserSaveTool;
 
 import javax.swing.*;
@@ -47,7 +47,7 @@ public class UserDao {
                     continue;
                 }
             }
-            if (currentPassword.equals(HashTool.toHashCode(password)) && tempIsDel == 0) { // 密码正确
+            if (currentPassword.equals(GetHashCodeTool.toHashCode(password)) && tempIsDel == 0) { // 密码正确
                 UserSaveTool.setCurerntLoginUserId(rs.getInt("id"));
                 UserSaveTool.setCurerntLoginUserName(rs.getString("username")); // 保存用户名
                 UserSaveTool.setCurerntLoginUserPassword(currentPassword); // 密码保存
@@ -108,7 +108,7 @@ public class UserDao {
             } else {
                 ps = conn.prepareStatement("insert into tb_user (username, password, email, is_root, is_del) values (?, ?, ?, ?, ?)");
                  ps.setString(1, user.getUsername());
-                 ps.setString(2, HashTool.toHashCode(user.getPassword()));
+                 ps.setString(2, GetHashCodeTool.toHashCode(user.getPassword()));
                  ps.setString(3, user.getEmail());
                  ps.setString(4, user.getIs_root());
                  ps.setString(5, user.getIs_del());
@@ -159,7 +159,7 @@ public class UserDao {
             }
             if (tempIsDel == 0) {
                 ps = conn.prepareStatement("UPDATE tb_user SET password = ? WHERE email = ? and is_del = 0");
-                ps.setString(1, HashTool.toHashCode(password));
+                ps.setString(1, GetHashCodeTool.toHashCode(password));
                 ps.setString(2, email);
                 int rows = ps.executeUpdate();
                 JOptionPane.showMessageDialog(null, "密码修改成功！请记住新密码哦~ (＾∀＾●)ノ", "成功", JOptionPane.INFORMATION_MESSAGE);
