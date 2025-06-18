@@ -18,7 +18,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static top.playereg.sys.utils.DiyColors.skyblue;
+import static top.playereg.sys.utils.MoreColors.skyblue;
 
 public class ReturnBookPanel extends JPanel implements ActionListener {
     private JLabel ReturnBookLabel;

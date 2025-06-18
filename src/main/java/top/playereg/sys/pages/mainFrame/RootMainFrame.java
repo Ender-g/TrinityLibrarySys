@@ -20,7 +20,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static top.playereg.sys.utils.DiyColors.*;
+import static top.playereg.sys.utils.MoreColors.*;
 
 public class RootMainFrame extends JFrame implements ActionListener {
     private JLabel rootPanel; // 管理员面板

@@ -12,8 +12,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class GetHashCodeTool {
-    public static String toHashCode(String inputChars) {
-        String originalString = inputChars;
+    public static String toHashCode(String inputString) {
+        String originalString = inputString;
         StringBuilder hexString = null;
 
         try {

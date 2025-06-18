@@ -8,7 +8,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.List;
 
-import static top.playereg.sys.utils.DiyColors.skyblue;
+import static top.playereg.sys.utils.MoreColors.skyblue;
 
 public class ListAllUserPanel extends JPanel {
     private String[] columnNames = {"ID", "用户名", "邮箱", "权限"};

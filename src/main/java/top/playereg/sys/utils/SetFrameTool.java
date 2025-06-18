@@ -11,7 +11,7 @@ package top.playereg.sys.utils;
 import javax.swing.*;
 import java.awt.*;
 
-import static top.playereg.sys.utils.DiyColors.lightblue;
+import static top.playereg.sys.utils.MoreColors.lightblue;
 
 public class SetFrameTool extends JFrame {
     /* 设置窗体工具类 */

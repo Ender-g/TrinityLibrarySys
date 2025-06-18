@@ -22,8 +22,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import static top.playereg.sys.utils.DiyColors.lightblue;
-import static top.playereg.sys.utils.DiyColors.skyblue;
+import static top.playereg.sys.utils.MoreColors.lightblue;
+import static top.playereg.sys.utils.MoreColors.skyblue;
 
 public class ManageBookPanel extends JPanel implements ActionListener {
     private JPanel topPanel, middlePanel, bottomPanel;

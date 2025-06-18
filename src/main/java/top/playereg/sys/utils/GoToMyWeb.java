@@ -11,7 +11,7 @@ package top.playereg.sys.utils;
 import javax.swing.*;
 import java.awt.*;
 
-import static top.playereg.sys.utils.DiyColors.skyblue;
+import static top.playereg.sys.utils.MoreColors.skyblue;
 
 public class GoToMyWeb extends JFrame{
     public static void goToMyWebBtn(

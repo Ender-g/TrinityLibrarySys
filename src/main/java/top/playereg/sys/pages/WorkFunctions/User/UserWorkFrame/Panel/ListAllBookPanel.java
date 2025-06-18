@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.List;
 
-import static top.playereg.sys.utils.DiyColors.skyblue;
+import static top.playereg.sys.utils.MoreColors.skyblue;
 
 public class ListAllBookPanel extends JPanel {
     private String[] columnNames = {"ID", "名称", "数量"};

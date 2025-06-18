@@ -22,7 +22,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-import static top.playereg.sys.utils.DiyColors.darkgreen;
+import static top.playereg.sys.utils.MoreColors.darkgreen;
 import static top.playereg.sys.utils.InputTool.passwordInput;
 import static top.playereg.sys.utils.SendEmailTool.durationTime;
 import static top.playereg.sys.utils.SendEmailTool.sendEmail;

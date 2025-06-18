@@ -20,8 +20,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static top.playereg.sys.utils.DiyColors.darkgreen;
-import static top.playereg.sys.utils.DiyColors.skyblue;
+import static top.playereg.sys.utils.MoreColors.darkgreen;
+import static top.playereg.sys.utils.MoreColors.skyblue;
 import static top.playereg.sys.utils.InputTool.*;
 import static top.playereg.sys.utils.SendEmailTool.durationTime;
 
