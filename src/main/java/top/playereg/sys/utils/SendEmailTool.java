@@ -51,6 +51,5 @@ public class SendEmailTool {
         } catch (FileNotFoundException e) { // 处理文件不存在的异常
             return false;
         }
-
     }
 }
