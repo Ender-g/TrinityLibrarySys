@@ -182,5 +182,3 @@ public class Main {
 ### ♥️ GitHub主页：[@Ender-g](https://github.com/ender-g)
 
 ### ♦️ B站主页：[@PlayerEG](https://space.bilibili.com/520500365)
-
-<img src="./src/main/java/top/playereg/sys/img/mylogo.png" width="150">
