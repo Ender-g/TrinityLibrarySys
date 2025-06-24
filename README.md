@@ -183,4 +183,4 @@ public class Main {
 
 ### ♦️ B站主页：[@PlayerEG](https://space.bilibili.com/520500365)
 
-<img src="https://github.com/Ender-g/TrinityLibrarySys/blob/master/src%2Fmain%2Fjava%2Ftop%2Fplayereg%2Fsys%2Fimg%2Fmylogo.png" width="150">
+<img src="./src/main/java/top/playereg/sys/img/mylogo.png" width="150">
