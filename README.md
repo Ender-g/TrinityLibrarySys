@@ -171,9 +171,14 @@ public class Main {
 
 本项目遵循[GNU General Public License v2.0](LICENSE)，允许在遵守协议的前提下自由使用和修改。
 
-## 十一、关于我
+---
 
-- 邮箱1：playereg@vip.playereg.top
-- 邮箱2：playereg@email.playereg.top
-- GitHub主页：[@Ender-g](https://github.com/ender-g)
-- B站主页：[@PlayerEG](https://space.bilibili.com/520500365)
+## 🌐 关于我 🌐
+
+### ♠️ 邮箱1：<playereg@vip.playereg.top>
+
+### ♣️ 邮箱2：<playereg@email.playereg.top>
+
+### ♥️ GitHub主页：[@Ender-g](https://github.com/ender-g)
+
+### ♦️ B站主页：[@PlayerEG](https://space.bilibili.com/520500365)
