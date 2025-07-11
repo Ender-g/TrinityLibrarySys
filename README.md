@@ -169,7 +169,7 @@ public class Main {
 
 ## 十、许可证
 
-本项目遵循[GNU General Public License v2.0](LICENSE)，允许在遵守协议的前提下自由使用和修改。
+本项目遵循[GNU General Public License v3.0](LICENSE)，允许在遵守协议的前提下自由使用和修改。
 
 ---
 
