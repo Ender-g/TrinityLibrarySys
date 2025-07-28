@@ -50,21 +50,19 @@
 1. 创建数据库：```CREATE DATABASE db_library_app;```
 2. 执行SQL脚本创建表结构（详见`src/main/java/sql`）
 3. 配置邮件API密钥：(`src/main/java/top/playereg/ApiKeys.json`)
-
-```json
-{
-  "SendEmailApiKey": "your_resend_api_key"
-}
-```
+    ```json
+    {
+      "SendEmailApiKey": "your_resend_api_key"
+    }
+    ```
 
 4. 配置数据库连接（如有需要）：
-
-```java
-// DbUtils.java
-String url = "jdbc:mysql://frp-put.com:33060/db_library_app?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Shanghai";
-String username = "dev"; // 修改为你的MySQL用户名
-String password = "dev"; // 修改为你的MySQL密码
-```
+    ```java
+    // DbUtils.java
+    String url = "jdbc:mysql://frp-put.com:33060/db_library_app?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Shanghai";
+    String username = "dev"; // 修改为你的MySQL用户名
+    String password = "dev"; // 修改为你的MySQL密码
+    ```
 
 ## 五、开发者指南
 
@@ -73,7 +71,7 @@ String password = "dev"; // 修改为你的MySQL密码
 #### 用户表(tb_user)
 
 | 字段名            | 类型           | 描述          |
-| -------------- | ------------ | ----------- |
+|----------------|--------------|-------------|
 | id             | INT          | 主键          |
 | username       | VARCHAR(255) | 用户名         |
 | password       | VARCHAR(64)  | SHA-256加密密码 |
@@ -86,7 +84,7 @@ String password = "dev"; // 修改为你的MySQL密码
 #### 图书表(tb_books)
 
 | 字段名        | 类型           | 描述         |
-| ---------- | ------------ | ---------- |
+|------------|--------------|------------|
 | id         | INT          | 主键         |
 | bookName   | VARCHAR(255) | 书名         |
 | bookNumber | INT          | 库存数量       |
@@ -169,7 +167,7 @@ public class Main {
 
 ## 十、许可证
 
-本项目遵循[GNU General Public License v3.0](LICENSE)，允许在遵守协议的前提下自由使用和修改。
+本项目遵循[GNU General Public License v3.0](LICENSE.txt)，允许在遵守协议的前提下自由使用和修改。
 
 ---
 
