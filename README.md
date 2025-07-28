@@ -172,15 +172,15 @@ public class Main {
 
 ## 十、许可证
 
-本项目遵循[GNU General Public License v2.0](LICENSE)，允许在遵守协议的前提下自由使用和修改。
+本项目遵循[GNU General Public License v3.0](LICENSE)，允许在遵守协议的前提下自由使用和修改。
 
 ---
 
 ## 🌐 关于我 🌐
 
-### ♠️ 邮箱1：<playereg@vip.playereg.top>
+### ♠️ 邮箱1：<email-e@playereg.top>
 
-### ♣️ 邮箱2：<playereg@email.playereg.top>
+### ♣️ 邮箱2：<email-g@playereg.top>
 
 ### ♥️ GitHub主页：[@Ender-g](https://github.com/ender-g)
 
