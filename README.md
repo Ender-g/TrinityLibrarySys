@@ -61,9 +61,12 @@
 
 ```java
 // DbUtils.java
-String url = "jdbc:mysql://127.0.0.1:3306/db_library_app?useSSL=false&serverTimezone=Asia/Shanghai";
-String username = "root"; // 修改为你的MySQL用户名
-String password = "123456"; // 修改为你的MySQL密码
+String url =
+        "jdbc:mysql://frp-put.com:33060/db_library_app?" +
+        "allowPublicKeyRetrieval=true&useSSL=false&" +
+        "serverTimezone=Asia/Shanghai";
+String username = "dev"; // 修改为你的MySQL用户名
+String password = "dev"; // 修改为你的MySQL密码
 ```
 
 ## 五、开发者指南
