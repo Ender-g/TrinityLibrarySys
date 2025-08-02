@@ -40,17 +40,16 @@ public abstract class DbUtils<T> {
     public static Connection getConnection() {
         // 1.2 建立连接
         try {
-            /*
-            本地数据库连接：
+
+            // 本地数据库连接：
             String url = "jdbc:mysql://127.0.0.1:3306/db_library_app?useSSL=false&serverTimezone=Asia/Shanghai";
             String username = "root";
             String password = "123456";
-            */
 
-            // 远程Mysql连接
-            String url = "jdbc:mysql://frp-put.com:33060/db_library_app?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Shanghai";
-            String username = "dev";
-            String password = "dev";
+            // 需要验证本机权限，远程Mysql连接
+//            String url = "jdbc:mysql://frp-put.com:33060/db_library_app?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Shanghai";
+//            String username = "dev";
+//            String password = "dev";
             conn = DriverManager.getConnection(url, username, password);
             return conn;
         } catch (SQLException e) {

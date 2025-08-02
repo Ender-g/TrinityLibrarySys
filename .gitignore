@@ -4,7 +4,7 @@ target/
 !**/src/test/**/target/
 
 #自定义
-src/main/java/top/playereg/ApiKeys.json
+#src/main/java/top/playereg/ApiKeys.json
 src/test/java
 roots.sst
 
