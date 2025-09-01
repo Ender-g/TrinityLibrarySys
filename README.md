@@ -165,6 +165,10 @@ public class Main {
 - 完成用户/管理员双角色系统
 - 集成邮件验证系统
 
+### v1.1.0 (2025-06-01)
+
+- 配置远程Mysql数据库
+
 ## 十、许可证
 
 本项目遵循[GNU General Public License v3.0](LICENSE.txt)，允许在遵守协议的前提下自由使用和修改。
